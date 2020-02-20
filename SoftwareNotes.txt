@@ -1,0 +1,50 @@
+Tasks for upcoming weeks:
+
+- Create Github repo DONE
+	- Entire subteam or only software? --> Separate folders 
+	- public or CMail (private)? --> Private with COE 
+	- create organizational tree
+
+- Assign one person to a sensor
+	- create a function to read sensor value - Store as local variable
+	- research into UART connection with Arduino
+	- create a function to return whether sensor values are normal or worrisome - Store as local variable
+	- How does UART return each of the sensor values (what kind of data structure)? --> Can be manipulated 
+	- Look at Arduino code for sensor data organization
+
+- Create design for GUI
+	- include all sensor values, easy to read 
+	- group sensor readings for same attribute but diff sensors together
+	- decide when a margin of error between diff sensors for same attribute is worrisome and visually display warning
+	- display warning when sensor values indicate trouble
+	- Include E-brake??? --> For now create LED control 
+	- For WebDev: web version of GUI, less sensor readings, more visuals, show Pod progress and position in pod, no E-brake
+		- pass along local variables to WebDev for manipulation
+
+- After design and functions are complete
+	- Work with subteam to make GUI 
+	- Sync debug with BBB to upload code 	
+	- Test with sensors and connection to Arduino
+
+
+Sensor Assignments:
+
+IMU: Manvith + Kenny
+Short Range Sensor: Sid + Sameer, Jake (other short range)
+Long Distance: Shadman + Justin
+Photoelectric Sensor: Akira + Katarina
+
+TODO (Software):
+
+Due 3/13/18: Write a function in C input: Float output: true if okay false if problematic value
+Due 3/25/18: Write a function to blink LED by running script on BBB terminal + be ready to demo
+Due 4/10/18: Communicate between BBB and Base Station: BBB sends info back that is displayed
+	- Listens for GPIO input
+	- Passes it to the appropriate check function (assume a different flag is passed for each sensor)
+	- Sends function value to the Base Station
+	- Base station displays: "The reading from ____ is ____ and this is problematic/ non problematic
+Due TBD: Design and implement GUI to display sensor values
+	- Displays critical sensor readings and groups same data categories together (redundancies)
+	- Decide on design of GUI and which libraries will be useful - DUE 4/22/18
+Due 4/29/18: Transfer data between two computers using a web socket
+	- Research implementation of ports and web sockets - DUE 4/24/18
