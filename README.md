@@ -1,5 +1,5 @@
-# sensor_dev
-The sensor development team's repo.
+# Software
+The Software team's repo.
 
 ## Current Team Members
 * Dana Owens: Subteam Lead
