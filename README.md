@@ -3,16 +3,16 @@ The Software team's repo.
 
 ## Current Team Members
 * Dana Owens: Subteam Lead
-* David Wolfers
-* Christopher Yuan
-* Michael Guan
-* Nithish Kapalt
-* Jack Stettner
-* Adeline Wang
-* Miyuki Goay
-* Vianca Hurtado
-* Jacob Levy
-* James Parker
+* David Wolfers - 
+* Christopher Yuan - 
+* Michael Guan - Sensor/Arduino
+* Nithish Kapalt - GUI
+* Jack Stettner - Sensor/Arduino
+* Adeline Wang - Sensor/Arduino
+* Miyuki Goay - GUI
+* Vianca Hurtado - GUI
+* Jacob Levy - Sensor/Arduino
+* James Parker - Sensor/Arduino
 
 
 ## Semester Goals
