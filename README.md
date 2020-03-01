@@ -1,2 +1,3 @@
 # software
-Repo for the software subteam
+Repo for the Cornell Hyperloop Software Team
+
