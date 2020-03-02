@@ -3,7 +3,7 @@ The Software team's repo.
 
 ## Current Team Members
 * Dana Owens: Subteam Lead
-* David Wolfers - Arduino
+* David Wolfers - Sensor/Arduino
 * Christopher Yuan - GUI
 * Michael Guan - Sensor/Arduino
 * Nithish Kapalt - GUI
