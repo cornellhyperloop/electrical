@@ -10,7 +10,6 @@ The Software team's repo.
 * Jack Stettner - Sensor/Arduino
 * Adeline Wang - Sensor/Arduino
 * Miyuki Goay - GUI
-* Vianca Hurtado - GUI
 * Jacob Levy - Sensor/Arduino
 * James Parker - Sensor/Arduino
 
