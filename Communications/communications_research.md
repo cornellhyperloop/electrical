@@ -6,7 +6,7 @@ Set of libraries and tools for passing messages and marshalling data, in systems
 
 ### Benefits of LCM
 * Simple C-like syntax that allows for sending packets of information
-* 
+
 
 ### Supported Platforms
 * Platforms
