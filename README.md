@@ -15,7 +15,9 @@ The Software team's repo.
 
 
 ## Semester Goals
-This Semester our goal is to work with the Hardware team to obtain, read and centralize sensor data. We are working with Arduinos and an Odriod C2. In addition to sensor and Arduino work, we are developing a graphical user interface that the entire team can use to view and monitor sensors in the pod.
+
+
+This Semester we hoped to work with the Hardware team to obtain, read and centralize sensor data In addition to sensor and Arduino work, we hoped to develop a graphical user interface that the entire team can use to view and monitor sensors in the pod. However, because of Covid-19 we are unable to meet in person and have shifted our focus to creating a comprehensive FDR for the Hyperloop Competition.
 
 
 
