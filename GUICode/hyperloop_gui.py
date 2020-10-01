@@ -1,4 +1,6 @@
 from PyQt5.QtWidgets import *
+import sys
+from PyQt5.QtGui import QPalette, QColor
 
 
 class Widget1(QWidget):
@@ -89,10 +91,50 @@ class stackedExample(QWidget):
     def onPrevious(self):
         self.Stack.setCurrentIndex((self.Stack.currentIndex()-1) % 5)
 
+class Color(QWidget):
+    def __init__(self, color, *args, **kwargs):
+        super(Color, self).__init__(*args, **kwargs)
+        self.setAutoFillBackground(True)
+        
+        palette = self.palette()
+        palette.setColor(QPalette.Window, QColor(color))
+        self.setPalette(palette)
 
+class MainWindow(QMainWindow):
+    def __init__(self, *args, **kwargs):
+        super(MainWindow, self).__init__(*args, **kwargs)
+        
+        self.setWindowTitle("Hyperloop GUI")
+
+        layout1 = QVBoxLayout()
+        layout2 = QHBoxLayout()
+        layout3 = QVBoxLayout()
+        layout4 = QVBoxLayout()
+
+        layout1.addWidget(Color('white'))
+
+        layout4.addWidget(Color('black'))
+        layout4.addWidget(Color('black'))
+
+        layout2.addLayout(layout4)
+        layout2.addWidget(Color('grey'))
+
+        layout1.addLayout( layout2 )
+
+
+        layout3.addWidget(Color('pink'))
+        
+        layout1.addLayout( layout3 )
+        
+        widget = QWidget()
+        widget.setLayout(layout1)
+        self.setCentralWidget(widget)
+        
 if __name__ == '__main__':
     import sys
     app = QApplication(sys.argv)
-    w = stackedExample()
-    w.show()
+    # w = stackedExample()
+    # w.show()
+    window = MainWindow()
+    window.show()
     sys.exit(app.exec_())
