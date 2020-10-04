@@ -10,7 +10,7 @@ pg.plot(data, title="Simple graph of data fitting x^2", )
 win = pg.plot()
 win.setWindowTitle('Example BarGraphItem')
 
-x = np.arange(6)
+x = np.arange(1,6)
 y1 = np.log10(x)
 y2 = np.log10(x+1)
 y3 = np.log10(x+2)

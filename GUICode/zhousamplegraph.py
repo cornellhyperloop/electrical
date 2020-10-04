@@ -1,4 +1,4 @@
-from PySide import QtGui, QtCore
+from PySide2 import QtGui, QtCore, QtWidgets
 import pyqtgraph as pg
 import numpy as np
 import threading
@@ -29,9 +29,9 @@ t = threading.Thread(target=dummyData)
 t.start()
 #SIMULATE DATA STREAM END
 
-app = QtGui.QApplication([])
+app = QtWidgets.QApplication([])
 
-w = QtGui.QTabWidget()
+w = QtWidgets.QTabWidget()
 
 #tab1 stuff
 plot = pg.PlotWidget()
@@ -39,8 +39,8 @@ upperLine = pg.InfiniteLine(pos = UPPERLIMIT, angle=0, movable=False,pen=("#F00"
 lowerLine = pg.InfiniteLine(pos = LOWERLIMIT, angle=0, movable=False,pen=("#F00"))
 plot.addItem(upperLine)
 plot.addItem(lowerLine)
-tab1 = QtGui.QWidget()
-layout1 = QtGui.QGridLayout()
+tab1 = QtWidgets.QWidget()
+layout1 = QtWidgets.QGridLayout()
 layout1.addWidget(plot, 0, 1, 3, 1)
 tab1.setLayout(layout1)
 curve = plot.plot(dataStreamX, dataStreamY, pen=("F3F"), symbol=None)
@@ -57,8 +57,8 @@ bg = pg.BarGraphItem(x=[0], height=[20], width=0.6, brush='g')
 plot1.addItem(bg)
 plot1.addItem(upperLine1)
 plot1.addItem(lowerLine1)
-tab2 = QtGui.QWidget()
-layout2 = QtGui.QGridLayout()
+tab2 = QtWidgets.QWidget()
+layout2 = QtWidgets.QGridLayout()
 layout2.addWidget(plot1, 0, 1)
 tab2.setLayout(layout2)
 
@@ -67,7 +67,7 @@ w.addTab(tab1, "Dynamic line graph")
 w.addTab(tab2, "Dynamic bar graph")
 
 ## Create a grid layout to manage the widgets size and position
-layout = QtGui.QGridLayout()
+layout = QtWidgets.QGridLayout()
 w.setLayout(layout)
 
 
