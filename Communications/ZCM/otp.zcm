@@ -1,0 +1,9 @@
+struct otp {
+	int8_t state;
+	float roll;
+	float pitch;
+	float yaw;
+	float acceleration;
+	float position;
+	float angular_rate;
+}
