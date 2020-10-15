@@ -50,10 +50,10 @@ Create a ZCM subdirectory and symlink it to the zcm subdirectory of your ZCM ins
 `ln -s /path/to/zcm/zcm /path/to/packet/dir/zcm`
 
 
-Write a publish script in c that publishes packets in a manner that suits your application. See otp's pub.c as an example.
+Write publish and subscribe scripts in c in a manner that suits your application. See otp's pub.c and sub.c  as examples.
 
 
-Compile your publisher `cc -o publish -I. publish.c msg_t.c -lzcm`
+Compile your files into executables `cc -o publish -I. publish.c msg_t.c -lzcm`
 
 `./publish`
 
