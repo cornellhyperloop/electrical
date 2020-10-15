@@ -2,22 +2,19 @@
 The Software team's repo.
 
 ## Current Team Members
-* Dana Owens: Subteam Lead
+* Michael Guan: Subteam Lead
 * David Wolfers - Sensor/Arduino
-* Christopher Yuan - GUI
-* Michael Guan - Sensor/Arduino
 * Nithish Kapalt - GUI
 * Jack Stettner - Sensor/Arduino
-* Adeline Wang - Sensor/Arduino
 * Miyuki Goay - GUI
-* Jacob Levy - Sensor/Arduino
 * James Parker - Sensor/Arduino
 
 
 ## Semester Goals
 
 
-This Semester we hoped to work with the Hardware team to obtain, read and centralize sensor data In addition to sensor and Arduino work, we hoped to develop a graphical user interface that the entire team can use to view and monitor sensors in the pod. However, because of Covid-19 we are unable to meet in person and have shifted our focus to creating a comprehensive FDR for the Hyperloop Competition.
+This semester we will work more closely with Hardware, connecting the sensors and arduinos to the Odroid C2, and developing the communications protocol to integrate everything from the sensors to the pilot computer, which will be running the GUI. We want to create a working GUI that will have most of the functionality, including interfacing with the Odroid/sensor setup and being able to graph live data coming from the hardware.
+
 
 
 
