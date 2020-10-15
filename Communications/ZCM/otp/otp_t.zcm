@@ -1,4 +1,4 @@
-struct otp {
+struct otp_t {
 	int8_t state;
 	float roll;
 	float pitch;
