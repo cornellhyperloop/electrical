@@ -4,7 +4,7 @@
 
 void handle_packet(const zcm_recv_buf_t *rbut, const char *channel, const ato_t *msg, void *usr) {
 	printf("Analog to ODROID message recv'd on channel: %s\n", channel);
-	printf("msg->position : %d\n", msg-> position);
+	printf("msg->position : %f\n", msg-> position);
 }
 
 int main(int argc, char *argv[]) {
