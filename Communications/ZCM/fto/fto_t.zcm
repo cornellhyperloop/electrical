@@ -1,0 +1,4 @@
+struct fto_t {
+	double distance;
+	boolean obstructed;
+}

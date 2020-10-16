@@ -1,0 +1,12 @@
+struct ato_t {
+	float pressure;
+	float temperature;
+	boolean close;
+	float velocity;
+	float roll;
+	float pitch;
+	float yaw;
+	float acceleration;
+	float position;
+	float angular_rate;
+}

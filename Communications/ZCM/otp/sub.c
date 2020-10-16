@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 void handle_packet(const zcm_recv_buf_t *rbut, const char *channel, const otp_t *msg, void *usr) {
-	printf("Odroid to Pod message recv'd on channel: %s\n", channel);
+	printf("Odroid to Pilot message recv'd on channel: %s\n", channel);
 	printf("msg->state : %d\n", msg-> state);
 }
 
