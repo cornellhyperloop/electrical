@@ -61,6 +61,26 @@ Compile your files into executables `cc -o publish -I. publish.c msg_t.c -lzcm`
 You can use the following tool to see the current broadcasted packets and ensure your publisher is functioning: `zcm-spy --zcm-url ipc` (assuming you chose ipc as the protocol in your publisher)
 
 
+## Communication Protocols
+ZCM offers the following options in regards to protocols usable in its transport layer:
+Local System Kernel Communications (Intra-device communication)
+- Inter-Thread
+- IPC (Inter-Process)
+- Non-Blocking Interthread
+
+Inter-device Communication
+- UDP Multicast
+- Serial
+
+
+What should we use?
+- We need inter-device communication
+- It would be nice to have the ability to transmit the same packet to multiple recipients
+
+
+For these reasons, we should use UDP to transport our packets throughout the computers on the pod. Should be able to use an ethernet cable to connect the two devices and broadcast from one network to the other"
+
+
 
 
 
