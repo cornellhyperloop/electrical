@@ -6,3 +6,7 @@ Widget Choices & Reasoning
 3. Window Layout : QSplitter
 - QSplitter splits the main window into different sections and allows layout embedding within the sections
 - Alternative QLayout does not allow embedding of the sensor tabs
+4. Plotting Graph : PlotWidget
+- Embedded in the layouts of sensor tabs (on the left)
+- Currently displaying data from dummy arrays
+- But, can extract sample data from a txt file of the same file directory instead by replacing `second` and `temperature` with `xs` and `ys`

@@ -2,6 +2,8 @@ from PyQt5.QtWidgets import *
 import sys
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
+from pyqtgraph import PlotWidget, plot
+import pyqtgraph as pg
 
 # class EmergencyButton(QWidget):
 #     def __init__(self, parent=None):
@@ -83,47 +85,71 @@ class Tab(QTabWidget):
 		
     def ImuTab(self):
         mainLayout = QGridLayout()
-        imuLayout = QGridLayout()
-        imuLayout.addWidget(QLabel('IMU'), 0, 0)
-        imuLayout.addWidget(QTableWidget(2, 2), 1, 0)
+
+        imuLayout = QHBoxLayout()
+        imuLayout.addWidget(Graph())
+        imuLayout.addWidget(QTableWidget(2, 2))
         mainLayout.addLayout(imuLayout, 1, 0)
         self.imu_tab.setLayout(mainLayout)
 		
     def LdsTab(self):
         mainLayout = QGridLayout()
 
-        imuLayout = QGridLayout()
-        imuLayout.addWidget(QLabel('LDS'), 0, 0)
-        imuLayout.addWidget(QTableWidget(2, 2), 1, 0)
-        mainLayout.addLayout(imuLayout, 1, 0)
+        ldsLayout = QHBoxLayout()
+        ldsLayout.addWidget(Graph())
+        ldsLayout.addWidget(QTableWidget(2, 2))
+        mainLayout.addLayout(ldsLayout, 1, 0)
         self.lds_tab.setLayout(mainLayout)
             
     def PsTab(self):
         mainLayout = QGridLayout()
 
-        imuLayout = QGridLayout()
-        imuLayout.addWidget(QLabel('PS'), 0, 0)
-        imuLayout.addWidget(QTableWidget(2, 2), 1, 0)
-        mainLayout.addLayout(imuLayout, 1, 0)
+        psLayout = QHBoxLayout()
+        psLayout.addWidget(Graph())
+        psLayout.addWidget(QTableWidget(2, 2))
+        mainLayout.addLayout(psLayout, 1, 0)
         self.ps_tab.setLayout(mainLayout)
     
     def PesTab(self):
         mainLayout = QGridLayout()
 
-        imuLayout = QGridLayout()
-        imuLayout.addWidget(QLabel('PES'), 0, 0)
-        imuLayout.addWidget(QTableWidget(2, 2), 1, 0)
-        mainLayout.addLayout(imuLayout, 1, 0)
+        pesLayout = QHBoxLayout()
+        pesLayout.addWidget(Graph())
+        pesLayout.addWidget(QTableWidget(2, 2))
+        mainLayout.addLayout(pesLayout, 1, 0)
         self.pes_tab.setLayout(mainLayout)
     
     def ReTab(self):
         mainLayout = QGridLayout()
 
-        imuLayout = QGridLayout()
-        imuLayout.addWidget(QLabel('RE'), 0, 0)
-        imuLayout.addWidget(QTableWidget(2, 2), 1, 0)
-        mainLayout.addLayout(imuLayout, 1, 0)
+        reLayout = QHBoxLayout()
+        reLayout.addWidget(Graph())
+        reLayout.addWidget(QTableWidget(2, 2))
+        mainLayout.addLayout(reLayout, 1, 0)
         self.re_tab.setLayout(mainLayout)
+
+class Graph(QWidget):
+    def __init__(self, parent = None):
+        super(Graph, self).__init__(parent)
+        self.layout = QGridLayout()
+        self.graphWidget = pg.PlotWidget()
+        # Sample data as array (neater demo)
+        second = [1,2,3,4,5,6,7,8,9,10]
+        temperature = [30,32,34,32,33,31,29,32,35,45]
+        # Sample data from a txt file
+        graph_data = open('sample_data.txt','r').read()
+        lines = graph_data.split('\n')
+        xs = []
+        ys = []
+        for line in lines:
+            if len(line) > 1:
+                x, y = line.split(',')
+                xs.append(float(x))
+                ys.append(float(y))
+        pen = pg.mkPen(color=(255, 255, 255), width=5)
+        self.graphWidget.plot(second, temperature, pen=pen, symbol='x', symbolSize=30, symbolBrush=('w'))
+        self.layout.addWidget(self.graphWidget)
+        self.setLayout(self.layout)
 
 
 class MainWindow(QWidget):
@@ -154,13 +180,8 @@ class MainWindow(QWidget):
         splitter1.addWidget(emergency_button)
         splitter1.setSizes([300, 50])
 
-        splitter_cameras = QSplitter(Qt.Vertical)
-        splitter_cameras.addWidget(Color('black'))
-        splitter_cameras.addWidget(Color('black'))
-
         splitter2 = QSplitter(Qt.Horizontal)
         sensors_tab = Tab()
-        splitter2.addWidget(splitter_cameras)
         splitter2.addWidget(sensors_tab)
         splitter2.setSizes([150,200])
             
