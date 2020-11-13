@@ -4,7 +4,6 @@ The Software team's repo.
 ## Current Team Members
 * Michael Guan: Subteam Lead
 * David Wolfers - Sensor/Arduino
-* Nithish Kapalt - GUI
 * Jack Stettner - Sensor/Arduino
 * Miyuki Goay - GUI
 * James Parker - Sensor/Arduino
