@@ -24,10 +24,10 @@ class Tab(QTabWidget):
         self.re_tab = QWidget()
         
         self.addTab(self.imu_tab,"IMU")
-        self.addTab(self.lds_tab,"LDS")
-        self.addTab(self.ps_tab,"PS")
-        self.addTab(self.pes_tab,"PES")
-        self.addTab(self.re_tab,"RE")
+        self.addTab(self.lds_tab,"LDS") # light
+        self.addTab(self.ps_tab,"PS") # pressure
+        self.addTab(self.pes_tab,"PES") # distance
+        self.addTab(self.re_tab,"RE") # temperaure
         self.ImuTab()
         self.LdsTab()
         self.PsTab()
@@ -47,18 +47,18 @@ class Tab(QTabWidget):
 
         duration.setText("Disarm Duration: ?? s left")
         duration.setAlignment(Qt.AlignCenter)
-        duration.setStyleSheet("font-weight: bold; color: rgb(255,183,183); background-color : rgb(79,79,79)")
-        duration.resize(800, 100)
+        duration.setFont(QFont('AnyStyle', 18))
+        duration.setStyleSheet("padding: 15px; color: rgb(255,183,183); background-color : rgb(79,79,79)")
 
         state.setText("Current State: ??")
         state.setAlignment(Qt.AlignCenter)
-        state.setStyleSheet("font-weight: bold; color: rgb(255,183,183); background-color : rgb(79,79,79)")
-        state.resize(800, 100)
+        state.setFont(QFont('AnyStyle', 18))
+        state.setStyleSheet("padding: 15px; color: rgb(255,183,183); background-color : rgb(79,79,79)")
 
         acceleration.setText("Estimate Acceleration: ??")
         acceleration.setAlignment(Qt.AlignCenter)
-        acceleration.setStyleSheet("font-weight: bold; color: rgb(255,183,183); background-color : rgb(79,79,79)")
-        acceleration.resize(800, 100)
+        acceleration.setFont(QFont('AnyStyle', 18))
+        acceleration.setStyleSheet("padding: 15px; color: rgb(255,183,183); background-color : rgb(79,79,79)")
 
         labelLayout = QVBoxLayout()
         labelLayout.addWidget(duration)
@@ -67,27 +67,27 @@ class Tab(QTabWidget):
 
         soft_stop = QPushButton()
         soft_stop.setText("SOFT STOP")
-        soft_stop.setStyleSheet("background-color : rgb(246,246,246); border-radius: 5px; font-weight: bold; border: 2px solid black")
+        soft_stop.setFont(QFont('AnyStyle', 18))
+        soft_stop.setStyleSheet("padding: 20px; background-color : rgb(246,246,246); border-radius: 5px; font-weight: bold; border: 2px solid black")
         soft_stop.clicked.connect(self.softStop)
-        # soft_stop.resize(300, 150)
 
         shutdown = QPushButton()
         shutdown.setText("SHUTDOWN")
-        shutdown.setStyleSheet("background-color : rgb(246,246,246); border-radius: 5px; font-weight: bold; border: 2px solid black")
+        shutdown.setFont(QFont('AnyStyle', 18))
+        shutdown.setStyleSheet("padding: 20px; background-color : rgb(246,246,246); border-radius: 5px; font-weight: bold; border: 2px solid black")
         shutdown.clicked.connect(self.Shutdown)
-        # shutdown.resize(300, 150)
 
         teleop = QPushButton()
         teleop.setText("TELEOP")
-        teleop.setStyleSheet("background-color : rgb(246,246,246); border-radius: 5px; font-weight: bold; border: 2px solid black")
+        teleop.setFont(QFont('AnyStyle', 18))
+        teleop.setStyleSheet("padding: 20px; background-color : rgb(246,246,246); border-radius: 5px; font-weight: bold; border: 2px solid black")
         teleop.clicked.connect(self.Teleop)
-        # teleop.resize(300, 150)
 
         arm = QPushButton()
         arm.setText("ARM")
-        arm.setStyleSheet("background-color : rgb(246,246,246); border-radius: 5px; font-weight: bold; border: 2px solid black")
+        arm.setFont(QFont('AnyStyle', 18))
+        arm.setStyleSheet("padding: 20px; background-color : rgb(246,246,246); border-radius: 5px; font-weight: bold; border: 2px solid black")
         arm.clicked.connect(self.Arm)
-        # arm.resize(300, 150)
 
         buttonLayout = QVBoxLayout()
         buttonLayout.addWidget(soft_stop)
@@ -97,12 +97,17 @@ class Tab(QTabWidget):
 
         tare = QPushButton()
         tare.setText("Tare Acceleration Estimates")
-        tare.setStyleSheet("background-color : rgb(246,246,246); border-radius: 5px; font-weight: bold; border: 2px solid black")
+        tare.setFont(QFont('AnyStyle', 18))
+        tare.setStyleSheet("background-color : rgb(246,246,246); border-radius: 5px; font-weight: bold; border: 3px solid black")
         tare.clicked.connect(self.Tare)
+
+        table = QTableWidget(10, 2)
+        table.setHorizontalHeaderLabels(['Time', 'Acceleration'])
+        table.setStyleSheet("background-color: rgb(224,224,224)")
 
         tableLayout = QVBoxLayout()
         tableLayout.addWidget(tare)
-        tableLayout.addWidget(QTableWidget(2, 2))
+        tableLayout.addWidget(table)
 
         bottomLayout = QHBoxLayout()
         bottomLayout.addLayout(buttonLayout)
@@ -197,6 +202,7 @@ class Tab(QTabWidget):
         else:
             print("Action cancelled")
 		
+    # TODO: complete these tabs below
     def LdsTab(self):
         mainLayout = QGridLayout()
 
@@ -267,7 +273,7 @@ class EmergencyButton(QWidget):
         self.setWindowTitle("Click button")
         self.push = QPushButton(self)
         self.push.setText("Emergency\nBreak")
-        self.push.setFont(QFont('AnyStyle', 15))
+        self.push.setFont(QFont('AnyStyle', 18))
         self.push.setStyleSheet("background-color : red; border-radius: 5px; font-weight: bold; border: 3px solid black")
         self.push.clicked.connect(self.pushedEmergency)
         self.push.resize(400, 200)
@@ -455,15 +461,14 @@ class Telemetry(QWidget):
     def initUI(self):
         status = QLabel(self)
         status.setText("Telemetry Status\n\n??")
-        status.setStyleSheet("background-color : rgb(239,239,239); border-radius: 5px; font-weight: bold;")
+        status.setStyleSheet("background-color : rgb(239,239,239); border-radius: 5px")
         status.setAlignment(Qt.AlignCenter)
 
         button = QPushButton(self)
         button.setText("Clear Telemetry Faults")
-        # TODO: set larger height
-        button.setStyleSheet("background-color : rgb(241,241,241); font-weight: bold")
+        button.setStyleSheet("padding: 15px; background-color : rgb(241,241,241)")
         button.clicked.connect(self.clearTelemetry)
-        button.resize(400, 150)
+        # button.resize(400, 150)
 
         vbox = QVBoxLayout()
 
@@ -497,6 +502,24 @@ class Telemetry(QWidget):
         else:
             print("Action cancelled")
 
+class DistanceBar(QProgressBar):
+    def __init__(self, *args, **kwargs):
+        super(DistanceBar, self).__init__(*args, **kwargs)
+        self.setValue(0)
+        self.setStyleSheet("QProgressBar { border: 2px solid rgb(255, 179, 179); border-radius: 5px; background-color: white; }"
+            "QProgressBar::chunk { background-color: rgb(255, 179, 179); width: 10px; margin 5px; }")
+        if self.minimum() != self.maximum():
+            self.timer = QTimer(self, timeout=self.onTimeout)
+            self.timer.start(1000)
+
+    # TODO: SET CONDITION TO INCREASE DISTANCE
+    def onTimeout(self):
+        if self.value() >= 100:
+            self.timer.stop()
+            self.timer.deleteLater()
+            del self.timer
+            return
+        self.setValue(self.value() + 1)
 
 class MainWindow(QWidget):
     def __init__(self, *args, **kwargs):
@@ -507,14 +530,11 @@ class MainWindow(QWidget):
 
         hbox = QHBoxLayout(self)
 		
-        top_left = QFrame()
-        top_left.setFrameShape(QFrame.StyledPanel)
-        bottom = QFrame()
-        bottom.setFrameShape(QFrame.StyledPanel)
+        # bottom = QFrame()
+        # bottom.setFrameShape(QFrame.StyledPanel)
 
         splitter1 = QSplitter(Qt.Horizontal)
 
-        # splitter1.addWidget(top_left)
         battery1_text = Battery1()
         splitter1.addWidget(battery1_text)
         battery2_text = Battery1()
@@ -535,10 +555,12 @@ class MainWindow(QWidget):
         splitter2.setSizes([150,200])
         splitter2.setStyleSheet("background-color: rgb(224,224,224)")
             
+        distance_bar = DistanceBar(minimum = 0, maximum = 100, textVisible = False)
+        
         splitter3 = QSplitter(Qt.Vertical)
         splitter3.addWidget(splitter1)
         splitter3.addWidget(splitter2)
-        splitter3.addWidget(bottom)
+        splitter3.addWidget(distance_bar)
         splitter3.setSizes([50,800,100])
             
         hbox.addWidget(splitter3)
