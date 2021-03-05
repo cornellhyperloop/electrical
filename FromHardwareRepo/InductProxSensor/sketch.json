@@ -1,9 +1,0 @@
-{
-  "cpu": {
-    "fqbn": "Intel:arc32:arduino_101",
-    "name": "Arduino/Genuino 101",
-    "type": "serial"
-  },
-  "secrets": [],
-  "included_libs": []
-}
