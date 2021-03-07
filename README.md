@@ -2,7 +2,7 @@
 The Electrical team's repo.
 
 ## Current Team Members
-* Michael Guan: Subteam Lead
+* Michael Guan: Software Lead
 * Tim Tran: Electrical Lead
 * Ronin Sharma: Hardware Lead
 * David Wolfers - Communications
