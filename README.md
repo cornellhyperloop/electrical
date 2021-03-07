@@ -1,18 +1,22 @@
 # Software
-The Software team's repo.
+The Electrical team's repo.
 
 ## Current Team Members
 * Michael Guan: Subteam Lead
-* David Wolfers - Sensor/Arduino
-* Jack Stettner - Sensor/Arduino
-* Miyuki Goay - GUI
-* James Parker - Sensor/Arduino
+* Tim Tran: Electrical Lead
+* Ronin Sharma: Hardware Lead
+* David Wolfers - Communications
+* Anoushka Kabra - Communications
+* Olivia McGoldrick - Sensors
+* Winston Liu - Sensors
+* Max Garval - Power Systems
+* Robert Fleming - Power Systems
 
 
 ## Semester Goals
 
 
-This semester we will work more closely with Hardware, connecting the sensors and arduinos to the Odroid C2, and developing the communications protocol to integrate everything from the sensors to the pilot computer, which will be running the GUI. We want to create a working GUI that will have most of the functionality, including interfacing with the Odroid/sensor setup and being able to graph live data coming from the hardware.
+This semester sofware is working closely with hardware on three major projects: Communications, Sensors, and Power Systems
 
 
 
