@@ -4,30 +4,32 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from pyqtgraph import PlotWidget, plot
 import pyqtgraph as pg
-    
+
+
 class Color(QWidget):
     def __init__(self, color, *args, **kwargs):
         super(Color, self).__init__(*args, **kwargs)
         self.setAutoFillBackground(True)
-        
+
         palette = self.palette()
         palette.setColor(QPalette.Window, QColor(color))
         self.setPalette(palette)
 
+
 class Tab(QTabWidget):
-    def __init__(self, parent = None):
+    def __init__(self, parent=None):
         super(Tab, self).__init__(parent)
         self.imu_tab = QWidget()
         self.lds_tab = QWidget()
         self.ps_tab = QWidget()
         self.pes_tab = QWidget()
         self.re_tab = QWidget()
-        
-        self.addTab(self.imu_tab,"IMU")
-        self.addTab(self.lds_tab,"LDS") # light
-        self.addTab(self.ps_tab,"PS") # pressure
-        self.addTab(self.pes_tab,"PES") # distance
-        self.addTab(self.re_tab,"RE") # temperaure
+
+        self.addTab(self.imu_tab, "IMU")
+        self.addTab(self.lds_tab, "LDS")  # light
+        self.addTab(self.ps_tab, "PS")  # pressure
+        self.addTab(self.pes_tab, "PES")  # distance
+        self.addTab(self.re_tab, "RE")  # temperaure
         self.ImuTab()
         self.LdsTab()
         self.PsTab()
@@ -35,8 +37,9 @@ class Tab(QTabWidget):
         self.ReTab()
 
         self.setWindowTitle("Sensors Data")
-        self.setStyleSheet("QTabBar::tab { height : 80px; width : 200px; background: rgb(79,79,79); font-weight: bold; font-size: large; color: rgb(255,255,255); border: 2px solid black}; background-color : rgb(224,224,224); border-radius: 5px")
-		
+        self.setStyleSheet(
+            "QTabBar::tab { height : 80px; width : 200px; background: rgb(79,79,79); font-weight: bold; font-size: large; color: rgb(255,255,255); border: 2px solid black}; background-color : rgb(224,224,224); border-radius: 5px")
+
     # replace ?? with live data
     def ImuTab(self):
         mainLayout = QGridLayout()
@@ -48,17 +51,20 @@ class Tab(QTabWidget):
         duration.setText("Disarm Duration: ?? s left")
         duration.setAlignment(Qt.AlignCenter)
         duration.setFont(QFont('AnyStyle', 18))
-        duration.setStyleSheet("padding: 15px; color: rgb(255,183,183); background-color : rgb(79,79,79)")
+        duration.setStyleSheet(
+            "padding: 15px; color: rgb(255,183,183); background-color : rgb(79,79,79)")
 
         state.setText("Current State: ??")
         state.setAlignment(Qt.AlignCenter)
         state.setFont(QFont('AnyStyle', 18))
-        state.setStyleSheet("padding: 15px; color: rgb(255,183,183); background-color : rgb(79,79,79)")
+        state.setStyleSheet(
+            "padding: 15px; color: rgb(255,183,183); background-color : rgb(79,79,79)")
 
         acceleration.setText("Estimate Acceleration: ??")
         acceleration.setAlignment(Qt.AlignCenter)
         acceleration.setFont(QFont('AnyStyle', 18))
-        acceleration.setStyleSheet("padding: 15px; color: rgb(255,183,183); background-color : rgb(79,79,79)")
+        acceleration.setStyleSheet(
+            "padding: 15px; color: rgb(255,183,183); background-color : rgb(79,79,79)")
 
         labelLayout = QVBoxLayout()
         labelLayout.addWidget(duration)
@@ -68,25 +74,29 @@ class Tab(QTabWidget):
         soft_stop = QPushButton()
         soft_stop.setText("SOFT STOP")
         soft_stop.setFont(QFont('AnyStyle', 18))
-        soft_stop.setStyleSheet("padding: 20px; background-color : rgb(246,246,246); border-radius: 5px; font-weight: bold; border: 2px solid black")
+        soft_stop.setStyleSheet(
+            "padding: 20px; background-color : rgb(246,246,246); border-radius: 5px; font-weight: bold; border: 2px solid black")
         soft_stop.clicked.connect(self.softStop)
 
         shutdown = QPushButton()
         shutdown.setText("SHUTDOWN")
         shutdown.setFont(QFont('AnyStyle', 18))
-        shutdown.setStyleSheet("padding: 20px; background-color : rgb(246,246,246); border-radius: 5px; font-weight: bold; border: 2px solid black")
+        shutdown.setStyleSheet(
+            "padding: 20px; background-color : rgb(246,246,246); border-radius: 5px; font-weight: bold; border: 2px solid black")
         shutdown.clicked.connect(self.Shutdown)
 
         teleop = QPushButton()
         teleop.setText("TELEOP")
         teleop.setFont(QFont('AnyStyle', 18))
-        teleop.setStyleSheet("padding: 20px; background-color : rgb(246,246,246); border-radius: 5px; font-weight: bold; border: 2px solid black")
+        teleop.setStyleSheet(
+            "padding: 20px; background-color : rgb(246,246,246); border-radius: 5px; font-weight: bold; border: 2px solid black")
         teleop.clicked.connect(self.Teleop)
 
         arm = QPushButton()
         arm.setText("ARM")
         arm.setFont(QFont('AnyStyle', 18))
-        arm.setStyleSheet("padding: 20px; background-color : rgb(246,246,246); border-radius: 5px; font-weight: bold; border: 2px solid black")
+        arm.setStyleSheet(
+            "padding: 20px; background-color : rgb(246,246,246); border-radius: 5px; font-weight: bold; border: 2px solid black")
         arm.clicked.connect(self.Arm)
 
         buttonLayout = QVBoxLayout()
@@ -98,7 +108,8 @@ class Tab(QTabWidget):
         tare = QPushButton()
         tare.setText("Tare Acceleration Estimates")
         tare.setFont(QFont('AnyStyle', 18))
-        tare.setStyleSheet("background-color : rgb(246,246,246); border-radius: 5px; font-weight: bold; border: 3px solid black")
+        tare.setStyleSheet(
+            "background-color : rgb(246,246,246); border-radius: 5px; font-weight: bold; border: 3px solid black")
         tare.clicked.connect(self.Tare)
 
         table = QTableWidget(10, 2)
@@ -122,7 +133,7 @@ class Tab(QTabWidget):
         imuLayout.addLayout(rightLayout)
         mainLayout.addLayout(imuLayout, 1, 0)
         self.imu_tab.setLayout(mainLayout)
-        
+
     def msgButtonClick(self, i):
         print("Button clicked is:", i.text())
 
@@ -191,7 +202,8 @@ class Tab(QTabWidget):
         self.msgBox = QMessageBox()
         self.msgBox.setIcon(QMessageBox.Information)
         self.msgBox.setText("Do you want to tare acceleration estimates?")
-        self.msgBox.setWindowTitle("Tare Acceleration Estimates Button Pushed!")
+        self.msgBox.setWindowTitle(
+            "Tare Acceleration Estimates Button Pushed!")
         self.msgBox.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
         self.msgBox.buttonClicked.connect(self.msgButtonClick)
 
@@ -201,7 +213,7 @@ class Tab(QTabWidget):
             print('OK clicked')
         else:
             print("Action cancelled")
-		
+
     # TODO: complete these tabs below
     def LdsTab(self):
         mainLayout = QGridLayout()
@@ -211,7 +223,7 @@ class Tab(QTabWidget):
         ldsLayout.addWidget(QTableWidget(2, 2))
         mainLayout.addLayout(ldsLayout, 1, 0)
         self.lds_tab.setLayout(mainLayout)
-            
+
     def PsTab(self):
         mainLayout = QGridLayout()
 
@@ -220,7 +232,7 @@ class Tab(QTabWidget):
         psLayout.addWidget(QTableWidget(2, 2))
         mainLayout.addLayout(psLayout, 1, 0)
         self.ps_tab.setLayout(mainLayout)
-    
+
     def PesTab(self):
         mainLayout = QGridLayout()
 
@@ -229,7 +241,7 @@ class Tab(QTabWidget):
         pesLayout.addWidget(QTableWidget(2, 2))
         mainLayout.addLayout(pesLayout, 1, 0)
         self.pes_tab.setLayout(mainLayout)
-    
+
     def ReTab(self):
         mainLayout = QGridLayout()
 
@@ -240,16 +252,21 @@ class Tab(QTabWidget):
         self.re_tab.setLayout(mainLayout)
 
 # TODO: accommodate for different graphs in different tabs (axis labels, graph types, data sources)
+
+
 class Graph(QWidget):
-    def __init__(self, parent = None):
+
+    def __init__(self, parent=None):
         super(Graph, self).__init__(parent)
+        self.x = 0
+        self.y = 0
         self.layout = QGridLayout()
         self.graphWidget = pg.PlotWidget()
         # Sample data as array (neater demo)
-        second = [1,2,3,4,5,6,7,8,9,10]
-        temperature = [30,32,34,32,33,31,29,32,35,45]
+        second = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        temperature = [30, 32, 34, 32, 33, 31, 29, 32, 35, 45]
         # Sample data from a txt file
-        graph_data = open('sample_data.txt','r').read()
+        graph_data = open('sample_data.txt', 'r').read()
         lines = graph_data.split('\n')
         xs = []
         ys = []
@@ -258,27 +275,39 @@ class Graph(QWidget):
                 x, y = line.split(',')
                 xs.append(float(x))
                 ys.append(float(y))
-        self.graphWidget.setBackground((224,224,224))
+        self.graphWidget.setBackground((224, 224, 224))
         pen = pg.mkPen(width=10)
-        self.graphWidget.plot(second, temperature, pen=pen, symbol='x', symbolSize=30)
+        # self.graphWidget.plot(second, temperature, pen=pen,
+        #   symbol='x', symbolSize=30)
         self.layout.addWidget(self.graphWidget)
         self.setLayout(self.layout)
+        self.timer = QTimer(self, timeout=self.update)
+        self.timer.start(1000)
+
+    def update(self):
+        self.x += 1
+        self.y += 1
+        pen = pg.mkPen(width=10)
+        self.graphWidget.plot([self.x], [self.y],
+                              pen=pen, symbol='x', symbolSize=30)
+
 
 class EmergencyButton(QWidget):
-    def __init__(self, parent = None):
+    def __init__(self, parent=None):
         super(EmergencyButton, self).__init__(parent)
         self.initUI()
-    
+
     def initUI(self):
         self.setWindowTitle("Click button")
         self.push = QPushButton(self)
         self.push.setText("Emergency\nBreak")
         self.push.setFont(QFont('AnyStyle', 18))
-        self.push.setStyleSheet("background-color : red; border-radius: 5px; font-weight: bold; border: 3px solid black")
+        self.push.setStyleSheet(
+            "background-color : red; border-radius: 5px; font-weight: bold; border: 3px solid black")
         self.push.clicked.connect(self.pushedEmergency)
         self.push.resize(400, 200)
-        self.push.move(0,50)
-        
+        self.push.move(0, 50)
+
     def msgButtonClick(self, i):
         print("Button clicked is:", i.text())
 
@@ -297,16 +326,17 @@ class EmergencyButton(QWidget):
         else:
             print("Action cancelled")
 
+
 class Battery1(QWidget):
     def __init__(self, parent=None):
         super(Battery1, self).__init__(parent)
         self.initUI()
-    
+
     def initUI(self):
         battery = QLabel(self)
         volts = QLabel(self)
-        amps =  QLabel(self)
-        temperature =  QLabel(self)
+        amps = QLabel(self)
+        temperature = QLabel(self)
 
         battery.setText("Battery #1")
         battery.setAlignment(Qt.AlignCenter)
@@ -333,16 +363,17 @@ class Battery1(QWidget):
 
         self.setLayout(vbox)
 
+
 class Battery2(QWidget):
     def __init__(self, parent=None):
         super(Battery2, self).__init__(parent)
         self.initUI()
-    
+
     def initUI(self):
         battery = QLabel(self)
         volts = QLabel(self)
-        amps =  QLabel(self)
-        temperature =  QLabel(self)
+        amps = QLabel(self)
+        temperature = QLabel(self)
 
         battery.setText("Battery #2")
         battery.setAlignment(Qt.AlignCenter)
@@ -374,12 +405,12 @@ class States(QWidget):
     def __init__(self, parent=None):
         super(States, self).__init__(parent)
         self.initUI()
-    
+
     def initUI(self):
         fsm = QLabel(self)
         mode = QLabel(self)
-        wheel =  QLabel(self)
-        clamp =  QLabel(self)
+        wheel = QLabel(self)
+        clamp = QLabel(self)
 
         fsm.setText("FSM State:")
         fsm.setStyleSheet("background-color : white; font-weight: bold")
@@ -399,26 +430,30 @@ class States(QWidget):
 
         fsm_val = QLabel(self)
         mode_val = QLabel(self)
-        wheel_val =  QLabel(self)
-        clamp_val =  QLabel(self)
+        wheel_val = QLabel(self)
+        clamp_val = QLabel(self)
 
         # TODO: Replace ?? with data
         fsm_val.setText("??")
-        fsm_val.setStyleSheet("background-color : rgb(239,239,239); border-radius: 5px")
+        fsm_val.setStyleSheet(
+            "background-color : rgb(239,239,239); border-radius: 5px")
         fsm_val.setAlignment(Qt.AlignCenter)
 
         mode_val.setText("??")
-        mode_val.setStyleSheet("background-color : rgb(239,239,239); border-radius: 5px")
+        mode_val.setStyleSheet(
+            "background-color : rgb(239,239,239); border-radius: 5px")
         mode_val.setAlignment(Qt.AlignCenter)
 
         wheel_val.setText("??")
-        wheel_val.setStyleSheet("background-color : rgb(239,239,239); border-radius: 5px")
+        wheel_val.setStyleSheet(
+            "background-color : rgb(239,239,239); border-radius: 5px")
         wheel_val.setAlignment(Qt.AlignCenter)
 
         clamp_val.setText("??")
-        clamp_val.setStyleSheet("background-color : rgb(239,239,239); border-radius: 5px")
+        clamp_val.setStyleSheet(
+            "background-color : rgb(239,239,239); border-radius: 5px")
         clamp_val.setAlignment(Qt.AlignCenter)
-        
+
         vbox1 = QVBoxLayout()
         vbox2 = QVBoxLayout()
         vbox1_val = QVBoxLayout()
@@ -441,6 +476,7 @@ class States(QWidget):
 
         self.setLayout(hbox)
 
+
 class PodMovement(QWidget):
     def __init__(self, parent=None):
         super(PodMovement, self).__init__(parent)
@@ -448,25 +484,29 @@ class PodMovement(QWidget):
 
         # TODO: if__ then display "Stopped", else display "Moving"
         self.movement.setText("Pod Movement\n\nStopped")
-        self.movement.setStyleSheet("background-color : rgb(239,239,239); border-radius: 5px; font-weight: bold; border: 3px solid black")
+        self.movement.setStyleSheet(
+            "background-color : rgb(239,239,239); border-radius: 5px; font-weight: bold; border: 3px solid black")
         self.movement.setAlignment(Qt.AlignCenter)
         self.movement.resize(400, 200)
-        self.movement.move(0,50)
+        self.movement.move(0, 50)
+
 
 class Telemetry(QWidget):
     def __init__(self, parent=None):
         super(Telemetry, self).__init__(parent)
         self.initUI()
-    
+
     def initUI(self):
         status = QLabel(self)
         status.setText("Telemetry Status\n\n??")
-        status.setStyleSheet("background-color : rgb(239,239,239); border-radius: 5px")
+        status.setStyleSheet(
+            "background-color : rgb(239,239,239); border-radius: 5px")
         status.setAlignment(Qt.AlignCenter)
 
         button = QPushButton(self)
         button.setText("Clear Telemetry Faults")
-        button.setStyleSheet("padding: 15px; background-color : rgb(241,241,241)")
+        button.setStyleSheet(
+            "padding: 15px; background-color : rgb(241,241,241)")
         button.clicked.connect(self.clearTelemetry)
         # button.resize(400, 150)
 
@@ -502,12 +542,13 @@ class Telemetry(QWidget):
         else:
             print("Action cancelled")
 
+
 class DistanceBar(QProgressBar):
     def __init__(self, *args, **kwargs):
         super(DistanceBar, self).__init__(*args, **kwargs)
         self.setValue(0)
         self.setStyleSheet("QProgressBar { border: 2px solid rgb(255, 179, 179); border-radius: 5px; background-color: white; }"
-            "QProgressBar::chunk { background-color: rgb(255, 179, 179); width: 10px; margin 5px; }")
+                           "QProgressBar::chunk { background-color: rgb(255, 179, 179); width: 10px; margin 5px; }")
         if self.minimum() != self.maximum():
             self.timer = QTimer(self, timeout=self.onTimeout)
             self.timer.start(1000)
@@ -521,15 +562,16 @@ class DistanceBar(QProgressBar):
             return
         self.setValue(self.value() + 1)
 
+
 class MainWindow(QWidget):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__()
-        
+
         self.setWindowTitle("Hyperloop GUI")
         self.setStyleSheet("background-color : white")
 
         hbox = QHBoxLayout(self)
-		
+
         # bottom = QFrame()
         # bottom.setFrameShape(QFrame.StyledPanel)
 
@@ -552,28 +594,28 @@ class MainWindow(QWidget):
         splitter2 = QSplitter(Qt.Horizontal)
         sensors_tab = Tab()
         splitter2.addWidget(sensors_tab)
-        splitter2.setSizes([150,200])
+        splitter2.setSizes([150, 200])
         splitter2.setStyleSheet("background-color: rgb(224,224,224)")
-            
-        distance_bar = DistanceBar(minimum = 0, maximum = 100, textVisible = False)
-        
+
+        distance_bar = DistanceBar(minimum=0, maximum=100, textVisible=False)
+
         splitter3 = QSplitter(Qt.Vertical)
         splitter3.addWidget(splitter1)
         splitter3.addWidget(splitter2)
         splitter3.addWidget(distance_bar)
-        splitter3.setSizes([50,800,100])
-            
+        splitter3.setSizes([50, 800, 100])
+
         hbox.addWidget(splitter3)
-            
+
         self.setLayout(hbox)
         QApplication.setStyle(QStyleFactory.create('Cleanlooks'))
-            
+
         self.setGeometry(300, 300, 300, 200)
-        
+
+
 if __name__ == '__main__':
     import sys
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
     sys.exit(app.exec_())
-
