@@ -7,7 +7,7 @@ The Electrical team's repo.
 * Ronin Sharma: Hardware Lead
 * David Wolfers - Communications
 * Anoushka Kabra - Communications
-* Nandita Kathiresan
+* Nandita Kathiresan - Communications
 * Olivia McGoldrick - Sensors
 * Winston Liu - Sensors
 * Max Garval - Power Systems
