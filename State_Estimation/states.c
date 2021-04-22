@@ -11,7 +11,6 @@ int exOverheatingTemp = 55;
 int main() {
 
     enum {s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10} currState;
-
     currState = s0;
 
     while (1) {
