@@ -78,8 +78,8 @@
         <ul>
             <li>In order to monitor the state of the pod, we will be using a variety of sensors.  The sensors team works on selecting, researching, and integrating these sensors.</li>
             <li>Team members:</li>
-            <li>&emsp; &emsp; Name: Winston Liu, Major: Computer Science, Year: Sophomore</li>
-            <li>&emsp; &emsp; Name: Olivia McGoldrick, Major: Electrical and Computer Engineering, Year: Junior</li>
+            <p>&emsp; &emsp; Name: Winston Liu, Major: Computer Science, Year: Sophomore</p>
+            <p>&emsp; &emsp; Name: Olivia McGoldrick, Major: Electrical and Computer Engineering, Year: Junior</p>
             <li>ToDo- include a screenshot of a breakout room</li>
 
         </ul>
@@ -121,24 +121,21 @@
     </div>
       <div class="col-lg-8 col-md-10 mx-auto">
           <!-- ToDo: Insert photos and videos from the semester -->
-          <p> ToDo: Some photos </p>
+          <li> ToDo: Some photos </li>
       </div>
     </div>
   </div>
 
   <hr>
 
-  <div class="container">
+    <div class="container">
     <div class="row">
     <div class="col-lg-8 mx-auto">
-        <a name="section1">
         <h2>Wire the sensors to the Odroid above and below the chassis</h2>
     </div>
       <div class="col-lg-8 col-md-10 mx-auto">
-        <ul>
-            <li>To be completed later</li>
-            <li>Include the side drawing of the pod</li>
-        </ul>
+          <li>To be completed later</li>
+          <li>Include the side drawing of the pod</li>
       </div>
     </div>
   </div>
@@ -157,13 +154,28 @@
         <ul>
             <li>Thermistors</li>
             <ul>
-                <li>What is it: </li>
-                <li>Why are we using it: </li>
+              <li>What is it: </li>
+                <p>&emsp; &emsp; -10kohm NTC thermistors </p>
+               <li>Why are we using it: </li>
+                  <p>&emsp; &emsp; -Our pod design will use a large number of thermistors.</p>
+                  <p>&emsp; &emsp; -At least one being placed inside each battery pack to monitor the temperature of each pack and ensure that the batteries do not overheat.</p>
+                  <p>&emsp; &emsp; -These thermistors monitor temperature for both safety and telemetry purposes. </p>
+                  <p>&emsp; &emsp; -Each thermistor is connected to the front Arduino Mega board, and read in using the analogRead() function. </p>
+                  <p>&emsp; &emsp; -Calculations are then performed to convert the temperature reading into a usable value to be interpreted by software and emergency braking flag conditions. </p>
+
             </ul>
             <li>Retroreflective Sensor</li>
             <ul>
                 <li>What is it: </li>
+                  <p>&emsp; &emsp; -Marshall Wolf SA1E-PN2 sensors </p>
                 <li>Why are we using it: </li>
+                   <p>&emsp; &emsp; -The pod will use two retroreflective sensors to collect data about the pod’s position.  </p>
+                   <p>&emsp; &emsp; -We will connect them to the Arduino and used them to perform safety checks.  </p>
+                   <p>&emsp; &emsp; -These sensors will be used to determine the striped track patterns along the tube. </p>
+                   <p>&emsp; &emsp; -This will help verify that the pod was moving in the correct direction and with the correct orientation,
+                     as we ensured that the pod was continuously detecting more patterns. </p>
+
+              
             </ul>
             <li>IMU</li>
             <ul>
