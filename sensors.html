@@ -78,8 +78,10 @@
         <ul>
             <li>In order to monitor the state of the pod, we will be using a variety of sensors.  The sensors team works on selecting, researching, and integrating these sensors.</li>
             <li>Team members:</li>
-            <p>&emsp; &emsp; Name: Winston Liu, Major: Computer Science, Year: Sophomore</p>
-            <p>&emsp; &emsp; Name: Olivia McGoldrick, Major: Electrical and Computer Engineering, Year: Junior</p>
+              <ul>
+                <li>Name: Winston Liu, Major: Computer Science, Year: Sophomore</li>
+                <li>Name: Olivia McGoldrick, Major: Electrical and Computer Engineering, Year: Junior</li>
+             </ul>
             <li>ToDo- include a screenshot of a breakout room</li>
 
         </ul>
@@ -155,57 +157,127 @@
             <li>Thermistors</li>
             <ul>
               <li>What is it: </li>
-                <p>&emsp; &emsp; -10kohm NTC thermistors </p>
+                <ul>
+                  <li>10kohm NTC thermistors </li>
+                </ul>
                <li>Why are we using it: </li>
-                  <p>&emsp; &emsp; -Our pod design will use a large number of thermistors.</p>
-                  <p>&emsp; &emsp; -At least one being placed inside each battery pack to monitor the temperature of each pack and ensure that the batteries do not overheat.</p>
-                  <p>&emsp; &emsp; -These thermistors monitor temperature for both safety and telemetry purposes. </p>
-                  <p>&emsp; &emsp; -Each thermistor is connected to the front Arduino Mega board, and read in using the analogRead() function. </p>
-                  <p>&emsp; &emsp; -Calculations are then performed to convert the temperature reading into a usable value to be interpreted by software and emergency braking flag conditions. </p>
-
+                  <ul>
+                      <li>Our pod design will use a large number of thermistors.</p>
+                      <li>At least one being placed inside each battery pack to monitor the temperature of each pack and ensure that the batteries do not overheat.</li>
+                      <li>These thermistors monitor temperature for both safety and telemetry purposes. </li>
+                      <li>Each thermistor is connected to the front Arduino Mega board, and read in using the analogRead() function. </li>
+                      <li>Calculations are then performed to convert the temperature reading into a usable value to be interpreted by software and emergency braking flag conditions. </li>
+                  </ul>
             </ul>
             <li>Retroreflective Sensor</li>
             <ul>
                 <li>What is it: </li>
-                  <p>&emsp; &emsp; -Marshall Wolf SA1E-PN2 sensors </p>
+                  <li>Marshall Wolf SA1E-PN2 sensors </p>
                 <li>Why are we using it: </li>
-                   <p>&emsp; &emsp; -The pod will use two retroreflective sensors to collect data about the pod’s position.  </p>
-                   <p>&emsp; &emsp; -We will connect them to the Arduino and used them to perform safety checks.  </p>
-                   <p>&emsp; &emsp; -These sensors will be used to determine the striped track patterns along the tube. </p>
-                   <p>&emsp; &emsp; -This will help verify that the pod was moving in the correct direction and with the correct orientation,
-                     as we ensured that the pod was continuously detecting more patterns. </p>
+                    <ul>
+                     <li> The pod will use two retroreflective sensors to collect data about the pod’s position.  </li>
+                     <li> We will connect them to the Arduino and used them to perform safety checks.  </li>
+                     <li> These sensors will be used to determine the striped track patterns along the tube. </li>
+                     <li> This will help verify that the pod was moving in the correct direction and with the correct orientation,
+                       as we ensured that the pod was continuously detecting more patterns. </li>
+                    </ul>
 
               
             </ul>
             <li>IMU</li>
             <ul>
                 <li>What is it: </li>
+                <ul>
+                  <li>Vectornav’s VN-100 Rugged Intertial Measurement Unit (IMU)</li>
+                </ul>
                 <li>Why are we using it: </li>
+                <ul>
+                  <li>We will use an IMU to monitor the pod’s movement. </li>
+                  <li>The Inertial Measurement Unit (IMU) is was connected to the ODroid via USB and is used to collect information about the pod’s position, 
+                  velocity, acceleration, yaw, pitch, roll, and angular rate.</li>
+                  <li>We can use this data to perform numerous safety checks, including ensuring that the pod does not shake too much during motion.</li>
+                  <li>We can use the velocity data, along with timing data, to calculate the distance traveled along the track.  </li>
+                </ul>
             </ul>
+      
+      
             <li>Ultrasonic Rangefinder</li>
             <ul>
                 <li>What is it: </li>
+                <ul>
+                  <li>Matibox Ultrasonic Rangefinder</li>
+                </ul>
                 <li>Why are we using it: </li>
+                <ul>
+                  <li>The Ultrasonic Rangefinder provides very short to long-range detection and ranging, in an incredibly small package. </li>
+                  <li>It will be used to determine when the pod is approaching a turn.</li>
+                  <li>It can detect objects from 0-254 inches (6.45-meters) and provides sonar range information from 6-inches out to 254-inches with 1-inch resolution.</li>
+                  <li>The interface output formats included are pulse width output (PWM), analog voltage output (Vcc/512 volts per inch), and serial digital output (9600 baud).</li>
+                  <li>An ultrasonic sensor is something that can measure distance and ideal for projects involving navigation and object avoidance.</li>
+                  <li>They use sound to measure distance, meaning the availability of light is not a factor of their accuracy.</li>
+                  <li>The distance is found by emitting a pulse of ultrasonic sound that travels through the air until it hits an object. Once the pulse hits an object, it reflects off the object and returns to the sensor.</li>     
+                </ul>
+              
             </ul>
+      
+      
             <li>Solenoid Valve Relays</li>
             <ul>
                 <li>What is it: </li>
+                <ul>
+                  <li></li>
+                </ul>
                 <li>Why are we using it: </li>
+                <ul>
+                  <li></li>
+                </ul>
             </ul>
+      
+      
             <li>Transmitter Receiver Module</li>
             <ul>
-                <li>What is it: </li>
+               <li>What is it: </li>
+                <ul>
+                  <li>NRF24L01 Transmitter-Reciever Module</li>
+                </ul>
                 <li>Why are we using it: </li>
+                <ul>
+                  <li>This module will allow us to send messages between Arduinos. </li>
+                  <li>There is an option to use an external antenna to extend the range if needed.</li>
+                </ul>
             </ul>
+      
+      
             <li>Pressure Sensor</li>
             <ul>
                 <li>What is it: </li>
+                <ul>
+                  <li>EB100 Miniature Pressure Sensor</li>
+                </ul>
                 <li>Why are we using it: </li>
+                <ul>
+                  <li>The pressure sensors are used to track real time changes in pressure within the pod, specifically located in the pneumatics and propulsion systems.</li>
+                  <li>These sensors are used as a safety check to prevent any internal pressure build up inside the pod, as well as to check for leaks.</li>
+                  <li>Each sensor is connected to an Arduino board according to its placement on the pod, and is read in analog.</li>
+                  <li>The EB100 is lightweight and operates at a wide range of temperatures, from -40 to 125 C, which is essential to avoid damage in the case of overheating in the pod. </li>
+                  <li>This sensor can detect pressures from 0 - 300 to 0 - 5000 psi with an accuracy of 0.25% while outputting a range of 8-30 VDC. </li>
+                </ul>
             </ul>
+      
+      
             <li>Inductive Proximity Sensor</li>
             <ul>
                 <li>What is it: </li>
+                <ul>
+                  <li>LJ1283-4-Z/by Inductive Proximity Sensor</li>
+                </ul>
                 <li>Why are we using it: </li>
+                <ul>
+                  <li>There will be four inductive proximity sensors, one placed at each corner of the pod. </li>
+                  <li>These sensors will be used in conjunction with the retroreflective sensors as well as the IMU to help determine if we are on the track. </li>
+                  <li>The sensor is triggered when it gets too close to a metal object so if the pod tilts too close to the beam of the track then it will get triggered. </li>
+ 
+                </ul>
             </ul>
         </ul>
       </div>
