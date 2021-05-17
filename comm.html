@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+​
 
 <head>
-
+  ​
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
+  ​
   <title>Communications</title>
-
+  ​
   <!-- Bootstrap core CSS -->
   <link href="othertemplate/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+  ​
   <!-- Custom fonts for this template -->
   <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
+    rel="stylesheet">
+  ​
   <!-- Custom styles for this template -->
   <link href="othertemplate/css/clean-blog.min.css" rel="stylesheet">
   <link href="css/one-page-wonder.min.css" rel="stylesheet">
-
+  ​
 </head>
+​
 
 <body>
-
+  ​
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -53,7 +57,7 @@
       </div>
     </div>
   </nav>
-
+  ​
   <!-- Page Header -->
   <header class="masthead text-center text-white">
     <div class="masthead-content">
@@ -66,21 +70,66 @@
     <div class="bg-circle-3 bg-circle"></div>
     <div class="bg-circle-4 bg-circle"></div>
   </header>
-
+  ​
   <!-- Main Content -->
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <ul>
-            <li>Odroid and Pilot Computer</li>
-            <li>Sending data to GUI</li>
+          <h3>The Communications Team</h3>
+          <p>
+          <p><strong>David Wolfers</strong>: Worked to connect Odroid to Arduinos and sensors. Researched ZCM packet
+            structure.
+            <br>
+            <br><strong>Nandita Kathiresan</strong>: Worked on Hyperloop Gui and coded a live graphing component that
+            captures real time sensor data. This hyperloop gui can run on the pilot laptop.
+            <br>
+            <br><strong>Anoushka Kabra</strong>:
+          </p>
+          </p>
+          <h4>Odroid</h4>
+          <p>The communications team worked largely with our onboard computer, the Odroid-C2 and how it communicates
+            with the rest of the pod. The team worked with the Sensors team to research and develop a network structure
+            so the odroid could receive data from the pod’s Arduinos and sensors. The Arduinos will be connected to the
+            Odroid using USB - serial and the Odroid communicates with the off-pod computer via a wireless connection.
+            To test when the pod is disassembled, a network switch was used in place of a wireless connection. </p>
+          <img height=400
+            src="https://mail.google.com/mail/u/0?ui=2&ik=40ad948857&attid=0.1.1&permmsgid=msg-f:1699969322080684275&th=1797811773ae48f3&view=fimg&sz=s0-l75-ft&attbid=ANGjdJ8BQNO7Q3Dmztw_X0IHa56cZX-AfutPST-Mh--ae5A4LOVm3Ls-Uqje2srspmsL6fyMYEBjEGpadRKlurGo6hTYtx4Xm_yRbXJklnDr6SFFhi87gUhlLAfhT4Q&disp=emb">
+          <br></br>
+          <h4>ZCM</h4>
+          <p>The team also researched a packet structure for ZCM, which is used to communicate between the Odroid and
+            the off-pod computer. ZCM publishes the sensor data so that important information can be displayed in the
+            GUI.
+          </p>
+          <h4>Hyperloop GUI</h4>
+          <p>In addition, we also worked on plotting real-time data onto the arduino & pilot laptop. The data is from
+            the serial port from the sensors, and the data plotted using pyqtgraph. We embedded this into the hyperloop
+            gui, and we tested using temperature data that was sent live to the pilot computer and it successfully was
+            able to plot. We did not have a chance this semester to test the code on the arduino because there were some
+            dependencies (pyqtgraph) that we did not have a chance to install. </p>
+          <h4>Next Steps</h4>
+          <p>Moving ahead, we would like to test multiple live data on both the pilot computer and the odroid, and
+            further refine the hyperloop gui to include all the relevant information.
+          </p>
+          <h4>Resources:</h4>
+          <p>
+            <a href="https://magazine.odroid.com/wp-content/uploads/odroid-c2-user-manual.pdf
+              ">Odroid C2 Manual</a>
+            <br></br>
+            <a href="http://zerocm.github.io/zcm/
+              ">ZCM</a>
+            <br></br>
+            <a href="https://doc.qt.io/qtforpython/
+              ">PyQT Documentation</a>
+          </p>
+
         </ul>
       </div>
     </div>
   </div>
-
+  ​
   <hr>
-
+  ​
   <!-- Footer -->
   <footer>
     <div class="container">
@@ -91,14 +140,15 @@
       </div>
     </div>
   </footer>
-
+  ​
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+  ​
   <!-- Custom scripts for this template -->
   <script src="js/clean-blog.min.js"></script>
-
+  ​
 </body>
+​
 
 </html>
