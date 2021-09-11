@@ -16,6 +16,7 @@ export default class Navbar extends Component {
     }
 
     render () {
+        
         return (
             <div className="Navbar">
                 <nav class="bg-gray-800">
