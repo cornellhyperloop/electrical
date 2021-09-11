@@ -6,16 +6,12 @@ import './App.css';
 function App() {
 
   return (
-
     <div className="App" class="p-6 items-center justify-center">
 
       <Navbar toCallBack={(childState) => console.log(childState)}/>
       <ExampleComponent />
       
     </div>
-
-    
-
   );
 }
 
