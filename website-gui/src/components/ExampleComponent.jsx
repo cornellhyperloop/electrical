@@ -11,10 +11,12 @@ export default class ExampleComponent extends Component {
 
     componentDidMount() {
         console.log('Mounted!');
+        console.log("PROPS: ", this.props);
     }
 
     componentDidUpdate() {
         console.log('Updated!');
+        console.log("PROPS: ", this.props);
     }
 
     render() {
