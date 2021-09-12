@@ -2,12 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 
 export default class HomePage extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
-        console.log("DISPLAY: ", this.props.display)
         if (this.props.display === 0) {
             return (
                 <div className="HomePage">
