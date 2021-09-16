@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
 import HomePage from './HomePage';
+import AboutPage from './AboutPage';
 import ExampleComponent from './ExampleComponent';
 import '../App.css';
 
@@ -16,8 +17,8 @@ export default class Website extends Component {
         return (
             <div className="Website">
                 <Navbar toCallBack={(childState) => this.setState({page: childState.page})}/>
-                <HomePage display={this.state.page}/>
-                <ExampleComponent />
+                <HomePage display={this.state.page} />
+                <AboutPage display={this.state.page} />
             </div>
         )
     }

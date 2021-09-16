@@ -8,7 +8,7 @@ export default class HomePage extends Component {
                 <div className="HomePage">
                     <header class="bg-white shadow">
                         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                            <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
+                            <h1 class="text-3xl font-bold text-gray-900">Welcome to the Electrical Team Website!</h1>
                         </div>
                     </header>
                     <main>
@@ -24,7 +24,7 @@ export default class HomePage extends Component {
                 </div>
             )
         } else {
-            return <div className="HomePage">Not the home page</div>
+            return <div className="HomePage"></div>
         }
 
     }
