@@ -24,7 +24,7 @@
 
 </head>
 
-<body>
+<body> 
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
@@ -73,20 +73,38 @@
       <div class="col-lg-8 col-md-10 mx-auto">
         <b>The Power Systems Team</b>
         <br>
+        
         <p>
-          <strong>Robert Fleming: ECE major, class of 2023. Created and designed circuits for the battery systems and determined what power supply to use for them.</strong> 
+          <strong>Robert Fleming:</strong> An ECE major, class of 2023. Created and designed circuits for the battery systems and determined what power supply to use for them.
         </p>
         <p>
-          <strong>Max Garval:</strong>
+          <strong>Max Garval:</strong> An ECE major, class of 2024. Worked with Arduinos and batteries to power a variety of sensors.
         </p>
+        
         <p>Our pod is completely battery operated. There are three main components that require power: the sensor systems, braking mechanisms, and the motors.</p>
+        
         <img src = "img/Max_and_Tim_working.png" style = "width:600px; height:640px;">
-        <ul>
-            <li>For the sensor systems, we used four Arduino Mega boards each powered by four AA batteries connected by a 100 ohm resistor to the Vin pin on the Arduino board and connected to an array of ground pins which is grounded by the Arduino GND pin as displayed in the image below.</li>
-            <li>For the braking system, we also used a battery pack of 4 AAs connected directly to the relay module which is also connected to both an Arduino board for control and the solenoid itself in order to actuate the pneumatic brakes. This can be seen in the diagram below.</li>
-            <li>In order to power the motors we used 248 Li-Ion batteries for each engine, in modules of 62 cells. Two modules are in series with each other which are in parallel with another two modules which are in series to meet the current and voltage requirements of the motor. We replicated this setup for each motor. This battery pack is connected to the motor controller which is connected to the actual motors. These setups are depicted in the diagram below.</li>
-        </ul>
+        <br>
+        <br>
+        
+        <b>Sensors</b>
+        <p>For the sensor systems, we used four Arduino Mega boards each powered by four AA batteries connected by a 100 ohm resistor to the Vin pin on the Arduino board and connected to an array of ground pins which is grounded by the Arduino GND pin as displayed in the image below.</p>
+        <br>
+        <img src = "img/Arduino_diagram.png" style = "width:600px; height:377px;">
+        <br>
+        <br>
+        
+        <b>Braking</b>
+        <p>For the braking system, we also used a battery pack of 4 AAs connected directly to the relay module which is also connected to both an Arduino board for control and the solenoid itself in order to actuate the pneumatic brakes. This can be seen in the diagram below.</p>
+        <br>
         <img src = "img/Relay_circuit.jpg" style = "width:600px; height:640px;">
+        <br>
+        <br>
+        
+        <b>Motors</b>
+        <p>In order to power the motors we used 248 Li-Ion batteries for each engine, in modules of 62 cells. Two modules are in series with each other which are in parallel with another two modules which are in series to meet the current and voltage requirements of the motor. We replicated this setup for each motor. This battery pack is connected to the motor controller which is connected to the actual motors. These setups are depicted in the diagram below.</p>
+        <br>
+        
       </div>
     </div>
   </div>
