@@ -1,19 +1,8 @@
-Dependencies
-cycler==0.10.0
-future==0.18.2
-iso8601==0.1.12
-kiwisolver==1.1.0
-matplotlib==3.2.0
-numpy==1.18.1
-pyparsing==2.4.6
-PyQt5==5.14.1
-PyQt5-sip==12.7.1
-pyqtgraph==0.10.0
-python-dateutil==2.8.1
-PyYAML==5.3
-qtgui==0.0.1
-serial==0.0.97
-six==1.14.0
+Setup:
+1. Clone this repo
+2. Install the dependencies: python -m pip install -r requirements.txt
+    -Python version > 3.5 (3.9 might be unstable)
+3. Run the GUI: python hyperloop_gui.py
 
 Widget Choices & Reasoning
 1. Window : MainWindow
