@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 
-from widgets import EmergencyButton
+from widgets import *
 
 class MainWindow(QWidget):
     def __init__(self, *args, **kwargs):
@@ -16,8 +16,10 @@ class MainWindow(QWidget):
         # bottom.setFrameShape(QFrame.StyledPanel)
 
         splitter1 = QSplitter(Qt.Horizontal)
-        emergency_button = EmergencyButton()
-        splitter1.addWidget(emergency_button)
+        #emergency_button = EmergencyButton()
+        #splitter1.addWidget(emergency_button)
+        battery = Battery()
+        splitter1.addWidget(battery)
         splitter1.setSizes([200])
         hbox.addWidget(splitter1)
 
