@@ -29,6 +29,8 @@ Open up another shell:
 
 Make sure JAVA_HOME is set (eg. export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/)
 
+If Java is not installed, you can install it using the apt installer ( sudo apt install default-jre )
+
 If you get the following error: 
 
 	./publish: error while loading shared libraries: libzcm.so: cannot open shared object file: No such file or directory
