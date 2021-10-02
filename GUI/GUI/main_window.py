@@ -7,6 +7,7 @@ class MainWindow(QWidget):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__()
 
+        # Insert change here
         self.setWindowTitle("Hyperloop GUI")
         self.setStyleSheet("background-color : white")
 
