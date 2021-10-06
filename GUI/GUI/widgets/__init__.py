@@ -4,3 +4,4 @@ from .graph import Graph
 from .battery import Battery
 from .quit import Quit
 from .proximity_sensors import ProximitySensor
+from .fsm import FSM
