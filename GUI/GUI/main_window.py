@@ -3,6 +3,7 @@ from PyQt5.QtCore import *
 
 from widgets import *
 
+
 class MainWindow(QWidget):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__()
@@ -18,7 +19,9 @@ class MainWindow(QWidget):
 
         splitter1 = QSplitter(Qt.Horizontal)
         #emergency_button = EmergencyButton()
-        #splitter1.addWidget(emergency_button)
+        # splitter1.addWidget(emergency_button)
+        #quit = Quit()
+        # splitter1.addWidget(quit)
         battery = Battery()
         splitter1.addWidget(battery)
         splitter1.setSizes([200])
