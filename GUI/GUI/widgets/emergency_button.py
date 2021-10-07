@@ -15,8 +15,8 @@ class EmergencyButton(QWidget):
         self.push.setStyleSheet(
             "background-color : red; border-radius: 5px; font-weight: bold; border: 3px solid black")
         self.push.clicked.connect(self.pushedEmergency)
-        self.push.resize(400, 200)
-        self.push.move(0, 50)
+        #self.push.resize(400, 200)
+        #self.push.move(0, 50)
 
     def msgButtonClick(self, i):
         print("Button clicked is:", i.text())
