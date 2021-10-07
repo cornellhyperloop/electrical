@@ -19,8 +19,8 @@ class Quit(QWidget):
         self.push.setStyleSheet(
             "background-color : red; border-radius: 5px; font-weight: bold; border: 3px solid black")
         self.push.clicked.connect(self.pushedQuit)
-        self.push.resize(400, 200)
-        self.push.move(0, 50)
+        #elf.push.resize(400, 200)
+        #self.push.move(0, 50)
         #qbtn = QPushButton('Quit', self)
         # qbtn.clicked.connect(self.close)
         #qbtn.move(50, 50)
