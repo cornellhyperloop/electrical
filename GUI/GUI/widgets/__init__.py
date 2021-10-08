@@ -7,3 +7,6 @@ from .proximity_sensors import ProximitySensor
 from .fsm import FSM
 from .long_distance_rangefinder import LongDistanceRangefinder
 from .motion import Motion
+from .velocity_graph import VelocityGraph
+from .acceleration_graph import AccelerationGraph
+from .battery_temp_pack import TempGraph

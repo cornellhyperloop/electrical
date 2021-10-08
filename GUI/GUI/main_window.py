@@ -36,20 +36,20 @@ class MainWindow(QWidget):
         splitter2.addWidget(ldrf)
         splitter2.setSizes([2, 2, 1, 50])
 
-        motion = QSplitter(Qt.Horizontal)
-        motion_info = Motion()
-        motion.addWidget(motion_info)
-        motion.setSizes([2, 2])
+        vgraph = QSplitter(Qt.Horizontal)
+        graph = TempGraph()
+        vgraph.addWidget(graph)
+        vgraph.setSizes([2, 2])
 
         splitter3 = QSplitter(Qt.Vertical)
         splitter3.addWidget(splitter1)
         splitter3.addWidget(splitter2)
-        splitter3.addWidget(motion)
-        splitter3.setSizes([50, 50, 50])
+        splitter3.addWidget(vgraph)
+        splitter3.setSizes([50, 50, 300])
 
         hbox.addWidget(splitter3)
 
         self.setLayout(hbox)
         QApplication.setStyle(QStyleFactory.create('Cleanlooks'))
 
-        self.setGeometry(300, 300, 450, 350)
+        self.setGeometry(300, 300, 1000, 600)
