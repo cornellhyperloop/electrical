@@ -36,10 +36,16 @@ class MainWindow(QWidget):
         splitter2.addWidget(ldrf)
         splitter2.setSizes([2, 2, 1, 50])
 
+        motion = QSplitter(Qt.Horizontal)
+        motion_info = Motion()
+        motion.addWidget(motion_info)
+        motion.setSizes([2, 2])
+
         splitter3 = QSplitter(Qt.Vertical)
         splitter3.addWidget(splitter1)
         splitter3.addWidget(splitter2)
-        splitter3.setSizes([50, 50])
+        splitter3.addWidget(motion)
+        splitter3.setSizes([50, 50, 50])
 
         hbox.addWidget(splitter3)
 

@@ -6,3 +6,4 @@ from .quit import Quit
 from .proximity_sensors import ProximitySensor
 from .fsm import FSM
 from .long_distance_rangefinder import LongDistanceRangefinder
+from .motion import Motion
