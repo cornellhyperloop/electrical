@@ -1,0 +1,28 @@
+img {
+    height: 300px;
+    width: 300px;
+}
+
+.class-tim {
+    height: 300px;
+    width: 300px;
+}
+
+#id-tim {
+    height: 300px;
+    width: 300px;
+}
+
+#div-text {
+    text-align: center;
+}
+
+div p {
+    border: 3px solid green;
+}
+
+#centered-div.extra-class {
+    margin: auto;
+    width: 50%;
+    /* text-align: center; */
+}
