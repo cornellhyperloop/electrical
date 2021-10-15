@@ -1,6 +1,0 @@
-struct sensor_info_t
-{
-	float velocity;
-	float fiducial_detector_value;
-	float thermistor_value;
-}

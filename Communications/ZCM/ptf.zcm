@@ -1,3 +1,0 @@
-struct ptf {
-	int8_t state;
-}
