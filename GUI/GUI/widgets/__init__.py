@@ -10,3 +10,5 @@ from .motion import Motion
 from .velocity_graph import VelocityGraph
 from .acceleration_graph import AccelerationGraph
 from .battery_temp_pack import TempGraph
+from .help_popup import HelpPopup
+from .timer import Timer

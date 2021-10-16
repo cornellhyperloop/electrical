@@ -53,3 +53,11 @@ class MainWindow(QWidget):
         QApplication.setStyle(QStyleFactory.create('Cleanlooks'))
 
         self.setGeometry(300, 300, 1000, 600)
+        
+        help = HelpPopup()
+        splitter1.addWidget(help)
+        splitter1.setSizes([2, 2, 1 , 50])
+
+        timer = Timer()
+        splitter1.addWidget(timer)
+        splitter1.setSizes([200, 600, 200 , 200])
