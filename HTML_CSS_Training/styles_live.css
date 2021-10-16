@@ -1,0 +1,37 @@
+
+img {
+    height: 300px;
+}
+
+#photo-id {
+    width: 50px;
+}
+
+.photo-class {
+    width: 100px;
+}
+
+.photo-class {
+    width: 1000px;
+}
+
+#id1 {
+    
+}
+
+#id1.p-tag-class {
+
+}
+
+div p {
+
+}
+
+centered-div {
+    margin: auto;
+    width: 50%;
+}
+
+#centered-p {
+    text-align: center;
+}
