@@ -1,5 +1,5 @@
 # Electrical
-TH Electrical team's repo.
+The Electrical team's repo.
 
 ## Current Team Members
 * Tim Tran: Electrical Lead
