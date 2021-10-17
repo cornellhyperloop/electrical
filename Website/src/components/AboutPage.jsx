@@ -13,11 +13,14 @@ export default class AboutPage extends Component {
     componentDidMount() {
         fetch("./data/about.json").then(
             (result) => result.json()).then(
-            (data) => this.setState({pageData: data}))
-        
+            (data) => this.setState({pageData: data})
+        )
+    }
+
+    componentDidUpdate() {
         this.renderVelocityGraph();
     }
-    
+
     renderVelocityGraph() {
         let height = 500;
         let width = 500;
@@ -28,85 +31,129 @@ export default class AboutPage extends Component {
                     .append('svg')
                     .attr('height', height)
                     .attr('width', width)
-                    //.style('border', '1px solid black')
+        let margin = {top: 10, right: 10, bottom: 30, left: 50};
+        let chartWidth = width - margin.left - margin.right;
+        let chartHeight = height - margin.top - margin.bottom;
+        let annotations = svg.append('g')
+                             .attr('id', 'annotations')
+        let chartArea = svg.append('g')
+                           .attr('id', 'chart-area')
+                           .attr('transform', `translate(${margin.left}, ${margin.top})`)
         
         let sprints = ["Sprint #1", "Sprint #2"];
-        let xScale = d3.scaleBand().domain(sprints).range([0, width]);
-        svg.append('g')
-            .attr('transform', 'translate(30,' + height/1.2 + ')')
-            .call(d3.axisBottom(xScale).tickSize(0));
+        let workExtent = [0, 20];
+        let data = {
+            sprints: ["Sprint #1", "Sprint #2"],
+            values: [[10, 5, 18], [5, 15, 7]]
+        }
 
-        let yScale = d3.scaleLinear().domain([0, 20]).range([height/1.2-10, 0]);
-        svg.append('g')
-            .attr("transform", "translate(30, 10)")
-            .call(d3.axisLeft(yScale))
+        let xScale = d3.scaleBand().domain(sprints).range([0, chartWidth]).padding(0.05);
+        let yScale = d3.scaleLinear().domain(workExtent).range([chartHeight, 0]);
+
+        let xAxis = d3.axisBottom().scale(xScale);
+        let xAxisG = annotations.append('g')
+                                .attr('class', 'x axis')
+                                .attr('transform', `translate(${margin.left}, ${chartHeight + margin.top + 10})`)
+                                .call(xAxis)
         
-        // Computing Systems
-        svg.append('rect')
-            .attr('x', 110)
-            .attr('y', yScale(1)+10)
-            .attr('height', height - yScale(1) - 93)
-            .attr('width', barWidth)
-            .style('fill', colors[0])
+        let yAxis = d3.axisLeft(yScale);
+        // let yGridlines = d3.axisLeft(yScale)
+        //                    .tickSize(-chartWidth - 10)
+        //                    .tickFormat('')
         
-        // Power Systems
-        svg.append('rect')
-            .attr('x', 140)
-            .attr('y', yScale(4)+10)
-            .attr('height', height - yScale(4) - 93)
-            .attr('width', barWidth)
-            .style('fill', colors[1])
+        annotations.append('g')
+                   .attr('class', 'y axis')
+                   .attr('transform', `translate(${margin.left - 10}, ${margin.top})`)
+                   .call(yAxis)
+        // annotations.append('g')
+        //            .attr('class', 'y gridlines')
+        //            .attr('transform', `translate(${margin.left - 10}, ${margin.top})`)
+        //            .call(yGridlines)
+
+        chartArea.selectAll('rect.bar').data(data)
+                                       .join( enter => enter.append('rect')
+                                                            .attr('class', 'bar')
+                                                            .attr('fill', 'green')
+                                                            .attr('x', d => xScale(d.sprints))
+                                            
+                                       )
+
+        // let xScale = d3.scaleBand().domain(sprints).range([0, width]);
+        // svg.append('g')
+        //     .attr('transform', 'translate(30,' + height/1.2 + ')')
+        //     .call(d3.axisBottom(xScale).tickSize(0));
+
+        // let yScale = d3.scaleLinear().domain([0, 20]).range([height/1.2-10, 0]);
+        // svg.append('g')
+        //     .attr("transform", "translate(30, 10)")
+        //     .call(d3.axisLeft(yScale))
         
-        // UI
-        svg.append('rect')
-            .attr('x', 170)
-            .attr('y', yScale(16)+10)
-            .attr('height', height - yScale(16) - 93)
-            .attr('width', barWidth)
-            .style('fill', colors[2])
+        // // Computing Systems
+        // svg.append('rect')
+        //     .attr('x', 110)
+        //     .attr('y', yScale(1)+10)
+        //     .attr('height', height - yScale(1) - 93)
+        //     .attr('width', barWidth)
+        //     .style('fill', colors[0])
         
-        // Legend
-        svg.append('rect')
-            .attr('x', width - 190)
-            .attr('y', 10)
-            .attr('height', 20)
-            .attr('width', 20)
-            .style('fill', colors[0])
+        // // Power Systems
+        // svg.append('rect')
+        //     .attr('x', 140)
+        //     .attr('y', yScale(4)+10)
+        //     .attr('height', height - yScale(4) - 93)
+        //     .attr('width', barWidth)
+        //     .style('fill', colors[1])
         
-        svg.append('rect')
-            .attr('x', width - 190)
-            .attr('y', 35)
-            .attr('height', 20)
-            .attr('width', 20)
-            .style('fill', colors[1])
+        // // UI
+        // svg.append('rect')
+        //     .attr('x', 170)
+        //     .attr('y', yScale(16)+10)
+        //     .attr('height', height - yScale(16) - 93)
+        //     .attr('width', barWidth)
+        //     .style('fill', colors[2])
         
-        svg.append('rect')
-            .attr('x', width - 190)
-            .attr('y', 60)
-            .attr('height', 20)
-            .attr('width', 20)
-            .style('fill', colors[2])
+        // // Legend
+        // svg.append('rect')
+        //     .attr('x', width - 190)
+        //     .attr('y', 10)
+        //     .attr('height', 20)
+        //     .attr('width', 20)
+        //     .style('fill', colors[0])
         
-        svg.append('text')
-            .attr('x', width - 160)
-            .attr('y', 20)
-            .attr('dominant-baseline', 'middle')
-            .attr('font-size', '18px')
-            .text('Computing Systems')
+        // svg.append('rect')
+        //     .attr('x', width - 190)
+        //     .attr('y', 35)
+        //     .attr('height', 20)
+        //     .attr('width', 20)
+        //     .style('fill', colors[1])
         
-        svg.append('text')
-            .attr('x', width - 160)
-            .attr('y', 45)
-            .attr('dominant-baseline', 'middle')
-            .attr('font-size', '18px')
-            .text('Power Systems')
+        // svg.append('rect')
+        //     .attr('x', width - 190)
+        //     .attr('y', 60)
+        //     .attr('height', 20)
+        //     .attr('width', 20)
+        //     .style('fill', colors[2])
         
-        svg.append('text')
-            .attr('x', width - 160)
-            .attr('y', 70)
-            .attr('dominant-baseline', 'middle')
-            .attr('font-size', '18px')
-            .text('UI')
+        // svg.append('text')
+        //     .attr('x', width - 160)
+        //     .attr('y', 20)
+        //     .attr('dominant-baseline', 'middle')
+        //     .attr('font-size', '18px')
+        //     .text('Computing Systems')
+        
+        // svg.append('text')
+        //     .attr('x', width - 160)
+        //     .attr('y', 45)
+        //     .attr('dominant-baseline', 'middle')
+        //     .attr('font-size', '18px')
+        //     .text('Power Systems')
+        
+        // svg.append('text')
+        //     .attr('x', width - 160)
+        //     .attr('y', 70)
+        //     .attr('dominant-baseline', 'middle')
+        //     .attr('font-size', '18px')
+        //     .text('UI')
     }
 
     render() {
