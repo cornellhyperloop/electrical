@@ -62,10 +62,9 @@ let print = ( a ) => {
 let e1 = document.querySelector('.text');
 let e2 = document.querySelector('#input-field');
 let button = document.querySelector('#button')
-// let element = document.querySelector('div.class1)
+// let element = document.querySelector('div.class1')
 
 e1.textContent = '';
-
 
 let updateText = () => {
     e1.textContent = e2.value;
@@ -83,8 +82,80 @@ button.addEventListener('click', () => {
 
 
 
-// Miscellaneous: == vs. ===, array/object destructuring, array methods, ES6
+// Miscellaneous: == vs. ===, array/object destructuring, array methods
 
 if (4 == '4') {
     console.log('4 is 4')
 }
+
+if (4 === '4') {
+    console.log('4 is also 4')
+}
+
+let d0 = [1, 2, 3, 4, 5];
+let [d1, d2, ...d3] = d0;
+console.log(d1);
+console.log(d2);
+console.log(d3);
+
+let [d4, , d5, d6] = d0;
+console.log(d4);
+console.log(d5);
+console.log(d6);
+
+let d7 = [...d0, ...d0];
+console.log(d7);
+
+
+let obj1 = {
+    field1: 1,
+    field2: 2,
+    field3: 3
+}
+
+let { field1: newVar, ...others } = obj1
+//console.log(field1);
+console.log(newVar);
+console.log(others);
+
+let obj2 = {
+    field2: 5
+}
+
+let obj3 = { ...obj1, ...obj2 };
+
+
+// Requires knowledge of the field names or some other methods to get the fields
+// function printUser(obj) {
+// 	console.log('Field1 is ${obj.field1}. Field2 is ${obj.field2}.')
+// }
+
+function printUser({ f1, f2 }) {
+	console.log(`Field1 is ${f1}. Field2 is ${f2}.`)
+}
+printUser(obj3)
+
+let arr = [
+    { field1: 1, field2: 2},
+    { field1: 10, field2: 20},
+    { field1: 5, field2: 1}
+]
+
+// Filter array
+let filterArr = arr.filter( (obj) => {
+    return obj.field1 > 1
+})
+console.log(filterArr);
+
+// Array to array
+let mapArr = arr.map( (obj) => {
+    return obj.field2
+})
+console.log(mapArr)
+
+arr.forEach( (obj, index) => {
+    console.log(index);
+    console.log(obj.field1);
+})
+
+
