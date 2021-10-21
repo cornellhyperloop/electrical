@@ -78,11 +78,54 @@ button.addEventListener('click', () => {
     e2.style.color = 'blue';
 });
 
-// Asynchronous Javascript: async/await, Promises
+// Asynchronous Javascript: Promises, Async/Await ---
 
+// Promises
+let promise = new Promise((resolve, reject) => {
+    let count = 0;
+    let max = 9999;
+    while (count < max) count += 1;
 
+    if (count == max) {
+        resolve('Correct');
+    } else {
+        reject('Incorrect')
+    }
+})
 
-// Miscellaneous: == vs. ===, array/object destructuring, array methods
+promise.then((output) => {
+    console.log(output);
+}).catch((output) => {
+    console.log(output);
+})
+
+console.log('After Promise')
+
+// Async/Await - cleaner form of Promises (don't need to chain .then)
+function foo() {
+    return new Promise((resolve, reject) => {
+        let count = 0;
+        let max = 999999;
+        while (count < max) count += 1;
+
+        if (count == max) {
+            resolve('Foo Correct');
+        } else {
+            reject('Foo Incorrect')
+        }
+    })
+}
+
+// Think about loading large datasets
+async function foo2() {
+    console.log('started foo2');
+    let result = await foo();
+    console.log(result);
+    console.log('end of foo2')
+}
+foo2();
+
+// Miscellaneous: == vs. ===, array/object destructuring, array methods ---
 
 if (4 == '4') {
     console.log('4 is 4')
@@ -106,7 +149,6 @@ console.log(d6);
 let d7 = [...d0, ...d0];
 console.log(d7);
 
-
 let obj1 = {
     field1: 1,
     field2: 2,
@@ -123,17 +165,15 @@ let obj2 = {
 }
 
 let obj3 = { ...obj1, ...obj2 };
+console.log(obj3);
 
 
-// Requires knowledge of the field names or some other methods to get the fields
-// function printUser(obj) {
-// 	console.log('Field1 is ${obj.field1}. Field2 is ${obj.field2}.')
-// }
-
-function printUser({ f1, f2 }) {
-	console.log(`Field1 is ${f1}. Field2 is ${f2}.`)
+function printUser({ field1, field2 }) {
+    // let { field1, field2 ] = function's input argument
+	console.log(`Field1 is ${field1}. Field2 is ${field2}.`)
 }
-printUser(obj3)
+console.log(obj3);
+printUser(obj3);
 
 let arr = [
     { field1: 1, field2: 2},
@@ -155,7 +195,6 @@ console.log(mapArr)
 
 arr.forEach( (obj, index) => {
     console.log(index);
-    console.log(obj.field1);
+    console.log(obj.field2);
 })
-
 
