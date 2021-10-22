@@ -39,18 +39,18 @@ export default class PowerSystems extends Component {
                                 <p class="py-2">
                                     {pageData.powerSystemsTeamText}
                                 </p>
-                                <img class="py-3" src="https://hyperloop.cornell.edu/electrical/img/Max_and_Tim_working.png" alt="Power Systems Team" />
+                                <img class="py-3" src="./img/Max_and_Tim_working.png" alt="Power Systems Team" />
                                 <h2 class="text-1xl py-4 font-bold text-gray-900">Sensors</h2>
                                 <p>
                                     {pageData.sensorsText}
                                 </p>
-                                <img class="py-3" src="https://hyperloop.cornell.edu/electrical/img/Arduino_diagram.png" alt="Arduino Diagram" />
+                                <img class="py-3" src="./img/Arduino_diagram.png" alt="Arduino Diagram" />
 
                                 <h2 class="text-1xl py-4 font-bold text-gray-900">Braking</h2>
                                 <p>
                                     {pageData.brakingText}
                                 </p>
-                                <img class="py-3 px-48 h-96" src="https://hyperloop.cornell.edu/electrical/img/Relay_circuit.jpg" alt="Relay Circuit" />
+                                <img class="py-3 px-48 h-96" src="./img/Relay_circuit.jpeg" alt="Relay Circuit" />
 
                                 <h2 class="text-1xl py-4 font-bold text-gray-900">Motors</h2>
                                 <p>

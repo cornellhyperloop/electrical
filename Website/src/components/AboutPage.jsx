@@ -209,7 +209,7 @@ export default class AboutPage extends Component {
                                 <h2 class="text-2xl py-4 font-bold text-gray-900">Electrical Team Overview</h2>
                                 <p>{pageData.overviewText}</p>
                                 <h2 class="text-2xl py-4 font-bold text-gray-900">Current Team Members</h2>
-                                <img src="https://hyperloop.cornell.edu/electrical/img/Team.png" alt="Team Members" />
+                                <img src="./img/Team.png" alt="Team Members" />
                                 <h2 class="text-2xl pt-4 font-bold text-gray-900">Leadership</h2>
                                 <ul class="list-disc px-5 py-4">
                                     <li>{pageData.electricalLead}: Electrical Lead</li>
@@ -238,11 +238,11 @@ export default class AboutPage extends Component {
 
                                 <h2 class="text-2xl font-bold text-gray-900">Workshops</h2>
                                 <p class="py-4">{pageData.workshopsText}</p>
-                                <img src="https://hyperloop.cornell.edu/electrical/img/AgileWorkshop.png" alt="Agile Workshop" />
+                                <img src="./img/AgileWorkshop.png" alt="Agile Workshop" />
 
                                 <h2 class="text-2xl py-4 font-bold text-gray-900">Work Sessions</h2>
                                 <p>{pageData.workSessionsText}</p>
-                                <img class="px-48 py-4 h-96" src="https://hyperloop.cornell.edu/electrical/img/ELL.jpg" alt="ELL" />
+                                <img class="px-48 py-4 h-96" src="./img/ELL.jpeg" alt="ELL" />
 
                                 <h2 class="text-2xl py-4 font-bold text-gray-900">Velocity</h2>
                                 <p class="pb-4">{pageData.velocityText}</p>

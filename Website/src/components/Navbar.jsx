@@ -23,7 +23,7 @@ export default class Navbar extends Component {
                     <div class="flex items-center justify-between h-28">
                         <div class="flex items-center">
                         <div class="flex-shrink-0">
-                            <img class="h-20 w-96" src="https://hyperloop.cornell.edu/images/logotextthin.png" alt="Workflow" />
+                            <img class="h-20 w-96" src="./img/logotextthin.png" alt="Workflow" />
                         </div>
                         <div class="hidden md:block">
                             <div class="ml-10 flex items-baseline space-x-3">
