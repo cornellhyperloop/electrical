@@ -42,10 +42,18 @@ export default class AboutPage extends Component {
         
         let sprints = ["Sprint #1", "Sprint #2"];
         let workExtent = [0, 20];
-        let data = {
-            sprints: ["Sprint #1", "Sprint #2"],
-            values: [[10, 5, 18], [5, 15, 7]]
-        }
+        
+        // Values order: Computing Systems, Power Systems, UI
+        let data = [
+            { 
+                sprint: "Sprint #1",
+                values: [1, 4, 16]
+            },
+            {
+                sprint: "Sprint #2",
+                values: [5, 16, 19]
+            }
+        ]
 
         let xScale = d3.scaleBand().domain(sprints).range([0, chartWidth]).padding(0.05);
         let yScale = d3.scaleLinear().domain(workExtent).range([chartHeight, 0]);
@@ -70,13 +78,42 @@ export default class AboutPage extends Component {
         //            .attr('transform', `translate(${margin.left - 10}, ${margin.top})`)
         //            .call(yGridlines)
 
-        chartArea.selectAll('rect.bar').data(data)
-                                       .join( enter => enter.append('rect')
-                                                            .attr('class', 'bar')
-                                                            .attr('fill', 'green')
-                                                            .attr('x', d => xScale(d.sprints))
-                                            
-                                       )
+        let rects = chartArea.selectAll('rect.bar')
+            .data(data)
+            .join(
+                enter => {
+                    let bandwidth = xScale.bandwidth();
+                    let barWidth = xScale.bandwidth() / (2 * sprints.length);
+
+                    enter.append('rect')
+                         .attr('class', 'bar')
+                         .attr('fill', colors[0])
+                         .attr('x', d => xScale(d.sprint) + bandwidth/2 - (barWidth * 1.5))
+                         .attr('y', d => yScale(d.values[0]))
+                         .attr('width', barWidth)
+                         .attr('height', d => chartHeight + margin.top - 10 - yScale(d.values[0]))
+                    
+                    enter.append('rect')
+                         .attr('class', 'bar')
+                         .attr('fill', colors[1])
+                         .attr('x', d => xScale(d.sprint) + bandwidth/2 - (barWidth * 0.5))
+                         .attr('y', d => yScale(d.values[1]))
+                         .attr('width', barWidth)
+                         .attr('height', d => chartHeight + margin.top - 10 - yScale(d.values[1]))
+                
+                    enter.append('rect')
+                         .attr('class', 'bar')
+                         .attr('fill', colors[2])
+                         .attr('x', d => xScale(d.sprint) + bandwidth/2 + (barWidth * 0.5))
+                         .attr('y', d => yScale(d.values[2]))
+                         .attr('width', barWidth)
+                         .attr('height', d => chartHeight + margin.top - 10 - yScale(d.values[2]))
+                }
+            )
+
+
+
+        console.log(rects);
 
         // let xScale = d3.scaleBand().domain(sprints).range([0, width]);
         // svg.append('g')
