@@ -215,77 +215,92 @@ export default class AboutPage extends Component {
                     <main>
                         <div class="max-w-6xl mx-auto my-auto sm:px-6 lg:px-8">
                             <div class="px-4 py-6 sm:px-0">
-                                <article>
+                            <h2 class="text-2xl py-4 font-bold text-gray-900">Electrical Team Overview</h2>
+                                <p>{pageData.overviewText}</p>
+                                
+                                <article class="mt-8">
                                     <div class="flex flex-col bg-white m-auto p-auto">
-                                        <h1 class="flex py-5 lg:px-20 md:px-10 px-5 lg:mx-40 md:mx-20 mx-5 font-bold text-4xl text-gray-800">Members</h1>
-                                        <div class="flex overflow-x-scroll pb-10 hide-scroll-bar">
-                                            <div class="flex flex-nowrap lg:ml-40 md:ml-20 ml-10 ">
+                                        <h1 class="flex py-5 px-5 mx-0 font-bold text-4xl text-gray-800">Members - subteam1</h1>
+                                        <div class="flex overflow-x-scroll pb-10" id="no-scrollbar">
+                                            <div class="flex flex-nowrap ml-0 ">
                                                 <div class="inline-block px-3">
                                                     <div className="portrait-container">
                                                         <Modal onClose={this.showModal} show={this.state.show} />
                                                     </div>
-                                                    <h2 class="text-1xl py-4 font-bold text-gray-900">Person1</h2>
+                                                    <h2 class="text-1xl py-4 font-bold text-gray-900">Person1, Year, Major</h2>
                                                 </div>
                                                 <div class="inline-block px-3">
                                                 <div className="portrait-container">
                                                     <Modal onClose={this.showModal} show={this.state.show} />
                                                     </div>
-                                                    <h2 class="text-1xl py-4 font-bold text-gray-900">Person2</h2>
+                                                    <h2 class="text-1xl py-4 font-bold text-gray-900">Person2, Year, Major</h2>
                                                 </div>
                                                 <div class="inline-block px-3">
                                                     <div className="portrait-container">
                                                     <Modal onClose={this.showModal} show={this.state.show} />
                                                     </div>
-                                                        <h2 class="text-1xl py-4 font-bold text-gray-900">Person3</h2>
+                                                        <h2 class="text-1xl py-4 font-bold text-gray-900">Person3, Year, Major</h2>
                                                 </div>
                                                 <div class="inline-block px-3">
                                                     <div className="portrait-container">
                                                     <Modal onClose={this.showModal} show={this.state.show} />
                                                     </div>
-                                                        <h2 class="text-1xl py-4 font-bold text-gray-900">Person4</h2>
+                                                        <h2 class="text-1xl py-4 font-bold text-gray-900">Person4, Year, Major</h2>
                                                     
                                                 </div>
                                                 <div class="inline-block px-3">
                                                     <div className="portrait-container">
                                                     <Modal onClose={this.showModal} show={this.state.show} />
                                                     </div>
-                                                        <h2 class="text-1xl py-4 font-bold text-gray-900">Person5</h2>
+                                                        <h2 class="text-1xl py-4 font-bold text-gray-900">Person5, Year, Major</h2>
                                                     
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </article>
-                                <h2 class="text-2xl py-4 font-bold text-gray-900">Electrical Team Overview</h2>
-                                <p>{pageData.overviewText}</p>
-                                <h2 class="text-2xl py-4 font-bold text-gray-900">Current Team Members</h2>
-                                <img src="./img/Team.png" alt="Team Members" />
-                                <h2 class="text-2xl pt-4 font-bold text-gray-900">Leadership</h2>
-                                <ul class="list-disc px-5 py-4">
-                                    <li>{pageData.electricalLead}: Electrical Lead</li>
-                                    <li>{pageData.hardwareLead}: Hardware Lead</li>
-                                    <li>{pageData.softwareLead}: Software Lead</li>
-                                </ul>
-
-                                <h2 class="text-2xl font-bold text-gray-900">Computing Systems</h2>
-                                <ul class="list-disc px-5 py-4">
-                                    <li>Michael Guan</li>
-                                    <li>David Wolfers</li>
-                                    <li>Nandita Kathiresan</li>
-                                </ul>
-
-                                <h2 class="text-2xl font-bold text-gray-900">GUI</h2>
-                                <ul class="list-disc px-5 py-4">
-                                    <li>Ronin Sharma</li>
-                                </ul>
-
-                                <h2 class="text-2xl font-bold text-gray-900">Power Systems</h2>
-                                <ul class="list-disc px-5 py-4">
-                                    <li>Tim Tran</li>
-                                    <li>Robert Fleming</li>
-                                    <li>Max Garval</li>
-                                </ul>
-
+                                <article>
+                                    <div class="flex flex-col bg-white m-auto p-auto">
+                                        <h1 class="flex py-5 px-5 mx-0 font-bold text-4xl text-gray-800">Members - subteam2</h1>
+                                        <div class="flex overflow-x-scroll pb-10" id="no-scrollbar">
+                                            <div class="flex flex-nowrap ml-0 ">
+                                                <div class="inline-block px-3">
+                                                    <div className="portrait-container">
+                                                        <Modal onClose={this.showModal} show={this.state.show} />
+                                                    </div>
+                                                    <h2 class="text-1xl py-4 font-bold text-gray-900">Person1, Year, Major</h2>
+                                                </div>
+                                                <div class="inline-block px-3">
+                                                <div className="portrait-container">
+                                                    <Modal onClose={this.showModal} show={this.state.show} />
+                                                    </div>
+                                                    <h2 class="text-1xl py-4 font-bold text-gray-900">Person2, Year, Major</h2>
+                                                </div>
+                                                <div class="inline-block px-3">
+                                                    <div className="portrait-container">
+                                                    <Modal onClose={this.showModal} show={this.state.show} />
+                                                    </div>
+                                                        <h2 class="text-1xl py-4 font-bold text-gray-900">Person3, Year, Major</h2>
+                                                </div>
+                                                <div class="inline-block px-3">
+                                                    <div className="portrait-container">
+                                                    <Modal onClose={this.showModal} show={this.state.show} />
+                                                    </div>
+                                                        <h2 class="text-1xl py-4 font-bold text-gray-900">Person4, Year, Major</h2>
+                                                    
+                                                </div>
+                                                <div class="inline-block px-3">
+                                                    <div className="portrait-container">
+                                                    <Modal onClose={this.showModal} show={this.state.show} />
+                                                    </div>
+                                                        <h2 class="text-1xl py-4 font-bold text-gray-900">Person5, Year, Major</h2>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                
                                 <h2 class="text-2xl font-bold text-gray-900">Workshops</h2>
                                 <p class="py-4">{pageData.workshopsText}</p>
                                 <img src="./img/AgileWorkshop.png" alt="Agile Workshop" />
