@@ -36,3 +36,40 @@
     transform: rotate(360deg);
   }
 }
+
+.portrait-container {
+  width: w-64;
+  height: h-64;
+  max-width: 20rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  --tw-drop-shadow: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07))
+    drop-shadow(0 2px 2px rgba(0, 0, 0, 0.06));
+  --tw-bg-opacity: 1;
+  background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  display: inline-block;
+  padding: 5px;
+  height: 300px;
+  width: 300px;
+  object-fit: fill;
+  position: relative;
+}
+
+.portrait {
+  position: absolute;
+  border-radius: 5%;
+  height: inherit;
+  width: inherit;
+  align-items: center;
+  object-fit: fill;
+}
+
+.member-info {
+  position: relative;
+  height: 300px;
+  width: 300px;
+  object-fit: fill;
+}

@@ -1,62 +1,31 @@
 import React from "react";
-//import "./modal.css";
+import '../App.css';
 
-// export default class Modal extends React.Component {
-//   onClose = e => {
-//     this.props.onClose && this.props.onClose(e);
-//   };
-//   state = {
-//     show: false
-//   };
-//   showModal = e => {
-//     this.setState({
-//       show: true
-//     });
-//   };
-//   render() {
-//     if (!this.props.show) {
-//       return null;
-//     }
-//     return (
-//       <div class="modal" id="modal">
-//         <h2>Modal Window</h2>
-//         <div class="content">{this.props.children}</div>
-//         <div class="actions">
-//           <button class="toggle-button" onClick={this.onClose}>
-//             close
-//           </button>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
 export default class Modal extends React.Component {
   state = { isOpen: false };
 
   handleShowDialog = () => {
     this.setState({ isOpen: !this.state.isOpen });
-    console.log('cliked');
+    console.log('clicked');
   };
 
   render() {
     return (
       <div>
         <img
-          className="small"
+          className="portrait"
           src="./img/sample.jpg"
           onClick={this.handleShowDialog}
-          alt="no image"
+          alt="member"
         />
         {this.state.isOpen && (
           <dialog
-            className="dialog"
-            style={{ position: 'absolute' }}
+            className="member-info"
             open
             onClick={this.handleShowDialog}>
-            <div class ="p-10">
+            <div>
             <div class ="max-w-sm rounded overflow-hidden shadow-lg">
-              <img class ="w-full" src="./img/sample.jpg" alt="Mountain"> </img>
-            <div class ="px-6 py-4">
+            <div class ="px-1 py-1">
             <div class ="font-bold text-xl mb-2">Mountain</div>
             <p class ="text-gray-700 text-base">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.Voluptatibus quia, nulla!Maiores et perferendis eaque, exercitationem praesentium nihil.

@@ -213,7 +213,7 @@ export default class AboutPage extends Component {
                         </div>
                     </header>
                     <main>
-                        <div class="max-w-3xl mx-auto py-6 sm:px-6 lg:px-8">
+                        <div class="max-w-6xl mx-auto my-auto sm:px-6 lg:px-8">
                             <div class="px-4 py-6 sm:px-0">
                                 <article>
                                     <div class="flex flex-col bg-white m-auto p-auto">
@@ -221,30 +221,36 @@ export default class AboutPage extends Component {
                                         <div class="flex overflow-x-scroll pb-10 hide-scroll-bar">
                                             <div class="flex flex-nowrap lg:ml-40 md:ml-20 ml-10 ">
                                                 <div class="inline-block px-3">
-                                                    <div class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                                                    <div className="portrait-container">
                                                         <Modal onClose={this.showModal} show={this.state.show} />
                                                     </div>
                                                     <h2 class="text-1xl py-4 font-bold text-gray-900">Person1</h2>
                                                 </div>
                                                 <div class="inline-block px-3">
-                                                    <div class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                                                        <img src="./img/sample.jpg" />
+                                                <div className="portrait-container">
+                                                    <Modal onClose={this.showModal} show={this.state.show} />
                                                     </div>
                                                     <h2 class="text-1xl py-4 font-bold text-gray-900">Person2</h2>
                                                 </div>
                                                 <div class="inline-block px-3">
-                                                    <div class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                                                        <img src="./img/sample.jpg" />
+                                                    <div className="portrait-container">
+                                                    <Modal onClose={this.showModal} show={this.state.show} />
                                                     </div>
-                                                    <h2 class="text-1xl py-4 font-bold text-gray-900">Person3</h2>
+                                                        <h2 class="text-1xl py-4 font-bold text-gray-900">Person3</h2>
                                                 </div>
                                                 <div class="inline-block px-3">
-                                                    <div class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"></div>
-                                                    <h2 class="text-1xl py-4 font-bold text-gray-900">Person4</h2>
+                                                    <div className="portrait-container">
+                                                    <Modal onClose={this.showModal} show={this.state.show} />
+                                                    </div>
+                                                        <h2 class="text-1xl py-4 font-bold text-gray-900">Person4</h2>
+                                                    
                                                 </div>
                                                 <div class="inline-block px-3">
-                                                    <div class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"></div>
-                                                    <h2 class="text-1xl py-4 font-bold text-gray-900">Person5</h2>
+                                                    <div className="portrait-container">
+                                                    <Modal onClose={this.showModal} show={this.state.show} />
+                                                    </div>
+                                                        <h2 class="text-1xl py-4 font-bold text-gray-900">Person5</h2>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
