@@ -77,29 +77,29 @@ export default class SensorsSP21 extends Component {
       <div class="container">
     <div class="row">
     <div class="col-lg-8 mx-auto">
-        <a name="section2">
+        
         <h2 class="text-2xl py-4 font-bold text-gray-900">Test the new sensors with Arduinos:</h2>
-    </a></div><a name="section2">
+    </div><a name="section2">
       <div class="col-lg-8 col-md-10 mx-auto">
         <p> We worked with the following sensors: </p>
-        <ul>
+        
         <h1 class="text-1xl py-4 font-bold text-gray-900">Thermistors</h1>
-            <ul>
+            
             <h1 class="text-1l py-4 font-bold text-gray-900">What is it: </h1>
                 <ul>
                   <li>10kohm NTC thermistors </li>
 			<img src="img/thermistor.jpg" alt="???"/>
 			<img src="img/thermistor_arduino.png" alt="???"/>
-                </ul>
+                
                 <h1 class="text-1l py-4 font-bold text-gray-900">Why are we using it: </h1>
-                  <ul>
+ 
                       <li>Our pod design will use a large number of thermistors.</li>
                       <li>At least one being placed inside each battery pack to monitor the temperature of each pack and ensure that the batteries do not overheat.</li>
                       <li>These thermistors monitor temperature for both safety and telemetry purposes. </li>
                       <li>Each thermistor is connected to the front Arduino Mega board, and read in using the analogRead() function. </li>
                       <li>Calculations are then performed to convert the temperature reading into a usable value to be interpreted by software and emergency braking flag conditions. </li>
-                  </ul>
-            </ul>
+
+            
             <h1 class="text-1xl py-4 font-bold text-gray-900">Retroreflective Sensor</h1>
             <ul>
             <h1 class="text-1l py-4 font-bold text-gray-900">What is it: </h1>
