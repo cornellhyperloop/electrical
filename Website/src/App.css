@@ -90,3 +90,13 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.dropdown nav {
+  display: none;
+  position: fixed;
+  background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
+}
+
+.dropdown:hover nav {
+  display: block;
+}
