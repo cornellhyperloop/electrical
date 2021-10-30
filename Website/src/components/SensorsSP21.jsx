@@ -69,8 +69,8 @@ export default class SensorsSP21 extends Component {
           </div>
           <div className="col-lg-8 col-md-10 mx-auto">
             <li> Sensor layout drawings:</li>
-            <img src="img/sensor side view.jpg" style={{width: '871px', height: '591px'}} alt="???"/>
-            <img src="img/sensor top view.jpg" style={{width: '871px', height: '591px'}} alt="???"/>
+            <img src="img/sensor side view.jpg" style={{width: '435px', height: '290px'}} alt="???"/>
+            <img src="img/sensor top view.jpg" style={{width: '435px', height: '290px'}} alt="???"/>
           </div>
         </div>
       </div>
@@ -78,20 +78,20 @@ export default class SensorsSP21 extends Component {
     <div class="row">
     <div class="col-lg-8 mx-auto">
         <a name="section2">
-        <h2>Test the new sensors with Arduinos:</h2>
+        <h2 class="text-2xl py-4 font-bold text-gray-900">Test the new sensors with Arduinos:</h2>
     </a></div><a name="section2">
       <div class="col-lg-8 col-md-10 mx-auto">
         <p> We worked with the following sensors: </p>
         <ul>
-            <li>Thermistors</li>
+        <h1 class="text-1xl py-4 font-bold text-gray-900">Thermistors</h1>
             <ul>
-              <li>What is it: </li>
+            <h1 class="text-1l py-4 font-bold text-gray-900">What is it: </h1>
                 <ul>
                   <li>10kohm NTC thermistors </li>
 			<img src="img/thermistor.jpg" alt="???"/>
 			<img src="img/thermistor_arduino.png" alt="???"/>
                 </ul>
-               <li>Why are we using it: </li>
+                <h1 class="text-1l py-4 font-bold text-gray-900">Why are we using it: </h1>
                   <ul>
                       <li>Our pod design will use a large number of thermistors.</li>
                       <li>At least one being placed inside each battery pack to monitor the temperature of each pack and ensure that the batteries do not overheat.</li>
@@ -100,15 +100,15 @@ export default class SensorsSP21 extends Component {
                       <li>Calculations are then performed to convert the temperature reading into a usable value to be interpreted by software and emergency braking flag conditions. </li>
                   </ul>
             </ul>
-            <li>Retroreflective Sensor</li>
+            <h1 class="text-1xl py-4 font-bold text-gray-900">Retroreflective Sensor</h1>
             <ul>
-                <li>What is it: </li>
+            <h1 class="text-1l py-4 font-bold text-gray-900">What is it: </h1>
                   <ul>
                   <li>Marshall Wolf SA1E-PN2 sensors </li>
 			 <img src="img/retroreflective.jpg" alt="???"/>
 			<img src="img/retroreflective_arduino.jpg" alt="???"/>
         </ul>
-                <li>Why are we using it: </li>
+        <h1 class="text-1l py-4 font-bold text-gray-900">Why are we using it: </h1>
                     <ul>
                      <li> The pod will use two retroreflective sensors to collect data about the pod’s position.  </li>
                      <li> We will connect them to the Arduino and used them to perform safety checks.  </li>
@@ -119,15 +119,15 @@ export default class SensorsSP21 extends Component {
 
               
             </ul>
-            <li>IMU</li>
+            <h1 class="text-1xl py-4 font-bold text-gray-900">IMU</h1>
             <ul>
-                <li>What is it: </li>
+            <h1 class="text-1l py-4 font-bold text-gray-900">What is it: </h1>
                 <ul>
                   <li>Vectornav’s VN-100 Rugged Intertial Measurement Unit (IMU)</li>
 			<img src="img/IMU.png" alt="???"/>
 			
                 </ul>
-                <li>Why are we using it: </li>
+                <h1 class="text-1l py-4 font-bold text-gray-900">Why are we using it: </h1>
                 <ul>
                   <li>We will use an IMU to monitor the pod’s movement. </li>
                   <li>The Inertial Measurement Unit (IMU) is was connected to the ODroid via USB and is used to collect information about the pod’s position, 
@@ -138,13 +138,13 @@ export default class SensorsSP21 extends Component {
             </ul>
       
       
-            <li>Ultrasonic Rangefinder</li>
+            <h1 class="text-1xl py-4 font-bold text-gray-900">Ultrasonic Rangefinder</h1>
             <ul>
-                <li>What is it: </li>
+            <h1 class="text-1l py-4 font-bold text-gray-900">What is it: </h1>
                 <ul>
                   <li>Matibox Ultrasonic Rangefinder</li>
                 </ul>
-                <li>Why are we using it: </li>
+                <h1 class="text-1l py-4 font-bold text-gray-900">Why are we using it: </h1>
                 <ul>
                   <li>The Ultrasonic Rangefinder provides very short to long-range detection and ranging, in an incredibly small package. </li>
                   <li>It will be used to determine when the pod is approaching a turn.</li>
@@ -158,28 +158,28 @@ export default class SensorsSP21 extends Component {
             </ul>
       
       
-            <li>Vibration Sensor</li>
+            <h1 class="text-1xl py-4 font-bold text-gray-900">Vibration Sensor</h1>
             <ul>
-                <li>What is it: </li>
+            <h1 class="text-1l py-4 font-bold text-gray-900">What is it: </h1>
                 <ul>
                   <li>SW-420 Vibration Sensor</li>
 			<img src="img/vibration_sensor.jpg"  alt="???"/>
 			<img src="img/vibration_arduino.jpg"  alt="???"/>
                 </ul>
-                <li>Why are we using it: </li>
+                <h1 class="text-1l py-4 font-bold text-gray-900">Why are we using it: </h1>
                 <ul>
                   <li>The vibration sensor is also called a piezoelectric sensor. These sensors are flexible devices that use the piezoelectric effects while measuring the changes within acceleration, pressure, temperature, force, and strain by changing electrical charge. </li>
                 </ul>
             </ul>
       
       
-            <li>Transmitter Receiver Module</li>
+            <h1 class="text-1xl py-4 font-bold text-gray-900">Transmitter Receiver Module</h1>
             <ul>
-               <li>What is it: </li>
+            <h1 class="text-1l py-4 font-bold text-gray-900">What is it: </h1>
                 <ul>
                   <li>NRF24L01 Transmitter-Reciever Module</li>
                 </ul>
-                <li>Why are we using it: </li>
+                <h1 class="text-1l py-4 font-bold text-gray-900">Why are we using it: </h1>
                 <ul>
                   <li>This module will allow us to send messages between Arduinos. </li>
                   <li>There is an option to use an external antenna to extend the range if needed.</li>
@@ -187,13 +187,13 @@ export default class SensorsSP21 extends Component {
             </ul>
       
       
-            <li>Pressure Sensor</li>
+            <h1 class="text-1xl py-4 font-bold text-gray-900">Pressure Sensor</h1>
             <ul>
-                <li>What is it: </li>
+            <h1 class="text-1l py-4 font-bold text-gray-900">What is it: </h1>
                 <ul>
                   <li>EB100 Miniature Pressure Sensor</li>
                 </ul>
-                <li>Why are we using it: </li>
+                <h1 class="text-1l py-4 font-bold text-gray-900">Why are we using it: </h1>
                 <ul>
                   <li>The pressure sensors are used to track real time changes in pressure within the pod, specifically located in the pneumatics and propulsion systems.</li>
                   <li>These sensors are used as a safety check to prevent any internal pressure build up inside the pod, as well as to check for leaks.</li>
@@ -204,13 +204,13 @@ export default class SensorsSP21 extends Component {
             </ul>
       
       
-            <li>Inductive Proximity Sensor</li>
+            <h1 class="text-1xl py-4 font-bold text-gray-900">Inductive Proximity Sensor</h1>
             <ul>
-                <li>What is it: </li>
+            <h1 class="text-1l py-4 font-bold text-gray-900">What is it: </h1>
                 <ul>
                   <li>LJ1283-4-Z/by Inductive Proximity Sensor</li>
                 </ul>
-                <li>Why are we using it: </li>
+                <h1 class="text-1l py-4 font-bold text-gray-900">Why are we using it: </h1>
                 <ul>
                   <li>There will be four inductive proximity sensors, one placed at each corner of the pod. </li>
                   <li>These sensors will be used in conjunction with the retroreflective sensors as well as the IMU to help determine if we are on the track. </li>
