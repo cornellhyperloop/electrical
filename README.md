@@ -13,6 +13,7 @@ The Electrical team's repo.
     * Kyra Watts
     * Ridhit Bhura
     * Vanshaj Jain
+    * Anoushka Kabra
 
 * Power Systems
     * Robert Fleming
@@ -22,7 +23,6 @@ The Electrical team's repo.
     * Schuyler Seyram
 
 * UI
-    * Anoushka Kabra
     * David Glantz
     * Kelvin Wang
     * Kenneth Yamashita
