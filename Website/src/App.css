@@ -71,7 +71,7 @@
   height: inherit;
   width: inherit;
   align-items: center;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .member-info {
