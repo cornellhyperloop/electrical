@@ -28,9 +28,9 @@ BUTTON_STATE = 0
 # Inertial Measurement Unit Data
 CURRENT_VELOCITY = 2
 ACCELERATION = 3
-PITCH = 0
-YAW = 0
-ROLL = 0
+PITCH = [90, -132, 54, 2]
+YAW = [129, 0, -83, 324]
+ROLL = [-12, 55, 39, 360]
 
 # Pressure Sensor Data
 CURRENT_TEMPERATURE = 40
