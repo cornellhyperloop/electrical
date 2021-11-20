@@ -8,7 +8,7 @@ class Thermistor(QWidget):
     def __init__(self, parent=None):
         super(Thermistor, self).__init__(parent)
         self.initUI()
-        self.arduino = serial.Serial("/dev/cu.usbmodem143201")
+        #self.arduino = serial.Serial("/dev/cu.usbmodem143201")
         self.timer = QTimer(self, timeout=self.update)
         self.timer.start(1000)
 
@@ -21,6 +21,7 @@ class Thermistor(QWidget):
         self.setLayout(vbox)
 
     def update(self):
-        line = self.arduino.readline().decode()
-        if line:
-            self.temp.setText(line)
+	    pass
+        #line = self.arduino.readline().decode()
+        #if line:
+        #    self.temp.setText(line)
