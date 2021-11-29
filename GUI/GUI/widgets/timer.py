@@ -21,5 +21,6 @@ class Timer(QWidget):
 
     def showTime(self):
         self.count += 1
-        text = str(self.count / 10) + " s"
+        text = f'Time: {self.count / 10} s'
+	#text = '' + str(self.count / 10) + " s"
         self.label.setText(text)
