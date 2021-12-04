@@ -30,14 +30,14 @@ class MainWindow(QWidget):
         splitter2.addWidget(battery)
         proximitySensor = ProximitySensor()
         splitter2.addWidget(proximitySensor)
-        thermistor = Thermistor()
         fsm = FSM()
-        splitter2.addWidget(thermistor)
         ldrf = LongDistanceRangefinder()
         splitter2.addWidget(ldrf)
         splitter2.setSizes([2, 2, 1, 50])
 
         vgraph = QSplitter(Qt.Horizontal)
+        ###
+
         graph = TempGraph()
         vgraph.addWidget(graph)
         vgraph.setSizes([2, 2])
@@ -49,16 +49,15 @@ class MainWindow(QWidget):
         splitter3.setSizes([50, 50, 300])
 
         hbox.addWidget(splitter3)
-
         self.setLayout(hbox)
         QApplication.setStyle(QStyleFactory.create('Cleanlooks'))
 
         self.setGeometry(300, 300, 1000, 600)
-        
+
         help = HelpPopup()
         splitter1.addWidget(help)
-        splitter1.setSizes([2, 2, 1 , 50])
+        splitter1.setSizes([2, 2, 1, 50])
 
         timer = Timer()
         splitter1.addWidget(timer)
-        splitter1.setSizes([200, 600, 200 , 200])
+        splitter1.setSizes([200, 600, 200, 200])

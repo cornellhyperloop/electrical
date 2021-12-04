@@ -4,6 +4,7 @@ from PyQt5.QtCore import *
 from pyqtgraph import PlotWidget, plot
 import pyqtgraph as pg
 
+
 class Graph(QWidget):
 
     def __init__(self, parent=None):
@@ -16,17 +17,8 @@ class Graph(QWidget):
         second = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         temperature = [30, 32, 34, 32, 33, 31, 29, 32, 35, 45]
         # Sample data from a txt file
-        graph_data = open('sample_data.txt', 'r').read()
-        lines = graph_data.split('\n')
-        xs = []
-        ys = []
-        for line in lines:
-            if len(line) > 1:
-                x, y = line.split(',')
-                xs.append(float(x))
-                ys.append(float(y))
+
         self.graphWidget.setBackground((224, 224, 224))
-        pen = pg.mkPen(width=10)
         # self.graphWidget.plot(second, temperature, pen=pen,
         #   symbol='x', symbolSize=30)
         self.layout.addWidget(self.graphWidget)
