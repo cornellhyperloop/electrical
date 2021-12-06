@@ -1,0 +1,234 @@
+{
+  "ElectricalLead": [
+      {
+          "name":"Tim Tran",
+          "major":"ECE & Computer Science",
+          "year":"2022",
+          "hometown":"Ho Chi Minh City, Vietnam",
+          "funfact":"I'll give Ronin full autonomy over this", 
+          "image":"./img/headshots/TimTran.jpg",
+          "github":"https://github.com/tacascer",
+          "linkedin":"https://www.linkedin.com/in/timtran2018/"
+      }
+  ],
+  "HardwareLead": [
+      {
+          "name":"Ronin Sharma",
+          "major":"ECE",
+          "year":"2022",
+          "hometown":"Ardsley, NY",
+          "funfact":"I can speak five languages.",
+          "image":"./img/headshots/RoninSharma.png",
+          "github":"https://github.com/roninsharma25",
+          "linkedin":"https://www.linkedin.com/in/ronin-sharma-8214b7146/"
+      }
+  ],
+  "SoftwareLead": [
+      {
+          "name":"Michael Guan",
+          "major":"Computer Science",
+          "year":"2022",
+          "hometown":"Ithaca, NY",
+          "funfact":"I can solve a rubiks cube behind my back.",
+          "image":"./img/headshots/MichaelGuan.jpg",
+          "github":"https://github.com/mikeguan1999",
+          "linkedin":"https://www.linkedin.com/in/mikeguan1999/"
+      }
+  ],
+  "ComputingSystems": [
+      {
+          "name":"David Wolfers",
+          "major":"Computer Science",
+          "year":"2023",
+          "hometown":"Lancaster, PA",
+          "funfact":"I'm a big Manchester United fan!",
+          "image":"./img/headshots/DavidWolfers.jpg",
+          "github":"https://github.com/davidsw34",
+          "linkedin":"https://www.linkedin.com/in/david-wolfers/"
+      },
+      {
+          "name":"Nandita Kathiresan",
+          "major":"",
+          "year":"",
+          "hometown":"",
+          "funfact":"",
+          "image":"./img/sample.jpg",
+          "github":"",
+          "linkedin":""
+      },
+      {
+          "name":"Chris Chan",
+          "major":"",
+          "year":"",
+          "hometown":"",
+          "funfact":"",
+          "image":"./img/sample.jpg",
+          "github":"",
+          "linkedin":""
+      },
+      {
+          "name":"Kyra Watts",
+          "major":"Physics & Computer Science",
+          "year":"2024",
+          "hometown":"Poughkeepsie, NY",
+          "funfact":"I play the violin!",
+          "image":"./img/headshots/KyraWatts.png",
+          "github":"",
+          "linkedin":"https://www.linkedin.com/in/kyra-watts-718015203/"
+      },
+      {
+          "name":"Ridhit Bhura",
+          "major":"Computer Science",
+          "year":"2024",
+          "hometown":"Mumbai, India",
+          "funfact":"I sing classical music and make cool maps.",
+          "image":"./img/headshots/RidhitBhura.jpeg",
+          "github":"https://github.com/ridhitbhura",
+          "linkedin":"https://www.linkedin.com/in/ridhit/"
+      },
+      {
+          "name":"Vanshaj Jain",
+          "major":"",
+          "year":"",
+          "hometown":"",
+          "funfact":"",
+          "image":"./img/sample.jpg",
+          "github":"",
+          "linkedin":""
+      },
+      {
+          "name":"Anoushka Kabra",
+          "major":"Computer Science",
+          "year":"2024",
+          "hometown":"Mumbai, India",
+          "funfact":"I have travelled to 5/7 continents and 30+ countries before the age of 18", 
+          "image":"./img/headshots/AnoushkaKabra.JPG",
+          "github":"",
+          "linkedin":"https://www.linkedin.com/in/anoushka-kabra-2a450118b/"
+      },
+      {
+          "name":"Jonathan Chen",
+          "major":"Computer Science",
+          "year":"2025",
+          "hometown":"Queens, NY",
+          "funfact":"I am a seasoned poker player, and studying the game is one of my favorite pastimes.",
+          "image":"./img/headshots/JonathanChen.jpg",
+          "github":"",
+          "linkedin":"https://www.linkedin.com/in/jonathan-chen-377a261b6/"
+      }
+  ],
+  "PowerSystems": [
+      {
+          "name":"Robert Fleming",
+          "major":"ECE",
+          "year":"2023",
+          "hometown":"Wynnewood, PA",
+          "funfact":"I was born the same day as my sister but two years apart.",
+          "image":"./img/headshots/RobertFleming.jpeg",
+          "github":"https://pages.github.coecis.cornell.edu/rcf82/rcf82.github.io/index.html",
+          "linkedin":"https://www.linkedin.com/in/robert-choh-fleming-330501175/"
+      },
+      {
+          "name":"Max Garval",
+          "major":"ECE",
+          "year":"2024",
+          "hometown":"Fair Lawn, NJ",
+          "funfact":"I own nearly twenty beanies!", 
+          "image":"./img/headshots/MaxGarval.jpg",
+          "github":"",
+          "linkedin":""
+      },
+      {
+          "name":"Edward Liu",
+          "major":"ECE & Computer Science",
+          "year":"2023",
+          "hometown":"Millbrae, CA",
+          "funfact":"I went to highschool in Canada.",
+          "image":"./img/headshots/EdwardLiu.png",
+          "github":"",
+          "linkedin":"https://www.linkedin.com/in/edward-liu-312964195/"
+      },
+      {
+          "name":"Eshita Sangani",
+          "major":"",
+          "year":"",
+          "hometown":"",
+          "funfact":"",
+          "image":"./img/sample.jpg",
+          "github":"",
+          "linkedin":""
+      },
+       {
+          "name":"Schuyler Seyram",
+          "major":"ECE",
+          "year":"2024",
+          "hometown":"Ghana",
+          "funfact":"Not afraid of sparks when welding",
+          "image":"./img/headshots/SchuylerSeyram.jpg",
+          "github":"https://github.com/schuylerseyram",
+          "linkedin":"www.linkedin.com/in/schuyler-seyram-29a940204"
+      }
+  ],
+  "UI": [
+      {
+          "name":"David Glantz",
+          "major":"",
+          "year":"",
+          "hometown":"",
+          "funfact":"",
+          "image":"./img/sample.jpg",
+          "github":"",
+          "linkedin":""
+      },
+      {
+          "name":"Kelvin Wang",
+          "major":"Computer Science",
+          "year":"2024",
+          "hometown":"Ithaca, NY",
+          "funfact":"This picture is my roommate",
+          "image":"./img/sample.jpg",
+          "github":"",
+          "linkedin":""
+      },
+      {
+          "name":"Kenneth Yamashita",
+          "major":"",
+          "year":"",
+          "hometown":"",
+          "funfact":"",
+          "image":"./img/sample.jpg",
+          "github":"",
+          "linkedin":""
+      },
+      {
+          "name":"Likita Gangireddy",
+          "major":"",
+          "year":"",
+          "hometown":"",
+          "funfact":"",
+          "image":"./img/sample.jpg",
+          "github":"",
+          "linkedin":""
+      },
+      {
+          "name":"Ryan Mao",
+          "major":"CS & ORIE",
+          "year":"2024",
+          "hometown":"Ithaca, NY",
+          "funfact":"I have a cat.",
+          "image":"./img/sample.jpg",
+          "github":"",
+          "linkedin":""
+      },
+      {
+          "name":"Morgan Lo",
+          "major":"",
+          "year":"",
+          "hometown":"",
+          "funfact":"",
+          "image":"./img/sample.jpg",
+          "github":"",
+          "linkedin":""
+      }
+  ]
+}
