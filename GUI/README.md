@@ -1,8 +1,8 @@
 Setup:
 1. Clone this repo
 2. Install the dependencies: python -m pip install -r requirements.txt
-    -Python version > 3.5 (3.9 might be unstable)
-3. Run the GUI: python hyperloop_gui.py
+    -Python version > 3.5
+3. Run the GUI: python main.py
 
 Widget Choices & Reasoning
 1. Window : MainWindow
