@@ -27,11 +27,11 @@ export default class Navbar extends Component {
                         </div>
                         <div class="hidden md:block">
                             <div class="ml-10 flex items-baseline space-x-3">
-                                <button class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium" onClick={() => this.setStateAndRunCallback({page: 0})} type="button">Home</button>
-                                <button class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium" onClick={() => this.setStateAndRunCallback({page: 1})} type="button">About</button>
-                                <button class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium" onClick={() => this.setStateAndRunCallback({page: 2})} type="button">Computing Systems</button>
-                                <button class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium" onClick={() => this.setStateAndRunCallback({page: 3})} type="button">GUI</button>
-                                <button class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium" onClick={() => this.setStateAndRunCallback({page: 4})} type="button">Power Systems</button>
+                                <button class="text-gray-300 hover:bg-gray-700 hover:text-white px-2 py-2 rounded-md text-lg font-medium" onClick={() => this.setStateAndRunCallback({page: 0})} type="button">Home</button>
+                                <button class="text-gray-300 hover:bg-gray-700 hover:text-white px-2 py-2 rounded-md text-lg font-medium" onClick={() => this.setStateAndRunCallback({page: 1})} type="button">About</button>
+                                <button class="text-gray-300 hover:bg-gray-700 hover:text-white px-2 py-2 rounded-md text-lg font-medium" onClick={() => this.setStateAndRunCallback({page: 2})} type="button">Computing Systems</button>
+                                <button class="text-gray-300 hover:bg-gray-700 hover:text-white px-2 py-2 rounded-md text-lg font-medium" onClick={() => this.setStateAndRunCallback({page: 3})} type="button">GUI</button>
+                                <button class="text-gray-300 hover:bg-gray-700 hover:text-white px-2 py-2 rounded-md text-lg font-medium" onClick={() => this.setStateAndRunCallback({page: 4})} type="button">Power Systems</button>
                                 <div class="dropdown">
                                 <button type="button" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium">
                                     Previous Projects
