@@ -47,26 +47,6 @@
             "linkedin":"https://www.linkedin.com/in/david-wolfers/"
         },
         {
-            "name":"Nandita Kathiresan",
-            "major":"",
-            "year":"",
-            "hometown":"",
-            "funfact":"",
-            "image":"./img/sample.jpg",
-            "github":"",
-            "linkedin":""
-        },
-        {
-            "name":"Chris Chan",
-            "major":"",
-            "year":"",
-            "hometown":"",
-            "funfact":"",
-            "image":"./img/sample.jpg",
-            "github":"",
-            "linkedin":""
-        },
-        {
             "name":"Kyra Watts",
             "major":"Physics & Computer Science",
             "year":"2024",
@@ -85,16 +65,6 @@
             "image":"./img/headshots/RidhitBhura.jpeg",
             "github":"https://github.com/ridhitbhura",
             "linkedin":"https://www.linkedin.com/in/ridhit/"
-        },
-        {
-            "name":"Vanshaj Jain",
-            "major":"",
-            "year":"",
-            "hometown":"",
-            "funfact":"",
-            "image":"./img/sample.jpg",
-            "github":"",
-            "linkedin":""
         },
         {
             "name":"Anoushka Kabra",
@@ -148,16 +118,6 @@
             "github":"",
             "linkedin":"https://www.linkedin.com/in/edward-liu-312964195/"
         },
-        {
-            "name":"Eshita Sangani",
-            "major":"",
-            "year":"",
-            "hometown":"",
-            "funfact":"",
-            "image":"./img/sample.jpg",
-            "github":"",
-            "linkedin":""
-        },
          {
             "name":"Schuyler Seyram",
             "major":"ECE",
@@ -171,16 +131,6 @@
     ],
     "UI": [
         {
-            "name":"David Glantz",
-            "major":"",
-            "year":"",
-            "hometown":"",
-            "funfact":"",
-            "image":"./img/sample.jpg",
-            "github":"",
-            "linkedin":""
-        },
-        {
             "name":"Kelvin Wang",
             "major":"Computer Science",
             "year":"2024",
@@ -191,41 +141,11 @@
             "linkedin":""
         },
         {
-            "name":"Kenneth Yamashita",
-            "major":"",
-            "year":"",
-            "hometown":"",
-            "funfact":"",
-            "image":"./img/sample.jpg",
-            "github":"",
-            "linkedin":""
-        },
-        {
-            "name":"Likita Gangireddy",
-            "major":"",
-            "year":"",
-            "hometown":"",
-            "funfact":"",
-            "image":"./img/sample.jpg",
-            "github":"",
-            "linkedin":""
-        },
-        {
             "name":"Ryan Mao",
             "major":"CS & ORIE",
             "year":"2024",
             "hometown":"Ithaca, NY",
             "funfact":"I have a cat.",
-            "image":"./img/sample.jpg",
-            "github":"",
-            "linkedin":""
-        },
-        {
-            "name":"Morgan Lo",
-            "major":"",
-            "year":"",
-            "hometown":"",
-            "funfact":"",
             "image":"./img/sample.jpg",
             "github":"",
             "linkedin":""

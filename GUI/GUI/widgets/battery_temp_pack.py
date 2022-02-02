@@ -18,7 +18,7 @@ class TempGraph(QWidget):
         self.Stack.addWidget(self.stack2)
         self.Stack.addWidget(self.stack3)
 
-        self.select.addItem("?? ")
+        self.select.addItem("thermistor 1")
         self.select.addItem("thermistor")
         self.select.addItem("visualization")
 

@@ -13,10 +13,6 @@ class Graph(QWidget):
         self.y = 0
         self.layout = QGridLayout()
         self.graphWidget = pg.PlotWidget()
-        # Sample data as array (neater demo)
-        second = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        temperature = [30, 32, 34, 32, 33, 31, 29, 32, 35, 45]
-        # Sample data from a txt file
 
         self.graphWidget.setBackground((224, 224, 224))
         # self.graphWidget.plot(second, temperature, pen=pen,
