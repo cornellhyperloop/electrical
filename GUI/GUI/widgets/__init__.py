@@ -14,3 +14,4 @@ from .help_popup import HelpPopup
 from .timer import Timer
 from .thermistor import Thermistor
 from .vibration_sensor import VibrationSensor
+from .pressure_sensor import PressureSensor
