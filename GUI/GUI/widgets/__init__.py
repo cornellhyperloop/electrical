@@ -15,3 +15,6 @@ from .timer import Timer
 from .thermistor import Thermistor
 from .vibration_sensor import VibrationSensor
 from .pressure_sensor import PressureSensor
+from .speedometer import Speedometer
+from .speed import Speed
+from .accelerometer import Accelerometer
