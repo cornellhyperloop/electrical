@@ -30,6 +30,8 @@ class MainWindow(QWidget):
         splitter2.addWidget(battery)
         proximitySensor = ProximitySensor()
         splitter2.addWidget(proximitySensor)
+        vibrationSensor = VibrationSensor()
+        splitter2.addWidget(vibrationSensor)
         fsm = FSM()
         ldrf = LongDistanceRangefinder()
         splitter2.addWidget(ldrf)

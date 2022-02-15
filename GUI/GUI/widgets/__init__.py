@@ -13,3 +13,4 @@ from .battery_temp_pack import TempGraph
 from .help_popup import HelpPopup
 from .timer import Timer
 from .thermistor import Thermistor
+from .vibration_sensor import VibrationSensor
