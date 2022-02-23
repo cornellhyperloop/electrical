@@ -1,10 +1,40 @@
+# {
+# 'sensor1': value1,
+# 'sensor2': value2,
+# 'sensor3': value3,
+# 'sensor4': value4,
+# 'sensor5': value5,
+# 'Thermistor': [value1, value2, value3, value4, value5]
+# }
+# {
+# 'sensor1': value1,
+# 'Pressure': value1
+# }
+# {
+# 'sensor1': value1,
+# 'Distance: value1
+# }
+# {
+# 'sensor1': value1,
+# ‘Sensor2’: value2
+# 'Angular Rate': value1
+# ‘Acceleration’: value2
+# }
+
 # FSM Data
 CURRENT_STATE = "acceleration"
 
 # Battery Pack Data
 BATTERY_CURRENT_TEMP = 0
 BATTERY_MAXIMUM_TEMP = 100
-BATTERY_AVG_TEMP = 0
+BATTERY_1 = 40
+BATTERY_2 = 82
+BATTERY_3 = 100
+BATTERY_4 = 0
+BATTERY_5 = 67
+BATTERY_6 = 72
+BATTERY_7 = 94
+BATTERY_8 = 89
 
 # Inductive Proximity Sensor Data
 PROXIMITY_INPUT1 = 2
@@ -21,21 +51,19 @@ PROXIMITY_LED4 = 13
 PROXIMITY_SENSOR_STATE4 = "high"
 
 # Vibration Sensor Data
-BUTTON_PIN = 2
-BUZZER = 3
-BUTTON_STATE = 0
+VIBRATIONLEVEL = "low"
 
 # Inertial Measurement Unit Data
-CURRENT_VELOCITY = 2
-ACCELERATION = 3
+CURRENT_VELOCITY = 50
+ACCELERATION = 70
 PITCH = [90, -132, 54, 2]
 YAW = [129, 0, -83, 324]
 ROLL = [-12, 55, 39, 360]
 
 # Pressure Sensor Data
-CURRENT_TEMPERATURE = 40
-ALTITUDE = 50
-PRESSURE = 20
+ABSOLUTE_PRESSURE = 30.29
+RELATIVE_PRESSURE = 29.80
+ALTITUDE = 33000
 
 # Long Distance Range Finder Data
 DISTANCE = 30
