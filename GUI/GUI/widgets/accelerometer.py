@@ -16,7 +16,7 @@ class Accelerometer(QWidget):
         dial.setMinimum(0)
         dial.setMaximum(100)
         dial.setValue(constants.ACCELERATION)
-        if constants.ACCELERATION > 60:
+        if constants.ACCELERATION > constants.ACCELERATION_THRESHOLD:
             dial.setStyleSheet("background-color : red")
         else:
             dial.setStyleSheet("background-color : green")

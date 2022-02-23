@@ -16,7 +16,7 @@ class Speedometer(QWidget):
         dial.setMinimum(0)
         dial.setMaximum(100)
         dial.setValue(constants.CURRENT_VELOCITY)
-        if constants.CURRENT_VELOCITY > 60:
+        if constants.CURRENT_VELOCITY > constants.VELOCITY_THRESHOLD:
             dial.setStyleSheet("background-color : red")
         else:
             dial.setStyleSheet("background-color : green")
