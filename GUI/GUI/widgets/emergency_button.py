@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 import sys
 
+
 class EmergencyButton(QWidget):
     def __init__(self, parent=None):
         super(EmergencyButton, self).__init__(parent)
@@ -12,11 +13,14 @@ class EmergencyButton(QWidget):
         self.push = QPushButton(self)
         self.push.setText("Emergency\nBreak")
         self.push.setFont(QFont('AnyStyle', 18))
-        self.push.setStyleSheet(
-            "background-color : red; border-radius: 5px; font-weight: bold; border: 3px solid black")
         self.push.clicked.connect(self.pushedEmergency)
         #self.push.resize(400, 200)
         #self.push.move(0, 50)
+        self.push.setStyleSheet(
+            "background-color : red; border-radius: 5px; font-weight: bold; border: 3px solid black")
+        # sshFile = "test.css"
+        # with open(sshFile, "r") as fh:
+        #     self.push.setStyleSheet(fh.read())
 
     def msgButtonClick(self, i):
         print("Button clicked is:", i.text())

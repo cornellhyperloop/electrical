@@ -1,6 +1,5 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
-
 from widgets import *
 
 
@@ -10,7 +9,9 @@ class MainWindow(QWidget):
 
         # Insert change here
         self.setWindowTitle("Hyperloop GUI")
-        self.setStyleSheet("background-color : white")
+        sshFile = "test.css"
+        with open(sshFile, "r") as fh:
+            qstr = str(fh.read())
 
         hbox = QHBoxLayout(self)
 
@@ -27,12 +28,16 @@ class MainWindow(QWidget):
 
         splitter2 = QSplitter(Qt.Horizontal)
         battery = Battery()
+        battery.setStyleSheet(qstr)
         splitter2.addWidget(battery)
         proximitySensor = ProximitySensor()
+        proximitySensor.setStyleSheet(qstr)
         splitter2.addWidget(proximitySensor)
         vibrationSensor = VibrationSensor()
+        vibrationSensor.setStyleSheet(qstr)
         splitter2.addWidget(vibrationSensor)
         pressureSensor = PressureSensor()
+        pressureSensor.setStyleSheet(qstr)
         splitter2.addWidget(pressureSensor)
         fsm = FSM()
         ldrf = LongDistanceRangefinder()
@@ -41,6 +46,12 @@ class MainWindow(QWidget):
 
         splitter3 = QSplitter(Qt.Horizontal)
         speed = Speed()
+        speed.setStyleSheet(qstr)
+        # speed.setStyleSheet("color: red;"
+        #                     "background-color: #87CEFA;"
+        #                     "border-style: dashed;"
+        #                     "border-width: 3px;"
+        #                     "border-color: red")
         splitter3.addWidget(speed)
         speedometer = Speedometer()
         splitter3.addWidget(speedometer)
