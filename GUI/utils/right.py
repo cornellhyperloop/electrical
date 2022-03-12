@@ -7,7 +7,7 @@ class Right(QWidget):
     def __init__(self, *args, **kwargs):
         super(Right, self).__init__()
 
-        sshFile = "right.css"
+        sshFile = "utils/right.css"
         with open(sshFile, "r") as fh:
             qstr = str(fh.read())
 

@@ -7,7 +7,7 @@ class Header(QWidget):
     def __init__(self, *args, **kwargs):
         super(Header, self).__init__()
         hbox = QHBoxLayout(self)
-        sshFile = "header.css"
+        sshFile = "utils/header.css"
         with open(sshFile, "r") as fh:
             qstr = str(fh.read())
 

@@ -8,7 +8,7 @@ class Left(QWidget):
         super(Left, self).__init__()
         hbox = QHBoxLayout(self)
 
-        sshFile = "left.css"
+        sshFile = "utils/left.css"
         with open(sshFile, "r") as fh:
             qstr = str(fh.read())
 

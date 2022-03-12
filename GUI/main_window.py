@@ -1,9 +1,9 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from widgets import *
-from header import Header
-from left import Left
-from right import Right
+from utils.header import Header
+from utils.left import Left
+from utils.right import Right
 
 
 class MainWindow(QWidget):
@@ -37,4 +37,4 @@ class MainWindow(QWidget):
         self.setLayout(hbox)
         QApplication.setStyle(QStyleFactory.create('Cleanlooks'))
 
-        self.setGeometry(300, 300, 1250, 750)
+        self.setGeometry(300, 300, 1250, 900)
