@@ -14,3 +14,4 @@ qtgui==0.0.1
 serial==0.0.97
 six==1.14.0
 PyOpenGL
+json
