@@ -13,7 +13,7 @@ void callback_handler(const zcm_recv_buf_t *rbuf, const char *channel, const sen
 
 int main(int argc, char *argv[])
 {
-	zcm_t *zcm = zcm_create("ipc");
+	zcm_t *zcm = zcm_create("udpm://234.255.76.67:7667?ttl=1");
 	sensor_info_t_subscribe(zcm, "SENSOR_INFO", callback_handler, NULL);
 
 	zcm_run(zcm);

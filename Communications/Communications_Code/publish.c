@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[])
 {
-	zcm_t *zcm = zcm_create("ipc");
+	zcm_t *zcm = zcm_create("udpm://234.255.76.67:7667?ttl=1");
 
 	sensor_info_t msg;
 	msg.velocity = 10;
