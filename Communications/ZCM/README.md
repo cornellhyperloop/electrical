@@ -92,7 +92,7 @@ The Zero Communication and Marshalling protocol can be found at [this](http://ze
 ```
 ./waf configure --use-all --python=python3
 ./waf build
-./waf install
+sudo ./waf install
 ```
 ---
 ### NOTES:
