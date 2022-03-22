@@ -12,9 +12,7 @@ class MainWindow(QWidget):
 
         # Insert change here
         self.setWindowTitle("Hyperloop GUI")
-        sshFile = "test.css"
-        with open(sshFile, "r") as fh:
-            qstr = str(fh.read())
+        
 
         hbox = QHBoxLayout(self)
 
@@ -36,5 +34,6 @@ class MainWindow(QWidget):
         hbox.addWidget(splitter4)
         self.setLayout(hbox)
         QApplication.setStyle(QStyleFactory.create('Cleanlooks'))
+        self.setStyleSheet(" background-color: #494949;")
 
         self.setGeometry(300, 300, 1250, 900)
