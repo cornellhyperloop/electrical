@@ -3,7 +3,8 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from pyqtgraph import PlotWidget, plot
 import pyqtgraph as pg
-
+import serial
+import json
 
 class Graph(QWidget):
 
@@ -22,9 +23,24 @@ class Graph(QWidget):
         self.timer = QTimer(self, timeout=self.update)
         self.timer.start(1000)
 
+        # Live thermistor plotting ---
+        self.arduino = serial.Serial('/dev/cu.usbmodem') # UPDATE WITH CORRECT PORT
+
     def update(self):
         self.x += 1
-        self.y += 1
+        # self.y += 1
+        # pen = pg.mkPen(width=10)
+        # self.graphWidget.plot([self.x], [self.y],
+        #                     pen=pen, symbol='x', symbolSize=30)
+        
+        # Process live thermistor data ---
+        data = json.loads(self.arduino.readline().decode()) # load data in the format defined by the JSON scheme
+        
+        # UPDATED BASED ON THE JSON SCHEME
+        thermistorValue1 = data['Thermistor1']
+        thermistorValue2 = data['Thermistor2']
+
         pen = pg.mkPen(width=10)
-        self.graphWidget.plot([self.x], [self.y],
-                              pen=pen, symbol='x', symbolSize=30)
+        self.graphWidget.plot([self.x], [thermistorValue1],
+                            pen=pen, symbol='x', symbolSize=30)
+
