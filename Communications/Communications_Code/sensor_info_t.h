@@ -19,9 +19,15 @@ extern "C" {
 typedef struct _sensor_info_t sensor_info_t;
 struct _sensor_info_t
 {
-    float      velocity;
-    float      fiducial_detector_value;
-    float      thermistor_value;
+    float      imu_acceleration_x;
+    float      imu_acceleration_y;
+    float      imu_acceleration_z;
+    float      imu_gyroscope;
+    float      imu_magnetometer;
+    float      pressure;
+    float      temperature;
+    float      proximity;
+    float      distance;
 };
 
 /**

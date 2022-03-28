@@ -24,7 +24,13 @@ uint64_t __sensor_info_t_hash_recursive(const __zcm_hash_ptr* p)
     cp.v = (void*)__sensor_info_t_get_hash;
     (void) cp;
 
-    uint64_t hash = (uint64_t)0xe63669853053c429LL
+    uint64_t hash = (uint64_t)0xf14ccf262fcfcc10LL
+         + __float_hash_recursive(&cp)
+         + __float_hash_recursive(&cp)
+         + __float_hash_recursive(&cp)
+         + __float_hash_recursive(&cp)
+         + __float_hash_recursive(&cp)
+         + __float_hash_recursive(&cp)
          + __float_hash_recursive(&cp)
          + __float_hash_recursive(&cp)
          + __float_hash_recursive(&cp)
@@ -45,22 +51,49 @@ int64_t __sensor_info_t_get_hash(void)
 
 int __sensor_info_t_encode_array(void* buf, uint32_t offset, uint32_t maxlen, const sensor_info_t* p, uint32_t elements)
 {
-    uint32_t pos = 0, element;
+    uint32_t pos_byte = 0, element;
     int thislen;
 
     for (element = 0; element < elements; ++element) {
 
-        thislen = __float_encode_array(buf, offset + pos, maxlen - pos, &(p[element].velocity), 1);
-        if (thislen < 0) return thislen; else pos += thislen;
+        /* imu_acceleration_x */
+        thislen = __float_encode_array(buf, offset + pos_byte, maxlen - pos_byte, &(p[element].imu_acceleration_x), 1);
+        if (thislen < 0) return thislen; else pos_byte += thislen;
 
-        thislen = __float_encode_array(buf, offset + pos, maxlen - pos, &(p[element].fiducial_detector_value), 1);
-        if (thislen < 0) return thislen; else pos += thislen;
+        /* imu_acceleration_y */
+        thislen = __float_encode_array(buf, offset + pos_byte, maxlen - pos_byte, &(p[element].imu_acceleration_y), 1);
+        if (thislen < 0) return thislen; else pos_byte += thislen;
 
-        thislen = __float_encode_array(buf, offset + pos, maxlen - pos, &(p[element].thermistor_value), 1);
-        if (thislen < 0) return thislen; else pos += thislen;
+        /* imu_acceleration_z */
+        thislen = __float_encode_array(buf, offset + pos_byte, maxlen - pos_byte, &(p[element].imu_acceleration_z), 1);
+        if (thislen < 0) return thislen; else pos_byte += thislen;
+
+        /* imu_gyroscope */
+        thislen = __float_encode_array(buf, offset + pos_byte, maxlen - pos_byte, &(p[element].imu_gyroscope), 1);
+        if (thislen < 0) return thislen; else pos_byte += thislen;
+
+        /* imu_magnetometer */
+        thislen = __float_encode_array(buf, offset + pos_byte, maxlen - pos_byte, &(p[element].imu_magnetometer), 1);
+        if (thislen < 0) return thislen; else pos_byte += thislen;
+
+        /* pressure */
+        thislen = __float_encode_array(buf, offset + pos_byte, maxlen - pos_byte, &(p[element].pressure), 1);
+        if (thislen < 0) return thislen; else pos_byte += thislen;
+
+        /* temperature */
+        thislen = __float_encode_array(buf, offset + pos_byte, maxlen - pos_byte, &(p[element].temperature), 1);
+        if (thislen < 0) return thislen; else pos_byte += thislen;
+
+        /* proximity */
+        thislen = __float_encode_array(buf, offset + pos_byte, maxlen - pos_byte, &(p[element].proximity), 1);
+        if (thislen < 0) return thislen; else pos_byte += thislen;
+
+        /* distance */
+        thislen = __float_encode_array(buf, offset + pos_byte, maxlen - pos_byte, &(p[element].distance), 1);
+        if (thislen < 0) return thislen; else pos_byte += thislen;
 
     }
-    return pos;
+    return pos_byte;
 }
 
 int sensor_info_t_encode(void* buf, uint32_t offset, uint32_t maxlen, const sensor_info_t* p)
@@ -83,11 +116,23 @@ uint32_t __sensor_info_t_encoded_array_size(const sensor_info_t* p, uint32_t ele
     uint32_t size = 0, element;
     for (element = 0; element < elements; ++element) {
 
-        size += __float_encoded_array_size(&(p[element].velocity), 1);
+        size += __float_encoded_array_size(&(p[element].imu_acceleration_x), 1); // imu_acceleration_x
 
-        size += __float_encoded_array_size(&(p[element].fiducial_detector_value), 1);
+        size += __float_encoded_array_size(&(p[element].imu_acceleration_y), 1); // imu_acceleration_y
 
-        size += __float_encoded_array_size(&(p[element].thermistor_value), 1);
+        size += __float_encoded_array_size(&(p[element].imu_acceleration_z), 1); // imu_acceleration_z
+
+        size += __float_encoded_array_size(&(p[element].imu_gyroscope), 1); // imu_gyroscope
+
+        size += __float_encoded_array_size(&(p[element].imu_magnetometer), 1); // imu_magnetometer
+
+        size += __float_encoded_array_size(&(p[element].pressure), 1); // pressure
+
+        size += __float_encoded_array_size(&(p[element].temperature), 1); // temperature
+
+        size += __float_encoded_array_size(&(p[element].proximity), 1); // proximity
+
+        size += __float_encoded_array_size(&(p[element].distance), 1); // distance
 
     }
     return size;
@@ -100,22 +145,49 @@ uint32_t sensor_info_t_encoded_size(const sensor_info_t* p)
 
 int __sensor_info_t_decode_array(const void* buf, uint32_t offset, uint32_t maxlen, sensor_info_t* p, uint32_t elements)
 {
-    uint32_t pos = 0, element;
+    uint32_t pos_byte = 0, element;
     int thislen;
 
     for (element = 0; element < elements; ++element) {
 
-        thislen = __float_decode_array(buf, offset + pos, maxlen - pos, &(p[element].velocity), 1);
-        if (thislen < 0) return thislen; else pos += thislen;
+        /* imu_acceleration_x */
+        thislen = __float_decode_array(buf, offset + pos_byte, maxlen - pos_byte, &(p[element].imu_acceleration_x), 1);
+        if (thislen < 0) return thislen; else pos_byte += thislen;
 
-        thislen = __float_decode_array(buf, offset + pos, maxlen - pos, &(p[element].fiducial_detector_value), 1);
-        if (thislen < 0) return thislen; else pos += thislen;
+        /* imu_acceleration_y */
+        thislen = __float_decode_array(buf, offset + pos_byte, maxlen - pos_byte, &(p[element].imu_acceleration_y), 1);
+        if (thislen < 0) return thislen; else pos_byte += thislen;
 
-        thislen = __float_decode_array(buf, offset + pos, maxlen - pos, &(p[element].thermistor_value), 1);
-        if (thislen < 0) return thislen; else pos += thislen;
+        /* imu_acceleration_z */
+        thislen = __float_decode_array(buf, offset + pos_byte, maxlen - pos_byte, &(p[element].imu_acceleration_z), 1);
+        if (thislen < 0) return thislen; else pos_byte += thislen;
+
+        /* imu_gyroscope */
+        thislen = __float_decode_array(buf, offset + pos_byte, maxlen - pos_byte, &(p[element].imu_gyroscope), 1);
+        if (thislen < 0) return thislen; else pos_byte += thislen;
+
+        /* imu_magnetometer */
+        thislen = __float_decode_array(buf, offset + pos_byte, maxlen - pos_byte, &(p[element].imu_magnetometer), 1);
+        if (thislen < 0) return thislen; else pos_byte += thislen;
+
+        /* pressure */
+        thislen = __float_decode_array(buf, offset + pos_byte, maxlen - pos_byte, &(p[element].pressure), 1);
+        if (thislen < 0) return thislen; else pos_byte += thislen;
+
+        /* temperature */
+        thislen = __float_decode_array(buf, offset + pos_byte, maxlen - pos_byte, &(p[element].temperature), 1);
+        if (thislen < 0) return thislen; else pos_byte += thislen;
+
+        /* proximity */
+        thislen = __float_decode_array(buf, offset + pos_byte, maxlen - pos_byte, &(p[element].proximity), 1);
+        if (thislen < 0) return thislen; else pos_byte += thislen;
+
+        /* distance */
+        thislen = __float_decode_array(buf, offset + pos_byte, maxlen - pos_byte, &(p[element].distance), 1);
+        if (thislen < 0) return thislen; else pos_byte += thislen;
 
     }
-    return pos;
+    return pos_byte;
 }
 
 int __sensor_info_t_decode_array_cleanup(sensor_info_t* p, uint32_t elements)
@@ -123,11 +195,23 @@ int __sensor_info_t_decode_array_cleanup(sensor_info_t* p, uint32_t elements)
     uint32_t element;
     for (element = 0; element < elements; ++element) {
 
-        __float_decode_array_cleanup(&(p[element].velocity), 1);
+        __float_decode_array_cleanup(&(p[element].imu_acceleration_x), 1);
 
-        __float_decode_array_cleanup(&(p[element].fiducial_detector_value), 1);
+        __float_decode_array_cleanup(&(p[element].imu_acceleration_y), 1);
 
-        __float_decode_array_cleanup(&(p[element].thermistor_value), 1);
+        __float_decode_array_cleanup(&(p[element].imu_acceleration_z), 1);
+
+        __float_decode_array_cleanup(&(p[element].imu_gyroscope), 1);
+
+        __float_decode_array_cleanup(&(p[element].imu_magnetometer), 1);
+
+        __float_decode_array_cleanup(&(p[element].pressure), 1);
+
+        __float_decode_array_cleanup(&(p[element].temperature), 1);
+
+        __float_decode_array_cleanup(&(p[element].proximity), 1);
+
+        __float_decode_array_cleanup(&(p[element].distance), 1);
 
     }
     return 0;
@@ -160,11 +244,23 @@ uint32_t __sensor_info_t_clone_array(const sensor_info_t* p, sensor_info_t* q, u
     uint32_t n = 0, element;
     for (element = 0; element < elements; ++element) {
 
-        n += __float_clone_array(&(p[element].velocity), &(q[element].velocity), 1);
+        n += __float_clone_array(&(p[element].imu_acceleration_x), &(q[element].imu_acceleration_x), 1);
 
-        n += __float_clone_array(&(p[element].fiducial_detector_value), &(q[element].fiducial_detector_value), 1);
+        n += __float_clone_array(&(p[element].imu_acceleration_y), &(q[element].imu_acceleration_y), 1);
 
-        n += __float_clone_array(&(p[element].thermistor_value), &(q[element].thermistor_value), 1);
+        n += __float_clone_array(&(p[element].imu_acceleration_z), &(q[element].imu_acceleration_z), 1);
+
+        n += __float_clone_array(&(p[element].imu_gyroscope), &(q[element].imu_gyroscope), 1);
+
+        n += __float_clone_array(&(p[element].imu_magnetometer), &(q[element].imu_magnetometer), 1);
+
+        n += __float_clone_array(&(p[element].pressure), &(q[element].pressure), 1);
+
+        n += __float_clone_array(&(p[element].temperature), &(q[element].temperature), 1);
+
+        n += __float_clone_array(&(p[element].proximity), &(q[element].proximity), 1);
+
+        n += __float_clone_array(&(p[element].distance), &(q[element].distance), 1);
 
     }
     return n;
