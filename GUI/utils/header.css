@@ -1,9 +1,12 @@
 QWidget {
-  color: blue;
-  background-color: #87cefa;
-  border-style: dashed;
-  border-width: 3px;
-  border-color: #1e90ff;
+  color: rgb(173, 173, 173);
+  background-color: #494949;
+  border-style: outset;
+  border-width: 1.5px;
+  border-color: #ff1e1e;
+}
+QSplitter {
+  border-width: 0;
 }
 
 QPushButton {
