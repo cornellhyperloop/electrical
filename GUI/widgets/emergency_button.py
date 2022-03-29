@@ -1,11 +1,13 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
+from .fsm import FSM
 import sys
 
 
 class EmergencyButton(QWidget):
-    def __init__(self, parent=None):
+    def __init__(self, fsm, parent=None):
         super(EmergencyButton, self).__init__(parent)
+        self.fsm = fsm
         self.initUI()
 
     def initUI(self):
@@ -26,16 +28,18 @@ class EmergencyButton(QWidget):
         print("Button clicked is:", i.text())
 
     def pushedEmergency(self):
-        self.msgBox = QMessageBox()
-        self.msgBox.setIcon(QMessageBox.Information)
-        self.msgBox.setText("Do you want to terminate program?")
-        self.msgBox.setWindowTitle("Emergency Button Pushed!")
-        self.msgBox.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
-        self.msgBox.buttonClicked.connect(self.msgButtonClick)
+        # self.msgBox = QMessageBox()
+        # self.msgBox.setIcon(QMessageBox.Information)
+        # self.msgBox.setText("Do you want to terminate program?")
+        # self.msgBox.setWindowTitle("Emergency Button Pushed!")
+        # self.msgBox.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+        # self.msgBox.buttonClicked.connect(self.msgButtonClick)
 
-        returnValue = self.msgBox.exec()
-        if returnValue == QMessageBox.Ok:
-            print('OK clicked')
-            sys.exit()
-        else:
-            print("Action cancelled")
+        # returnValue = self.msgBox.exec()
+        # if returnValue == QMessageBox.Ok:
+        #     print('OK clicked')
+        #     sys.exit()
+        # else:
+        #     print("Action cancelled")
+
+        self.fsm.changeState('Emergency')

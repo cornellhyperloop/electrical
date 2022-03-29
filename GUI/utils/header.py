@@ -15,9 +15,16 @@ class Header(QWidget):
 
         quit = Quit()
         splitter1.addWidget(quit)
-        emergency_button = EmergencyButton()
+
+        fsm = FSM()
+
+        emergency_button = EmergencyButton(fsm)
         splitter1.addWidget(emergency_button)
         splitter1.setSizes([2, 2])
+
+        splitter1.addWidget(fsm)
+        splitter1.setSizes([1, 1])
+
         help = HelpPopup()
         splitter1.addWidget(help)
         splitter1.setSizes([2, 2, 1, 50])
