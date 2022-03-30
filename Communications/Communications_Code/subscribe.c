@@ -2,9 +2,8 @@
 #include <zcm/zcm.h>
 #include <sensor_info_t.h>
 
-
 // void writeJson(char* fileName, const sensor_info_t *msg, size_t size);
-void writeJson(char* fileName, int* arr, size_t size);
+void writeJson(char *fileName, int *arr, size_t size);
 
 // struct sensor_info_t
 // {
@@ -36,18 +35,20 @@ void callback_handler(const zcm_recv_buf_t *rbuf, const char *channel, const sen
 	// writeJson("test.json", msg, 5);
 }
 
-void writeJson(char* fileName, int* arr, size_t size) {
-// void writeJson(char* fileName, const sensor_info_t *msg, size_t size) {
+void writeJson(char *fileName, int *arr, size_t size)
+{
+	// void writeJson(char* fileName, const sensor_info_t *msg, size_t size) {
 	size_t i;
-    FILE *fp = fopen (fileName, "w+"); /* open file for writing */
+	FILE *fp = fopen(fileName, "w+"); /* open file for writing */
 
-    if (!fp) {  /* validate file is open, or throw error */
-        fprintf (stderr, "writeJson() error: file open failed '%s'.\n", 
-                fileName);
-        return;
-    }
+	if (!fp)
+	{ /* validate file is open, or throw error */
+		fprintf(stderr, "writeJson() error: file open failed '%s'.\n",
+						fileName);
+		return;
+	}
 	// TODO : Add other sensor fields later
-  // {
+	// {
 	// 	"Temperature": {
 	// 		"temperature": 100
 	// 	}
@@ -66,37 +67,85 @@ void writeJson(char* fileName, int* arr, size_t size) {
 	//   float distance;
 	// }
 
-// 	{
-//   "IMU":{
-//     "accelerometer": [11.5, 9.6, 7.7],
-//     "gyroscope": 4.5,
-//     "magnetometer": 7.8
-//   },
-//   "Pressure":{
-//     "pressure": 180
-//   },
-//   "Temperature":{
-//     "temperature": 56
-//   },
-//   "Inductive Proximity":{
-//     "proximity": 2
-//   },
-//   "Long-range sensor":{
-//     "distance": 150
-//   }
-// }
+	// 	{
+	//   "IMU":{
+	//     "accelerometer": [11.5, 9.6, 7.7],
+	//     "gyroscope": 4.5,
+	//     "magnetometer": 7.8
+	//   },
+	//   "Pressure":{
+	//     "pressure": 180
+	//   },
+	//   "Temperature":{
+	//     "temperature": 56
+	//   },
+	//   "Inductive Proximity":{
+	//     "proximity": 2
+	//   },
+	//   "Long-range sensor":{
+	//     "distance": 150
+	//   }
+	// }
 
+	// IMU
+	fprintf(fp, "{ \n\"IMU\" : \n{");
+	// Accelerometer
+	fprintf(fp, "\"accelerometer\" : [");
+	// Print value
+	fprintf(fp, "%f, %f, %f", msg->imu_acceleration_x, msg->imu_acceleration_y, msg->imu_acceleration_z);
+	// fprintf(fp, "%f, %f, %f", 1, 2, 3);
+	fprintf(fp, "],\n")
 
-		fprintf (fp, "{ \n\"Temperature\" : \n{");
-		fprintf (fp, "\"temperature\" : ");
-		//Print value
-		// fprintf (fp, "%f", msg->thermistor_value);
-		fprintf (fp, "%f", 5.6);
+			// Gyroscope
+			fprintf(fp, "\"gyroscope\" : ");
+	// Print value
+	fprintf(fp, "%f", msg->imu_gyroscope);
+	// fprintf(fp, "%f", 1);
+	fprintf(fp, ",\n")
 
-		fprintf (fp, "}\n");
-		fprintf(fp, "}\n");
+			// Magnetometer
+			fprintf(fp, "\"magnetometer\" : ")
+			// Print value
+			fprintf(fp, "%f", msg->imu_magnetometer)
+			// fprintf(fp, "%f", 1);
+			fprintf(fp, ",\n")
+					fprintf(fp, "},\n");
 
-    fclose (fp);
+	// Pressure
+	fprintf(fp, "\"Pressure\" : \n{");
+	fprintf(fp, "\"pressure\" : ");
+	// Print value
+	fprintf(fp, "%f", msg->pressure);
+	// fprintf(fp, "%f", 5.6);
+	fprintf(fp, "\n },")
+
+			// Temperature
+			fprintf(fp, "\"Temperature\" : \n{");
+	fprintf(fp, "\"temperature\" : ");
+	// Print value
+	fprintf(fp, "%f", msg->temperature);
+	// fprintf(fp, "%f", 5.6);
+	fprintf(fp, "\n },")
+
+			// Inductive Proximity
+			fprintf(fp, "\"Inductive Proximity\" : \n{");
+	fprintf(fp, "\"proximity\" : ");
+	// Print value
+	fprintf(fp, "%f", msg->proximity);
+	// fprintf(fp, "%f", 5.6);
+	fprintf(fp, "\n },")
+
+			// Long-range sensor
+			fprintf(fp, "\"Long-range sensor\" : \n{");
+	fprintf(fp, "\"proximity\" : ");
+	// Print value
+	fprintf(fp, "%f", msg->distance);
+	// fprintf(fp, "%f", 5.6);
+	fprintf(fp, "\n },")
+
+			fprintf(fp, "}\n");
+
+	fclose(fp);
 }
 
 int main(int argc, char *argv[])
@@ -107,7 +156,7 @@ int main(int argc, char *argv[])
 	// zcm_run(zcm);
 
 	// zcm_destroy(zcm);
-	int array[] = { 1, 2, 3, 4, 5, 6, 7, 8 };
+	int array[] = {1, 2, 3, 4, 5, 6, 7, 8};
 	writeJson("test.json", array, 5);
 	return 0;
 }
