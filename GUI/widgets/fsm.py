@@ -3,6 +3,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from utils import stateMachine
 import constants
+import random
 
 
 class FSM(QWidget):
@@ -25,7 +26,19 @@ class FSM(QWidget):
         vbox.addWidget(self.state)
 
         self.setLayout(vbox)
-    
-    def changeState(self, newState):
-        self.state.setText(f'Current State: {newState}')
+
+        # Automatically update the displayed FSM state frequently
+        self.timerFSM = QTimer(self, timeout=self.updateStateText)
+        self.timerFSM.start(100)
+
+        # Use a timer to randomly change state for testing purposes
+        self.timerFSMRand = QTimer(self, timeout=self.update)
+        self.timerFSMRand.start(2000)
+        
+    def update(self):
+        newState = self.fsm.allStates[random.randint(0, len(self.fsm.allStates) - 1)]
+        self.fsm.setState(newState)
+
+    def updateStateText(self):
+        self.state.setText(f'Current State: {self.fsm.getState()}')
 

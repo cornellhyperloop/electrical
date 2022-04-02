@@ -42,4 +42,4 @@ class EmergencyButton(QWidget):
         # else:
         #     print("Action cancelled")
 
-        self.fsm.changeState('Emergency')
+        self.fsm.fsm.setState('Emergency')

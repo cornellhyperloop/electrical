@@ -4,7 +4,6 @@ A module that contains the FSM class.
 
 import time
 
-
 class FSM:
 
     # UPDATE CONSTANTS
@@ -31,9 +30,22 @@ class FSM:
             State 10: Pod Off
         """
 
-        self.currState = 0
-        self.nextState = 1
-        self.allStates = [1, 2, 3, 4, 5]
+        self.allStates = {
+            0: 'Pod On',
+            1: 'Verification',
+            2: 'Overheating',
+            3: 'Pre-Acceleration',
+            4: 'Acceleration',
+            5: 'Cruise',
+            6: 'Deceleration',
+            7: 'Crawl',
+            8: 'Stop',
+            9: 'Emergency',
+            10: 'Pod Off'
+        }
+
+        self.currState = self.allStates[0]
+        self.nextState = self.allStates[1]
 
         self.thermistor1 = 0
         self.thermistor2 = 0
@@ -55,11 +67,14 @@ class FSM:
         self.thermistor2 = 20
     
 
-    def changeState(self, newState):
+    def setState(self, newState):
 
         self.currState = newState
-    
 
+    def getState(self):
+
+        return self.currState
+    
     def stateTransition(self):
 
         self.updateThermistorData()
@@ -124,7 +139,10 @@ class FSM:
             time.sleep(1)
             print(f'Thermistor 1 Value: {self.thermistor1}, Thermistor 2 Value: {self.thermistor2} ')
             self.stateTransition()
+    
+    def runOneIteration(self):
 
+        self.stateTransition()
 
 if __name__ == '__main__':
     fsm = FSM()
