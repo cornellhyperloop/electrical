@@ -11,7 +11,6 @@ int main(int argc, char *argv[])
 	system( "MODE COM4: BAUD=9600 PARITY=n DATA=8 STOP=1" );
   serialPort = fopen("COM4:", "r" );
 	sensor_info_t msg;
-<<<<<<< Updated upstream
 
 	// struct sensor_info_t
 	// {
@@ -35,11 +34,6 @@ int main(int argc, char *argv[])
 	msg.temperature = 7.0; //TODO: Get value from arduino
 	msg.proximity = 8.0;
 	msg.distance = 9.0;
-=======
-	msg.velocity = 10;
-	msg.fiducial_detector_value = 20;
-	msg.thermistor_value = serialPort;
->>>>>>> Stashed changes
 
 	while (1) {
 		sensor_info_t_publish(zcm, "SENSOR_INFO", &msg);
