@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include <string.h>
 
 int main(int argc, char *argv[])
 {
@@ -17,7 +18,7 @@ int main(int argc, char *argv[])
 	int stop=0;
 	// system( "MODE /dev/ttyACM0: BAUD=9600 PARITY=n DATA=8 STOP=1" );
   	fd = open("/dev/ttyACM0", O_RDWR | O_NOCTTY);
-	char buf[28];
+	char buf[7];
 	// int n = read(serialPort, &buf, 128);
 	sensor_info_t msg;
 	// printf("%s\n",buf);
@@ -67,12 +68,16 @@ int main(int argc, char *argv[])
 	while(stop == 0){
 
 		/* read up to 128 bytes from the fd */
-		int n = read(fd, &buf, 128);
-		usleep(3000*1000);
+		int n = read(fd, &buf, 7);
+		usleep(500*1000);
 		/* print how many bytes read */
 		printf("%i bytes got read...\n", n);
 		/* print what's in the buffer */
 		printf("Buffer contains...\n%s\n", buf);
+
+		msg.temperature = atof(buf); //TODO: Get value from arduino
+		sensor_info_t_publish(zcm, "SENSOR_INFO", &msg);
+
 	}
 
 	// struct sensor_info_t
@@ -94,7 +99,7 @@ int main(int argc, char *argv[])
 	msg.imu_gyroscope = 4.0;
 	msg.imu_magnetometer = 5.0;
 	msg.pressure = 6.0;
-	msg.temperature = 6.0; //TODO: Get value from arduino
+	msg.temperature = atof(buf); //TODO: Get value from arduino
 	msg.proximity = 8.0;
 	msg.distance = 9.0;
 
