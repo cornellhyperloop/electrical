@@ -5,6 +5,7 @@ QWidget {
   border-width: 1.5px;
   border-color: #ff1e1e;
 }
+
 QSplitter {
   border-width: 0;
 }

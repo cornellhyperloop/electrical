@@ -40,11 +40,13 @@ export default class Modal extends React.Component {
               open
               onClick={this.handleShowDialog}
             >
-              <div>
-                <div class="h-full rounded overflow-hidden shadow-lg">
+              <div class="h-full rounded overflow-hidden shadow-lg flex flex-1 flex-col justify-between">
+                <div className="flex flex-1 flex-col justify-between">
                   <div class="px-1 py-1">
                     <div class="font-bold text-xl mb-2 px-2 pt-1">
-                      {this.member.name}, {this.member.year},{" "}
+                      {this.member.name}, {this.member.year}
+                    </div>
+                    <div class="font-bold text-sm mb-2 px-2 pt-1">
                       {this.member.major}
                     </div>
                     <p class="text-gray-700 text-base px-2">
