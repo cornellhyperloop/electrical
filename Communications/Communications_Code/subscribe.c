@@ -2,6 +2,7 @@
 #include <zcm/zcm.h>
 #include <sensor_info_t.h>
 
+
 // void writeJson(char* fileName, const sensor_info_t *msg, size_t size);
 void writeJson(char *fileName, int *arr, size_t size);
 
@@ -31,7 +32,6 @@ void callback_handler(const zcm_recv_buf_t *rbuf, const char *channel, const sen
 	printf("msg->proximity = '%f'\n", msg->proximity);
 	printf("msg->distance = '%f'\n", msg->distance);
 	printf("\n");
-
 	// writeJson("test.json", msg, 5);
 }
 

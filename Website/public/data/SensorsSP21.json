@@ -1,0 +1,7 @@
+{
+  "header": "Sensors",
+  "AboutUs": "In order to monitor the state of the pod, we will be using a variety of sensors. The sensors team works on selecting, researching, and integrating these sensors.",
+  "TeamMembers": "Winston Liu, Sophomore in CS; Olivia McGoldrick, Junior in ECE",
+  "Accomplishments": "Wired the sensors to the Odroid above & below the chassis, tested the new sensors with arduinos, designed mount for sensors"
+
+}

@@ -1,0 +1,19 @@
+{
+  "IMU":{
+    "accelerometer": [11.5, 9.6, 7.7],
+    "gyroscope": 4.5,
+    "magnetometer": 7.8
+  },
+  "Pressure":{
+    "pressure": 180
+  },
+  "Temperature":{
+    "temperature": 56
+  },
+  "Inductive Proximity":{
+    "proximity": 2
+  },
+  "Long-range sensor":{
+    "distance": 150
+  }
+}

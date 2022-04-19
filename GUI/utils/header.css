@@ -1,0 +1,28 @@
+QWidget {
+  color: rgb(173, 173, 173);
+  background-color: #494949;
+  border-style: outset;
+  border-width: 1.5px;
+  border-color: #ff1e1e;
+}
+QSplitter {
+  border-width: 0;
+}
+
+QPushButton {
+  border: 2px solid #8f8f91;
+  border-radius: 6px;
+  background-color: red min-width 80px;
+}
+
+QPushButton:pressed {
+  background-color: pink;
+}
+
+QPushButton:flat {
+  border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+  border-color: navy; /* make the default button prominent */
+}

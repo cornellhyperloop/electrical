@@ -36,3 +36,67 @@
     transform: rotate(360deg);
   }
 }
+
+.portrait-container {
+  width: w-64;
+  height: h-64;
+  max-width: 20rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  --tw-drop-shadow: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+  --tw-bg-opacity: 1;
+  background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  display: inline-block;
+  padding: 5px;
+  height: 300px;
+  width: 300px;
+  object-fit: fill;
+  position: relative;
+}
+.portrait-container:hover {
+  -o-transition: 0.1s;
+  -ms-transition: 0.1s;
+  -moz-transition: 0.1s;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  box-shadow: 10px 10px 5px #888888;
+}
+
+.portrait {
+  position: absolute;
+  border-radius: 5%;
+  height: inherit;
+  width: inherit;
+  align-items: center;
+  object-fit: cover;
+}
+
+.member-info {
+  position: relative;
+  height: 300px;
+  width: 300px;
+  object-fit: fill;
+}
+
+/* Chrome, Safari and Opera */
+#no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+#no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.dropdown nav {
+  display: none;
+  position: fixed;
+  background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
+}
+
+.dropdown:hover nav {
+  display: block;
+}
