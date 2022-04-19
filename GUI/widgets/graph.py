@@ -24,7 +24,7 @@ class Graph(QWidget):
         self.timer.start(1000)
 
         # Live thermistor plotting ---
-        self.arduino = serial.Serial('/dev/cu.usbmodem') # UPDATE WITH CORRECT PORT
+        #self.arduino = serial.Serial('/dev/cu.usbmodem') # UPDATE WITH CORRECT PORT
 
     def update(self):
         self.x += 1
@@ -34,11 +34,17 @@ class Graph(QWidget):
         #                     pen=pen, symbol='x', symbolSize=30)
         
         # Process live thermistor data ---
-        data = json.loads(self.arduino.readline().decode()) # load data in the format defined by the JSON scheme
+        #data = json.loads(self.arduino.readline().decode()) # load data in the format defined by the JSON scheme
+
+        with open('example.json') as f:
+            data = json.load(f)
         
         # UPDATED BASED ON THE JSON SCHEME
-        thermistorValue1 = data['Thermistor1']
-        thermistorValue2 = data['Thermistor2']
+        temperatureData = data['Temperature']
+        thermistorValue1 = temperatureData['temperature1']
+
+        sensor1 =  [10, 100, 50]
+        sensor2 = [10, 500, 40]
 
         pen = pg.mkPen(width=10)
         self.graphWidget.plot([self.x], [thermistorValue1],
