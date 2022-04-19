@@ -17,11 +17,12 @@ void loop() {
   Tc = T - 273.15;
   Tf = (Tc * 9.0)/ 5.0 + 32.0; 
 
-  Serial.print("Temperature: "); 
+//  Serial.print("Temperature: "); 
   Serial.print(Tf);
-  Serial.print(" F; ");
-  Serial.print(Tc);
-  Serial.println(" C");   
+  Serial.println();
+//  Serial.print(" F; ");
+//  Serial.print(Tc);
+//  Serial.println(" C ");   
 
   delay(500);
 }
