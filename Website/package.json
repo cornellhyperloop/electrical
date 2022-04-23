@@ -16,6 +16,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
+    "deploy": "gh-pages -d build",
     "test": "craco test",
     "eject": "react-scripts eject"
   },
@@ -40,6 +41,7 @@
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.2.14",
     "autoprefixer": "^9.8.6",
+    "gh-pages": "^3.2.3",
     "postcss": "^7.0.36",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.14"
   }
