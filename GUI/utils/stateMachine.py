@@ -86,7 +86,7 @@ class FSM:
                 self.nextState = 1
 
         elif self.currState == 1:
-            if self.thermistor1>=self.overheatingTemp and self.thermistor2>=overheatingTemp
+            if self.thermistor1>=self.overheatingTemp and self.thermistor2>=overheatingTemp:
                 self.nextState=2
 
         elif self.currState == 2:
