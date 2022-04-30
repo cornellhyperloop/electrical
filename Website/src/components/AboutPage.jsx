@@ -258,7 +258,10 @@ export default class AboutPage extends Component {
                     Electrical Team Overview
                   </h2>
                   <p>{pageData.overviewText}</p>
-
+                  <AboutScrollbar
+                    team="Leadership"
+                    teamData={pageData.Leadership}
+                  />
                   <AboutScrollbar
                     team="Computing Systems"
                     teamData={pageData.ComputingSystems}

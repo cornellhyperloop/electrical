@@ -1,5 +1,5 @@
 {
-    "ElectricalLead": [
+    "Leadership": [
         {
             "name":"Tim Tran",
             "major":"ECE & Computer Science",
@@ -9,10 +9,7 @@
             "image":"./img/headshots/TimTran.jpg",
             "github":"https://github.com/tacascer",
             "linkedin":"https://www.linkedin.com/in/timtran2018/"
-        }
-    ],
-    "HardwareLead": [
-        {
+        },{
             "name":"Ronin Sharma",
             "major":"ECE",
             "year":"2022",
@@ -21,10 +18,7 @@
             "image":"./img/headshots/RoninSharma.png",
             "github":"https://github.com/roninsharma25",
             "linkedin":"https://www.linkedin.com/in/ronin-sharma-8214b7146/"
-        }
-    ],
-    "SoftwareLead": [
-        {
+        },{
             "name":"Michael Guan",
             "major":"Computer Science",
             "year":"2022",
@@ -45,16 +39,6 @@
             "image":"./img/headshots/DavidWolfers.jpg",
             "github":"https://github.com/davidsw34",
             "linkedin":"https://www.linkedin.com/in/david-wolfers/"
-        },
-        {
-            "name":"Kyra Watts",
-            "major":"Physics & Computer Science",
-            "year":"2024",
-            "hometown":"Poughkeepsie, NY",
-            "funfact":"I play the violin!",
-            "image":"./img/headshots/KyraWatts.png",
-            "github":"",
-            "linkedin":"https://www.linkedin.com/in/kyra-watts-718015203/"
         },
         {
             "name":"Ridhit Bhura",
@@ -99,26 +83,6 @@
             "linkedin":"https://www.linkedin.com/in/robert-choh-fleming-330501175/"
         },
         {
-            "name":"Max Garval",
-            "major":"ECE",
-            "year":"2024",
-            "hometown":"Fair Lawn, NJ",
-            "funfact":"I own nearly twenty beanies!", 
-            "image":"./img/headshots/MaxGarval.jpg",
-            "github":"",
-            "linkedin":""
-        },
-        {
-            "name":"Edward Liu",
-            "major":"ECE & Computer Science",
-            "year":"2023",
-            "hometown":"Millbrae, CA",
-            "funfact":"I went to highschool in Canada.",
-            "image":"./img/headshots/EdwardLiu.png",
-            "github":"",
-            "linkedin":"https://www.linkedin.com/in/edward-liu-312964195/"
-        },
-         {
             "name":"Schuyler Seyram",
             "major":"ECE",
             "year":"2024",

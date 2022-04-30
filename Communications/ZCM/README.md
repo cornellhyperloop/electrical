@@ -29,6 +29,8 @@ Open up another shell:
 
 Make sure JAVA_HOME is set (eg. export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/)
 
+If Java is not installed, you can install it using the apt installer ( sudo apt install default-jdk )
+
 If you get the following error: 
 
 	./publish: error while loading shared libraries: libzcm.so: cannot open shared object file: No such file or directory
@@ -90,7 +92,7 @@ The Zero Communication and Marshalling protocol can be found at [this](http://ze
 ```
 ./waf configure --use-all --python=python3
 ./waf build
-./waf install
+sudo ./waf install
 ```
 ---
 ### NOTES:
@@ -113,6 +115,8 @@ then add this to your ~/.bashrc:\
 Add this to your ~/.bashrc:\
 `export DISPLAY=:0`\
 Now, download [XMing](https://sourceforge.net/projects/xming/), install with default settings, and open it.  Make sure you’ve restarted your terminal before running `zcm-spy` again.
+
+-	If you encounter issues with specific Julia versions while running `./waf configure --use-all`, install the latest version of Julia with `sudo apt install julia`. If issues still persist, comment out the lines (266-267) in `./wscript` checking the specific version of julia
 
 For those developing with ZeroCM, following [this](http://zerocm.github.io/zcm/docs/tutorial.html) tutorial will introduce you to the fundamentals.
 
