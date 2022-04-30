@@ -25,9 +25,10 @@ class Speed(QWidget):
         acceleration.setStyleSheet("background-color : rgb(143,255,91)")
         acceleration.setAlignment(Qt.AlignCenter)
 
-        vbox = QVBoxLayout()
+        hbox = QHBoxLayout()
+        splitter = QSplitter(Qt.Horizontal)
 
-        vbox.addWidget(velocity)
-        vbox.addWidget(acceleration)
+        hbox.addWidget(velocity)
+        hbox.addWidget(acceleration)
 
-        self.setLayout(vbox)
+        self.setLayout(hbox)
