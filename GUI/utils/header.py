@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from widgets import *
 from PyQt5.QtCore import QObject, pyqtSignal
+import time
 
 
 class Header(QWidget):
@@ -82,6 +83,14 @@ class Header(QWidget):
 
         hbox.addWidget(splitter3)
         self.setStyleSheet(qstr)
+
+        self.pBar= QProgressBar(self)
+        splitter4= QSplitter(Qt.Horizontal)
+        splitter4.addWidget(self.pBar)
+        for i in range(100):
+            time.sleep(0.5)
+            self.pBar.setValue(i)
+
 
     def navbar(self, b):
         print("clicked button is ", b.text())
