@@ -48,7 +48,7 @@ class Header(QWidget):
         self.b2.clicked.connect(lambda: self.navbar(self.b2))
         self.b3 = QPushButton("Battery")
         self.b3.clicked.connect(lambda: self.navbar(self.b3))
-        self.b4 = QPushButton("temp_button")
+        self.b4 = QPushButton("Temperature")
         self.b4.clicked.connect(lambda: self.navbar(self.b4))
         splitter2.addWidget(self.b1)
         splitter2.addWidget(self.b2)
