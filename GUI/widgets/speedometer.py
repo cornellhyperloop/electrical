@@ -35,6 +35,7 @@ class Speedometer(QWidget):
         self.timer.start(1000)
 
     def update(self):
+        constants.CURRENT_VELOCITY = self.dial.value()
         if self.dial.value() > constants.ACCELERATION_THRESHOLD:
             self.dial.setStyleSheet("background-color : red")
         else:
