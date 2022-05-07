@@ -1,5 +1,5 @@
 QWidget {
-  color: rgb(173, 173, 173);
+  color: rgb(255, 255, 255);
   background-color: #494949;
   border-style: outset;
   border-width: 1.5px;
@@ -26,3 +26,4 @@ QPushButton:flat {
 QPushButton:default {
   border-color: navy; /* make the default button prominent */
 }
+
