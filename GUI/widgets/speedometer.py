@@ -11,15 +11,15 @@ class Speedometer(QWidget):
         self.initUI()
 
     def initUI(self):
-        dial = QDial(self)
+        self.dial = QDial(self)
         # dial.setGeometry(100, 100, 100, 100)
-        dial.setMinimum(0)
-        dial.setMaximum(100)
-        dial.setValue(constants.CURRENT_VELOCITY)
+        self.dial.setMinimum(0)
+        self.dial.setMaximum(100)
+        self.dial.setValue(constants.CURRENT_VELOCITY)
         if constants.CURRENT_VELOCITY > constants.VELOCITY_THRESHOLD:
-            dial.setStyleSheet("background-color : red")
+            self.dial.setStyleSheet("background-color : red")
         else:
-            dial.setStyleSheet("background-color : green")
+            self.dial.setStyleSheet("background-color : green")
         # label = QLabel(self)
         # label.setText("Current Velocity: " +
         #               str(constants.CURRENT_VELOCITY) + " m/s")
@@ -28,6 +28,15 @@ class Speedometer(QWidget):
 
         vbox = QVBoxLayout()
 
-        vbox.addWidget(dial)
+        vbox.addWidget(self.dial)
         # vbox.addWidget(label)
         self.setLayout(vbox)
+        self.timer = QTimer(self, timeout=self.update)
+        self.timer.start(1000)
+
+    def update(self):
+        constants.CURRENT_VELOCITY = self.dial.value()
+        if self.dial.value() > constants.ACCELERATION_THRESHOLD:
+            self.dial.setStyleSheet("background-color : red")
+        else:
+            self.dial.setStyleSheet("background-color : green")

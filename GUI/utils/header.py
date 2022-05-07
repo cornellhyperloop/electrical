@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from widgets import *
 from PyQt5.QtCore import QObject, pyqtSignal
+import time
 
 
 class Header(QWidget):
@@ -47,7 +48,7 @@ class Header(QWidget):
         self.b2.clicked.connect(lambda: self.navbar(self.b2))
         self.b3 = QPushButton("Battery")
         self.b3.clicked.connect(lambda: self.navbar(self.b3))
-        self.b4 = QPushButton("temp_button")
+        self.b4 = QPushButton("Temperature")
         self.b4.clicked.connect(lambda: self.navbar(self.b4))
         splitter2.addWidget(self.b1)
         splitter2.addWidget(self.b2)
@@ -82,6 +83,22 @@ class Header(QWidget):
 
         hbox.addWidget(splitter3)
         self.setStyleSheet(qstr)
+
+        self.pBar= QProgressBar(self)
+        #self.pBar.setGeometry(0, 0, 10, 30)
+        #self.pBar.resize(10,10)
+        self.pBar.setFixedWidth(200)
+        splitter4= QSplitter(Qt.Horizontal)
+        splitter4.addWidget(self.pBar)
+        #splitter4.setSizes([self.height / 30, self.height / 30])
+        hbox.addWidget(splitter4)
+        self.timer = QTimer(self, timeout=self.update)
+        self.timer.start(1000)
+       
+
+    def update(self):
+        self.pBar.setValue(self.pBar.value()+5)
+
 
     def navbar(self, b):
         print("clicked button is ", b.text())

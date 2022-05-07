@@ -12,23 +12,31 @@ class Speed(QWidget):
 
     def initUI(self):
         self.setObjectName("display")
-        velocity = QLabel(self)
-        acceleration = QLabel(self)
+        self.velocity = QLabel(self)
+        self.acceleration = QLabel(self)
 
-        velocity.setText("Current Velocity: " +
-                         str(constants.CURRENT_VELOCITY) + " m/s")
-        velocity.setStyleSheet("background-color : rgb(143,255,91)")
-        velocity.setAlignment(Qt.AlignCenter)
+        self.velocity.setText("Current Velocity: " +
+                              str(constants.CURRENT_VELOCITY) + " m/s")
+        self.velocity.setStyleSheet("background-color : rgb(143,255,91)")
+        self.velocity.setAlignment(Qt.AlignCenter)
 
-        acceleration.setText("Current Acceleration: " +
-                             str(constants.ACCELERATION) + " m/s²")
-        acceleration.setStyleSheet("background-color : rgb(143,255,91)")
-        acceleration.setAlignment(Qt.AlignCenter)
+        self.acceleration.setText("Current Acceleration: " +
+                                  str(constants.ACCELERATION) + " m/s²")
+        self.acceleration.setStyleSheet("background-color : rgb(143,255,91)")
+        self.acceleration.setAlignment(Qt.AlignCenter)
 
         hbox = QHBoxLayout()
         splitter = QSplitter(Qt.Horizontal)
 
-        hbox.addWidget(velocity)
-        hbox.addWidget(acceleration)
+        hbox.addWidget(self.velocity)
+        hbox.addWidget(self.acceleration)
 
         self.setLayout(hbox)
+        self.timer = QTimer(self, timeout=self.update)
+        self.timer.start(1000)
+
+    def update(self):
+        self.velocity.setText("Current Velocity: " +
+                              str(constants.CURRENT_VELOCITY) + " m/s")
+        self.acceleration.setText(
+            "Current Acceleration: " + str(constants.ACCELERATION) + " m/s")
