@@ -24,7 +24,7 @@ class Graph(QWidget):
         self.timer.start(1000)
 
         # Live thermistor plotting ---
-        self.arduino = serial.Serial('/dev/cu.usbmodem') # UPDATE WITH CORRECT PORT
+        #self.arduino = serial.Serial('/dev/cu.usbmodem') # UPDATE WITH CORRECT PORT
 
     def update(self):
         self.x += 1

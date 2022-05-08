@@ -11206,9 +11206,9 @@
     "string-width" "^4.2.0"
 
 "tailwindcss@npm:@tailwindcss/postcss7-compat@^2.2.14":
-  "integrity" "sha512-vtzYILqywIY1GWELwHVF7goPhaJpm/1P5kJZ0Kx8lNlarALTFEWwIWCM6MxQ7pXzDWa1eUeozVJVeqfOBXKwXg=="
-  "resolved" "https://registry.npmjs.org/@tailwindcss/postcss7-compat/-/postcss7-compat-2.2.14.tgz"
-  "version" "2.2.14"
+  "integrity" "sha512-3h2svqQAqYHxRZ1KjsJjZOVTQ04m29LjfrLjXyZZEJuvUuJN+BCIF9GI8vhE1s0plS0mogd6E6YLg6mu4Wv/Vw=="
+  "resolved" "https://registry.npmjs.org/@tailwindcss/postcss7-compat/-/postcss7-compat-2.2.17.tgz"
+  "version" "2.2.17"
   dependencies:
     "arg" "^5.0.1"
     "autoprefixer" "^9"
@@ -11595,11 +11595,6 @@
   "integrity" "sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c="
   "resolved" "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz"
   "version" "0.0.6"
-
-"typescript@^3.2.1 || ^4", "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta":
-  "integrity" "sha512-DqGhF5IKoBl8WNf8C1gu8q0xZSInh9j1kJJMqT3a94w1JzVaBU4EXOSMrz9yDqMT0xt3selp83fuFMQ0uzv6qA=="
-  "resolved" "https://registry.npmjs.org/typescript/-/typescript-4.4.4.tgz"
-  "version" "4.4.4"
 
 "unicode-canonical-property-names-ecmascript@^1.0.4":
   "integrity" "sha512-jDrNnXWHd4oHiTZnx/ZG7gtUTVp+gCcTTKr8L0HjlwphROEW3+Him+IpvC+xcJEFegapiMZyZe02CyuOnRmbnQ=="

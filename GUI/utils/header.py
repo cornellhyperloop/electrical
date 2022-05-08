@@ -1,3 +1,4 @@
+from widgets.navbar import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from widgets import *
@@ -31,25 +32,28 @@ class Header(QWidget):
 
         timer = Timer()
         splitter1.addWidget(timer)
-        splitter1.setSizes([200, 600, 200, 200])
+        splitter1.setSizes([200, 600, 200, 200])    
 
         splitter2 = QSplitter(Qt.Horizontal)
-        battery = Battery()
-        battery.setStyleSheet(qstr)
-        splitter2.addWidget(battery)
-        proximitySensor = ProximitySensor()
-        proximitySensor.setStyleSheet(qstr)
-        splitter2.addWidget(proximitySensor)
-        vibrationSensor = VibrationSensor()
-        vibrationSensor.setStyleSheet(qstr)
-        splitter2.addWidget(vibrationSensor)
-        pressureSensor = PressureSensor()
-        pressureSensor.setStyleSheet(qstr)
-        splitter2.addWidget(pressureSensor)
-        fsm = FSM()
-        ldrf = LongDistanceRangefinder()
-        splitter2.addWidget(ldrf)
-        splitter2.setSizes([2, 2, 1, 50])
+        navbar = NavBar()
+        splitter2.addWidget(navbar)
+        
+        # battery = Battery()
+        # battery.setStyleSheet(qstr)
+        # splitter2.addWidget(battery)
+        # proximitySensor = ProximitySensor()
+        # proximitySensor.setStyleSheet(qstr)
+        # splitter2.addWidget(proximitySensor)
+        # vibrationSensor = VibrationSensor()
+        # vibrationSensor.setStyleSheet(qstr)
+        # splitter2.addWidget(vibrationSensor)
+        # pressureSensor = PressureSensor()
+        # pressureSensor.setStyleSheet(qstr)
+        # splitter2.addWidget(pressureSensor)
+        # fsm = FSM()
+        # ldrf = LongDistanceRangefinder()
+        # splitter2.addWidget(ldrf)
+        # splitter2.setSizes([2, 2, 1, 50])
 
         splitter3 = QSplitter(Qt.Vertical)
         splitter3.addWidget(splitter1)
@@ -58,3 +62,5 @@ class Header(QWidget):
 
         hbox.addWidget(splitter3)
         self.setStyleSheet(qstr)
+
+   
