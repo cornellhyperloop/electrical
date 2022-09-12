@@ -1,9 +1,10 @@
 QWidget {
   color: rgb(173, 173, 173);
-  background-color: #494949;
+  background-color: #bebebe;
   border-style: outset;
   border-width: 1.5px;
-  border-color: #ff1e1e;
+  border-color: #2B26c1;
+  
 
 }
 QSplitter {

@@ -48,7 +48,7 @@ class MainWindow(QWidget):
 
         self.setLayout(hbox)
         QApplication.setStyle(QStyleFactory.create('Cleanlooks'))
-        self.setStyleSheet(" background-color: #494949;")
+        self.setStyleSheet(" background-color: #bebebe;")
 
         self.setGeometry(300, 300, width, height)
 
