@@ -30,7 +30,7 @@ class Thermistor(QWidget):
 
         vbox = QVBoxLayout()
         vbox.addWidget(self.temp)
-        self.temp.setStyleSheet("background-color : rgb(143,255,91)")
+        self.temp.setStyleSheet("background-color : #2B26c1")
         self.setLayout(vbox)
 
 

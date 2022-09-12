@@ -14,7 +14,7 @@ class HelpPopup(QWidget):
         self.push.setText("Help")
         self.push.setFont(QFont('AnyStyle', 18))
         self.push.setStyleSheet(
-            "background-color : rgb(45, 121, 252); border-radius: 5px; font-weight: bold; border: 3px solid black")
+            "background-color : rgb(45, 121, 252); border-radius: 5px; font-weight: bold; border: 3px solid red")
         self.push.clicked.connect(self.pushedHelp)
         #self.push.resize(400, 200)
         #self.push.move(0, 50)
