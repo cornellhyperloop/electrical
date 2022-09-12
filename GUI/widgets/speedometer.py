@@ -17,9 +17,9 @@ class Speedometer(QWidget):
         self.dial.setMaximum(100)
         self.dial.setValue(constants.CURRENT_VELOCITY)
         if constants.CURRENT_VELOCITY > constants.VELOCITY_THRESHOLD:
-            self.dial.setStyleSheet("background-color : red")
+            self.dial.setStyleSheet("background-color : yellow")
         else:
-            self.dial.setStyleSheet("background-color : green")
+            self.dial.setStyleSheet("background-color : lime green")
         # label = QLabel(self)
         # label.setText("Current Velocity: " +
         #               str(constants.CURRENT_VELOCITY) + " m/s")
