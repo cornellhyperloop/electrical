@@ -18,7 +18,7 @@ class Battery(QWidget):
 
         battery.setText("Battery")
         battery.setAlignment(Qt.AlignCenter)
-        battery.setStyleSheet("font-weight: bold")
+        battery.setStyleSheet("font-weight: bold; background-color : #2B26c1")
 
         temperature.setText("Current: " + str(BATTERY_CURRENT_TEMP) + " °C")
         temperature.setStyleSheet("background-color : #2B26c1")

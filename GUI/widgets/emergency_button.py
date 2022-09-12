@@ -21,7 +21,7 @@ class EmergencyButton(QWidget):
         #self.push.move(0, 50)
 
         self.push.setStyleSheet(
-            "background-color : #2B26c1; border-radius: 5px; font-weight: bold; border: 3px solid black")
+            "background-color : red; border-radius: 5px; font-weight: bold; border: 3px solid black")
         # sshFile = "test.css"
         # with open(sshFile, "r") as fh:
         #     self.push.setStyleSheet(fh.read())
