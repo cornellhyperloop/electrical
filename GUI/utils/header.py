@@ -85,11 +85,19 @@ class Header(QWidget):
         self.setStyleSheet(qstr)
 
         self.pBar= QProgressBar(self)
+        #self.pBar.setGeometry(0, 0, 10, 30)
+        #self.pBar.resize(10,10)
+        self.pBar.setFixedWidth(200)
         splitter4= QSplitter(Qt.Horizontal)
         splitter4.addWidget(self.pBar)
-        for i in range(100):
-            time.sleep(0.5)
-            self.pBar.setValue(i)
+        #splitter4.setSizes([self.height / 30, self.height / 30])
+        hbox.addWidget(splitter4)
+        self.timer = QTimer(self, timeout=self.update)
+        self.timer.start(1000)
+       
+
+    def update(self):
+        self.pBar.setValue(self.pBar.value()+5)
 
 
     def navbar(self, b):

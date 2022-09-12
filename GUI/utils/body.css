@@ -4,7 +4,11 @@ QWidget {
   border-style: outset;
   border-width: 1.5px;
   border-color: #ff1e1e;
+
 }
 QSplitter {
-  border-width: 3;
+  border-width: 2;
+}
+QLabel {
+  color:black
 }
