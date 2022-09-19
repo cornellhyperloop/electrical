@@ -9,7 +9,7 @@ Serial.begin(9600);
 }
 
 void loop() {
-
+  
   Vo = analogRead(ThermistorPin);
   R2 = R1 * (1023.0 / (float)Vo - 1.0);
   logR2 = log(R2);
@@ -17,12 +17,11 @@ void loop() {
   Tc = T - 273.15;
   Tf = (Tc * 9.0)/ 5.0 + 32.0; 
 
-//  Serial.print("Temperature: "); 
-  Serial.print(Tf);
-  Serial.println();
-//  Serial.print(" F; ");
-//  Serial.print(Tc);
-//  Serial.println(" C ");   
+  //Serial.print("Temperature: "); 
+  Serial.println(Tf);
+  //Serial.print(" F; ");
+  //Serial.print(Tc);
+  //Serial.println(" C");   
 
   delay(500);
 }
