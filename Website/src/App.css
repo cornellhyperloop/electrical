@@ -100,3 +100,97 @@
 .dropdown:hover nav {
   display: block;
 }
+
+.projectcols {
+  columns: 3 150px;
+  column-gap: 5em;
+  column-rule-width: 4px;
+  column-rule-color: #0c0527a1;
+  margin: 2em auto 7em;
+  column-rule-style: double;
+}
+
+.projectcols p{
+  height: 200px;
+  overflow-y: scroll;
+}
+
+.image-caption {
+  width:100%;
+  height:100%;
+  background:rgba(232, 232, 235, 0.7);
+  position:absolute; 
+  opacity:0; 
+  flex: 0 0 auto;
+  transition:all 300ms ease-in-out;
+ -webkit-transition:all 300ms ease-in-out;
+ -moz-transition:all 300ms ease-in-out;
+ -o-transition:all 300ms ease-in-out;
+ -ms-transition:all 300ms ease-in-out;
+}
+
+.image-caption p{
+  text-align: center;
+  vertical-align: center;
+  padding-top: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.image-cap-container:hover .image-caption{
+  opacity:1;
+}
+
+.image-cap-container{
+  float:left;
+  width:280px;
+  height:300px;
+  position:relative;
+  margin:10px;
+  cursor:pointer;
+  flex: 0 0 auto;
+}
+
+.image-cap-container img{
+  width:280px;
+  height:300px;
+  object-fit: cover;
+  position:absolute;
+}
+
+.button {
+  border-radius: 4px;
+  background-color: #104786;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 15px;
+  width: auto;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}

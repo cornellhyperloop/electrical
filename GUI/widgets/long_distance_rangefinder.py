@@ -14,4 +14,4 @@ class LongDistanceRangefinder(QWidget):
         ldrf = QLabel(self)
         ldrf.setText("Distance: " + str(constants.DISTANCE))
         ldrf.setAlignment(Qt.AlignCenter)
-        ldrf.setStyleSheet("background-color : rgb(143,255,91)")
+        ldrf.setStyleSheet("background-color : #2B26c1")

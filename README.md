@@ -10,11 +10,20 @@ The Electrical team's repo.
     * Ridhit Bhura
     * Vanshaj Jain
     * Anoushka Kabra
+    * Ashley Heckman
+    * David Lilienfeld
+    * Yaqi Gao
 
 * Power Systems
     * Schuyler Seyram
+    * Berk Gokmen
+    * Steven Wei Chen
 
 * UI
     * Morgan Lo
     * Kelvin Wang
     * Ryan Mao
+    * Christina Unkenholz
+    * Devika Krishna
+    * Patrick Choo
+    * Mihika Jain

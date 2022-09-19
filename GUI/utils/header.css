@@ -1,9 +1,9 @@
 QWidget {
-  color: rgb(173, 173, 173);
-  background-color: #494949;
+  color: rgb(255, 255, 255);
+  background-color: #bebebe;
   border-style: outset;
   border-width: 1.5px;
-  border-color: #ff1e1e;
+  border-color: #bebebe;
 }
 QSplitter {
   border-width: 0;
@@ -24,5 +24,6 @@ QPushButton:flat {
 }
 
 QPushButton:default {
-  border-color: navy; /* make the default button prominent */
+  border-color: #2B26c1; /* make the default button prominent */
 }
+

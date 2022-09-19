@@ -13,7 +13,7 @@ class VibrationSensor(QWidget):
 
     sensor.setText("Vibration Sensor: " + constants.VIBRATIONLEVEL)
     sensor.setAlignment(Qt.AlignCenter)
-    sensor.setStyleSheet("background-color : rgb(143,255,91)")
+    sensor.setStyleSheet("background-color : #2B26c1")
 
     vbox = QVBoxLayout()
 

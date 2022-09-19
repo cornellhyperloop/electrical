@@ -12,9 +12,10 @@ class Timer(QWidget):
     def initUI(self):
         self.count = 0
         self.start = True
-        self.label = QLabel("                      ", self)
+        self.label = QLabel("         Time         ", self)
         self.label.setAlignment(Qt.AlignCenter)
         self.label.setFont(QFont('AnyStyle', 12))
+        self.label.setStyleSheet("background-color: grey; color: black")
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.showTime)
         self.timer.start(100)
@@ -22,5 +23,5 @@ class Timer(QWidget):
     def showTime(self):
         self.count += 1
         text = f'Time: {self.count / 10} s'
-	#text = '' + str(self.count / 10) + " s"
+        #text = '' + str(self.count / 10) + " s"
         self.label.setText(text)
