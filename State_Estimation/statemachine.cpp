@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 enum states
 {
@@ -12,6 +13,11 @@ enum states
   Stop,
   PodOff,
 };
+const double minSensor1 = 1.0;
+const double maxSensor1 = 1.0;
+const double minSensor2 = 1.0;
+const double maxSensor2 = 1.0;
+const double desiredVelocity = 1.0;
 
 int main()
 {
@@ -72,11 +78,19 @@ int main()
   }
 }
 
-states verifySensors()
+states verifySensors(double sensor1, double sensor2)
 {
+  // TODO: Add more sensor parameters as needed with average values,
+  // create functionality for average data value
+  // double sensor1, sensor2 are average values of sensors over x amount of time
   // If sensors function correctly, go to PreAcceleration, otherwise go to Stop
   // TODO: Implement and return correct state
-  return NULL;
+
+  if (sensor1 < minSensor1 || sensor1 > maxSensor1)
+    return Stop;
+  if (sensor2 < minSensor2 || sensor2 > maxSensor2)
+    return Stop;
+  return PreAcceleration;
 }
 
 states openBrakes()
@@ -88,13 +102,20 @@ states openBrakes()
   return NULL;
 }
 
-states accelerate()
+states accelerate(double sensor1)
 {
   // Go to Emergency if does not work, otherwise go to Cruise or Deceleration
   // Add a while loop to stay in this case till it reaches the required velocity
   // Add manual interrupt to go into Emergency state
   // TODO: Implement and return correct state
-  return NULL;
+  if (sensor1 > desiredVelocity)
+  {
+    return Cruise;
+  }
+  else
+  {
+    return NULL;
+  }
 }
 
 states cruise()
@@ -120,7 +141,7 @@ states stop()
   // Go to Crawl if does not work, otherwise go to PodOff
   // Add manual interrupt to go into Emergency state
   // TODO: Implement and return correct state
-  if (checkDistance())
+  if (checkDistance(1, 5))
   {
     return PodOff;
   }
@@ -151,8 +172,9 @@ void turnOff()
   return;
 }
 
-bool checkDistance()
+bool checkDistance(double totalDist, double travelDist, const float epsilon = 1E-5f)
 {
-  // TODO: Implement
-  return false;
+  // TODO: Calibrate epsilon value after confirming with the mechanical team
+  // Check if the pod has reached the total distance
+  return (abs(totalDist - travelDist) <= epsilon);
 }
