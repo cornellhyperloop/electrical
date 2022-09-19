@@ -3,8 +3,9 @@
     * [Generate SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
     * [Add new SSH key to your account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
-2. Switch to the UI branch, pull any recent changes, and navigate to GUI folder
+2. Clone the repository, switch to the UI branch, pull any recent changes, and navigate to GUI folder
     ```
+    git clone <ssh>
     git checkout UI
     git pull
     cd GUI
