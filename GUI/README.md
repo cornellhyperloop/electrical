@@ -1,10 +1,33 @@
-Setup:
-1. Clone this repo
-2. Install the dependencies: python -m pip install -r requirements.txt
-    -Python version > 3.5
-3. Run the GUI: python main.py
+## Setup
+1. Clone the Hyperloop repository (use SSH)
+    * [Generate SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+    * [Add new SSH key to your account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
-Widget Choices & Reasoning
+2. Switch to the UI branch, pull any recent changes, and navigate to GUI folder
+    ```
+    git checkout UI
+    git pull
+    cd GUI
+    ```
+
+3. Create a virtual environment
+    `python -m venv <environment_name>`
+    * Example: `python -m venv gui_env`
+
+4. Activate the virtual environment
+    * MacOS/Linux: `source <environment_name>/bin/activate`
+        * Example: `source gui_env/bin/activate`
+    * Windows: `<environment_name>\Scripts\activate`
+        * Example: `gui_env\Scripts\activate`
+
+5. Install the required dependencies: `python -m pip install -r requirements.txt`
+
+6. Run the GUI: `python main.py`
+
+7. Deactivate the virtual environment (when finished working): `deactivate`
+
+
+## Widget Choices & Reasoning
 1. Window : MainWindow
 2. Sensor tabs: QTabWidget
 - Fits nicely accordingly to the Figma design
