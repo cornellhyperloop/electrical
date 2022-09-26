@@ -1,6 +1,7 @@
 name: auto-assign-PR
 on:
   pull_request:
+    branches: [master, UI]
     types: [opened, reopened]
 jobs:
   assign:
