@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Added a comment
-
 enum states
 {
   Verification,
