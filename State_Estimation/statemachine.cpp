@@ -1,23 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-enum states
-{
-  Verification,
-  PreAcceleration,
-  Acceleration,
-  Cruise,
-  Emergency,
-  Deceleration,
-  Crawl,
-  Stop,
-  PodOff,
-};
-const double minSensor1 = 1.0;
-const double maxSensor1 = 1.0;
-const double minSensor2 = 1.0;
-const double maxSensor2 = 1.0;
-const double desiredVelocity = 1.0;
+#include <constants.h>
+#include <helperFunctions.h>
 
 int main()
 {
@@ -33,7 +17,8 @@ int main()
       /* Task 2: Make a verifySensors function to check they're all on,
                   and ensure readings are in a reasonable range.
       **/
-      curr = verifySensors();
+      //  Update function call for verifySensors() with  appropriate parameters
+      curr = verifySensors(stubValue, stubValue);
       prev = Verification;
     };
     case PreAcceleration:
@@ -43,7 +28,7 @@ int main()
     };
     case Acceleration:
     {
-      curr = accelerate();
+      curr = accelerate(stubValue);
       prev = Acceleration;
     };
     case Cruise:
@@ -58,7 +43,7 @@ int main()
     };
     case Crawl:
     {
-      curr = accelerate(); // accelerate with slower speed
+      curr = accelerate(stubValue); // accelerate with slower speed
       prev = Crawl;
     };
     case Emergency:
@@ -99,7 +84,7 @@ states openBrakes()
   // Add manual interrupt to go into Emergency state
   // Check if there is a sensor/mechanism to get feedback on the Brake states, i.e opened/closed.
   // TODO: Implement and return correct state
-  return NULL;
+  return Acceleration;
 }
 
 states accelerate(double sensor1)
@@ -114,7 +99,7 @@ states accelerate(double sensor1)
   }
   else
   {
-    return NULL;
+    return Emergency;
   }
 }
 
@@ -124,7 +109,7 @@ states cruise()
   // Maintain the desired velocity while constantly reading form the sensor
   // Add manual interrupt to go into Emergency state
   // TODO: Implement and return correct state
-  return NULL;
+  return Deceleration;
 }
 states decelerate()
 {
@@ -133,7 +118,7 @@ states decelerate()
   // Add manual interrupt to go into Emergency state
   // TODO: Implement and return correct state
   closeBrakes();
-  return NULL;
+  return Deceleration;
 }
 
 states stop()
@@ -149,7 +134,7 @@ states stop()
   {
     return Crawl;
   }
-  return NULL;
+  return Emergency;
 }
 
 states emergency()
@@ -157,19 +142,20 @@ states emergency()
   // Close brakes rapidly and stop any propulsion
   decelerate();
   closeBrakes();
-  return NULL;
+  return Stop;
 }
 
 void closeBrakes()
 {
-  // TODO: Implement
-  return;
+  // TODO: Implement closeBrakeMain in helperFunctions.h
+  bool brakeClosed = closeBrakeMain();
+  // Use bool brakeClosed to verify if the sensor implementation works correctly
 }
 
 void turnOff()
 {
-  // TODO: Implement
-  return;
+  // TODO: Implement killPower in helperFunctions.h
+  killPower();
 }
 
 bool checkDistance(double totalDist, double travelDist, const float epsilon = 1E-5f)
