@@ -38,7 +38,7 @@ class Header(QWidget):
         # splitter1.setStretchFactor(2, 2.5)
         # splitter1.setStretchFactor(3, 1)
         self.ratio = [1/12, 1/3, 5/12, 1/12]
-        self.ratio = [x * self.width for x in self.ratio]
+        self.ratio = [int(x * self.width) for x in self.ratio]
         splitter1.setSizes(self.ratio)
 
         splitter2 = QSplitter(Qt.Horizontal)
@@ -79,7 +79,7 @@ class Header(QWidget):
         splitter3 = QSplitter(Qt.Vertical)
         splitter3.addWidget(splitter1)
         splitter3.addWidget(splitter2)
-        splitter3.setSizes([self.height / 3, self.height / 3])
+        splitter3.setSizes([int(self.height / 3), int(self.height / 3)])
 
         hbox.addWidget(splitter3)
         self.setStyleSheet(qstr)
