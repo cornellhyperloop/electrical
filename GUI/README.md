@@ -27,6 +27,16 @@
 
 7. Deactivate the virtual environment (when finished working): `deactivate`
 
+## Github
+1. Initially, switch to a new branch: `git checkout -b <new-branch>`
+2. Make all the changes
+3. Check the files you have changes: `git status`
+4. Add files: `git add <filename>`
+5. Commit files: `git commit -m <message>`
+6. Push changes: `git push`
+   - On the first push, it will complain. Copy the command it suggests using.
+7. After you have pushed all changes, create the pull request
+   - You want to merge the feature branch (the branch you created) into the UI branch
 
 ## Widget Choices & Reasoning
 1. Window : MainWindow
