@@ -96,10 +96,10 @@ class Header(QWidget):
         self.timer = QTimer(self, timeout=self.update)
         self.timer.start(1000)
 
-        label = QLabel(self)
-        pixmap = QPixmap('images/hyperloop.png')
-        label.setPixmap(pixmap)
-        self.resize(pixmap.width(),pixmap.height())
+        self.label = QLabel(self)
+        self.pixmap = QPixmap('images/hyperloop.png')
+        self.label.setPixmap(self.pixmap)
+        self.label.resize(self.pixmap.width(),self.pixmap.height())
         
         self.show()        
        
