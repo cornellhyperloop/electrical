@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from widgets import *
 from PyQt5.QtCore import QObject, pyqtSignal
+from PyQt5.QtGui import QPixmap, QIcon
 import time
 
 
@@ -94,6 +95,13 @@ class Header(QWidget):
         hbox.addWidget(splitter4)
         self.timer = QTimer(self, timeout=self.update)
         self.timer.start(1000)
+
+        label = QLabel(self)
+        pixmap = QPixmap('images/hyperloop.png')
+        label.setPixmap(pixmap)
+        self.resize(pixmap.width(),pixmap.height())
+        
+        self.show()        
        
 
     def update(self):
