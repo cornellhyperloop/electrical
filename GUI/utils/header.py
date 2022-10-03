@@ -95,6 +95,17 @@ class Header(QWidget):
         self.timer = QTimer(self, timeout=self.update)
         self.timer.start(1000)
 
+        #self.label = QLabel(self)
+        self.pixmap = QPixmap('images/hyperloop.png')
+        self.pixmap.setFixedWidth(200)
+        splitter5= QSplitter(Qt.Horizontal)
+        splitter5.addWidegt(self.pixmap)
+        hbox.addWidget(splitter5)
+        #self.label.setPixmap(self.pixmap)
+        #self.label.resize(self.pixmap.width(),self.pixmap.height())
+        
+        self.show()  
+
     def update(self):
         self.pBar.setValue(self.pBar.value()+5)
 
