@@ -3,8 +3,9 @@
     * [Generate SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
     * [Add new SSH key to your account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
-2. Switch to the UI branch, pull any recent changes, and navigate to GUI folder
+2. Clone the repository, switch to the UI branch, pull any recent changes, and navigate to GUI folder
     ```
+    git clone <ssh>
     git checkout UI
     git pull
     cd GUI
@@ -26,6 +27,16 @@
 
 7. Deactivate the virtual environment (when finished working): `deactivate`
 
+## Github
+1. Initially, switch to a new branch: `git checkout -b <new-branch>`
+2. Make all the changes
+3. Check the files you have changes: `git status`
+4. Add files: `git add <filename>`
+5. Commit files: `git commit -m <message>`
+6. Push changes: `git push`
+   - On the first push, it will complain. Copy the command it suggests using.
+7. After you have pushed all changes, create the pull request
+   - You want to merge the feature branch (the branch you created) into the UI branch
 
 ## Widget Choices & Reasoning
 1. Window : MainWindow
