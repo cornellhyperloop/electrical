@@ -22,7 +22,19 @@
 # }
 
 # FSM Data
-CURRENT_STATE = "acceleration"
+CURRENT_STATE = "Acceleration"
+STATES = {
+    'Stop': 'state_icons/temp.png',
+    'Crawl': 'state_icons/temp.png',
+    'Deceleration': 'state_icons/temp.png',
+    'Cruise': 'state_icons/temp.png',
+    'Emergency': 'state_icons/temp.png',
+    'Verification': 'state_icons/temp.png',
+    'Pre-Acceleration': 'state_icons/temp.png',
+    'Acceleration': 'state_icons/temp.png',
+    'Overheating': 'state_icons/temp.png',
+    'Extreme Overheating': 'state_icons/temp.png'
+}
 
 # Battery Pack Data
 BATTERY_CURRENT_TEMP = 0
