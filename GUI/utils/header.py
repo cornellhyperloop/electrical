@@ -14,7 +14,7 @@ class Header(QWidget):
             qstr = str(fh.read())
         self.width = w * 1/2
         self.height = h / 6
-
+        hbox.setContentsMargins(0, 0, 0, 0)
         head = QSplitter(Qt.Vertical)
 
         splitter1 = QSplitter(Qt.Horizontal)
@@ -78,6 +78,7 @@ class Header(QWidget):
         head.addWidget(splitter1)
         splitter3 = QSplitter(Qt.Vertical)
         splitter3.addWidget(splitter1)
+        # splitter2.setSizes([int(0), int(self.height / 3)])
         splitter3.addWidget(splitter2)
         splitter3.setSizes([int(self.height / 3), int(self.height / 3)])
 
