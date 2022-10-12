@@ -14,7 +14,7 @@ class Header(QWidget):
             qstr = str(fh.read())
         self.width = w * 1/2
         self.height = h / 6
-
+        hbox.setContentsMargins(0, 0, 0, 0)
         head = QSplitter(Qt.Vertical)
 
         splitter1 = QSplitter(Qt.Horizontal)
@@ -78,6 +78,7 @@ class Header(QWidget):
         head.addWidget(splitter1)
         splitter3 = QSplitter(Qt.Vertical)
         splitter3.addWidget(splitter1)
+        # splitter2.setSizes([int(0), int(self.height / 3)])
         splitter3.addWidget(splitter2)
         splitter3.setSizes([int(self.height / 3), int(self.height / 3)])
 
@@ -112,7 +113,7 @@ class Header(QWidget):
     def navbar(self, b):
         print("clicked button is ", b.text())
         buttons = [self.b1, self.b2, self.b3, self.b4]
-        if buttons.index(b) > 1:
+        if buttons.index(b) > 2:
             return 0
         else:
             return buttons.index(b)

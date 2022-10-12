@@ -4,6 +4,7 @@ from widgets import *
 from utils.header import Header
 from utils.body import Body
 from utils.visualizer import Visualizer
+from utils.batteryPage import BatteryPage
 
 
 class MainWindow(QWidget):
@@ -34,9 +35,11 @@ class MainWindow(QWidget):
 
         body = Body()
         visualizer = Visualizer()
+        batteryPage = BatteryPage()
 
         self.Stack.addWidget(body)
         self.Stack.addWidget(visualizer)
+        self.Stack.addWidget(batteryPage)
 
         splitter4 = QSplitter(Qt.Vertical)
         splitter4.addWidget(header)
