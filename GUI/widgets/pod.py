@@ -1,10 +1,10 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
-import pyqtgraph.opengl as gl
+#import pyqtgraph.opengl as gl
 import numpy as np
 import constants as cons
-from OpenGL.GL import *
+#from OpenGL.GL import *
 
 
 class Pod(QOpenGLWidget):

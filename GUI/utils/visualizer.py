@@ -7,7 +7,7 @@ class Visualizer(QWidget):
     def __init__(self, *args, **kwargs):
         super(Visualizer, self).__init__()
         hbox = QHBoxLayout(self)
-        pod = Pod()
-        hbox.addWidget(pod)
+        #pod = Pod()
+        #hbox.addWidget(pod)
 
         self.setLayout(hbox)

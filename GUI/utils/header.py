@@ -3,6 +3,7 @@ from PyQt5.QtCore import *
 from widgets import *
 from PyQt5.QtCore import QObject, pyqtSignal
 import time
+from widgets import progressBar
 
 
 class Header(QWidget):
@@ -84,20 +85,49 @@ class Header(QWidget):
         hbox.addWidget(splitter3)
         self.setStyleSheet(qstr)
 
-        self.pBar= QProgressBar(self)
-        #self.pBar.setGeometry(0, 0, 10, 30)
-        #self.pBar.resize(10,10)
-        self.pBar.setFixedWidth(200)
+        
         splitter4= QSplitter(Qt.Horizontal)
-        splitter4.addWidget(self.pBar)
-        #splitter4.setSizes([self.height / 30, self.height / 30])
+
+        #self.pBar= QProgressBar(self)                                  PROGRESS BAR
+        self.pBar = progressBar.ProgressBar()
+        #pBar.setGeometry(0, 0, 10, 30)
+        #pBar.setFixedWidth(250)
+        #pBar.show()
+        splitter4.addWidget(self.pBar.label)
+        splitter4.addWidget(self.pBar.pBar)
+        #self.pBar = QProgressBar(self, minimum=0, maximum=100)
+        #self.pBar.setFont(QFont('Arial', 15))                               # PROGRESS BAR
+        splitter4.setSizes([self.height / 30, self.height / 30])
+        #self.pBar.setGeometry(0, 0, 10, 30)                           # PROGRESS BAR
+        #self.pBar.resize(10,10)
+        #self.pBar.setFixedWidth(250)
+        #label = progressBar.label
+
         hbox.addWidget(splitter4)
+
         self.timer = QTimer(self, timeout=self.update)
         self.timer.start(1000)
        
 
-    def update(self):
-        self.pBar.setValue(self.pBar.value()+5)
+    def update(self):                                                  #PROGRESS BAR
+        self.pBar.pBar.setValue(self.pBar.pBar.value()+5)
+
+        if int(self.pBar.pBar.value()) <50:
+            self.pBar.pBar.setStyleSheet("QProgressBar::chunk "
+                  "{"
+                    "background-color: red;"
+                  "}")
+        elif int(self.pBar.pBar.value())>50: 
+            self.pBar.pBar.setStyleSheet("QProgressBar::chunk "
+                  "{"
+                    "background-color: gold;"
+                  "}")
+        elif int(self.pBar.pBar.value())==100: 
+            self.pBar.pBar.setStyleSheet("QProgressBar::chunk "
+                  "{"
+                    "background-color: green;"
+                  "}")
+    
 
 
     def navbar(self, b):
