@@ -50,3 +50,28 @@
 - Embedded in the layouts of sensor tabs (on the left)
 - Currently displaying data from dummy arrays
 - But, can extract sample data from a txt file of the same file directory instead by replacing `second` and `temperature` with `xs` and `ys`
+
+## Widget Choices & Reasoning
+Accelerometer: 
+measures acceleration
+Time vs. acceleration
+
+TOF range finder: 
+Time-of-Flight (ToF) sensors are used for a range of applications, including robot navigation, vehicle monitoring, people counting, and object detection
+Time vs. distance 
+
+Ultrasonic range finder: 
+measure the distance between the sensor and its object using ultrasonic frequency
+Time vs. distance
+
+Thermistors: 
+measure temperature
+Time vs. temperature
+
+Inductive proximity sensor: 
+detects metal targets using electromagnetic energy and without contact
+Time vs. distance 
+
+Infrared proximity sensor: 
+measure reflected infrared (IR) energy to detect the presence of an object or person
+Time vs. distance 
