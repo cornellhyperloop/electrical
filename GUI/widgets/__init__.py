@@ -17,5 +17,6 @@ from .vibration_sensor import VibrationSensor
 from .pressure_sensor import PressureSensor
 from .speedometer import Speedometer
 from .speed import Speed
+from .plot_buttons import PlotButtons
 from .accelerometer import Accelerometer
 from .progress import Progress
