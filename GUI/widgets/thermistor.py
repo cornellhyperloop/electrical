@@ -15,7 +15,6 @@ class Thermistor(QWidget):
         self.layout = QGridLayout()
         self.graphWidget = pg.PlotWidget()
 
-
         self.graphWidget.setBackground((224, 224, 224))
         pen = pg.mkPen(width=10)
         # self.graphWidget.plot(second, temperature, pen=pen,
@@ -32,7 +31,6 @@ class Thermistor(QWidget):
         vbox.addWidget(self.temp)
         self.temp.setStyleSheet("background-color : #2B26c1")
         self.setLayout(vbox)
-
 
     def update(self):
         self.x += 1

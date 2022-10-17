@@ -1,5 +1,7 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
+from PyQt5 import QtGui
+import sys
 from widgets import *
 from utils.header import Header
 from utils.body import Body
@@ -13,6 +15,12 @@ class MainWindow(QWidget):
 
         # Insert change here
         self.setWindowTitle("Hyperloop GUI")
+
+        # app = QtGui.QApplication(sys.argv)
+
+        # mainWindow = QtGui.QWidget()
+        # width = mainWindow.frameGeometry().width()
+        # height = mainWindow.frameGeometry().height()
 
         hbox = QHBoxLayout(self)
 
@@ -33,7 +41,7 @@ class MainWindow(QWidget):
 
         self.Stack = QStackedWidget(self)
 
-        body = Body()
+        body = Body(width, height)
         visualizer = Visualizer()
         batteryPage = BatteryPage()
 
@@ -54,6 +62,8 @@ class MainWindow(QWidget):
         self.setStyleSheet("background-color: #bebebe;")
 
         self.setGeometry(300, 300, width, height)
+
+        self.showFullScreen()
 
     def renderPage(self, i):
         self.Stack.setCurrentIndex(i)

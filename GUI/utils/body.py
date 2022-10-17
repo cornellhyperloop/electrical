@@ -8,6 +8,8 @@ import pyqtgraph as pg
 class Body(QWidget):
     def __init__(self, *args, **kwargs):
         super(Body, self).__init__()
+        self.width = args[0]
+        self.height = args[1]
         hbox = QHBoxLayout(self)
 
         sshFile = "utils/body.css"
@@ -51,11 +53,14 @@ class Body(QWidget):
         self.temporary = pg.PlotWidget()
         hour = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         temperature = [30, 32, 34, 32, 33, 31, 29, 32, 35, 45]
+        self.temporary.resize(self.width, self.height / 4)
+
         #temporary.plot(hour, temperature)
 
         home.addWidget(self.temporary)
         home.addWidget(home_footer)
         home.setSizes([300, 50])
+        # home.setSizes([int(self.height / 4), int(self.height / 10)])
 
         hbox.addWidget(home)
         self.setLayout(hbox)
@@ -65,7 +70,7 @@ class Body(QWidget):
         self.timer.start(1000)
         self.x = 0
         self.y = 0
-    
+
     def update(self):
         self.x += 1
         self.y += 1

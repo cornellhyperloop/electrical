@@ -17,12 +17,14 @@ class Speed(QWidget):
 
         self.velocity.setText("Current Velocity: " +
                               str(constants.CURRENT_VELOCITY) + " m/s")
-        self.velocity.setStyleSheet("background-color : #2B26c1")
+        self.velocity.setStyleSheet(
+            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
         self.velocity.setAlignment(Qt.AlignCenter)
 
         self.acceleration.setText("Current Acceleration: " +
                                   str(constants.ACCELERATION) + " m/s²")
-        self.acceleration.setStyleSheet("background-color : #2B26c1")
+        self.acceleration.setStyleSheet(
+            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
         self.acceleration.setAlignment(Qt.AlignCenter)
 
         hbox = QHBoxLayout()
