@@ -69,3 +69,9 @@ ALTITUDE = 33000
 
 # Long Distance Range Finder Data
 DISTANCE = 30
+
+#Progress Bar Data
+LABEL_STYLE_SHEET = "color: blue; background-color: grey; selection-color: grey; selection-background-color: blue;"
+PBAR_LOW_PROGRESS = "QProgressBar::chunk {background-color: red;}"
+PBAR_MED_PROGRESS = "QProgressBar::chunk {background-color: gold;}"
+PBAR_HIGH_PROGRESS = "QProgressBar::chunk {background-color: green;}"
