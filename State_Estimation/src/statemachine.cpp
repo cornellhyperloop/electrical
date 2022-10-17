@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <constants.hpp>
-#include <helperFunctions.h>
+#include <helperFunctions.hpp>
 
 int main()
 {
