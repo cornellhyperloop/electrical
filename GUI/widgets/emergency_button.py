@@ -1,13 +1,16 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
+from PyQt5.QtCore import QSize
 from .fsm import FSM
 import sys
 
 
 class EmergencyButton(QWidget):
-    def __init__(self, fsm, parent=None):
+    def __init__(self, fsm, *args, parent=None):
         super(EmergencyButton, self).__init__(parent)
         self.fsm = fsm
+        self.width = args[0] / 10
+        self.height = args[1] / 30
         self.initUI()
 
     def initUI(self):
@@ -21,7 +24,8 @@ class EmergencyButton(QWidget):
         #self.push.move(0, 50)
 
         self.push.setStyleSheet(
-            "background-color : red; border-radius: 5px; font-weight: bold; border: 3px solid black")
+            "background-color : red; border-radius: 5px; font-family: Helvetica; font-size: 14px; border: 3px solid black")
+        self.push.resize(self.width, self.height)
         # sshFile = "test.css"
         # with open(sshFile, "r") as fh:
         #     self.push.setStyleSheet(fh.read())
@@ -45,3 +49,6 @@ class EmergencyButton(QWidget):
         #     print("Action cancelled")
 
         self.fsm.fsm.setState('Emergency')
+
+    def sizeHint(self):
+        return QSize(self.width, self.height)

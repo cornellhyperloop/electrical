@@ -16,7 +16,6 @@ class AccelerationGraph(QWidget):
         self.layout = QGridLayout()
         self.graphWidget = pg.PlotWidget()
 
-
         xs = []
         ys = []
 

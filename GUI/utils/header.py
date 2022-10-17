@@ -13,79 +13,59 @@ class Header(QWidget):
         sshFile = "utils/header.css"
         with open(sshFile, "r") as fh:
             qstr = str(fh.read())
-        self.width = w * 1/2
-        self.height = h / 6
+        self.width = w
+        self.height = h
         hbox.setContentsMargins(0, 0, 0, 0)
-        head = QSplitter(Qt.Vertical)
 
-        splitter1 = QSplitter(Qt.Horizontal)
-        quit = Quit()
-        splitter1.addWidget(quit)
+        grid1 = QGridLayout(self)
+
+        quit = Quit(w, h)
+        grid1.addWidget(quit, 0, 0, alignment=Qt.AlignCenter)
+
+        timer = Timer(self.width, self.height)
+        grid1.addWidget(timer, 0, 2, alignment=Qt.AlignCenter)
+
+        help = HelpPopup(self.width, self.height)
+        grid1.addWidget(help, 0, 3, alignment=Qt.AlignCenter)
 
         fsm = FSM()
 
-        emergency_button = EmergencyButton(fsm)
-        splitter1.addWidget(emergency_button)
+        emergency_button = EmergencyButton(fsm, self.width, self.height)
+        grid1.addWidget(emergency_button, 0, 4,
+                        alignment=Qt.AlignCenter)
 
-        # splitter1.addWidget(fsm)
-        # splitter1.setSizes([1, 1])
 
-        timer = Timer()
-        splitter1.addWidget(timer)
-        help = HelpPopup()
-        splitter1.addWidget(help)
-        # splitter1.setStretchFactor(0, 1)
-        # splitter1.setStretchFactor(1, 2.5)
-        # splitter1.setStretchFactor(2, 2.5)
-        # splitter1.setStretchFactor(3, 1)
-        self.ratio = [1/12, 1/3, 5/12, 1/12]
-        self.ratio = [int(x * self.width) for x in self.ratio]
-        splitter1.setSizes(self.ratio)
+        self.pBar = Progress(self.width, self.height)
+        grid1.addWidget(self.pBar, 0, 1, alignment=Qt.AlignCenter)
 
-        splitter2 = QSplitter(Qt.Horizontal)
+        grid2 = QGridLayout(self)
         self.b1 = QPushButton("Home")
         self.b1.clicked.connect(lambda: self.navbar(self.b1))
+        self.b1.resize(self.width / 5, self.height / 20)
         self.b2 = QPushButton("Visualizer")
         self.b2.clicked.connect(lambda: self.navbar(self.b2))
+        self.b2.resize(self.width / 5, self.height / 20)
         self.b3 = QPushButton("Battery")
         self.b3.clicked.connect(lambda: self.navbar(self.b3))
+        self.b3.resize(self.width / 5, self.height / 20)
         self.b4 = QPushButton("Temperature")
         self.b4.clicked.connect(lambda: self.navbar(self.b4))
-        splitter2.addWidget(self.b1)
-        splitter2.addWidget(self.b2)
-        splitter2.addWidget(self.b3)
-        splitter2.addWidget(self.b4)
-        splitter2.addWidget(self.b4)
-        splitter2.addWidget(self.b4)
-        splitter2.addWidget(self.b4)
+        self.b4.resize(self.width / 5, self.height / 20)
+        grid2.addWidget(self.b1, 0, 0)
+        grid2.addWidget(self.b2, 0, 1)
+        grid2.addWidget(self.b3, 0, 2)
+        grid2.addWidget(self.b4, 0, 3)
 
-        # battery = Battery()
-        # battery.setStyleSheet(qstr)
-        # splitter2.addWidget(battery)
-        # proximitySensor = ProximitySensor()
-        # proximitySensor.setStyleSheet(qstr)
-        # splitter2.addWidget(proximitySensor)
-        # vibrationSensor = VibrationSensor()
-        # vibrationSensor.setStyleSheet(qstr)
-        # splitter2.addWidget(vibrationSensor)
-        # pressureSensor = PressureSensor()
-        # pressureSensor.setStyleSheet(qstr)
-        # splitter2.addWidget(pressureSensor)
-        # fsm = FSM()
-        # ldrf = LongDistanceRangefinder()
-        # splitter2.addWidget(ldrf)
-        # splitter2.setSizes([2, 2, 1, 50])
-
-        head.addWidget(splitter1)
         splitter3 = QSplitter(Qt.Vertical)
-        splitter3.addWidget(splitter1)
-        # splitter2.setSizes([int(0), int(self.height / 3)])
-        splitter3.addWidget(splitter2)
-        splitter3.setSizes([int(self.height / 3), int(self.height / 3)])
 
-        hbox.addWidget(splitter3)
+
+        vbox = QVBoxLayout(self)
+
+        vbox.addLayout(grid1)
+        vbox.addLayout(grid2)
+
+        hbox.addLayout(vbox)
         self.setStyleSheet(qstr)
-
         
         splitter4= QSplitter(Qt.Horizontal)
         self.pBarContainer = progressBar.ProgressBar()
@@ -118,7 +98,6 @@ class Header(QWidget):
             self.pBarContainer.pBar.setStyleSheet(cons.PBAR_MED_PROGRESS)
         elif int(self.pBarContainer.pBar.value())==100: 
             self.pBarContainer.pBar.setStyleSheet(cons.PBAR_HIGH_PROGRESS)
-    
 
     def navbar(self, b):
         print("clicked button is ", b.text())

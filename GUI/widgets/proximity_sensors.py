@@ -18,22 +18,26 @@ class ProximitySensor(QWidget):
         sensor1.setText("Proximity Sensor 1: " +
                         constants.PROXIMITY_SENSOR_STATE1)
         sensor1.setAlignment(Qt.AlignCenter)
-        sensor1.setStyleSheet("background-color : #2B26c1")
+        sensor1.setStyleSheet(
+            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
 
         sensor2.setText("Proximity Sensor 2: " +
                         constants.PROXIMITY_SENSOR_STATE2)
         sensor2.setAlignment(Qt.AlignCenter)
-        sensor2.setStyleSheet("background-color : #2B26c1")
+        sensor2.setStyleSheet(
+            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
 
         sensor3.setText("Proximity Sensor 3: " +
                         constants.PROXIMITY_SENSOR_STATE3)
         sensor3.setAlignment(Qt.AlignCenter)
-        sensor3.setStyleSheet("background-color : #2B26c1")
+        sensor3.setStyleSheet(
+            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
 
         sensor4.setText("Proximity Sensor 4: " +
                         constants.PROXIMITY_SENSOR_STATE4)
         sensor4.setAlignment(Qt.AlignCenter)
-        sensor4.setStyleSheet("background-color : #2B26c1")
+        sensor4.setStyleSheet(
+            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
 
         vbox = QVBoxLayout()
 
