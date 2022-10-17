@@ -24,16 +24,16 @@
 # FSM Data
 CURRENT_STATE = "Acceleration"
 STATES = {
-    'Stop': 'state_icons/temp.png',
-    'Crawl': 'state_icons/temp.png',
-    'Deceleration': 'state_icons/temp.png',
-    'Cruise': 'state_icons/temp.png',
-    'Emergency': 'state_icons/temp.png',
-    'Verification': 'state_icons/temp.png',
-    'Pre-Acceleration': 'state_icons/temp.png',
-    'Acceleration': 'state_icons/temp.png',
-    'Overheating': 'state_icons/temp.png',
-    'Extreme Overheating': 'state_icons/temp.png'
+    'Stop': 'state_icons/stop.png',
+    'Crawl': 'state_icons/crawl.png',
+    'Deceleration': 'state_icons/deceleration.png',
+    'Cruise': 'state_icons/cruise.png',
+    'Emergency': 'state_icons/emergency.png',
+    'Verification': 'state_icons/verification.png',
+    'Pre-Acceleration': 'state_icons/pre_acceleration.png',
+    'Acceleration': 'state_icons/acceleration.png',
+    'Overheating': 'state_icons/overheating.png',
+    'Extreme Overheating': 'state_icons/extreme_overheating.png'
 }
 
 # Battery Pack Data
@@ -92,7 +92,7 @@ ALTITUDE = 33000
 # Long Distance Range Finder Data
 DISTANCE = 30
 
-#Progress Bar Data
+# Progress Bar Data
 LABEL_STYLE_SHEET = "color: blue; background-color: grey; selection-color: grey; selection-background-color: blue;"
 PBAR_LOW_PROGRESS = "QProgressBar::chunk {background-color: red;}"
 PBAR_MED_PROGRESS = "QProgressBar::chunk {background-color: gold;}"
