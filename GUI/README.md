@@ -51,7 +51,7 @@
 - Currently displaying data from dummy arrays
 - But, can extract sample data from a txt file of the same file directory instead by replacing `second` and `temperature` with `xs` and `ys`
 
-## Widget Choices & Reasoning
+## Sensor Research
 Accelerometer: 
 measures acceleration
 Time vs. acceleration
