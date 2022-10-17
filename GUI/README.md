@@ -53,25 +53,25 @@
 
 ## Sensor Research
 Accelerometer: 
-measures acceleration
-Time vs. acceleration
+* measures acceleration
+* Time vs. acceleration
 
 TOF range finder: 
-Time-of-Flight (ToF) sensors are used for a range of applications, including robot navigation, vehicle monitoring, people counting, and object detection
-Time vs. distance 
+* Time-of-Flight (ToF) sensors are used for a range of applications, including robot navigation, vehicle monitoring, people counting, and object detection
+* Time vs. distance 
 
 Ultrasonic range finder: 
-measure the distance between the sensor and its object using ultrasonic frequency
-Time vs. distance
+* measure the distance between the sensor and its object using ultrasonic frequency
+* Time vs. distance
 
 Thermistors: 
-measure temperature
-Time vs. temperature
+* measure temperature
+* Time vs. temperature
 
 Inductive proximity sensor: 
-detects metal targets using electromagnetic energy and without contact
-Time vs. distance 
+* detects metal targets using electromagnetic energy and without contact
+* Time vs. distance 
 
 Infrared proximity sensor: 
-measure reflected infrared (IR) energy to detect the presence of an object or person
-Time vs. distance 
+* measure reflected infrared (IR) energy to detect the presence of an object or person
+* Time vs. distance 
