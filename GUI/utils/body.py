@@ -18,6 +18,7 @@ class Body(QWidget):
 
         home = QSplitter(Qt.Vertical)
 
+        plot_button_splitter = QSplitter(Qt.Horizontal)
         home_footer = QSplitter(Qt.Horizontal)
         bottom_left = QSplitter(Qt.Vertical)
         vel_acc = QSplitter(Qt.Horizontal)
@@ -30,6 +31,15 @@ class Body(QWidget):
         speed = Speed()
         bottom_left.addWidget(vel_acc)
         bottom_left.addWidget(speed)
+
+        # temporary graph
+        self.temporary = pg.PlotWidget()
+        hour = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        temperature = [30, 32, 34, 32, 33, 31, 29, 32, 35, 45]
+        self.temporary.resize(self.width, self.height / 4)
+
+        self.plot_buttons = PlotButtons(self.temporary)
+        plot_button_splitter.addWidget(self.plot_buttons)
 
         prox_sensors = ProximitySensor()
         # battery = Battery()
@@ -49,15 +59,10 @@ class Body(QWidget):
         # hbox.addWidget(vgraph)
         # self.setLayout(hbox)
 
-        # temporary graph, i dont have arduino
-        self.temporary = pg.PlotWidget()
-        hour = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        temperature = [30, 32, 34, 32, 33, 31, 29, 32, 35, 45]
-        self.temporary.resize(self.width, self.height / 4)
-
         #temporary.plot(hour, temperature)
 
         home.addWidget(self.temporary)
+        home.addWidget(plot_button_splitter)
         home.addWidget(home_footer)
         home.setSizes([300, 50])
         # home.setSizes([int(self.height / 4), int(self.height / 10)])
@@ -71,10 +76,15 @@ class Body(QWidget):
         self.x = 0
         self.y = 0
 
-    def update(self):
-        self.x += 1
-        self.y += 1
+    def update(self):  
+        if (self.plot_buttons.getPlotResetFlag()):
+            self.x = 0
+            self.y = 0
+            self.plot_buttons.setPlotResetFlag(False)
+        else:
+            pen = pg.mkPen(width=10)
+            self.temporary.plot([self.x], [self.y],
+                                pen=pen, symbol='x', symbolSize=30)
+            self.x += 1
+            self.y += 1
 
-        pen = pg.mkPen(width=10)
-        self.temporary.plot([self.x], [self.y],
-                            pen=pen, symbol='x', symbolSize=30)
