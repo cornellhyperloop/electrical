@@ -30,18 +30,32 @@ class FSM:
             State 10: Pod Off
         """
 
+        # self.allStates = {
+        #     0: 'Pod On',
+        #     1: 'Verification',
+        #     2: 'Overheating',
+        #     3: 'Pre-Acceleration',
+        #     4: 'Acceleration',
+        #     5: 'Cruise',
+        #     6: 'Deceleration',
+        #     7: 'Crawl',
+        #     8: 'Stop',
+        #     9: 'Emergency',
+        #     10: 'Pod Off'
+        # }
+
+        ## temporary 
         self.allStates = {
-            0: 'Pod On',
-            1: 'Verification',
-            2: 'Overheating',
-            3: 'Pre-Acceleration',
-            4: 'Acceleration',
-            5: 'Cruise',
-            6: 'Deceleration',
-            7: 'Crawl',
-            8: 'Stop',
-            9: 'Emergency',
-            10: 'Pod Off'
+            0: 'Stop',
+            1: 'Crawl',
+            2: 'Deceleration',
+            3: 'Cruise',
+            4: 'Emergency',
+            5: 'Verification',
+            6: 'Pre-Acceleration',
+            7: 'Acceleration',
+            8: 'Overheating',
+            9: 'Extreme Overheating'
         }
 
         self.currState = self.allStates[0]

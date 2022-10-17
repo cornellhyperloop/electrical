@@ -22,7 +22,7 @@
 # }
 
 # FSM Data
-CURRENT_STATE = "Acceleration"
+CURRENT_STATE = "Deceleration"
 STATES = {
     'Stop': 'state_icons/stop.png',
     'Crawl': 'state_icons/crawl.png',

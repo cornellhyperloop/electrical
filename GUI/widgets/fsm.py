@@ -14,27 +14,19 @@ class FSM(QWidget):
         # self.fsm.run()
 
     def initUI(self):
-        self.state = QLabel(self)
-
-        self.state.setText("Current State: " + constants.CURRENT_STATE)
-        self.state.setAlignment(Qt.AlignCenter)
         self.im = QPixmap(constants.STATES[constants.CURRENT_STATE])
         self.im = self.im.scaled(
-            50, 50, Qt.KeepAspectRatio, Qt.FastTransformation)
+            100, 100, Qt.KeepAspectRatio, Qt.FastTransformation)
         self.label = QLabel()
         self.label.setPixmap(self.im)
-        self.label.setFixedWidth(50)
-        self.label.setFixedHeight(50)
+        self.label.setFixedWidth(100)
+        self.label.setFixedHeight(100)
         vbox = QVBoxLayout()
-
-        vbox.addWidget(self.state)
         vbox.addWidget(self.label)
 
         self.setLayout(vbox)
-
-        # Automatically update the displayed FSM state frequently
-        self.timerFSM = QTimer(self, timeout=self.updateStateText)
-        self.timerFSM.start(100)
+        self.setStyleSheet(
+            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
 
         # Use a timer to randomly change state for testing purposes
         self.timerFSMRand = QTimer(self, timeout=self.update)
@@ -44,6 +36,11 @@ class FSM(QWidget):
         newState = self.fsm.allStates[random.randint(
             0, len(self.fsm.allStates) - 1)]
         self.fsm.setState(newState)
-
-    def updateStateText(self):
-        self.state.setText(f'Current State: {self.fsm.getState()}')
+        # print(self.fsm.getState())
+        self.im = QPixmap(constants.STATES[self.fsm.getState()])
+        self.im = self.im.scaled(
+            100, 100, Qt.KeepAspectRatio, Qt.FastTransformation)
+        self.label = QLabel()
+        self.label.setPixmap(self.im)
+        self.label.setFixedWidth(100)
+        self.label.setFixedHeight(100)

@@ -6,6 +6,7 @@ import time
 from widgets import progressBar
 import constants as cons
 
+
 class Header(QWidget):
     def __init__(self, w=1000, h=500, *args, **kwargs):
         super(Header, self).__init__()
@@ -34,7 +35,6 @@ class Header(QWidget):
         grid1.addWidget(emergency_button, 0, 4,
                         alignment=Qt.AlignCenter)
 
-
         self.pBar = Progress(self.width, self.height)
         grid1.addWidget(self.pBar, 0, 1, alignment=Qt.AlignCenter)
 
@@ -56,9 +56,6 @@ class Header(QWidget):
         grid2.addWidget(self.b3, 0, 2)
         grid2.addWidget(self.b4, 0, 3)
 
-        splitter3 = QSplitter(Qt.Vertical)
-
-
         vbox = QVBoxLayout(self)
 
         vbox.addLayout(grid1)
@@ -66,11 +63,13 @@ class Header(QWidget):
 
         hbox.addLayout(vbox)
         self.setStyleSheet(qstr)
-        
-        splitter4= QSplitter(Qt.Horizontal)
+
+        splitter4 = QSplitter(Qt.Horizontal)
         self.pBarContainer = progressBar.ProgressBar()
         splitter4.addWidget(self.pBarContainer.label)
-        splitter4.addWidget(self.pBarContainer.pBar)                             # PROGRESS BAR
+        # splitter4.addWidget(fsm)
+        # PROGRESS BAR
+        splitter4.addWidget(self.pBarContainer.pBar)
         splitter4.setSizes([self.height / 30, self.height / 30])
 
         hbox.addWidget(splitter4)
@@ -80,23 +79,23 @@ class Header(QWidget):
 
         #self.label = QLabel(self)
         #self.pixmap = QPixmap('images/hyperloop.png')
-        #self.pixmap.setFixedWidth(200)
+        # self.pixmap.setFixedWidth(200)
         #splitter5= QSplitter(Qt.Horizontal)
-        #splitter5.addWidegt(self.pixmap)
-        #hbox.addWidget(splitter5)
-        #self.label.setPixmap(self.pixmap)
-        #self.label.resize(self.pixmap.width(),self.pixmap.height())
-        
-        self.show()  
+        # splitter5.addWidegt(self.pixmap)
+        # hbox.addWidget(splitter5)
+        # self.label.setPixmap(self.pixmap)
+        # self.label.resize(self.pixmap.width(),self.pixmap.height())
 
-    def update(self):                                                  #PROGRESS BAR
+        self.show()
+
+    def update(self):  # PROGRESS BAR
         self.pBarContainer.pBar.setValue(self.pBarContainer.pBar.value()+5)
 
-        if int(self.pBarContainer.pBar.value()) <50:
+        if int(self.pBarContainer.pBar.value()) < 50:
             self.pBarContainer.pBar.setStyleSheet(cons.PBAR_LOW_PROGRESS)
-        elif int(self.pBarContainer.pBar.value())>50: 
+        elif int(self.pBarContainer.pBar.value()) > 50:
             self.pBarContainer.pBar.setStyleSheet(cons.PBAR_MED_PROGRESS)
-        elif int(self.pBarContainer.pBar.value())==100: 
+        elif int(self.pBarContainer.pBar.value()) == 100:
             self.pBarContainer.pBar.setStyleSheet(cons.PBAR_HIGH_PROGRESS)
 
     def navbar(self, b):
