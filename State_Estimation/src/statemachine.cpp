@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <constants.h>
+#include <constants.hpp>
 #include <helperFunctions.h>
 
 int main()
