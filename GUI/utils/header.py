@@ -3,7 +3,8 @@ from PyQt5.QtCore import *
 from widgets import *
 from PyQt5.QtCore import QObject, pyqtSignal
 import time
-
+from widgets import progressBar
+import constants as cons
 
 class Header(QWidget):
     def __init__(self, w=1000, h=500, *args, **kwargs):
@@ -65,14 +66,38 @@ class Header(QWidget):
 
         hbox.addLayout(vbox)
         self.setStyleSheet(qstr)
+        
+        splitter4= QSplitter(Qt.Horizontal)
+        self.pBarContainer = progressBar.ProgressBar()
+        splitter4.addWidget(self.pBarContainer.label)
+        splitter4.addWidget(self.pBarContainer.pBar)                             # PROGRESS BAR
+        splitter4.setSizes([self.height / 30, self.height / 30])
+
+        hbox.addWidget(splitter4)
 
         self.timer = QTimer(self, timeout=self.update)
         self.timer.start(1000)
 
-        self.show()
+        #self.label = QLabel(self)
+        #self.pixmap = QPixmap('images/hyperloop.png')
+        #self.pixmap.setFixedWidth(200)
+        #splitter5= QSplitter(Qt.Horizontal)
+        #splitter5.addWidegt(self.pixmap)
+        #hbox.addWidget(splitter5)
+        #self.label.setPixmap(self.pixmap)
+        #self.label.resize(self.pixmap.width(),self.pixmap.height())
+        
+        self.show()  
 
-    def update(self):
-        self.pBar.update()
+    def update(self):                                                  #PROGRESS BAR
+        self.pBarContainer.pBar.setValue(self.pBarContainer.pBar.value()+5)
+
+        if int(self.pBarContainer.pBar.value()) <50:
+            self.pBarContainer.pBar.setStyleSheet(cons.PBAR_LOW_PROGRESS)
+        elif int(self.pBarContainer.pBar.value())>50: 
+            self.pBarContainer.pBar.setStyleSheet(cons.PBAR_MED_PROGRESS)
+        elif int(self.pBarContainer.pBar.value())==100: 
+            self.pBarContainer.pBar.setStyleSheet(cons.PBAR_HIGH_PROGRESS)
 
     def navbar(self, b):
         print("clicked button is ", b.text())
