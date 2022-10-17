@@ -6,7 +6,6 @@ import time
 from widgets import progressBar
 import constants as cons
 
-
 class Header(QWidget):
     def __init__(self, w=1000, h=500, *args, **kwargs):
         super(Header, self).__init__()
@@ -16,7 +15,7 @@ class Header(QWidget):
             qstr = str(fh.read())
         self.width = w * 1/2
         self.height = h / 6
-
+        hbox.setContentsMargins(0, 0, 0, 0)
         head = QSplitter(Qt.Vertical)
 
         splitter1 = QSplitter(Qt.Horizontal)
@@ -40,7 +39,7 @@ class Header(QWidget):
         # splitter1.setStretchFactor(2, 2.5)
         # splitter1.setStretchFactor(3, 1)
         self.ratio = [1/12, 1/3, 5/12, 1/12]
-        self.ratio = [x * self.width for x in self.ratio]
+        self.ratio = [int(x * self.width) for x in self.ratio]
         splitter1.setSizes(self.ratio)
 
         splitter2 = QSplitter(Qt.Horizontal)
@@ -80,8 +79,9 @@ class Header(QWidget):
         head.addWidget(splitter1)
         splitter3 = QSplitter(Qt.Vertical)
         splitter3.addWidget(splitter1)
+        # splitter2.setSizes([int(0), int(self.height / 3)])
         splitter3.addWidget(splitter2)
-        splitter3.setSizes([self.height / 3, self.height / 3])
+        splitter3.setSizes([int(self.height / 3), int(self.height / 3)])
 
         hbox.addWidget(splitter3)
         self.setStyleSheet(qstr)
@@ -97,7 +97,17 @@ class Header(QWidget):
 
         self.timer = QTimer(self, timeout=self.update)
         self.timer.start(1000)
-       
+
+        #self.label = QLabel(self)
+        #self.pixmap = QPixmap('images/hyperloop.png')
+        #self.pixmap.setFixedWidth(200)
+        #splitter5= QSplitter(Qt.Horizontal)
+        #splitter5.addWidegt(self.pixmap)
+        #hbox.addWidget(splitter5)
+        #self.label.setPixmap(self.pixmap)
+        #self.label.resize(self.pixmap.width(),self.pixmap.height())
+        
+        self.show()  
 
     def update(self):                                                  #PROGRESS BAR
         self.pBarContainer.pBar.setValue(self.pBarContainer.pBar.value()+5)
@@ -110,11 +120,10 @@ class Header(QWidget):
             self.pBarContainer.pBar.setStyleSheet(cons.PBAR_HIGH_PROGRESS)
     
 
-
     def navbar(self, b):
         print("clicked button is ", b.text())
         buttons = [self.b1, self.b2, self.b3, self.b4]
-        if buttons.index(b) > 1:
+        if buttons.index(b) > 2:
             return 0
         else:
             return buttons.index(b)

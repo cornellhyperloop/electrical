@@ -22,7 +22,19 @@
 # }
 
 # FSM Data
-CURRENT_STATE = "acceleration"
+CURRENT_STATE = "Acceleration"
+STATES = {
+    'Stop': 'state_icons/temp.png',
+    'Crawl': 'state_icons/temp.png',
+    'Deceleration': 'state_icons/temp.png',
+    'Cruise': 'state_icons/temp.png',
+    'Emergency': 'state_icons/temp.png',
+    'Verification': 'state_icons/temp.png',
+    'Pre-Acceleration': 'state_icons/temp.png',
+    'Acceleration': 'state_icons/temp.png',
+    'Overheating': 'state_icons/temp.png',
+    'Extreme Overheating': 'state_icons/temp.png'
+}
 
 # Battery Pack Data
 BATTERY_CURRENT_TEMP = 0
@@ -32,9 +44,19 @@ BATTERY_2 = 82
 BATTERY_3 = 100
 BATTERY_4 = 0
 BATTERY_5 = 67
-BATTERY_6 = 72
-BATTERY_7 = 94
-BATTERY_8 = 89
+VOLTAGE_BATT_1 = 40
+VOLTAGE_BATT_2 = 82
+VOLTAGE_BATT_3 = 100
+VOLTAGE_BATT_4 = 0
+VOLTAGE_BATT_5 = 67
+CURRENT_BATT_1 = 40
+CURRENT_BATT_2 = 82
+CURRENT_BATT_3 = 100
+CURRENT_BATT_4 = 0
+CURRENT_BATT_5 = 67
+# BATTERY_6 = 72
+# BATTERY_7 = 94
+# BATTERY_8 = 89
 
 # Inductive Proximity Sensor Data
 PROXIMITY_INPUT1 = 2

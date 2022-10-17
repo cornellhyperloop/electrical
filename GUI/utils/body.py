@@ -30,10 +30,10 @@ class Body(QWidget):
         bottom_left.addWidget(speed)
 
         prox_sensors = ProximitySensor()
-        battery = Battery()
+        # battery = Battery()
         home_footer.addWidget(bottom_left)
         home_footer.addWidget(prox_sensors)
-        home_footer.addWidget(battery)
+        # home_footer.addWidget(battery)
 
         # hbox.addWidget(splitter3)
 
