@@ -20,8 +20,6 @@ class HelpPopup(QWidget):
             "background-color : #2B26c1; border-radius: 5px; font-family: Helvetica; font-size: 14px; border: 3px #2B26c1")
         self.push.clicked.connect(self.pushedHelp)
         self.push.resize(self.width, self.height)
-        #self.push.resize(400, 200)
-        #self.push.move(0, 50)
 
     def pushedHelp(self):
         self.msgBox = QMessageBox()

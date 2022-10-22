@@ -42,30 +42,16 @@ class Body(QWidget):
         plot_button_splitter.addWidget(self.plot_buttons)
 
         prox_sensors = ProximitySensor()
-        # battery = Battery()
         home_footer.addWidget(bottom_left)
         home_footer.addWidget(prox_sensors)
-        # home_footer.addWidget(battery)
-
-        # hbox.addWidget(splitter3)
 
         vgraph = QSplitter(Qt.Horizontal)
-        ###
-
-        #graph = TempGraph()
-        # vgraph.addWidget(graph)
         vgraph.setSizes([2, 2])
-
-        # hbox.addWidget(vgraph)
-        # self.setLayout(hbox)
-
-        #temporary.plot(hour, temperature)
 
         home.addWidget(self.temporary)
         home.addWidget(plot_button_splitter)
         home.addWidget(home_footer)
         home.setSizes([300, 50])
-        # home.setSizes([int(self.height / 4), int(self.height / 10)])
 
         hbox.addWidget(home)
         self.setLayout(hbox)

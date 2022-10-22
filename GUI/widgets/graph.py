@@ -16,8 +16,6 @@ class Graph(QWidget):
         self.graphWidget = pg.PlotWidget()
 
         self.graphWidget.setBackground((224, 224, 224))
-        # self.graphWidget.plot(second, temperature, pen=pen,
-        #   symbol='x', symbolSize=30)
         self.layout.addWidget(self.graphWidget)
         self.setLayout(self.layout)
         self.timer = QTimer(self, timeout=self.update)

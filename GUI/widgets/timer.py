@@ -16,7 +16,6 @@ class Timer(QWidget):
         self.start = True
         self.label = QLabel("         Time         ", self)
         self.label.setAlignment(Qt.AlignCenter)
-        # self.label.setFont(QFont('AnyStyle', 14))
         self.label.setStyleSheet(
             "font-family: Helvetica; font-size: 14px; background-color: #2B26c1; color: black")
         self.label.resize(self.width, self.height)
@@ -27,7 +26,6 @@ class Timer(QWidget):
     def showTime(self):
         self.count += 1
         text = f'Time: {self.count / 10} s'
-        #text = '' + str(self.count / 10) + " s"
         self.label.setText(text)
 
     def sizeHint(self):

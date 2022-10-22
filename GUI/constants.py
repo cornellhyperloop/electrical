@@ -1,26 +1,3 @@
-# {
-# 'sensor1': value1,
-# 'sensor2': value2,
-# 'sensor3': value3,
-# 'sensor4': value4,
-# 'sensor5': value5,
-# 'Thermistor': [value1, value2, value3, value4, value5]
-# }
-# {
-# 'sensor1': value1,
-# 'Pressure': value1
-# }
-# {
-# 'sensor1': value1,
-# 'Distance: value1
-# }
-# {
-# 'sensor1': value1,
-# ‘Sensor2’: value2
-# 'Angular Rate': value1
-# ‘Acceleration’: value2
-# }
-
 # FSM Data
 CURRENT_STATE = "Deceleration"
 STATES = {
@@ -54,9 +31,6 @@ CURRENT_BATT_2 = 82
 CURRENT_BATT_3 = 100
 CURRENT_BATT_4 = 0
 CURRENT_BATT_5 = 67
-# BATTERY_6 = 72
-# BATTERY_7 = 94
-# BATTERY_8 = 89
 
 # Inductive Proximity Sensor Data
 PROXIMITY_INPUT1 = 2

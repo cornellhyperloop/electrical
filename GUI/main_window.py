@@ -16,16 +16,8 @@ class MainWindow(QWidget):
         # Insert change here
         self.setWindowTitle("Hyperloop GUI")
 
-        # app = QtGui.QApplication(sys.argv)
-
-        # mainWindow = QtGui.QWidget()
-        # width = mainWindow.frameGeometry().width()
-        # height = mainWindow.frameGeometry().height()
-
         hbox = QHBoxLayout(self)
 
-        # bottom = QFrame()
-        # bottom.setFrameShape(QFrame.StyledPanel)
         width = 1250
         height = 900
 
