@@ -36,7 +36,7 @@ class Body(QWidget):
         self.temporary = pg.PlotWidget()
         hour = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         temperature = [30, 32, 34, 32, 33, 31, 29, 32, 35, 45]
-        self.temporary.resize(self.width, self.height / 4)
+        self.temporary.resize(int(self.width), int(self.height / 4))
 
         self.plot_buttons = PlotButtons(self.temporary)
         plot_button_splitter.addWidget(self.plot_buttons)
