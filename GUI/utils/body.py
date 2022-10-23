@@ -76,7 +76,14 @@ class Body(QWidget):
         self.x = 0
         self.y = 0
 
-    def update(self):  
+    def update(self):
+        if (self.plot_buttons.getRescaleAxesFlag()):
+            self.plot_buttons.setRescaleAxesFlag(False)
+            x_axes = self.plot_buttons.getXAxesLimits()
+            y_axes = self.plot_buttons.getYAxesLimits()
+            self.temporary.setXRange(x_axes[0],x_axes[1])
+            self.temporary.setYRange(y_axes[0],y_axes[1])
+
         if (self.plot_buttons.getPlotResetFlag()):
             self.x = 0
             self.y = 0
