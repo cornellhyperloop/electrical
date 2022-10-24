@@ -42,3 +42,4 @@ class Battery(QWidget):
         vbox.addWidget(avgtemp)
 
         self.setLayout(vbox)
+#this is a comment
