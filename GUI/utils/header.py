@@ -51,10 +51,14 @@ class Header(QWidget):
         self.b4 = QPushButton("Temperature")
         self.b4.clicked.connect(lambda: self.navbar(self.b4))
         self.b4.resize(self.width / 5, self.height / 20)
+        self.b5 = QPushButton("FSM")
+        self.b5.clicked.connect(lambda: self.navbar(self.b5))
+        self.b5.resize(self.width / 5, self.height / 20)
         grid2.addWidget(self.b1, 0, 0)
         grid2.addWidget(self.b2, 0, 1)
         grid2.addWidget(self.b3, 0, 2)
         grid2.addWidget(self.b4, 0, 3)
+        grid2.addWidget(self.b5, 0, 4)
 
         vbox = QVBoxLayout(self)
 
@@ -100,8 +104,9 @@ class Header(QWidget):
 
     def navbar(self, b):
         print("clicked button is ", b.text())
-        buttons = [self.b1, self.b2, self.b3, self.b4]
-        if buttons.index(b) > 2:
+        buttons = [self.b1, self.b2, self.b3, self.b4, self.b5]
+        # only temperature page is not implemented
+        if buttons.index(b) == 3:
             return 0
         else:
             return buttons.index(b)

@@ -7,6 +7,7 @@ from utils.header import Header
 from utils.body import Body
 from utils.visualizer import Visualizer
 from utils.batteryPage import BatteryPage
+from utils.FSM import FSM
 
 
 class MainWindow(QWidget):
@@ -38,16 +39,22 @@ class MainWindow(QWidget):
             lambda: self.renderPage(header.navbar(header.b3)))
         header.b4.clicked.connect(
             lambda: self.renderPage(header.navbar(header.b4)))
+        header.b5.clicked.connect(
+            lambda: self.renderPage(header.navbar(header.b5)))
 
         self.Stack = QStackedWidget(self)
 
         body = Body(width, height)
         visualizer = Visualizer()
         batteryPage = BatteryPage()
+        fsm = FSM(width, height)
 
         self.Stack.addWidget(body)
         self.Stack.addWidget(visualizer)
         self.Stack.addWidget(batteryPage)
+        # temperature page not implemented yet
+        self.Stack.addWidget(Body(width, height))
+        self.Stack.addWidget(fsm)
 
         splitter4 = QSplitter(Qt.Vertical)
         splitter4.addWidget(header)
