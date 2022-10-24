@@ -27,3 +27,5 @@ The Electrical team's repo.
     * Devika Krishna
     * Patrick Choo
     * Mihika Jain
+
+Hello, if you have read this far, good job. 
