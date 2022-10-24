@@ -54,3 +54,5 @@ class MainWindow(QWidget):
 
     def renderPage(self, i):
         self.Stack.setCurrentIndex(i)
+
+# Well hello there fella
