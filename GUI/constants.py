@@ -69,3 +69,5 @@ ALTITUDE = 33000
 
 # Long Distance Range Finder Data
 DISTANCE = 30
+
+#This is a test comment
