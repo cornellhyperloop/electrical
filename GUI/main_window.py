@@ -29,7 +29,7 @@ class MainWindow(QWidget):
         width = 1250
         height = 900
 
-        header = Header(w=width, h=height)
+        header = Header(w=int(width), h=int(height))
         header.b1.clicked.connect(
             lambda: self.renderPage(header.navbar(header.b1)))
         header.b2.clicked.connect(
@@ -41,7 +41,7 @@ class MainWindow(QWidget):
 
         self.Stack = QStackedWidget(self)
 
-        body = Body(width, height)
+        body = Body(int(width), int(height))
         visualizer = Visualizer()
         batteryPage = BatteryPage()
 

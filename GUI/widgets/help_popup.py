@@ -19,7 +19,7 @@ class HelpPopup(QWidget):
         self.push.setStyleSheet(
             "background-color : #2B26c1; border-radius: 5px; font-family: Helvetica; font-size: 14px; border: 3px #2B26c1")
         self.push.clicked.connect(self.pushedHelp)
-        self.push.resize(self.width, self.height)
+        self.push.resize(int(self.width), int(self.height))
         #self.push.resize(400, 200)
         #self.push.move(0, 50)
 
@@ -32,4 +32,4 @@ class HelpPopup(QWidget):
         x = self.msgBox.exec()
 
     def sizeHint(self):
-        return QSize(self.width, self.height)
+        return QSize(int(self.width), int(self.height))
