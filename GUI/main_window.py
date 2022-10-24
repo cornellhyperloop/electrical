@@ -54,3 +54,4 @@ class MainWindow(QWidget):
 
     def renderPage(self, i):
         self.Stack.setCurrentIndex(i)
+# zarif change 10/24 git training
