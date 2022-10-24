@@ -12,10 +12,10 @@ import pyqtgraph as pg
 import sys  # We need sys so that we can pass argv to QApplication
 import os
 
-# benson is doing some editing
+# benson is doing some editingefjh3uwiof
 plt.ion()
 fig = plt.figure()
-
+2fuh12oifhj1p
 
 i=0
 x1 = list()
