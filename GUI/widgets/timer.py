@@ -18,7 +18,7 @@ class Timer(QWidget):
         self.label.setAlignment(Qt.AlignCenter)
         # self.label.setFont(QFont('AnyStyle', 14))
         self.label.setStyleSheet(
-            "font-family: Helvetica; font-size: 14px; background-color: #2B26c1; color: black")
+            "font-family: Helvetica; font-size: 14px; background-color: #2B26c1; color: white; border: 1px grey")
         self.label.resize(int(self.width), int(self.height))
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.showTime)
