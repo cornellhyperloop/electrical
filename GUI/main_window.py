@@ -17,20 +17,12 @@ class MainWindow(QWidget):
         # Insert change here
         self.setWindowTitle("Hyperloop GUI")
 
-        # app = QtGui.QApplication(sys.argv)
-
-        # mainWindow = QtGui.QWidget()
-        # width = mainWindow.frameGeometry().width()
-        # height = mainWindow.frameGeometry().height()
-
         hbox = QHBoxLayout(self)
 
-        # bottom = QFrame()
-        # bottom.setFrameShape(QFrame.StyledPanel)
         width = 1250
         height = 900
 
-        header = Header(w=width, h=height)
+        header = Header(w=int(width), h=int(height))
         header.b1.clicked.connect(
             lambda: self.renderPage(header.navbar(header.b1)))
         header.b2.clicked.connect(
@@ -44,7 +36,7 @@ class MainWindow(QWidget):
 
         self.Stack = QStackedWidget(self)
 
-        body = Body(width, height)
+        body = Body(int(width), int(height))
         visualizer = Visualizer()
         batteryPage = BatteryPage()
         fsm = FSM(width, height)

@@ -14,8 +14,3 @@ class BatteryPage(QWidget):
             hbox.addWidget(Battery(i))
 
         self.setLayout(hbox)
-
-        # self.setLayout(hbox)
-        # 5 different cells
-        # for each cell: voltage, temperature, and current_temp
-        # at the top: display average for volt, temp, and current_temp

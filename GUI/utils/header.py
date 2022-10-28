@@ -26,7 +26,7 @@ class Header(QWidget):
         timer = Timer(self.width, self.height)
         grid1.addWidget(timer, 0, 2, alignment=Qt.AlignCenter)
 
-        help = HelpPopup(self.width, self.height)
+        help = HelpPopup(int(self.width), int(self.height))
         grid1.addWidget(help, 0, 3, alignment=Qt.AlignCenter)
 
         fsm = FSM()
@@ -41,19 +41,19 @@ class Header(QWidget):
         grid2 = QGridLayout(self)
         self.b1 = QPushButton("Home")
         self.b1.clicked.connect(lambda: self.navbar(self.b1))
-        self.b1.resize(self.width / 5, self.height / 20)
+        self.b1.resize(int(self.width / 5), int(self.height / 20))
         self.b2 = QPushButton("Visualizer")
         self.b2.clicked.connect(lambda: self.navbar(self.b2))
-        self.b2.resize(self.width / 5, self.height / 20)
+        self.b2.resize(int(self.width / 5), int(self.height / 20))
         self.b3 = QPushButton("Battery")
         self.b3.clicked.connect(lambda: self.navbar(self.b3))
-        self.b3.resize(self.width / 5, self.height / 20)
+        self.b3.resize(int(self.width / 5), int(self.height / 20))
         self.b4 = QPushButton("Temperature")
         self.b4.clicked.connect(lambda: self.navbar(self.b4))
-        self.b4.resize(self.width / 5, self.height / 20)
+        self.b4.resize(int(self.width / 5), int(self.height / 20))
         self.b5 = QPushButton("FSM")
         self.b5.clicked.connect(lambda: self.navbar(self.b5))
-        self.b5.resize(self.width / 5, self.height / 20)
+        self.b5.resize(int(self.width / 5), int(self.height / 20))
         grid2.addWidget(self.b1, 0, 0)
         grid2.addWidget(self.b2, 0, 1)
         grid2.addWidget(self.b3, 0, 2)
@@ -71,24 +71,15 @@ class Header(QWidget):
         splitter4 = QSplitter(Qt.Horizontal)
         self.pBarContainer = progressBar.ProgressBar()
         splitter4.addWidget(self.pBarContainer.label)
-        # splitter4.addWidget(fsm)
+
         # PROGRESS BAR
         splitter4.addWidget(self.pBarContainer.pBar)
-        splitter4.setSizes([self.height / 30, self.height / 30])
+        splitter4.setSizes([int(self.height / 30), int(self.height / 30)])
 
         hbox.addWidget(splitter4)
 
         self.timer = QTimer(self, timeout=self.update)
         self.timer.start(1000)
-
-        #self.label = QLabel(self)
-        #self.pixmap = QPixmap('images/hyperloop.png')
-        # self.pixmap.setFixedWidth(200)
-        #splitter5= QSplitter(Qt.Horizontal)
-        # splitter5.addWidegt(self.pixmap)
-        # hbox.addWidget(splitter5)
-        # self.label.setPixmap(self.pixmap)
-        # self.label.resize(self.pixmap.width(),self.pixmap.height())
 
         self.show()
 
@@ -103,7 +94,6 @@ class Header(QWidget):
             self.pBarContainer.pBar.setStyleSheet(cons.PBAR_HIGH_PROGRESS)
 
     def navbar(self, b):
-        print("clicked button is ", b.text())
         buttons = [self.b1, self.b2, self.b3, self.b4, self.b5]
         # only temperature page is not implemented
         if buttons.index(b) == 3:

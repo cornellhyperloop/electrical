@@ -13,10 +13,10 @@ class Progress(QWidget):
 
     def initUI(self):
         self.pBar = QProgressBar(self)
-        self.pBar.resize(self.width, self.height)
+        self.pBar.resize(int(self.width), int(self.height))
 
     def update(self):
         self.pBar.setValue(self.pBar.value() + 5)
 
     def sizeHint(self):
-      return QSize(self.width, self.height)
+      return QSize(int(self.width), int(self.height))

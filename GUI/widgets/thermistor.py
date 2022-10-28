@@ -17,8 +17,6 @@ class Thermistor(QWidget):
 
         self.graphWidget.setBackground((224, 224, 224))
         pen = pg.mkPen(width=10)
-        # self.graphWidget.plot(second, temperature, pen=pen,
-        #   symbol='x', symbolSize=30)
         self.layout.addWidget(self.graphWidget)
         self.setLayout(self.layout)
         self.timer = QTimer(self, timeout=self.update)
