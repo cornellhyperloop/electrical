@@ -11,7 +11,6 @@ class FSM(QWidget):
         super(FSM, self).__init__(parent)
         self.initUI()
         self.fsm = stateMachine.FSM()
-        # self.fsm.run()
 
     def initUI(self):
         self.im = QPixmap(constants.STATES[constants.CURRENT_STATE])
@@ -36,7 +35,6 @@ class FSM(QWidget):
         newState = self.fsm.allStates[random.randint(
             0, len(self.fsm.allStates) - 1)]
         self.fsm.setState(newState)
-        # print(self.fsm.getState())
         self.im = QPixmap(constants.STATES[self.fsm.getState()])
         self.im = self.im.scaled(
             100, 100, Qt.KeepAspectRatio, Qt.FastTransformation)
