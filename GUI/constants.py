@@ -61,3 +61,7 @@ LABEL_STYLE_SHEET = "color: blue; background-color: grey; selection-color: grey;
 PBAR_LOW_PROGRESS = "QProgressBar::chunk {background-color: red;}"
 PBAR_MED_PROGRESS = "QProgressBar::chunk {background-color: gold;}"
 PBAR_HIGH_PROGRESS = "QProgressBar::chunk {background-color: green;}"
+
+# Live plotting
+NUM_PLOTS = 2
+PLOT_INCREMENTS = [1, 10] # For now, have the second plot increase much faster than the first
