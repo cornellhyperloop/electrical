@@ -36,7 +36,7 @@ class Body(QWidget):
         self.temporary_graph = pg.PlotWidget()
         hour = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         temperature = [30, 32, 34, 32, 33, 31, 29, 32, 35, 45]
-        self.temporary_graph.resize(self.width, self.height / 4)
+        self.temporary_graph.resize(int(self.width), int(self.height / 4))
 
         self.plot_buttons = PlotButtons(self.temporary_graph)
         plot_button_splitter.addWidget(self.plot_buttons)
@@ -48,30 +48,16 @@ class Body(QWidget):
         self.current_plot_values = [[0,0], [0,0]] # x,y for each plot
 
         prox_sensors = ProximitySensor()
-        # battery = Battery()
         home_footer.addWidget(bottom_left)
         home_footer.addWidget(prox_sensors)
-        # home_footer.addWidget(battery)
-
-        # hbox.addWidget(splitter3)
 
         vgraph = QSplitter(Qt.Horizontal)
-        ###
-
-        #graph = TempGraph()
-        # vgraph.addWidget(graph)
         vgraph.setSizes([2, 2])
-
-        # hbox.addWidget(vgraph)
-        # self.setLayout(hbox)
-
-        #temporary.plot(hour, temperature)
 
         home.addWidget(self.temporary_graph)
         home.addWidget(plot_button_splitter)
         home.addWidget(home_footer)
         home.setSizes([300, 50])
-        # home.setSizes([int(self.height / 4), int(self.height / 10)])
 
         hbox.addWidget(home)
         self.setLayout(hbox)
@@ -85,6 +71,13 @@ class Body(QWidget):
     def update(self):  
         current_plot = self.plot_buttons.getCurrentPlot()
         pen = pg.mkPen(width=10)
+
+        if (self.plot_buttons.getRescaleAxesFlag()):
+            self.plot_buttons.setRescaleAxesFlag(False)
+            x_axes = self.plot_buttons.getXAxesLimits()
+            y_axes = self.plot_buttons.getYAxesLimits()
+            self.temporary_graph.setXRange(x_axes[0],x_axes[1])
+            self.temporary_graph.setYRange(y_axes[0],y_axes[1])
 
         if (self.plot_buttons.getPlotResetFlag()):
             # Reset the current plot

@@ -22,7 +22,7 @@ class Pod(QOpenGLWidget):
         self.view.addItem(y)
         self.view.addItem(z)
 
-        #self.layout = QGridLayout(self.graphicsView)
+
         self.layout = QGridLayout()
         self.layout.addWidget(self.view)
         # coordinates
@@ -57,7 +57,6 @@ class Pod(QOpenGLWidget):
         glViewport(0, 0, width, height)
 
     def paintGL(self):
-        #global t
         if (self.t == len(cons.PITCH)):
             self.t = 0
         self.m1.rotate(cons.PITCH[self.t], 1, 0, 0)
