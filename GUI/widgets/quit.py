@@ -20,10 +20,11 @@ class Quit(QWidget):
         self.push.setStyleSheet(
             "background-color : red; border-radius: 5px; font-family: Helvetica; font-size: 14px; border: 3px solid black")
         self.push.clicked.connect(self.pushedQuit)
-        self.push.resize(self.width, self.height)
+        self.push.resize(int(self.width), int(self.height))
+
 
     def pushedQuit(self):
         sys.exit()
 
     def sizeHint(self):
-        return QSize(self.width, self.height)
+        return QSize(int(self.width), int(self.height))

@@ -26,7 +26,7 @@ class Header(QWidget):
         timer = Timer(self.width, self.height)
         grid1.addWidget(timer, 0, 2, alignment=Qt.AlignCenter)
 
-        help = HelpPopup(self.width, self.height)
+        help = HelpPopup(int(self.width), int(self.height))
         grid1.addWidget(help, 0, 3, alignment=Qt.AlignCenter)
 
         fsm = FSM()
@@ -41,16 +41,16 @@ class Header(QWidget):
         grid2 = QGridLayout(self)
         self.b1 = QPushButton("Home")
         self.b1.clicked.connect(lambda: self.navbar(self.b1))
-        self.b1.resize(self.width / 5, self.height / 20)
+        self.b1.resize(int(self.width / 5), int(self.height / 20))
         self.b2 = QPushButton("Visualizer")
         self.b2.clicked.connect(lambda: self.navbar(self.b2))
-        self.b2.resize(self.width / 5, self.height / 20)
+        self.b2.resize(int(self.width / 5), int(self.height / 20))
         self.b3 = QPushButton("Battery")
         self.b3.clicked.connect(lambda: self.navbar(self.b3))
-        self.b3.resize(self.width / 5, self.height / 20)
+        self.b3.resize(int(self.width / 5), int(self.height / 20))
         self.b4 = QPushButton("Temperature")
         self.b4.clicked.connect(lambda: self.navbar(self.b4))
-        self.b4.resize(self.width / 5, self.height / 20)
+        self.b4.resize(int(self.width / 5), int(self.height / 20))
         grid2.addWidget(self.b1, 0, 0)
         grid2.addWidget(self.b2, 0, 1)
         grid2.addWidget(self.b3, 0, 2)
@@ -70,7 +70,7 @@ class Header(QWidget):
 
         # PROGRESS BAR
         splitter4.addWidget(self.pBarContainer.pBar)
-        splitter4.setSizes([self.height / 30, self.height / 30])
+        splitter4.setSizes([int(self.height / 30), int(self.height / 30)])
 
         hbox.addWidget(splitter4)
 

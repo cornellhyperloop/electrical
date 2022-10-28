@@ -36,7 +36,7 @@ class Body(QWidget):
         self.temporary = pg.PlotWidget()
         hour = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         temperature = [30, 32, 34, 32, 33, 31, 29, 32, 35, 45]
-        self.temporary.resize(self.width, self.height / 4)
+        self.temporary.resize(int(self.width), int(self.height / 4))
 
         self.plot_buttons = PlotButtons(self.temporary)
         plot_button_splitter.addWidget(self.plot_buttons)
@@ -62,7 +62,14 @@ class Body(QWidget):
         self.x = 0
         self.y = 0
 
-    def update(self):  
+    def update(self):
+        if (self.plot_buttons.getRescaleAxesFlag()):
+            self.plot_buttons.setRescaleAxesFlag(False)
+            x_axes = self.plot_buttons.getXAxesLimits()
+            y_axes = self.plot_buttons.getYAxesLimits()
+            self.temporary.setXRange(x_axes[0],x_axes[1])
+            self.temporary.setYRange(y_axes[0],y_axes[1])
+
         if (self.plot_buttons.getPlotResetFlag()):
             self.x = 0
             self.y = 0

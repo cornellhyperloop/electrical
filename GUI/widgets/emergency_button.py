@@ -22,8 +22,7 @@ class EmergencyButton(QWidget):
 
         self.push.setStyleSheet(
             "background-color : red; border-radius: 5px; font-family: Helvetica; font-size: 14px; border: 3px solid black")
-        self.push.resize(self.width, self.height)
-
+        self.push.resize(int(self.width), int(self.height))
 
     def msgButtonClick(self, i):
         print("Button clicked is:", i.text())
@@ -32,4 +31,4 @@ class EmergencyButton(QWidget):
         self.fsm.fsm.setState('Emergency')
 
     def sizeHint(self):
-        return QSize(self.width, self.height)
+        return QSize(int(self.width), int(self.height))
