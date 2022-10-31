@@ -28,7 +28,7 @@ class PlotButtons(QWidget):
         self.example_button.setStyleSheet("font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
 
         self.downloadButton = QPushButton(self)
-        self.downloadButton.setText("reset Plot")
+        self.downloadButton.setText("Download Data")
         self.downloadButton.setStyleSheet("font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
         self.downloadButton.clicked.connect(self.downloadData)
 
@@ -39,13 +39,7 @@ class PlotButtons(QWidget):
 
 
     def downloadData(self):
-        self.zipped = zip(self.xdata, self.ydata)
-        df = pd.DataFrame(self.zipped)
-        df.to_csv
-        self.downloaded = True
-    
-    @st.cache
-        return 
+        self.plot.getPlotItem().writeCsv("Data.csv")
 
     def resetPlot(self):
         self.plot.clear()
