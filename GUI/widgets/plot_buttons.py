@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 
+
 class PlotButtons(QWidget):
     def __init__(self, plot):
         super(PlotButtons, self).__init__(None)
@@ -19,11 +20,18 @@ class PlotButtons(QWidget):
         self.reset_plot_button.setStyleSheet("font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
         self.reset_plot_button.clicked.connect(self.resetPlot)
 
+        # Custom Data Point Button
+        self.custom_point_button = QPushButton(self)
+        self.custom_point_button.setText("Create Custom Data Point")
+        self.custom_point_button.setStyleSheet("font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.custom_point_button.clicked.connect(self.createPoint)
+
         self.example_button = QPushButton(self)
         self.example_button.setText("Example Button")
         self.example_button.setStyleSheet("font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
 
         hbox.addWidget(self.reset_plot_button)
+        hbox.addWidget(self.custom_point_button)
         hbox.addWidget(self.example_button)
         self.setLayout(hbox)
 
@@ -36,3 +44,11 @@ class PlotButtons(QWidget):
     
     def getPlotResetFlag(self):
         return self.plot_reset
+
+    def createPoint(self):  
+        x, done1 = QInputDialog.getInt(self, 'Input Dialog', 'Enter x-cooridinate')
+        y, done2 = QInputDialog.getInt(self, 'Input Dialog', 'Enter y-coordinate:')    
+        self.plot.plot([x],[y], pen=None, symbol='o')
+    
+    
+    
