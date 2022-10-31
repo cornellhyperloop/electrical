@@ -50,3 +50,6 @@ class Graph(QWidget):
         self.graphWidget.plot([self.x], [thermistorValue1],
                             pen=pen, symbol='x', symbolSize=30)
 
+
+
+
