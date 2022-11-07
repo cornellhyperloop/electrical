@@ -19,7 +19,6 @@ class Body(QWidget):
 
         home = QSplitter(Qt.Vertical)
 
-        plot_button_splitter = QSplitter(Qt.Horizontal)
         home_footer = QSplitter(Qt.Horizontal)
         bottom_left = QSplitter(Qt.Vertical)
         vel_acc = QSplitter(Qt.Horizontal)
@@ -40,7 +39,6 @@ class Body(QWidget):
         self.temporary_graph.resize(int(self.width), int(self.height / 4))
 
         self.plot_buttons = PlotButtons(self.temporary_graph)
-        plot_button_splitter.addWidget(self.plot_buttons)
 
         # Data for plots
         self.x_data = [[], []]
@@ -56,9 +54,9 @@ class Body(QWidget):
         vgraph.setSizes([2, 2])
 
         home.addWidget(self.temporary_graph)
-        home.addWidget(plot_button_splitter)
+        home.addWidget(self.plot_buttons)
         home.addWidget(home_footer)
-        home.setSizes([300, 50])
+        home.setSizes([350, 5, 45])
 
         hbox.addWidget(home)
         self.setLayout(hbox)

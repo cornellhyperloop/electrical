@@ -5,6 +5,7 @@ import pyqtgraph.exporters
 import constants
 
 
+
 class PlotButtons(QWidget):
     def __init__(self, plot):
         super(PlotButtons, self).__init__(None)
@@ -27,6 +28,7 @@ class PlotButtons(QWidget):
             "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
         self.reset_plot_button.clicked.connect(self.resetPlot)
 
+
         self.export_button = QPushButton(self)
         self.export_button.setText("Export Graph")
         self.export_button.setStyleSheet(
@@ -43,38 +45,36 @@ class PlotButtons(QWidget):
             "font-family: Helvetica; font-size: 14px; background-color : #2B26c1;")
         self.plot_dropdown.currentTextChanged.connect(self.plotDropdownChanged)
 
-        hbox.addWidget(self.reset_plot_button)
-        hbox.addWidget(self.export_button)
-        hbox.addWidget(self.plot_dropdown)
-
         # Add the widget for resizing the plot axes
-        resize_input_widgets = QSplitter(Qt.Vertical)
+        resize_input_widgets = QSplitter(Qt.Horizontal)
         row1 = QSplitter(Qt.Horizontal)
         row2 = QSplitter(Qt.Horizontal)
         row3 = QSplitter(Qt.Horizontal)
 
         self.textbox1 = QLineEdit(self)
-        self.textbox1.resize(100, 100)
+        self.textbox1.setFixedSize(50, 20)
         self.textbox1.setStyleSheet(
             "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
 
         self.textbox2 = QLineEdit(self)
-        self.textbox2.resize(100, 100)
+        self.textbox2.setFixedSize(50, 20)
         self.textbox2.setStyleSheet(
             "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
 
         self.textbox3 = QLineEdit(self)
-        self.textbox3.resize(100, 100)
+        self.textbox3.setFixedSize(50, 20)
         self.textbox3.setStyleSheet(
             "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
 
         self.textbox4 = QLineEdit(self)
-        self.textbox4.resize(100, 100)
+        self.textbox4.setFixedSize(50, 20)
         self.textbox4.setStyleSheet(
             "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
 
         self.rescale_axes_button = QPushButton(self)
         self.rescale_axes_button.setText("Rescale Axes")
+        self.rescale_axes_button.setFixedSize(100, 20)
+        
         self.rescale_axes_button.setStyleSheet(
             "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
         self.rescale_axes_button.clicked.connect(self.rescaleAxes)
@@ -91,7 +91,12 @@ class PlotButtons(QWidget):
 
         hbox.addWidget(self.reset_plot_button)
         hbox.addWidget(self.export_button)
+        hbox.addWidget(self.plot_dropdown)
         hbox.addWidget(resize_input_widgets)
+        hbox.setAlignment(self.reset_plot_button, Qt.AlignTop)
+        hbox.setAlignment(self.export_button, Qt.AlignTop)
+        hbox.setAlignment(self.plot_dropdown, Qt.AlignTop)
+        hbox.setAlignment(resize_input_widgets, Qt.AlignTop)
         self.setLayout(hbox)
 
     def resetPlot(self):
