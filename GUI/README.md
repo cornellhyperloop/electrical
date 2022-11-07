@@ -75,3 +75,15 @@ Inductive proximity sensor:
 Infrared proximity sensor: 
 * measure reflected infrared (IR) energy to detect the presence of an object or person
 * Time vs. distance 
+
+## Adding a New Page
+_Current Pages: Home, Visualizer, Battery, Temperature_
+* Examples of page buttons: ```GUI/utils/header.py```
+* Examples of how to render a new page: ```GUI/main_window.py```
+* Examples of pages: ```GUI/utils/```
+
+## Live Data Plotting
+* Examples of live data plotting functions: ```GUI/utils/body.py```
+* Examples of adding functionality around the graph: ```GUI/widgets/plot_buttons.py```
+
+

@@ -4,9 +4,8 @@ QWidget {
   border-style: outset;
   border-width: 1.5px;
   border-color: #2B26c1;
-  
-
 }
+
 QSplitter {
   border-width: 2;
 }
