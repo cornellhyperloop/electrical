@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 import pyqtgraph.exporters
+import constants
 
 
 class PlotButtons(QWidget):
@@ -9,13 +10,6 @@ class PlotButtons(QWidget):
         super(PlotButtons, self).__init__(None)
         self.plot = plot
         self.plot_reset = False
-        # self.exporter = pyqtgraph.exporters.ImageExporter(
-        #     self.plot.scene())
-        # self.exporter.parameters()['width'] = 1372
-        # self.exporter.parameters()['height'] = 639
-        # self.exporter.parameters()['width'], \
-        #     self.exporter.parameters()['height'] = \
-        #     self.plot.frameGeometry().width(), self.plot.frameGeometry().height()
         self.current_plot = 0
         self.plot_names = ['Plot 1', 'Plot 2']
         self.changed_plot = False
@@ -111,8 +105,7 @@ class PlotButtons(QWidget):
         return self.plot_reset
 
     def exportGraph(self):
-        self.plot.getPlotItem().writeImage("Graph.png")
-        # self.exporter.export('Graph.png')
+        self.plot.getPlotItem().writeImage(constants.GRAPH_IMG_NAME)
 
     def plotDropdownChanged(self, dropdownValue):
         self.current_plot = self.plot_names.index(dropdownValue)

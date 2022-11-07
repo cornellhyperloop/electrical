@@ -14,12 +14,12 @@ STATES = {
 }
 
 # Battery Pack Data
-#Numbers in the lists are dummy data
+# Numbers in the lists are dummy data
 BATTERY_CURRENT_TEMP = 0
 BATTERY_MAXIMUM_TEMP = 100
-BATTERY = [1,2,3,4,5]
-VOLTAGE = [5,10,15,20,25]
-CURRENT = [5,10,15,20,25]
+BATTERY = [1, 2, 3, 4, 5]
+VOLTAGE = [5, 10, 15, 20, 25]
+CURRENT = [5, 10, 15, 20, 25]
 
 
 # Inductive Proximity Sensor Data
@@ -64,4 +64,8 @@ PBAR_HIGH_PROGRESS = "QProgressBar::chunk {background-color: green;}"
 
 # Live plotting
 NUM_PLOTS = 2
-PLOT_INCREMENTS = [1, 10] # For now, have the second plot increase much faster than the first
+# For now, have the second plot increase much faster than the first
+PLOT_INCREMENTS = [1, 10]
+
+# File names
+GRAPH_IMG_NAME = "Graph.png"
