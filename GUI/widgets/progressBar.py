@@ -14,7 +14,7 @@ class ProgressBar(QWidget):
     def initUI(self):
         self.pBar= QProgressBar(self, minimum=0, maximum=100)
         self.pBar.setFont(QFont('Arial', 20))   
-        self.pBar.setFixedWidth(250)
+        self.pBar.setFixedWidth(150)
         self.count = 0
         self.start = True
         self.label = QLabel("Progress: ", self)

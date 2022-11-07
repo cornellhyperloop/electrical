@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from widgets import *
+from PyQt5.QtGui import *
 from PyQt5.QtCore import QObject, pyqtSignal
 import time
 from widgets import progressBar
@@ -34,9 +35,6 @@ class Header(QWidget):
         emergency_button = EmergencyButton(fsm, self.width, self.height)
         grid1.addWidget(emergency_button, 0, 4,
                         alignment=Qt.AlignCenter)
-
-        self.pBar = Progress(self.width, self.height)
-        grid1.addWidget(self.pBar, 0, 1, alignment=Qt.AlignCenter)
 
         grid2 = QGridLayout(self)
         self.b1 = QPushButton("Home")
@@ -76,7 +74,26 @@ class Header(QWidget):
         splitter4.addWidget(self.pBarContainer.pBar)
         splitter4.setSizes([int(self.height / 30), int(self.height / 30)])
 
+
+
+
+
+        hyperloop = QPixmap('state_icons/logo.png')
+        hyperloop = hyperloop.scaled(200, 100)
+        label = QLabel()
+        label.setStyleSheet("border: 1px grey")
+        label.setFixedWidth(200)
+        label.setFixedHeight(100)
+        label.setPixmap(hyperloop)
+
+        splitter4.addWidget(label)           
+
         hbox.addWidget(splitter4)
+
+
+
+
+
 
         self.timer = QTimer(self, timeout=self.update)
         self.timer.start(1000)
