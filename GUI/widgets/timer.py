@@ -27,6 +27,7 @@ class Timer(QWidget):
         self.count += 1
         text = f'Time: {self.count / 10} s'
         self.label.setText(text)
+        self.label.update()
 
     def sizeHint(self):
         return QSize(int(self.width), int(self.height))
