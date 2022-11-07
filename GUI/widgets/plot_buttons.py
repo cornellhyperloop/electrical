@@ -1,7 +1,6 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
-import pyqtgraph.exporters
 import constants
 
 
@@ -16,6 +15,7 @@ class PlotButtons(QWidget):
         self.changed_plot = False
         self.rescale_axes = False
         self.initUI()
+        self.downloaded = False
 
     def initUI(self):
 
@@ -28,12 +28,18 @@ class PlotButtons(QWidget):
             "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
         self.reset_plot_button.clicked.connect(self.resetPlot)
 
-
         self.export_button = QPushButton(self)
         self.export_button.setText("Export Graph")
         self.export_button.setStyleSheet(
             "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
         self.export_button.clicked.connect(self.exportGraph)
+        
+        self.downloadButton = QPushButton(self)
+        self.downloadButton.setText("Download Data")
+        self.downloadButton.setStyleSheet(
+            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.downloadButton.clicked.connect(self.downloadData)
+        
 
         self.plot_dropdown = QComboBox()
         self.plot_dropdown.setEditable(True)
@@ -91,13 +97,19 @@ class PlotButtons(QWidget):
 
         hbox.addWidget(self.reset_plot_button)
         hbox.addWidget(self.export_button)
+        hbox.addWidget(self.downloadButton)
         hbox.addWidget(self.plot_dropdown)
         hbox.addWidget(resize_input_widgets)
         hbox.setAlignment(self.reset_plot_button, Qt.AlignTop)
         hbox.setAlignment(self.export_button, Qt.AlignTop)
+        hbox.setAlignment(self.downloadButton, Qt.AlignTop)
         hbox.setAlignment(self.plot_dropdown, Qt.AlignTop)
         hbox.setAlignment(resize_input_widgets, Qt.AlignTop)
+
         self.setLayout(hbox)
+
+    def downloadData(self):
+        self.plot.getPlotItem().writeCsv("Data.csv")
 
     def resetPlot(self):
         self.plot.clear()
