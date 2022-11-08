@@ -35,8 +35,14 @@ class Header(QWidget):
         grid1.addWidget(emergency_button, 0, 4,
                         alignment=Qt.AlignCenter)
 
-        self.pBar = Progress(self.width, self.height)
-        grid1.addWidget(self.pBar, 0, 1, alignment=Qt.AlignCenter)
+        # self.pBar = Progress(self.width, self.height)
+        # grid1.addWidget(self.pBar, 0, 1, alignment=Qt.AlignCenter)
+        pBarSplitter = QSplitter(Qt.Vertical)
+        self.pBarContainer = progressBar.ProgressBar()
+        pBarSplitter.addWidget(self.pBarContainer.label)
+        pBarSplitter.addWidget(self.pBarContainer.pBar)
+        grid1.addWidget(pBarSplitter, 0,
+                        1, alignment=Qt.AlignCenter)
 
         grid2 = QGridLayout(self)
         self.b1 = QPushButton("Home")
@@ -68,15 +74,15 @@ class Header(QWidget):
         hbox.addLayout(vbox)
         self.setStyleSheet(qstr)
 
-        splitter4 = QSplitter(Qt.Horizontal)
-        self.pBarContainer = progressBar.ProgressBar()
-        splitter4.addWidget(self.pBarContainer.label)
+        # splitter4 = QSplitter(Qt.Horizontal)
+        # self.pBarContainer = progressBar.ProgressBar()
+        # splitter4.addWidget(self.pBarContainer.label)
 
-        # PROGRESS BAR
-        splitter4.addWidget(self.pBarContainer.pBar)
-        splitter4.setSizes([int(self.height / 30), int(self.height / 30)])
+        # # PROGRESS BAR
+        # splitter4.addWidget(self.pBarContainer.pBar)
+        # splitter4.setSizes([int(self.height / 30), int(self.height / 30)])
 
-        hbox.addWidget(splitter4)
+        # hbox.addWidget(splitter4)
 
         self.timer = QTimer(self, timeout=self.update)
         self.timer.start(1000)

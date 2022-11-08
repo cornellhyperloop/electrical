@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 
+
 class PlotButtons(QWidget):
     def __init__(self, plot):
         super(PlotButtons, self).__init__(None)
@@ -15,17 +16,19 @@ class PlotButtons(QWidget):
 
     def initUI(self):
 
-        hbox = QHBoxLayout()
+        grid = QGridLayout()
 
         # Reset plot button
         self.reset_plot_button = QPushButton(self)
         self.reset_plot_button.setText("Reset Plot")
-        self.reset_plot_button.setStyleSheet("font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.reset_plot_button.setStyleSheet(
+            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
         self.reset_plot_button.clicked.connect(self.resetPlot)
 
         self.example_button = QPushButton(self)
         self.example_button.setText("Example Button")
-        self.example_button.setStyleSheet("font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.example_button.setStyleSheet(
+            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
 
         self.plot_dropdown = QComboBox()
         self.plot_dropdown.setEditable(True)
@@ -33,38 +36,44 @@ class PlotButtons(QWidget):
         self.plot_dropdown.lineEdit().setReadOnly(True)
         for plot_name in self.plot_names:
             self.plot_dropdown.addItem(plot_name)
-        self.plot_dropdown.setStyleSheet("font-family: Helvetica; font-size: 14px; background-color : #2B26c1;")
+        self.plot_dropdown.setStyleSheet(
+            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1;")
         self.plot_dropdown.currentTextChanged.connect(self.plotDropdownChanged)
-       
-        hbox.addWidget(self.reset_plot_button)
-        hbox.addWidget(self.example_button)
-        hbox.addWidget(self.plot_dropdown)
-        
+
+        grid.addWidget(self.reset_plot_button, 0, 0)
+        grid.addWidget(self.example_button, 0, 1)
+        grid.addWidget(self.plot_dropdown, 0, 2)
+
         # Add the widget for resizing the plot axes
-        resize_input_widgets = QSplitter(Qt.Vertical)
+        resize_input_widgets = QSplitter(Qt.Horizontal)
         row1 = QSplitter(Qt.Horizontal)
         row2 = QSplitter(Qt.Horizontal)
         row3 = QSplitter(Qt.Horizontal)
 
         self.textbox1 = QLineEdit(self)
-        self.textbox1.resize(100,100)
-        self.textbox1.setStyleSheet("font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.textbox1.resize(100, 100)
+        self.textbox1.setStyleSheet(
+            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
 
         self.textbox2 = QLineEdit(self)
-        self.textbox2.resize(100,100)
-        self.textbox2.setStyleSheet("font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.textbox2.resize(100, 100)
+        self.textbox2.setStyleSheet(
+            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
 
         self.textbox3 = QLineEdit(self)
-        self.textbox3.resize(100,100)
-        self.textbox3.setStyleSheet("font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.textbox3.resize(100, 100)
+        self.textbox3.setStyleSheet(
+            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
 
         self.textbox4 = QLineEdit(self)
-        self.textbox4.resize(100,100)
-        self.textbox4.setStyleSheet("font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.textbox4.resize(100, 100)
+        self.textbox4.setStyleSheet(
+            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
 
         self.rescale_axes_button = QPushButton(self)
         self.rescale_axes_button.setText("Rescale Axes")
-        self.rescale_axes_button.setStyleSheet("font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.rescale_axes_button.setStyleSheet(
+            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
         self.rescale_axes_button.clicked.connect(self.rescaleAxes)
 
         row1.addWidget(self.textbox1)
@@ -77,18 +86,16 @@ class PlotButtons(QWidget):
         resize_input_widgets.addWidget(row2)
         resize_input_widgets.addWidget(row3)
 
-        hbox.addWidget(self.reset_plot_button)
-        hbox.addWidget(self.example_button)
-        hbox.addWidget(resize_input_widgets)
-        self.setLayout(hbox)
+        grid.addWidget(resize_input_widgets, 0, 3)
+        self.setLayout(grid)
 
     def resetPlot(self):
         self.plot.clear()
         self.plot_reset = True
-    
+
     def setPlotResetFlag(self, flag):
         self.plot_reset = flag
-    
+
     def getPlotResetFlag(self):
         return self.plot_reset
 
@@ -101,10 +108,10 @@ class PlotButtons(QWidget):
 
     def getChangedPlot(self):
         return self.changed_plot
-    
+
     def setChangedPlot(self, newValue):
         self.changed_plot = newValue
-    
+
     def rescaleAxes(self):
         self.x_min = int(self.textbox1.text())
         self.x_max = int(self.textbox2.text())
@@ -114,12 +121,12 @@ class PlotButtons(QWidget):
 
     def getRescaleAxesFlag(self):
         return self.rescale_axes
-    
+
     def setRescaleAxesFlag(self, flag):
         self.rescale_axes = flag
-    
+
     def getXAxesLimits(self):
         return [self.x_min, self.x_max]
-    
+
     def getYAxesLimits(self):
         return [self.y_min, self.y_max]
