@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
+#include <tuple>
 #include "constants.hpp"
 #include "helperFunctions.hpp"
 #include "SerialClass.h"
@@ -145,7 +146,7 @@ bool Serial::IsConnected()
   return this->connected;
 }
 
-int readData()
+std::tuple<int, int> readData()
 {
   double startTime = GetTickCount();
   Serial *SP = new Serial("\\\\.\\COM3"); // adjust as needed
@@ -157,6 +158,7 @@ int readData()
   // printf("%s\n",incomingData);
   int dataLength = 1000;
   int readResult = 0;
+  int readResult2 = 0;
 
   while (SP->IsConnected())
   {
@@ -175,10 +177,11 @@ int readData()
       break;
     }
   }
-  return readResult;
+  std::tuple<int, int> t(readResult, readResult2);
+  return t;
 }
 
-states verifySensors(int sensor1, double sensor2)
+states verifySensors(double sensor1, double sensor2)
 {
   // TODO: Add more sensor parameters as needed with average values,
   // create functionality for average data value
@@ -188,8 +191,8 @@ states verifySensors(int sensor1, double sensor2)
   printf("%d", sensor1);
   if (sensor1 < minSensor1 || sensor1 > maxSensor1)
     return Stop;
-  // if (sensor2 < minSensor2 || sensor2 > maxSensor2)
-  //   return Stop;
+  if (sensor2 < minSensor2 || sensor2 > maxSensor2)
+    return Stop;
   printf("It has successfully passed\n");
   return PreAcceleration;
 }
@@ -296,7 +299,7 @@ int main()
       **/
       //  Update function call for verifySensors() with  appropriate parameters
 
-      curr = verifySensors(readData(), stubValue);
+      curr = verifySensors(std::get<0>(readData()), stubValue);
       prev = Verification;
     };
     case PreAcceleration:
