@@ -63,9 +63,12 @@ PBAR_MED_PROGRESS = "QProgressBar::chunk {background-color: gold;}"
 PBAR_HIGH_PROGRESS = "QProgressBar::chunk {background-color: green;}"
 
 # Live plotting
-NUM_PLOTS = 2
+NUM_PLOTS = 6
 # For now, have the second plot increase much faster than the first
-PLOT_INCREMENTS = [1, 10]
+PLOT_INCREMENTS = [1, 10,10,10,10,10]
+
+#Plot dummy data
+
 
 # File names
 GRAPH_IMG_NAME = "Graph.png"

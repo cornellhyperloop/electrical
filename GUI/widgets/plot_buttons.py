@@ -3,6 +3,11 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 import constants
 
+# add y names 
+# add headers for each graph 
+# change constant arrays/add 
+# add axes titles for each graph 
+# change body to access constant data
 
 
 class PlotButtons(QWidget):
@@ -11,7 +16,8 @@ class PlotButtons(QWidget):
         self.plot = plot
         self.plot_reset = False
         self.current_plot = 0
-        self.plot_names = ['Plot 1', 'Plot 2']
+        self.plot_names = ['Accelerometer', 'TOF Range Finder', 'Ultrasonic Range Finder', "Thermistor", "Inductive Proximity Sensor", "Infrared Proximity Sensor"]
+        # self.Ynames = []
         self.changed_plot = False
         self.rescale_axes = False
         self.initUI()
@@ -130,6 +136,9 @@ class PlotButtons(QWidget):
 
     def getCurrentPlot(self):
         return self.current_plot
+
+    def getCurrentPlotName(self):
+        return self.plot_names[self.current_plot]
 
     def getChangedPlot(self):
         return self.changed_plot
