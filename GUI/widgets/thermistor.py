@@ -22,6 +22,9 @@ class Thermistor(QWidget):
         self.timer = QTimer(self, timeout=self.update)
         self.timer.start(1000)
 
+    def getPlotItem(self):
+        return self.graphWidget.getPlotItem()
+
     def initUI(self):
         self.temp = QLabel(self)
 

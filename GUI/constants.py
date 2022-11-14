@@ -1,6 +1,8 @@
 # Use live data for graph
 LIVE_DATA = True
 
+GRAPH_IMG_NAME = "Graph.png"
+
 # FSM Data
 CURRENT_STATE = "Deceleration"
 STATES = {
