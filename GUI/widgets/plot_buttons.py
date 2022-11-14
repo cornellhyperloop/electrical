@@ -19,25 +19,26 @@ class PlotButtons(QWidget):
 
     def initUI(self):
 
+        sshFile = "widgets/widgets.css"
+        with open(sshFile, "r") as fh:
+            qstr = str(fh.read())
+
         hbox = QHBoxLayout()
 
         # Reset plot button
         self.reset_plot_button = QPushButton(self)
         self.reset_plot_button.setText("Reset Plot")
-        self.reset_plot_button.setStyleSheet(
-            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.reset_plot_button.setStyleSheet(qstr)
         self.reset_plot_button.clicked.connect(self.resetPlot)
 
         self.export_button = QPushButton(self)
         self.export_button.setText("Export Graph")
-        self.export_button.setStyleSheet(
-            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.export_button.setStyleSheet(qstr)
         self.export_button.clicked.connect(self.exportGraph)
         
         self.downloadButton = QPushButton(self)
         self.downloadButton.setText("Download Data")
-        self.downloadButton.setStyleSheet(
-            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.downloadButton.setStyleSheet(qstr)
         self.downloadButton.clicked.connect(self.downloadData)
         
 
@@ -47,8 +48,7 @@ class PlotButtons(QWidget):
         self.plot_dropdown.lineEdit().setReadOnly(True)
         for plot_name in self.plot_names:
             self.plot_dropdown.addItem(plot_name)
-        self.plot_dropdown.setStyleSheet(
-            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1;")
+        self.plot_dropdown.setStyleSheet(qstr)
         self.plot_dropdown.currentTextChanged.connect(self.plotDropdownChanged)
 
         # Add the widget for resizing the plot axes
@@ -59,30 +59,25 @@ class PlotButtons(QWidget):
 
         self.textbox1 = QLineEdit(self)
         self.textbox1.setFixedSize(50, 20)
-        self.textbox1.setStyleSheet(
-            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.textbox1.setStyleSheet(qstr)
 
         self.textbox2 = QLineEdit(self)
         self.textbox2.setFixedSize(50, 20)
-        self.textbox2.setStyleSheet(
-            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.textbox2.setStyleSheet(qstr)
 
         self.textbox3 = QLineEdit(self)
         self.textbox3.setFixedSize(50, 20)
-        self.textbox3.setStyleSheet(
-            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.textbox3.setStyleSheet(qstr)
 
         self.textbox4 = QLineEdit(self)
         self.textbox4.setFixedSize(50, 20)
-        self.textbox4.setStyleSheet(
-            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.textbox4.setStyleSheet(qstr)
 
         self.rescale_axes_button = QPushButton(self)
         self.rescale_axes_button.setText("Rescale Axes")
         self.rescale_axes_button.setFixedSize(100, 20)
         
-        self.rescale_axes_button.setStyleSheet(
-            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.rescale_axes_button.setStyleSheet(qstr)
         self.rescale_axes_button.clicked.connect(self.rescaleAxes)
 
         row1.addWidget(self.textbox1)

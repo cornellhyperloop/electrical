@@ -13,12 +13,15 @@ class Quit(QWidget):
         self.initUI()
 
     def initUI(self):
+        sshFile = "widgets/redwidgets.css"
+        with open(sshFile, "r") as fh:
+            qstr = str(fh.read())
+        
         self.setWindowTitle("Quit")
         self.push = QPushButton(self)
         self.push.setText("Quit")
         self.push.setFont(QFont('AnyStyle', 18))
-        self.push.setStyleSheet(
-            "background-color : red; border-radius: 5px; font-family: Helvetica; font-size: 14px; border: 3px solid black")
+        self.push.setStyleSheet(qstr)
         self.push.clicked.connect(self.pushedQuit)
         self.push.resize(int(self.width), int(self.height))
 

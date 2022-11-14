@@ -11,20 +11,22 @@ class Speed(QWidget):
         self.initUI()
 
     def initUI(self):
+        sshFile = "widgets/widgets.css"
+        with open(sshFile, "r") as fh:
+            qstr = str(fh.read())
+
         self.setObjectName("display")
         self.velocity = QLabel(self)
         self.acceleration = QLabel(self)
 
         self.velocity.setText("Current Velocity: " +
                               str(constants.CURRENT_VELOCITY) + " m/s")
-        self.velocity.setStyleSheet(
-            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.velocity.setStyleSheet(qstr)
         self.velocity.setAlignment(Qt.AlignCenter)
 
         self.acceleration.setText("Current Acceleration: " +
                                   str(constants.ACCELERATION) + " m/s²")
-        self.acceleration.setStyleSheet(
-            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.acceleration.setStyleSheet(qstr)
         self.acceleration.setAlignment(Qt.AlignCenter)
 
         hbox = QHBoxLayout()
