@@ -3,13 +3,14 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 import pyqtgraph as pg
 import serial
+import constants
 
 
 class Thermistor(QWidget):
     def __init__(self, parent=None):
         super(Thermistor, self).__init__(parent)
         self.initUI()
-        self.arduino = serial.Serial("/dev/cu.usbmodem141301")
+        self.arduino = serial.Serial(constants.ARDUINO_SERIAL)
         self.x = 0
         self.y = 0
         self.layout = QGridLayout()

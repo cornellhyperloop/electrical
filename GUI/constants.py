@@ -1,5 +1,6 @@
 # Use live data for graph
-LIVE_DATA = True
+LIVE_DATA = False
+ARDUINO_SERIAL = "/dev/cu.usbmodem141301"
 
 GRAPH_IMG_NAME = "Graph.png"
 
