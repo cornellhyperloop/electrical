@@ -42,11 +42,11 @@ class MainWindow(QWidget):
         self.Stack = QStackedWidget(self)
 
         body = Body(width, height)
-        #visualizer = Visualizer()
+        visualizer = Visualizer()
         batteryPage = BatteryPage()
 
         self.Stack.addWidget(body)
-        #self.Stack.addWidget(visualizer)
+        self.Stack.addWidget(visualizer)
         self.Stack.addWidget(batteryPage)
 
         splitter4 = QSplitter(Qt.Vertical)
