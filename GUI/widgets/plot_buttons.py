@@ -1,6 +1,8 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
+import pyqtgraph.exporters
+import constants
 
 
 class PlotButtons(QWidget):
@@ -25,10 +27,11 @@ class PlotButtons(QWidget):
             "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
         self.reset_plot_button.clicked.connect(self.resetPlot)
 
-        self.example_button = QPushButton(self)
-        self.example_button.setText("Example Button")
-        self.example_button.setStyleSheet(
+        self.export_button = QPushButton(self)
+        self.export_button.setText("Export Graph")
+        self.export_button.setStyleSheet(
             "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.export_button.clicked.connect(self.exportGraph)
 
         self.plot_dropdown = QComboBox()
         self.plot_dropdown.setEditable(True)
@@ -69,6 +72,7 @@ class PlotButtons(QWidget):
         self.rescale_axes_button = QPushButton(self)
         self.rescale_axes_button.setText("Rescale Axes")
         self.rescale_axes_button.setFixedSize(100, 20)
+
         self.rescale_axes_button.setStyleSheet(
             "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
         self.rescale_axes_button.clicked.connect(self.rescaleAxes)
@@ -84,11 +88,11 @@ class PlotButtons(QWidget):
         resize_input_widgets.addWidget(row3)
 
         hbox.addWidget(self.reset_plot_button)
-        hbox.addWidget(self.example_button)
+        hbox.addWidget(self.export_button)
         hbox.addWidget(self.plot_dropdown)
         hbox.addWidget(resize_input_widgets)
         hbox.setAlignment(self.reset_plot_button, Qt.AlignTop)
-        hbox.setAlignment(self.example_button, Qt.AlignTop)
+        hbox.setAlignment(self.export_button, Qt.AlignTop)
         hbox.setAlignment(self.plot_dropdown, Qt.AlignTop)
         hbox.setAlignment(resize_input_widgets, Qt.AlignTop)
         self.setLayout(hbox)
@@ -102,6 +106,9 @@ class PlotButtons(QWidget):
 
     def getPlotResetFlag(self):
         return self.plot_reset
+
+    def exportGraph(self):
+        self.plot.getPlotItem().writeImage(constants.GRAPH_IMG_NAME)
 
     def plotDropdownChanged(self, dropdownValue):
         self.current_plot = self.plot_names.index(dropdownValue)
