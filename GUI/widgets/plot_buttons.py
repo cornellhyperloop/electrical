@@ -2,7 +2,6 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 
-
 class PlotButtons(QWidget):
     def __init__(self, plot):
         super(PlotButtons, self).__init__(None)
@@ -45,10 +44,16 @@ class PlotButtons(QWidget):
     def getPlotResetFlag(self):
         return self.plot_reset
 
-    def createPoint(self):  
-        x, done1 = QInputDialog.getInt(self, 'Input Dialog', 'Enter x-cooridinate')
-        y, done2 = QInputDialog.getInt(self, 'Input Dialog', 'Enter y-coordinate:')    
-        self.plot.plot([x],[y], pen=None, symbol='o')
-    
+    def createPoint(self):
+        x, ok = QInputDialog.getInt(None, 'Cutsom Coordinate', '<html style="font-size:12pt;">Enter x-coordinate:</html>')
+        y, ok = QInputDialog.getInt(None, 'Custom Coordinate', '<html style="font-size:12pt;">Enter x-coordinate:</html>')
+        if(ok):
+            self.plot.plot([x],[y], pen=None, symbol='x', symbolSize = 30, symbolPen='g', symbolBrush=0.3, name='green')
+        else:
+            return None
+
+      
+
+
     
     
