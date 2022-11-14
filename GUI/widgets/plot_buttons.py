@@ -46,7 +46,7 @@ class PlotButtons(QWidget):
 
     def createPoint(self):
         x, ok = QInputDialog.getInt(None, 'Cutsom Coordinate', '<html style="font-size:12pt;">Enter x-coordinate:</html>')
-        y, ok = QInputDialog.getInt(None, 'Custom Coordinate', '<html style="font-size:12pt;">Enter x-coordinate:</html>')
+        y, ok = QInputDialog.getInt(None, 'Custom Coordinate', '<html style="font-size:12pt;">Enter y-coordinate:</html>')
         if(ok):
             self.plot.plot([x],[y], pen=None, symbol='x', symbolSize = 30, symbolPen='g', symbolBrush=0.3, name='green')
         else:
