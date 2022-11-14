@@ -46,7 +46,7 @@ class MainWindow(QWidget):
         self.Stack.addWidget(visualizer)
         self.Stack.addWidget(batteryPage)
         # temperature page not implemented yet
-        self.Stack.addWidget(Body(width, height), False)
+        self.Stack.addWidget(Body(width, height, False))
         self.Stack.addWidget(fsm)
 
         splitter4 = QSplitter(Qt.Vertical)

@@ -1,5 +1,5 @@
 # Use live data for graph
-LIVE_DATA = False
+LIVE_DATA = True
 
 # FSM Data
 CURRENT_STATE = "Deceleration"

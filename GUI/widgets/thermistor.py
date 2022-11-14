@@ -9,7 +9,7 @@ class Thermistor(QWidget):
     def __init__(self, parent=None):
         super(Thermistor, self).__init__(parent)
         self.initUI()
-        self.arduino = serial.Serial("/dev/cu.usbmodem143201")
+        self.arduino = serial.Serial("/dev/cu.usbmodem141301")
         self.x = 0
         self.y = 0
         self.layout = QGridLayout()
@@ -34,7 +34,7 @@ class Thermistor(QWidget):
         self.x += 1
         line = self.arduino.readline().decode()
         if line:
-            self.y = int(line)
+            self.y = float(line[:-2])
 
         pen = pg.mkPen(width=10)
         self.graphWidget.plot([self.x], [self.y],

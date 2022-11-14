@@ -64,7 +64,8 @@ class Body(QWidget):
 
         hbox.addWidget(home)
         self.setLayout(hbox)
-        self.setStyleSheet(qstr)
+        # body.css affects the thermistor graph
+        # self.setStyleSheet(qstr)
 
         # use dummy update function
         if not self.live_data:
