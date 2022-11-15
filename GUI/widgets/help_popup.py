@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import QSize
 import sys
+import constants as cons
 
 
 class HelpPopup(QWidget):
@@ -12,8 +13,8 @@ class HelpPopup(QWidget):
         self.initUI()
 
     def initUI(self):
-        sshFile = "widgets/widgets.css"
-        with open(sshFile, "r") as fh:
+        widFile = cons.WIDGETS
+        with open(widFile, "r") as fh:
             qstr = str(fh.read())
         
         self.setWindowTitle("Click button")

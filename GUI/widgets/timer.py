@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import QTimer, QTime, Qt, QSize
 import sys
+import constants as cons
 
 
 class Timer(QWidget):
@@ -14,8 +15,8 @@ class Timer(QWidget):
         self.initUI()
 
     def initUI(self):
-        sshFile = "widgets/widgets.css"
-        with open(sshFile, "r") as fh:
+        widFile = cons.WIDGETS
+        with open(widFile, "r") as fh:
             qstr = str(fh.read())
 
         self.count = 0

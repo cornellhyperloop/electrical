@@ -69,3 +69,6 @@ PLOT_INCREMENTS = [1, 10]
 
 # File names
 GRAPH_IMG_NAME = "Graph.png"
+
+WIDGETS = "widgets/widgets.css"
+REDWIDGETS= "widgets/redwidgets.css"

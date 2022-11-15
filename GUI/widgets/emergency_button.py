@@ -3,6 +3,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import QSize
 from .fsm import FSM
 import sys
+import constants as cons
 
 
 class EmergencyButton(QWidget):
@@ -14,8 +15,8 @@ class EmergencyButton(QWidget):
         self.initUI()
 
     def initUI(self):
-        sshFile = "widgets/redwidgets.css"
-        with open(sshFile, "r") as fh:
+        widFile = cons.REDWIDGETS
+        with open(widFile, "r") as fh:
             qstr = str(fh.read())
 
         self.setWindowTitle("Click button")

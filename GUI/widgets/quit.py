@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import QSize
 import sys
+import constants as cons
 
 
 class Quit(QWidget):
@@ -13,8 +14,8 @@ class Quit(QWidget):
         self.initUI()
 
     def initUI(self):
-        sshFile = "widgets/redwidgets.css"
-        with open(sshFile, "r") as fh:
+        widFile = cons.REDWIDGETS
+        with open(widFile, "r") as fh:
             qstr = str(fh.read())
         
         self.setWindowTitle("Quit")

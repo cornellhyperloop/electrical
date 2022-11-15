@@ -11,8 +11,8 @@ class Speed(QWidget):
         self.initUI()
 
     def initUI(self):
-        sshFile = "widgets/widgets.css"
-        with open(sshFile, "r") as fh:
+        widFile = constants.WIDGETS
+        with open(widFile, "r") as fh:
             qstr = str(fh.read())
 
         self.setObjectName("display")

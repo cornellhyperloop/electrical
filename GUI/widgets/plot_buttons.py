@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
-import constants
+import constants 
 
 
 
@@ -19,8 +19,8 @@ class PlotButtons(QWidget):
 
     def initUI(self):
 
-        sshFile = "widgets/widgets.css"
-        with open(sshFile, "r") as fh:
+        widFile = constants.WIDGETS
+        with open(widFile, "r") as fh:
             qstr = str(fh.read())
 
         hbox = QHBoxLayout()

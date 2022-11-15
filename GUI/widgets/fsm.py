@@ -4,6 +4,7 @@ from PyQt5.QtCore import *
 from utils import stateMachine
 import constants
 import random
+import constants as cons
 
 
 class FSM(QWidget):
@@ -13,8 +14,8 @@ class FSM(QWidget):
         self.fsm = stateMachine.FSM()
 
     def initUI(self):
-        sshFile = "widgets/widgets.css"
-        with open(sshFile, "r") as fh:
+        widFile = cons.WIDGETS
+        with open(widFile, "r") as fh:
             qstr = str(fh.read())
 
         self.im = QPixmap(constants.STATES[constants.CURRENT_STATE])
