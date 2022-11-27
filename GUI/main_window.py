@@ -48,19 +48,16 @@ class MainWindow(QWidget):
         self.Stack.addWidget(Body(width, height))
         self.Stack.addWidget(fsm)
 
-        splitter4 = QSplitter(Qt.Vertical)
-        splitter4.addWidget(header)
+        grid = QGridLayout(self)
 
-        splitter4.addWidget(self.Stack)
-        splitter4.setSizes([50, 350])
+        grid.addWidget(header, 0, 0)
+        grid.addWidget(self.Stack, 1, 0)
 
-        hbox.addWidget(splitter4)
+        hbox.addLayout(grid)
 
         self.setLayout(hbox)
         QApplication.setStyle(QStyleFactory.create('Cleanlooks'))
         self.setStyleSheet("background-color: #bebebe;")
-
-        self.setGeometry(300, 300, width, height)
 
         self.showFullScreen()
 

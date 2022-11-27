@@ -17,20 +17,23 @@ class Body(QWidget):
         with open(sshFile, "r") as fh:
             qstr = str(fh.read())
 
-        home = QSplitter(Qt.Vertical)
+        # home = QSplitter(Qt.Vertical)
+        home = QGridLayout(self)
 
-        home_footer = QSplitter(Qt.Horizontal)
-        bottom_left = QSplitter(Qt.Vertical)
-        vel_acc = QSplitter(Qt.Horizontal)
+        plot_button_grid = QGridLayout(self)
+        home_footer = QGridLayout(self)
+        bottom_left = QGridLayout(self)  # vertical
+        vel_acc = QGridLayout(self)
 
         speedometer = Speedometer()
         accelerometer = Accelerometer()
-        vel_acc.addWidget(speedometer)
-        vel_acc.addWidget(accelerometer)
+
+        vel_acc.addWidget(speedometer, 0, 0)
+        vel_acc.addWidget(accelerometer, 0, 1)
 
         speed = Speed()
-        bottom_left.addWidget(vel_acc)
-        bottom_left.addWidget(speed)
+        bottom_left.addLayout(vel_acc, 0, 0)
+        bottom_left.addWidget(speed, 1, 0)
 
         # temporary graph
         self.temporary_graph = pg.PlotWidget()
@@ -39,6 +42,7 @@ class Body(QWidget):
         self.temporary_graph.resize(int(self.width), int(self.height / 4))
 
         self.plot_buttons = PlotButtons(self.temporary_graph)
+        plot_button_grid.addWidget(self.plot_buttons, 0, 0)
 
         # Data for plots
         self.x_data = [[], []]
@@ -47,18 +51,18 @@ class Body(QWidget):
         self.current_plot_values = [[0, 0], [0, 0]]  # x,y for each plot
 
         prox_sensors = ProximitySensor()
-        home_footer.addWidget(bottom_left)
-        home_footer.addWidget(prox_sensors)
+
+        home_footer.addLayout(bottom_left, 0, 0)
+        home_footer.addWidget(prox_sensors, 0, 1)
 
         vgraph = QSplitter(Qt.Horizontal)
         vgraph.setSizes([2, 2])
 
-        home.addWidget(self.temporary_graph)
-        home.addWidget(self.plot_buttons)
-        home.addWidget(home_footer)
-        home.setSizes([350, 5, 45])
+        home.addWidget(self.temporary_graph, 0, 0)
+        home.addLayout(plot_button_grid, 1, 0)
+        home.addLayout(home_footer, 2, 0)
 
-        hbox.addWidget(home)
+        hbox.addLayout(home)
         self.setLayout(hbox)
         self.setStyleSheet(qstr)
 
@@ -120,3 +124,4 @@ class Body(QWidget):
 
     def dimensions(self):
         return self.width, self.height
+

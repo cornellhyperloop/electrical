@@ -5,6 +5,7 @@ import constants
 
 
 
+
 class PlotButtons(QWidget):
     def __init__(self, plot):
         super(PlotButtons, self).__init__(None)
@@ -19,6 +20,8 @@ class PlotButtons(QWidget):
 
     def initUI(self):
 
+        grid = QGridLayout()
+
         widFile = constants.WIDGETS
         with open(widFile, "r") as fh:
             qstr = str(fh.read())
@@ -31,7 +34,7 @@ class PlotButtons(QWidget):
         self.reset_plot_button.setStyleSheet(qstr)
         self.reset_plot_button.clicked.connect(self.resetPlot)
 
-        self.export_button = QPushButton(self)
+       self.export_button = QPushButton(self)
         self.export_button.setText("Export Graph")
         self.export_button.setStyleSheet(qstr)
         self.export_button.clicked.connect(self.exportGraph)
@@ -40,8 +43,7 @@ class PlotButtons(QWidget):
         self.downloadButton.setText("Download Data")
         self.downloadButton.setStyleSheet(qstr)
         self.downloadButton.clicked.connect(self.downloadData)
-        
-
+            
         self.plot_dropdown = QComboBox()
         self.plot_dropdown.setEditable(True)
         self.plot_dropdown.lineEdit().setAlignment(Qt.AlignCenter)
@@ -90,18 +92,12 @@ class PlotButtons(QWidget):
         resize_input_widgets.addWidget(row2)
         resize_input_widgets.addWidget(row3)
 
-        hbox.addWidget(self.reset_plot_button)
-        hbox.addWidget(self.export_button)
-        hbox.addWidget(self.downloadButton)
-        hbox.addWidget(self.plot_dropdown)
-        hbox.addWidget(resize_input_widgets)
-        hbox.setAlignment(self.reset_plot_button, Qt.AlignTop)
-        hbox.setAlignment(self.export_button, Qt.AlignTop)
-        hbox.setAlignment(self.downloadButton, Qt.AlignTop)
-        hbox.setAlignment(self.plot_dropdown, Qt.AlignTop)
-        hbox.setAlignment(resize_input_widgets, Qt.AlignTop)
-
-        self.setLayout(hbox)
+        grid.addWidget(self.reset_plot_button, 0, 0)
+        grid.addWidget(self.export_button, 0, 1)
+        grid.addWidget(self.downloadButton, 0, 2)
+        grid.addWidget(self.plot_dropdown, 0, 3)
+        grid.addWidget(resize_input_widgets, 0, 4)
+        self.setLayout(grid)
 
     def downloadData(self):
         self.plot.getPlotItem().writeCsv("Data.csv")

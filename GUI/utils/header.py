@@ -36,6 +36,13 @@ class Header(QWidget):
         grid1.addWidget(emergency_button, 0, 4,
                         alignment=Qt.AlignCenter)
 
+        pBarSplitter = QSplitter(Qt.Vertical)
+        self.pBarContainer = progressBar.ProgressBar()
+        pBarSplitter.addWidget(self.pBarContainer.label)
+        pBarSplitter.addWidget(self.pBarContainer.pBar)
+        grid1.addWidget(pBarSplitter, 0,
+                        1, alignment=Qt.AlignCenter)
+
         grid2 = QGridLayout(self)
         self.b1 = QPushButton("Home")
         self.b1.clicked.connect(lambda: self.navbar(self.b1))
@@ -66,18 +73,6 @@ class Header(QWidget):
         hbox.addLayout(vbox)
         self.setStyleSheet(qstr)
 
-        splitter4 = QSplitter(Qt.Horizontal)
-        self.pBarContainer = progressBar.ProgressBar()
-        splitter4.addWidget(self.pBarContainer.label)
-
-        # PROGRESS BAR
-        splitter4.addWidget(self.pBarContainer.pBar)
-        splitter4.setSizes([int(self.height / 30), int(self.height / 30)])
-
-
-
-
-
         hyperloop = QPixmap('state_icons/logo.png')
         hyperloop = hyperloop.scaled(200, 100)
         label = QLabel()
@@ -89,11 +84,6 @@ class Header(QWidget):
         splitter4.addWidget(label)           
 
         hbox.addWidget(splitter4)
-
-
-
-
-
 
         self.timer = QTimer(self, timeout=self.update)
         self.timer.start(1000)
