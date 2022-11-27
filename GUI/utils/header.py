@@ -81,7 +81,8 @@ class Header(QWidget):
         label.setFixedHeight(100)
         label.setPixmap(hyperloop)
 
-        splitter4.addWidget(label)           
+        splitter4 = QSplitter(Qt.Horizontal)
+        splitter4.addWidget(label)
 
         hbox.addWidget(splitter4)
 

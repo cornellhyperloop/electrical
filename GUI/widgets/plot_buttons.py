@@ -1,9 +1,7 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
-import constants 
-
-
+import constants
 
 
 class PlotButtons(QWidget):
@@ -34,16 +32,16 @@ class PlotButtons(QWidget):
         self.reset_plot_button.setStyleSheet(qstr)
         self.reset_plot_button.clicked.connect(self.resetPlot)
 
-       self.export_button = QPushButton(self)
+        self.export_button = QPushButton(self)
         self.export_button.setText("Export Graph")
         self.export_button.setStyleSheet(qstr)
         self.export_button.clicked.connect(self.exportGraph)
-        
+
         self.downloadButton = QPushButton(self)
         self.downloadButton.setText("Download Data")
         self.downloadButton.setStyleSheet(qstr)
         self.downloadButton.clicked.connect(self.downloadData)
-            
+
         self.plot_dropdown = QComboBox()
         self.plot_dropdown.setEditable(True)
         self.plot_dropdown.lineEdit().setAlignment(Qt.AlignCenter)
@@ -78,7 +76,7 @@ class PlotButtons(QWidget):
         self.rescale_axes_button = QPushButton(self)
         self.rescale_axes_button.setText("Rescale Axes")
         self.rescale_axes_button.setFixedSize(100, 20)
-        
+
         self.rescale_axes_button.setStyleSheet(qstr)
         self.rescale_axes_button.clicked.connect(self.rescaleAxes)
 
