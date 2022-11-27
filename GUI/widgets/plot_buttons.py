@@ -1,6 +1,9 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
+import constants 
+
+
 
 
 class PlotButtons(QWidget):
@@ -13,36 +16,42 @@ class PlotButtons(QWidget):
         self.changed_plot = False
         self.rescale_axes = False
         self.initUI()
+        self.downloaded = False
 
     def initUI(self):
 
         grid = QGridLayout()
 
+        widFile = constants.WIDGETS
+        with open(widFile, "r") as fh:
+            qstr = str(fh.read())
+
+        hbox = QHBoxLayout()
+
         # Reset plot button
         self.reset_plot_button = QPushButton(self)
         self.reset_plot_button.setText("Reset Plot")
-        self.reset_plot_button.setStyleSheet(
-            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.reset_plot_button.setStyleSheet(qstr)
         self.reset_plot_button.clicked.connect(self.resetPlot)
 
-        self.example_button = QPushButton(self)
-        self.example_button.setText("Example Button")
-        self.example_button.setStyleSheet(
-            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
-
+       self.export_button = QPushButton(self)
+        self.export_button.setText("Export Graph")
+        self.export_button.setStyleSheet(qstr)
+        self.export_button.clicked.connect(self.exportGraph)
+        
+        self.downloadButton = QPushButton(self)
+        self.downloadButton.setText("Download Data")
+        self.downloadButton.setStyleSheet(qstr)
+        self.downloadButton.clicked.connect(self.downloadData)
+            
         self.plot_dropdown = QComboBox()
         self.plot_dropdown.setEditable(True)
         self.plot_dropdown.lineEdit().setAlignment(Qt.AlignCenter)
         self.plot_dropdown.lineEdit().setReadOnly(True)
         for plot_name in self.plot_names:
             self.plot_dropdown.addItem(plot_name)
-        self.plot_dropdown.setStyleSheet(
-            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1;")
+        self.plot_dropdown.setStyleSheet(qstr)
         self.plot_dropdown.currentTextChanged.connect(self.plotDropdownChanged)
-
-        grid.addWidget(self.reset_plot_button, 0, 0)
-        grid.addWidget(self.example_button, 0, 1)
-        grid.addWidget(self.plot_dropdown, 0, 2)
 
         # Add the widget for resizing the plot axes
         resize_input_widgets = QSplitter(Qt.Horizontal)
@@ -51,29 +60,26 @@ class PlotButtons(QWidget):
         row3 = QSplitter(Qt.Horizontal)
 
         self.textbox1 = QLineEdit(self)
-        self.textbox1.resize(100, 100)
-        self.textbox1.setStyleSheet(
-            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.textbox1.setFixedSize(50, 20)
+        self.textbox1.setStyleSheet(qstr)
 
         self.textbox2 = QLineEdit(self)
-        self.textbox2.resize(100, 100)
-        self.textbox2.setStyleSheet(
-            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.textbox2.setFixedSize(50, 20)
+        self.textbox2.setStyleSheet(qstr)
 
         self.textbox3 = QLineEdit(self)
-        self.textbox3.resize(100, 100)
-        self.textbox3.setStyleSheet(
-            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.textbox3.setFixedSize(50, 20)
+        self.textbox3.setStyleSheet(qstr)
 
         self.textbox4 = QLineEdit(self)
-        self.textbox4.resize(100, 100)
-        self.textbox4.setStyleSheet(
-            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.textbox4.setFixedSize(50, 20)
+        self.textbox4.setStyleSheet(qstr)
 
         self.rescale_axes_button = QPushButton(self)
         self.rescale_axes_button.setText("Rescale Axes")
-        self.rescale_axes_button.setStyleSheet(
-            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
+        self.rescale_axes_button.setFixedSize(100, 20)
+        
+        self.rescale_axes_button.setStyleSheet(qstr)
         self.rescale_axes_button.clicked.connect(self.rescaleAxes)
 
         row1.addWidget(self.textbox1)
@@ -86,8 +92,15 @@ class PlotButtons(QWidget):
         resize_input_widgets.addWidget(row2)
         resize_input_widgets.addWidget(row3)
 
-        grid.addWidget(resize_input_widgets, 0, 3)
+        grid.addWidget(self.reset_plot_button, 0, 0)
+        grid.addWidget(self.export_button, 0, 1)
+        grid.addWidget(self.downloadButton, 0, 2)
+        grid.addWidget(self.plot_dropdown, 0, 3)
+        grid.addWidget(resize_input_widgets, 0, 4)
         self.setLayout(grid)
+
+    def downloadData(self):
+        self.plot.getPlotItem().writeCsv("Data.csv")
 
     def resetPlot(self):
         self.plot.clear()
@@ -98,6 +111,9 @@ class PlotButtons(QWidget):
 
     def getPlotResetFlag(self):
         return self.plot_reset
+
+    def exportGraph(self):
+        self.plot.getPlotItem().writeImage(constants.GRAPH_IMG_NAME)
 
     def plotDropdownChanged(self, dropdownValue):
         self.current_plot = self.plot_names.index(dropdownValue)

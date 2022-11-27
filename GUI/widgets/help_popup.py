@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import QSize
 import sys
+import constants as cons
 
 
 class HelpPopup(QWidget):
@@ -12,12 +13,15 @@ class HelpPopup(QWidget):
         self.initUI()
 
     def initUI(self):
+        widFile = cons.WIDGETS
+        with open(widFile, "r") as fh:
+            qstr = str(fh.read())
+        
         self.setWindowTitle("Click button")
         self.push = QPushButton(self)
         self.push.setText("Help")
         self.push.setFont(QFont('AnyStyle', 18))
-        self.push.setStyleSheet(
-            "background-color : #2B26c1; border-radius: 5px; font-family: Helvetica; font-size: 14px; border: 3px #2B26c1")
+        self.push.setStyleSheet(qstr)
         self.push.clicked.connect(self.pushedHelp)
         self.push.resize(int(self.width), int(self.height))
 

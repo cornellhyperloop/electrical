@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from widgets import *
+from PyQt5.QtGui import *
 from PyQt5.QtCore import QObject, pyqtSignal
 import time
 from widgets import progressBar
@@ -71,6 +72,18 @@ class Header(QWidget):
 
         hbox.addLayout(vbox)
         self.setStyleSheet(qstr)
+
+        hyperloop = QPixmap('state_icons/logo.png')
+        hyperloop = hyperloop.scaled(200, 100)
+        label = QLabel()
+        label.setStyleSheet("border: 1px grey")
+        label.setFixedWidth(200)
+        label.setFixedHeight(100)
+        label.setPixmap(hyperloop)
+
+        splitter4.addWidget(label)           
+
+        hbox.addWidget(splitter4)
 
         self.timer = QTimer(self, timeout=self.update)
         self.timer.start(1000)

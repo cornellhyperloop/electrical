@@ -121,3 +121,7 @@ class Body(QWidget):
             # Update the indices for the next datapoint
             self.current_plot_indices[0] += 1
             self.current_plot_indices[1] += 1
+
+    def dimensions(self):
+        return self.width, self.height
+
