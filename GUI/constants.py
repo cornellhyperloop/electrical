@@ -63,7 +63,7 @@ ALTITUDE = 33000
 DISTANCE = 30
 
 # Progress Bar Data
-LABEL_STYLE_SHEET = "color: blue; background-color: grey; selection-color: grey; selection-background-color: blue; border: 1px grey"
+LABEL_STYLE_SHEET = "color: white; background-color: #2B26c1; selection-color: grey; selection-background-color: blue; border: 1px grey"
 PBAR_LOW_PROGRESS = "QProgressBar::chunk {background-color: red;}"
 PBAR_MED_PROGRESS = "QProgressBar::chunk {background-color: gold;}"
 PBAR_HIGH_PROGRESS = "QProgressBar::chunk {background-color: green;}"
