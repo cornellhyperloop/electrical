@@ -8,6 +8,7 @@ from utils.body import Body
 from utils.visualizer import Visualizer
 from utils.batteryPage import BatteryPage
 from utils.FSM import FSM
+import constants
 
 
 class MainWindow(QWidget):
@@ -36,7 +37,7 @@ class MainWindow(QWidget):
 
         self.Stack = QStackedWidget(self)
 
-        body = Body(int(width), int(height))
+        body = Body(int(width), int(height), constants.LIVE_DATA)
         visualizer = Visualizer()
         batteryPage = BatteryPage()
         fsm = FSM(width, height)
@@ -45,7 +46,7 @@ class MainWindow(QWidget):
         self.Stack.addWidget(visualizer)
         self.Stack.addWidget(batteryPage)
         # temperature page not implemented yet
-        self.Stack.addWidget(Body(width, height))
+        self.Stack.addWidget(Body(width, height, False))
         self.Stack.addWidget(fsm)
 
         grid = QGridLayout(self)

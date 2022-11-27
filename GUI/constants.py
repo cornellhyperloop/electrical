@@ -1,3 +1,9 @@
+# Use live data for graph
+LIVE_DATA = False
+ARDUINO_SERIAL = "/dev/cu.usbmodem141301"
+
+GRAPH_IMG_NAME = "Graph.png"
+
 # FSM Data
 CURRENT_STATE = "Deceleration"
 STATES = {
@@ -71,4 +77,4 @@ PLOT_INCREMENTS = [1, 10]
 GRAPH_IMG_NAME = "Graph.png"
 
 WIDGETS = "widgets/widgets.css"
-REDWIDGETS= "widgets/redwidgets.css"
+REDWIDGETS = "widgets/redwidgets.css"

@@ -11,6 +11,7 @@ class Body(QWidget):
         super(Body, self).__init__()
         self.width = args[0]
         self.height = args[1]
+        self.live_data = args[2]
         hbox = QHBoxLayout(self)
 
         sshFile = "utils/body.css"
@@ -35,13 +36,16 @@ class Body(QWidget):
         bottom_left.addLayout(vel_acc, 0, 0)
         bottom_left.addWidget(speed, 1, 0)
 
-        # temporary graph
-        self.temporary_graph = pg.PlotWidget()
-        hour = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        temperature = [30, 32, 34, 32, 33, 31, 29, 32, 35, 45]
-        self.temporary_graph.resize(int(self.width), int(self.height / 4))
+        # use live data, else dummy graph
+        if self.live_data:
+            self.graph = Thermistor()
+        else:
+            self.graph = pg.PlotWidget()
+            hour = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+            temperature = [30, 32, 34, 32, 33, 31, 29, 32, 35, 45]
+            self.graph.resize(int(self.width), int(self.height / 4))
 
-        self.plot_buttons = PlotButtons(self.temporary_graph)
+        self.plot_buttons = PlotButtons(self.graph)
         plot_button_grid.addWidget(self.plot_buttons, 0, 0)
 
         # Data for plots
@@ -58,18 +62,21 @@ class Body(QWidget):
         vgraph = QSplitter(Qt.Horizontal)
         vgraph.setSizes([2, 2])
 
-        home.addWidget(self.temporary_graph, 0, 0)
+        home.addWidget(self.graph, 0, 0)
         home.addLayout(plot_button_grid, 1, 0)
         home.addLayout(home_footer, 2, 0)
 
         hbox.addLayout(home)
         self.setLayout(hbox)
-        self.setStyleSheet(qstr)
+        # body.css affects the thermistor graph
+        # self.setStyleSheet(qstr)
 
-        self.timer = QTimer(self, timeout=self.update)
-        self.timer.start(1000)
-        self.x = 0
-        self.y = 0
+        # use dummy update function
+        if not self.live_data:
+            self.timer = QTimer(self, timeout=self.update)
+            self.timer.start(1000)
+            self.x = 0
+            self.y = 0
 
     def update(self):
         current_plot = self.plot_buttons.getCurrentPlot()
@@ -79,8 +86,8 @@ class Body(QWidget):
             self.plot_buttons.setRescaleAxesFlag(False)
             x_axes = self.plot_buttons.getXAxesLimits()
             y_axes = self.plot_buttons.getYAxesLimits()
-            self.temporary_graph.setXRange(x_axes[0], x_axes[1])
-            self.temporary_graph.setYRange(y_axes[0], y_axes[1])
+            self.graph.setXRange(x_axes[0], x_axes[1])
+            self.graph.setYRange(y_axes[0], y_axes[1])
 
         if (self.plot_buttons.getPlotResetFlag()):
             # Reset the current plot
@@ -93,12 +100,12 @@ class Body(QWidget):
 
         elif (self.plot_buttons.getChangedPlot()):
             # Reset the plot
-            self.temporary_graph.clear()
+            self.graph.clear()
 
             # Plot all the data for the new plot
             for i in range(len(self.x_data[current_plot])):
-                self.temporary_graph.plot([self.x_data[current_plot][i]], [self.y_data[current_plot][i]],
-                                          pen=pen, symbol='x', symbolSize=30)
+                self.graph.plot([self.x_data[current_plot][i]], [self.y_data[current_plot][i]],
+                                pen=pen, symbol='x', symbolSize=30)
 
             # Reset the changed plot flag
             self.plot_buttons.setChangedPlot(False)
@@ -115,8 +122,8 @@ class Body(QWidget):
             currentIndex = self.current_plot_indices[current_plot]
 
             # Plot the current data point
-            self.temporary_graph.plot([self.x_data[current_plot][currentIndex]], [self.y_data[current_plot][currentIndex]],
-                                      pen=pen, symbol='x', symbolSize=30)
+            self.graph.plot([self.x_data[current_plot][currentIndex]], [self.y_data[current_plot][currentIndex]],
+                            pen=pen, symbol='x', symbolSize=30)
 
             # Update the indices for the next datapoint
             self.current_plot_indices[0] += 1
@@ -124,4 +131,3 @@ class Body(QWidget):
 
     def dimensions(self):
         return self.width, self.height
-
