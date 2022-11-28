@@ -58,24 +58,24 @@ class PlotButtons(QWidget):
         row3 = QSplitter(Qt.Horizontal)
 
         self.textbox1 = QLineEdit(self)
-        self.textbox1.setFixedSize(50, 20)
+        self.textbox1.setFixedSize(50, 30)
         self.textbox1.setStyleSheet(qstr)
 
         self.textbox2 = QLineEdit(self)
-        self.textbox2.setFixedSize(50, 20)
+        self.textbox2.setFixedSize(50, 30)
         self.textbox2.setStyleSheet(qstr)
 
         self.textbox3 = QLineEdit(self)
-        self.textbox3.setFixedSize(50, 20)
+        self.textbox3.setFixedSize(50, 30)
         self.textbox3.setStyleSheet(qstr)
 
         self.textbox4 = QLineEdit(self)
-        self.textbox4.setFixedSize(50, 20)
+        self.textbox4.setFixedSize(50, 30)
         self.textbox4.setStyleSheet(qstr)
 
         self.rescale_axes_button = QPushButton(self)
         self.rescale_axes_button.setText("Rescale Axes")
-        self.rescale_axes_button.setFixedSize(100, 20)
+        self.rescale_axes_button.setFixedSize(150, 30)
 
         self.rescale_axes_button.setStyleSheet(qstr)
         self.rescale_axes_button.clicked.connect(self.rescaleAxes)
