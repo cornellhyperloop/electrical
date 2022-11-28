@@ -10,7 +10,7 @@ class EmergencyButton(QWidget):
     def __init__(self, fsm, *args, parent=None):
         super(EmergencyButton, self).__init__(parent)
         self.fsm = fsm
-        self.width = args[0] / 10
+        self.width = args[0] / 7
         self.height = args[1] / 30
         self.initUI()
 
