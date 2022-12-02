@@ -9,7 +9,7 @@ import constants as cons
 
 
 class Header(QWidget):
-    def __init__(self, w=1000, h=500, *args, **kwargs):
+    def __init__(self, fsm, w=1000, h=500, *args, **kwargs):
         super(Header, self).__init__()
         hbox = QHBoxLayout(self)
         sshFile = "utils/header.css"
@@ -29,8 +29,6 @@ class Header(QWidget):
 
         help = HelpPopup(int(self.width), int(self.height))
         grid1.addWidget(help, 0, 3, alignment=Qt.AlignCenter)
-
-        fsm = FSM()
 
         emergency_button = EmergencyButton(fsm, self.width, self.height)
         grid1.addWidget(emergency_button, 0, 4,

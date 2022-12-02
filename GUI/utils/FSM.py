@@ -13,8 +13,9 @@ class FSM(QWidget):
         super().__init__()
         self.left = 0
         self.top = 0
-        self.width = args[0]
-        self.height = args[1]
+        self.fsm = args[0]
+        self.width = args[1]
+        self.height = args[2]
         self.currstate = constants.CURRENT_STATE
         self.initUI()
         self.color()
@@ -135,7 +136,10 @@ class FSM(QWidget):
 
     def update(self):
         self.undocolor()
-        self.currstate = random.choice(list(self.states.keys()))
+        self.currstate = self.fsm.getState()
+        if (self.currstate != 'Emergency'):
+            self.currstate = random.choice(list(self.states.keys()))
+        self.fsm.setState(self.currstate)
         self.color()
 
     def color(self):

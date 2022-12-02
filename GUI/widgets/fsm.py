@@ -7,6 +7,9 @@ import random
 import constants as cons
 
 
+"""
+THIS IS THE OLD FSM WIDGET (NOT USED ANYMORE)
+"""
 class FSM(QWidget):
     def __init__(self, parent=None):
         super(FSM, self).__init__(parent)

@@ -32,7 +32,7 @@ class EmergencyButton(QWidget):
         print("Button clicked is:", i.text())
 
     def pushedEmergency(self):
-        self.fsm.fsm.setState('Emergency')
+        self.fsm.setState('Emergency')
 
     def sizeHint(self):
         return QSize(int(self.width), int(self.height))
