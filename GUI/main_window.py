@@ -9,6 +9,7 @@ from utils.visualizer import Visualizer
 from utils.batteryPage import BatteryPage
 from utils.FSM import FSM
 import constants
+from utils.therm import Therm
 
 
 class MainWindow(QWidget):
@@ -45,9 +46,23 @@ class MainWindow(QWidget):
         self.Stack.addWidget(body)
         self.Stack.addWidget(visualizer)
         self.Stack.addWidget(batteryPage)
+        therm = Therm(int(width), int(height), constants.LIVE_DATA)
+        self.Stack.addWidget(therm)
         # temperature page not implemented yet
-        self.Stack.addWidget(Body(width, height, False))
+        #self.Stack.addWidget(Body(width, height, False))
         self.Stack.addWidget(fsm)
+
+
+
+
+        # therm = Therm(int(width), int(height), constants.LIVE_DATA)
+        # self.Stack.addWidget(therm)
+        #self.Stack.addWidget(Therm(width, height, False))
+
+
+
+
+
 
         grid = QGridLayout(self)
 

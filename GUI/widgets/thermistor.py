@@ -4,13 +4,14 @@ from PyQt5.QtCore import *
 import pyqtgraph as pg
 import serial
 import constants
+import time
 
 
 class Thermistor(QWidget):
     def __init__(self, parent=None):
         super(Thermistor, self).__init__(parent)
         self.initUI()
-        self.arduino = serial.Serial(constants.ARDUINO_SERIAL)
+        self.arduino = serial.Serial(port="/dev/cu.usbmodem11101", baudrate = 9600, timeout=.1)
         self.x = 0
         self.y = 0
         self.layout = QGridLayout()
@@ -31,15 +32,24 @@ class Thermistor(QWidget):
 
         vbox = QVBoxLayout()
         vbox.addWidget(self.temp)
-        self.temp.setStyleSheet("background-color : #2B26c1")
+        self.temp.setStyleSheet("background-color : blue")
         self.setLayout(vbox)
 
     def update(self):
         self.x += 1
         line = self.arduino.readline().decode()
         if line:
-            self.y = float(line[:-2])
+           u = line.find(',')
+           self.y = float(line[:u])
+        # data = self.arduino.readline().decode()
+        # if len(data)!=0:
+        #     temp = float(data[data.index(':')+2:data.index(': ')+7])
+        #     dist = float(data[data.rindex(':')+2:data.rindex('c')-1])
+        #     d = [temp, dist]
+        #     return d
+        # return 0
 
-        pen = pg.mkPen(width=10)
-        self.graphWidget.plot([self.x], [self.y],
-                              pen=pen, symbol='x', symbolSize=30)
+        # if (data!=0): 
+        #     pen = pg.mkPen(width=10)
+        #     self.graphWidget.plot([time.time()-self.startTime], [data[0]],
+        #                       pen=pen, symbol='x', symbolSize=30)

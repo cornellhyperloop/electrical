@@ -8,9 +8,9 @@ import time
 import serial
 
 
-class Body(QWidget):
+class Therm(QWidget):
     def __init__(self, *args, **kwargs):
-        super(Body, self).__init__()
+        super(Therm, self).__init__()
         self.arduino = serial.Serial(port="/dev/cu.usbmodem11101", baudrate = 9600, timeout=.1)
         self.startTime = time.time()
         self.width = args[0]
@@ -18,7 +18,7 @@ class Body(QWidget):
         self.live_data = args[2]
         hbox = QHBoxLayout(self)
 
-        sshFile = "utils/body.css"
+        sshFile = "utils/therm.css"
         with open(sshFile, "r") as fh:
             qstr = str(fh.read())
 
@@ -137,11 +137,11 @@ class Body(QWidget):
                     currentIndex = self.current_plot_indices[current_plot]
 
             # Plot the current data point
-                    self.graph.plot([time.time()-self.startTime], [data[1]],
-                           pen=pen, symbol='x', symbolSize=30)
+                    #self.graph.plot([time.time()-self.startTime], [data[1]],
+                    #       pen=pen, symbol='x', symbolSize=30)
 
-                    #self.graph.plot([time.time()-self.startTime], [data[0]],
-                    #        pen=pen, symbol='x', symbolSize=30)
+                    self.graph.plot([time.time()-self.startTime], [data[0]],
+                            pen=pen, symbol='x', symbolSize=30)
 
             # Update the indices for the next datapoint
                     self.current_plot_indices[0] += 1
