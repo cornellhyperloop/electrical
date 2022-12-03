@@ -4,15 +4,18 @@ from PyQt5.QtCore import *
 import pyqtgraph.opengl as gl
 import numpy as np
 import constants as cons
+import random
 from OpenGL.GL import *
 
 
 class Pod(QOpenGLWidget):
 
-    def __init__(self, parent=None):
+    def __init__(self, random_rotate, parent=None):
         super(Pod, self).__init__(parent)
+        self.random_rotate = random_rotate
         # Create object form GLviewWidget
         self.view = gl.GLViewWidget()
+        #self.view.setFixedSize(500, 500)
         x = gl.GLGridItem()
         y = gl.GLGridItem()
         z = gl.GLGridItem()
@@ -49,6 +52,7 @@ class Pod(QOpenGLWidget):
         self.timer.start(1000)
 
         self.setLayout(self.layout)
+        #self.layout.setGeometry(100,100,100,100)
 
     def initializeGL(self):
         pass
@@ -59,9 +63,19 @@ class Pod(QOpenGLWidget):
     def paintGL(self):
         if (self.t == len(cons.PITCH)):
             self.t = 0
-        self.m1.rotate(cons.PITCH[self.t], 1, 0, 0)
-        self.m1.rotate(cons.YAW[self.t], 0, 1, 0)
-        self.m1.rotate(cons.ROLL[self.t], 0, 0, 1)
+        
+        if (self.random_rotate):
+            rotate_pitch = random.randint(0, 360)
+            rotate_yaw = random.randint(0, 360)
+            rotate_roll = random.randint(0, 360)
+        else:
+            rotate_pitch = cons.PITCH[self.t]
+            rotate_yaw = cons.YAW[self.t]
+            rotate_roll = cons.ROLL[self.t]
+
+        self.m1.rotate(rotate_pitch, 1, 0, 0)
+        self.m1.rotate(rotate_yaw, 0, 1, 0)
+        self.m1.rotate(rotate_roll, 0, 0, 1)
         self.t += 1
 
         self.view.addItem(self.m1)

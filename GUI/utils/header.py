@@ -90,14 +90,17 @@ class Header(QWidget):
         self.show()
 
     def update(self):  # PROGRESS BAR
-        self.pBarContainer.pBar.setValue(self.pBarContainer.pBar.value()+5)
+        progress_bar_value = int(self.pBarContainer.pBar.value())
 
-        if int(self.pBarContainer.pBar.value()) < 50:
+        self.pBarContainer.pBar.setValue(progress_bar_value + 5)
+
+        if (progress_bar_value < 50):
             self.pBarContainer.pBar.setStyleSheet(cons.PBAR_LOW_PROGRESS)
-        elif int(self.pBarContainer.pBar.value()) > 50:
-            self.pBarContainer.pBar.setStyleSheet(cons.PBAR_MED_PROGRESS)
-        elif int(self.pBarContainer.pBar.value()) == 100:
+        elif (progress_bar_value > 99):
             self.pBarContainer.pBar.setStyleSheet(cons.PBAR_HIGH_PROGRESS)
+        else:
+            self.pBarContainer.pBar.setStyleSheet(cons.PBAR_MED_PROGRESS)
+        
 
     def navbar(self, b):
         buttons = [self.b1, self.b2, self.b3, self.b4, self.b5]
