@@ -29,7 +29,7 @@ class HelpPopup(QWidget):
         self.msgBox = QMessageBox()
         self.msgBox.setWindowTitle("Tutorial on using GUI")
         self.msgBox.setText(
-            "Click on the various buttons in order to receive more information about them")
+            "Click on the various buttons in order to receive more information about them. On the top you may visualize the design of the pod with the visualizer button, get battery information, check the temperature graphs, and view the state of the pod from the FSM page. On the bottom you may edit the graph of the data, being live plotted.")
         self.msgBox.setIcon(QMessageBox.Information)
         x = self.msgBox.exec()
 
