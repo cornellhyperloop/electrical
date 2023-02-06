@@ -13,11 +13,13 @@ class EmergencyButton(QWidget):
     def initUI(self):
         self.setWindowTitle("Click button")
         self.push = QPushButton(self)
-        self.push.setText("Emergency\nBreak")
+        #self.push.resize(200, 100)
+        self.push.setText("Emergency Break")
         self.push.setFont(QFont('AnyStyle', 18))
         self.push.clicked.connect(self.pushedEmergency)
         #self.push.resize(400, 200)
         #self.push.move(0, 50)
+
         self.push.setStyleSheet(
             "background-color : red; border-radius: 5px; font-weight: bold; border: 3px solid black")
         # sshFile = "test.css"

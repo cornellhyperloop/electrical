@@ -1,15 +1,29 @@
 {
     "configurations": [
         {
+<<<<<<< HEAD
             "name": "Linux",
+=======
+            "name": "Mac",
+>>>>>>> 76318e731f6ed850762384e6bb9c1ef4705ab0f8
             "includePath": [
                 "${workspaceFolder}/**"
             ],
             "defines": [],
+<<<<<<< HEAD
             "compilerPath": "/usr/bin/clang",
             "cStandard": "c11",
             "cppStandard": "c++14",
             "intelliSenseMode": "linux-clang-x64"
+=======
+            "macFrameworkPath": [
+                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
+            ],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "macos-clang-arm64"
+>>>>>>> 76318e731f6ed850762384e6bb9c1ef4705ab0f8
         }
     ],
     "version": 4

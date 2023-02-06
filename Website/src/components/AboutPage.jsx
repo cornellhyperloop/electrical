@@ -258,7 +258,10 @@ export default class AboutPage extends Component {
                     Electrical Team Overview
                   </h2>
                   <p>{pageData.overviewText}</p>
-
+                  <AboutScrollbar
+                    team="Leadership"
+                    teamData={pageData.Leadership}
+                  />
                   <AboutScrollbar
                     team="Computing Systems"
                     teamData={pageData.ComputingSystems}
@@ -271,21 +274,21 @@ export default class AboutPage extends Component {
 
                   <AboutScrollbar team="UI" teamData={pageData.UI} />
 
-                  <h2 class="text-2xl font-bold text-gray-900">Workshops</h2>
+                  {/* <h2 class="text-2xl font-bold text-gray-900">Workshops</h2>
                   <p class="py-4">{pageData.workshopsText}</p>
                   <img
                     src="./img/AgileWorkshop.png"
                     alt="Agile Workshop"
                     height="50%"
                     width="50%"
-                  />
-
+                  /> */}
+                  {/* 
                   <h2 class="text-2xl py-4 font-bold text-gray-900">
                     Velocity
                   </h2>
                   <p class="pb-4">{pageData.velocityText}</p>
                   <div class="velocityGraph"></div>
-                  <div></div>
+                  <div></div> */}
                 </div>
               </div>
             </main>

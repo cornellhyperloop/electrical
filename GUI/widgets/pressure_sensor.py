@@ -17,16 +17,16 @@ class PressureSensor(QWidget):
 
         absolute.setText("Absolute Pressure: " +
                          str(constants.ABSOLUTE_PRESSURE) + " inHg")
-        absolute.setStyleSheet("background-color : rgb(143,255,91)")
+        absolute.setStyleSheet("background-color : #2B26c1")
         absolute.setAlignment(Qt.AlignCenter)
 
         relative.setText("Relative Pressure: " +
                          str(constants.RELATIVE_PRESSURE) + " inHg")
-        relative.setStyleSheet("background-color : rgb(143,255,91)")
+        relative.setStyleSheet("background-color : #2B26c1")
         relative.setAlignment(Qt.AlignCenter)
 
         altitude.setText("Altitude: " + str(constants.ALTITUDE) + " ft")
-        altitude.setStyleSheet("background-color : rgb(143,255,91)")
+        altitude.setStyleSheet("background-color : #2B26c1")
         altitude.setAlignment(Qt.AlignCenter)
 
         vbox = QVBoxLayout()

@@ -18,20 +18,20 @@ class Battery(QWidget):
 
         battery.setText("Battery")
         battery.setAlignment(Qt.AlignCenter)
-        battery.setStyleSheet("font-weight: bold")
+        battery.setStyleSheet("font-weight: bold; background-color : #2B26c1")
 
         temperature.setText("Current: " + str(BATTERY_CURRENT_TEMP) + " °C")
-        temperature.setStyleSheet("background-color : rgb(143,255,91)")
+        temperature.setStyleSheet("background-color : #2B26c1")
         temperature.setAlignment(Qt.AlignCenter)
 
         maxtemp.setText("Max: " + str(BATTERY_MAXIMUM_TEMP) + " °C")
-        maxtemp.setStyleSheet("background-color : rgb(143,255,91)")
+        maxtemp.setStyleSheet("background-color : #2B26c1")
         maxtemp.setAlignment(Qt.AlignCenter)
 
         avg = (BATTERY_1 + BATTERY_2 + BATTERY_3 + BATTERY_4 +
                BATTERY_5 + BATTERY_6 + BATTERY_7 + BATTERY_8) / 8
         avgtemp.setText("Average: " + str(avg) + " °C")
-        avgtemp.setStyleSheet("background-color : rgb(143,255,91)")
+        avgtemp.setStyleSheet("background-color : #2B26c1")
         avgtemp.setAlignment(Qt.AlignCenter)
 
         vbox = QVBoxLayout()

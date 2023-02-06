@@ -19,7 +19,7 @@ class FSM(QWidget):
         self.state.setText("Current State: " + constants.CURRENT_STATE)
         self.state.setAlignment(Qt.AlignCenter)
         self.state.setFont(QFont('AnyStyle', 12))
-        self.state.setStyleSheet("background-color : rgb(143,255,91)")
+        self.state.setStyleSheet("background-color : #2B26c1")
 
         vbox = QVBoxLayout()
 

@@ -2,8 +2,7 @@
 #include <zcm/zcm.h>
 #include <sensor_info_t.h>
 
-
-void writeJson(char* fileName, const sensor_info_t *msg, size_t size);
+void writeJson(char *fileName, const sensor_info_t *msg, size_t size);
 // void writeJson(char *fileName, int *arr, size_t size);
 
 // struct sensor_info_t
@@ -37,7 +36,8 @@ void callback_handler(const zcm_recv_buf_t *rbuf, const char *channel, const sen
 
 // void writeJson(char *fileName, int *arr, size_t size)
 // {
-void writeJson(char* fileName, const sensor_info_t *msg, size_t size) {
+void writeJson(char *fileName, const sensor_info_t *msg, size_t size)
+{
 	size_t i;
 	FILE *fp = fopen(fileName, "w+"); /* open file for writing */
 
@@ -96,20 +96,20 @@ void writeJson(char* fileName, const sensor_info_t *msg, size_t size) {
 	// fprintf(fp, "%f, %f, %f", 1, 2, 3);
 	fprintf(fp, "],\n");
 
-			// Gyroscope
-			fprintf(fp, "\"gyroscope\" : ");
+	// Gyroscope
+	fprintf(fp, "\"gyroscope\" : ");
 	// Print value
 	fprintf(fp, "%f", msg->imu_gyroscope);
 	// fprintf(fp, "%f", 1);
 	fprintf(fp, ",\n");
 
-			// Magnetometer
-			fprintf(fp, "\"magnetometer\" : ");
-			// Print value
-			fprintf(fp, "%f", msg->imu_magnetometer);
-			// fprintf(fp, "%f", 1);
-			fprintf(fp, "\n");
-					fprintf(fp, "},\n");
+	// Magnetometer
+	fprintf(fp, "\"magnetometer\" : ");
+	// Print value
+	fprintf(fp, "%f", msg->imu_magnetometer);
+	// fprintf(fp, "%f", 1);
+	fprintf(fp, "\n");
+	fprintf(fp, "},\n");
 
 	// Pressure
 	fprintf(fp, "\"Pressure\" : \n{");
@@ -119,8 +119,8 @@ void writeJson(char* fileName, const sensor_info_t *msg, size_t size) {
 	// fprintf(fp, "%f", 5.6);
 	fprintf(fp, "\n },");
 
-			// Temperature
-			fprintf(fp, "\"Temperature\" : \n{");
+	// Temperature
+	fprintf(fp, "\"Temperature\" : \n{");
 	fprintf(fp, "\"temperature1\" : ");
 	// Print value
 	fprintf(fp, "%f,\n", msg->temperature);
@@ -130,23 +130,23 @@ void writeJson(char* fileName, const sensor_info_t *msg, size_t size) {
 	// fprintf(fp, "%f", 5.6);
 	fprintf(fp, "\n },");
 
-			// Inductive Proximity
-			fprintf(fp, "\"Inductive Proximity\" : \n{");
+	// Inductive Proximity
+	fprintf(fp, "\"Inductive Proximity\" : \n{");
 	fprintf(fp, "\"proximity\" : ");
 	// Print value
 	fprintf(fp, "%f", msg->proximity);
 	// fprintf(fp, "%f", 5.6);
 	fprintf(fp, "\n },");
 
-			// Long-range sensor
-			fprintf(fp, "\"Long-range sensor\" : \n{");
+	// Long-range sensor
+	fprintf(fp, "\"Long-range sensor\" : \n{");
 	fprintf(fp, "\"proximity\" : ");
 	// Print value
 	fprintf(fp, "%f", msg->distance);
 	// fprintf(fp, "%f", 5.6);
 	fprintf(fp, "\n }");
 
-			fprintf(fp, "}\n");
+	fprintf(fp, "}\n");
 
 	fclose(fp);
 }

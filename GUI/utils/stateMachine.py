@@ -51,21 +51,21 @@ class FSM:
         self.thermistor2 = 0
 
         self.pressureSensor1 = 0
-        
+
         self.shortDistance1 = 0
 
         self.longDistance1 = 0
 
         self.acceleration = 0
         self.avgAcceleration = 0
-    
+
 
     def updateThermistorData(self):
 
         # Ultimately, this function should load the new thermistor readings
         self.thermistor1 = 10
         self.thermistor2 = 20
-    
+
 
     def setState(self, newState):
 
@@ -74,7 +74,7 @@ class FSM:
     def getState(self):
 
         return self.currState
-    
+
     def stateTransition(self):
 
         self.updateThermistorData()
@@ -82,23 +82,27 @@ class FSM:
         # Replace with an actual state transition
         # Currently transitions from state 0 to state 1 unconditionally
         if self.currState == 0:
-            self.nextState = 1
-        
+            if self.thermistor1<self.overheatingTemp and self.thermistor2<overheatingTemp and self.pressureSensor1<self.maxPressure and self.longDistance1< self.maxEndDistance and self.shortDistance1>self.minSideDistance and self.avgAcceleration<self.maxAcceleration:
+                self.nextState = 1
+
         elif self.currState == 1:
-            pass
-        
+            if self.thermistor1>=self.overheatingTemp and self.thermistor2>=overheatingTemp:
+                self.nextState=2
+
         elif self.currState == 2:
             # Code for activating cooling mechanism
             if (self.thermistor1 < self.overheatingTemp):
                 self.nextState = 4
-        
+
         elif self.currState == 3:
-            self.nextState = 4
-        
+            if self.longDistance1< self.maxEndDistance and self.thermistor1<self.overheatingTemp:
+                self.nextState = 4
+
         elif self.currState == 4:
             # Code for starting the motors
-            pass
-        
+            if self.avgAcceleration>=self.maxAcceleration:
+                self.nextState=5
+
         elif self.currState == 5:
             if (self.thermistor1 >= self.extremeOverheatingTemp or self.pressureSensor1 >= self.maxPressure):
                 self.nextState = 9
@@ -111,26 +115,30 @@ class FSM:
                 self.nextState = 7
             elif (self.acceleration >= self.maxAcceleration):
                 self.nextState = 6
-        
+
         elif self.currState == 6:
             if (self.acceleration < self.avgAcceleration):
                 self.nextState = 5
-        
+
         elif self.currState == 7:
             if (self.acceleration == 0):
                 self.nextState = 8
-        
+
         elif self.currState == 8:
-            pass
-        
+            if self.thermistor1>=self.overheatingTemp or self.thermistor2>=overheatingTemp or self.pressureSensor1>=self.maxPressure or self.longDistance1>=self.maxEndDistance or self.shortDistance1<=self.minSideDistance or self.avgAcceleration>self.maxAcceleration:
+                self.nextState=10
+
         elif self.currState == 9:
-            pass
-        
+            if self.thermistor1>=self.overheatingTemp or self.thermistor2>=overheatingTemp or self.pressureSensor1>=self.maxPressure or self.longDistance1>=self.maxEndDistance or self.shortDistance1<=self.minSideDistance or self.avgAcceleration>self.maxAcceleration:
+                self.nextState=10
+
         elif self.currState == 10:
-            pass
+            if self.thermistor1<self.overheatingTemp and self.thermistor2<overheatingTemp and self.pressureSensor1<self.maxPressure and self.longDistance1< self.maxEndDistance and self.shortDistance1>self.minSideDistance and self.avgAcceleration<self.maxAcceleration:
+                self.nextState=0
 
         self.currState = self.nextState
-    
+        print(str(self.nextState))
+
 
     def run(self):
 
@@ -139,7 +147,7 @@ class FSM:
             time.sleep(1)
             print(f'Thermistor 1 Value: {self.thermistor1}, Thermistor 2 Value: {self.thermistor2} ')
             self.stateTransition()
-    
+
     def runOneIteration(self):
 
         self.stateTransition()

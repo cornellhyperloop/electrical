@@ -2,36 +2,41 @@
 The Electrical team's repo.
 
 ## Current Team Members
-* Tim Tran: Electrical Lead
-* Ronin Sharma: Hardware Lead
-* Michael Guan: Software Lead
+* Ronin Sharma: Electrical and UI Lead
+* David Wolfers: Computing Systems Lead
+* Robert Fleming: Power Systems Lead
 
 * Computing Systems
-    * David Wolfers
-    * Nandita Kathiresan
-    * Chris Chan
-    * Kyra Watts
     * Ridhit Bhura
     * Vanshaj Jain
     * Anoushka Kabra
+    * Ashley Heckman
+    * David Lilienfeld
+    * Yaqi Gao
+    * Levi Zeng
+    * Shefali Awasthi
+    * Zarif Karim
+    * Neera Kapoor
 
 * Power Systems
-    * Robert Fleming
-    * Max Garval
-    * Edward Liu
-    * Eshita Sangani
     * Schuyler Seyram
+    * Berk Gokmen
+    * Steven Wei Chen
+    * Lalo Esparza
+    * Rares-Stefan Busca
+    * Kirti Bagepalli
+    * Max Trager
 
-* UI
-    * David Glantz
+* User Interfaces
+    * Morgan Lo
     * Kelvin Wang
-    * Kenneth Yamashita
-    * Likita Gangireddy
     * Ryan Mao
-## Semester Goals
-
-This semester sofware is working closely with hardware on three major projects: Computing Systems, Power Systems, and UI.
-
-
-
-
+    * Christina Unkenholz
+    * Devika Krishna
+    * Patrick Choo
+    * Mihika Jain
+    * Devan Flores
+    * Cooper Proctor
+    * Aislinn Ennis
+    * Benson Yee
+    
