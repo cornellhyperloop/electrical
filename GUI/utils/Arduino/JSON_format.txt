@@ -1,0 +1,23 @@
+JSON format as follows:
+
+{
+  Sensor_name_1: {
+    Param_name_1: val1,
+    Param_name_2: val2,
+    etc.
+  },
+
+  Sensor_name_2: {
+    Param_name_1: val1,
+    Param_name_2: val2,
+    etc.
+  },
+
+  Sensor_name_3: {
+    Param_name_1: val1,
+    Param_name_2: val2,
+    etc.
+  },
+  
+  etc.
+}

@@ -1,0 +1,9 @@
+QWidget {
+    color: rgb(255, 255, 255);
+    background-color: #2B26c1;
+    border-style: outset;
+    border-width: 1.5px;
+    border-color: #bebebe;
+    font-family: Helvetica;
+    font-size: 18px;
+}

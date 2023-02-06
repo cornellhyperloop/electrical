@@ -2,22 +2,27 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 
-from constants import BATTERY_MAXIMUM_TEMP, BATTERY_CURRENT_TEMP, BATTERY_1, BATTERY_2, BATTERY_3, BATTERY_4, BATTERY_5, BATTERY_6, BATTERY_7, BATTERY_8
+from constants import BATTERY, VOLTAGE, CURRENT
 
 
 class Battery(QWidget):
-    def __init__(self, parent=None):
+    def __init__(self, battNum, parent=None):
         super(Battery, self).__init__(parent)
-        self.initUI()
+        self.initUI(battNum)
 
-    def initUI(self):
+    def initUI(self, battNum):
+        cssFile = "utils/body.css"
+        with open(cssFile, "r") as fh:
+            qstr = str(fh.read())
+        
         battery = QLabel(self)
         temperature = QLabel(self)
-        maxtemp = QLabel(self)
-        avgtemp = QLabel(self)
+        current = QLabel(self)
+        voltage = QLabel(self)
 
-        battery.setText("Battery")
+        battery.setText("Cell " + str(battNum))
         battery.setAlignment(Qt.AlignCenter)
+<<<<<<< HEAD
         battery.setStyleSheet("font-weight: bold; background-color : #2B26c1")
 
         temperature.setText("Current: " + str(BATTERY_CURRENT_TEMP) + " °C")
@@ -33,12 +38,45 @@ class Battery(QWidget):
         avgtemp.setText("Average: " + str(avg) + " °C")
         avgtemp.setStyleSheet("background-color : #2B26c1")
         avgtemp.setAlignment(Qt.AlignCenter)
+=======
+        battery.setStyleSheet(
+            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1;")
 
-        vbox = QVBoxLayout()
+        if (battNum <= 5):
+            temperature.setText(f"Temperature: {BATTERY[battNum-1]} °C")
+            voltage.setText(f"Voltage: {VOLTAGE[battNum-1]} V")
+            current.setText(f"Current: {CURRENT[battNum-1]} A")
 
+        else:
+            battery.setText("Averages ")
+            avgTemp = (BATTERY[0] + BATTERY[1] +
+                       BATTERY[2] + BATTERY[3] + BATTERY[4])/5
+            temperature.setText(f"Average Temperature: {avgTemp} °C")
+            avgVolt = (VOLTAGE[0] + VOLTAGE[1]+
+                       VOLTAGE[2] + VOLTAGE[3] + VOLTAGE[4])/5
+            voltage.setText(f"Average Voltage: {avgVolt} V")
+            avgCurrent = (CURRENT[0] + CURRENT[1] +
+                          CURRENT[2]+ CURRENT[3]+ CURRENT[4])/5
+            current.setText(f"Average Current: {avgCurrent} A")
+
+        temperature.setAlignment(Qt.AlignCenter)
+        current.setAlignment(Qt.AlignCenter)
+        voltage.setAlignment(Qt.AlignCenter)
+
+        temperature.setStyleSheet("background-color : #2B26c1")
+        voltage.setStyleSheet("background-color : #2B26c1")
+        current.setStyleSheet("background-color : #2B26c1")
+>>>>>>> 088593597150e78bab5f05267d052282c28f0e0b
+
+        vbox = QHBoxLayout()
+        vbox2 = QVBoxLayout()
+
+        vbox2.addWidget(voltage)
+        vbox2.addWidget(temperature)
+        vbox2.addWidget(current)
         vbox.addWidget(battery)
-        vbox.addWidget(maxtemp)
-        vbox.addWidget(temperature)
-        vbox.addWidget(avgtemp)
+
+        vbox.addLayout(vbox2)
 
         self.setLayout(vbox)
+        self.setStyleSheet(qstr)

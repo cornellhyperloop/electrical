@@ -15,4 +15,7 @@ PyOpenGL
 qtgui==0.0.1
 serial
 six==1.14.0
+<<<<<<< HEAD
 PyOpenGL
+=======
+>>>>>>> 088593597150e78bab5f05267d052282c28f0e0b

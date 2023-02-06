@@ -1,40 +1,32 @@
-# {
-# 'sensor1': value1,
-# 'sensor2': value2,
-# 'sensor3': value3,
-# 'sensor4': value4,
-# 'sensor5': value5,
-# 'Thermistor': [value1, value2, value3, value4, value5]
-# }
-# {
-# 'sensor1': value1,
-# 'Pressure': value1
-# }
-# {
-# 'sensor1': value1,
-# 'Distance: value1
-# }
-# {
-# 'sensor1': value1,
-# ‘Sensor2’: value2
-# 'Angular Rate': value1
-# ‘Acceleration’: value2
-# }
+# Use live data for graph
+LIVE_DATA = False
+ARDUINO_SERIAL = "/dev/cu.usbmodem141301"
+
+GRAPH_IMG_NAME = "Graph.png"
 
 # FSM Data
-CURRENT_STATE = "acceleration"
+CURRENT_STATE = "Deceleration"
+STATES = {
+    'Stop': 'state_icons/stop.png',
+    'Crawl': 'state_icons/crawl.png',
+    'Deceleration': 'state_icons/deceleration.png',
+    'Cruise': 'state_icons/cruise.png',
+    'Emergency': 'state_icons/emergency.png',
+    'Verification': 'state_icons/verification.png',
+    'Pre-Acceleration': 'state_icons/pre_acceleration.png',
+    'Acceleration': 'state_icons/acceleration.png',
+    'Overheating': 'state_icons/overheating.png',
+    'Extreme Overheating': 'state_icons/extreme_overheating.png'
+}
 
 # Battery Pack Data
+# Numbers in the lists are dummy data
 BATTERY_CURRENT_TEMP = 0
 BATTERY_MAXIMUM_TEMP = 100
-BATTERY_1 = 40
-BATTERY_2 = 82
-BATTERY_3 = 100
-BATTERY_4 = 0
-BATTERY_5 = 67
-BATTERY_6 = 72
-BATTERY_7 = 94
-BATTERY_8 = 89
+BATTERY = [1, 2, 3, 4, 5]
+VOLTAGE = [5, 10, 15, 20, 25]
+CURRENT = [5, 10, 15, 20, 25]
+
 
 # Inductive Proximity Sensor Data
 PROXIMITY_INPUT1 = 2
@@ -69,3 +61,20 @@ ALTITUDE = 33000
 
 # Long Distance Range Finder Data
 DISTANCE = 30
+
+# Progress Bar Data
+LABEL_STYLE_SHEET = "color: white; background-color: #2B26c1; selection-color: grey; selection-background-color: blue; border: 1px grey"
+PBAR_LOW_PROGRESS = "QProgressBar::chunk {background-color: red;}"
+PBAR_MED_PROGRESS = "QProgressBar::chunk {background-color: gold;}"
+PBAR_HIGH_PROGRESS = "QProgressBar::chunk {background-color: green;}"
+
+# Live plotting
+NUM_PLOTS = 2
+# For now, have the second plot increase much faster than the first
+PLOT_INCREMENTS = [1, 10]
+
+# File names
+GRAPH_IMG_NAME = "Graph.png"
+
+WIDGETS = "widgets/widgets.css"
+REDWIDGETS = "widgets/redwidgets.css"

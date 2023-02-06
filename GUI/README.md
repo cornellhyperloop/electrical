@@ -3,8 +3,14 @@
     * [Generate SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
     * [Add new SSH key to your account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
+<<<<<<< HEAD
 2. Switch to the UI branch, pull any recent changes, and navigate to GUI folder
     ```
+=======
+2. Clone the repository, switch to the UI branch, pull any recent changes, and navigate to GUI folder
+    ```
+    git clone <ssh>
+>>>>>>> 088593597150e78bab5f05267d052282c28f0e0b
     git checkout UI
     git pull
     cd GUI
@@ -26,6 +32,19 @@
 
 7. Deactivate the virtual environment (when finished working): `deactivate`
 
+<<<<<<< HEAD
+=======
+## Github
+1. Initially, switch to a new branch: `git checkout -b <new-branch>`
+2. Make all the changes
+3. Check the files you have changes: `git status`
+4. Add files: `git add <filename>`
+5. Commit files: `git commit -m <message>`
+6. Push changes: `git push`
+   - On the first push, it will complain. Copy the command it suggests using.
+7. After you have pushed all changes, create the pull request
+   - You want to merge the feature branch (the branch you created) into the UI branch
+>>>>>>> 088593597150e78bab5f05267d052282c28f0e0b
 
 ## Widget Choices & Reasoning
 1. Window : MainWindow
@@ -39,3 +58,40 @@
 - Embedded in the layouts of sensor tabs (on the left)
 - Currently displaying data from dummy arrays
 - But, can extract sample data from a txt file of the same file directory instead by replacing `second` and `temperature` with `xs` and `ys`
+
+## Sensor Research
+Accelerometer: 
+* measures acceleration
+* Time vs. acceleration
+
+TOF range finder: 
+* Time-of-Flight (ToF) sensors are used for a range of applications, including robot navigation, vehicle monitoring, people counting, and object detection
+* Time vs. distance 
+
+Ultrasonic range finder: 
+* measure the distance between the sensor and its object using ultrasonic frequency
+* Time vs. distance
+
+Thermistors: 
+* measure temperature
+* Time vs. temperature
+
+Inductive proximity sensor: 
+* detects metal targets using electromagnetic energy and without contact
+* Time vs. distance 
+
+Infrared proximity sensor: 
+* measure reflected infrared (IR) energy to detect the presence of an object or person
+* Time vs. distance 
+
+## Adding a New Page
+_Current Pages: Home, Visualizer, Battery, Temperature_
+* Examples of page buttons: ```GUI/utils/header.py```
+* Examples of how to render a new page: ```GUI/main_window.py```
+* Examples of pages: ```GUI/utils/```
+
+## Live Data Plotting
+* Examples of live data plotting functions: ```GUI/utils/body.py```
+* Examples of adding functionality around the graph: ```GUI/widgets/plot_buttons.py```
+
+
