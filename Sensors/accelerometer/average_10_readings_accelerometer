@@ -1,0 +1,43 @@
+const int xPin = A0; // connect X-axis of accelerometer to analog pin A0
+const int yPin = A1; // connect Y-axis of accelerometer to analog pin A1
+const int zPin = A2; // connect Z-axis of accelerometer to analog pin A2
+const int numReadings = 10; // number of readings to average
+
+int readings[numReadings]; // array to store the readings
+int index = 0; // current index in the readings array
+int total = 0; // total of the readings
+int average = 0; // average of the readings
+
+void setup() {
+  Serial.begin(9600); // initialize serial communication at 9600 bits per second
+}
+
+void loop() {
+  // read the X, Y, and Z values from the accelerometer
+  int xValue = analogRead(xPin);
+  int yValue = analogRead(yPin);
+  int zValue = analogRead(zPin);
+
+  // calculate the magnitude of the acceleration
+  float magnitude = sqrt(xValue*xValue + yValue*yValue + zValue*zValue);
+
+  // add the reading to the total
+  total = total - readings[index] + magnitude;
+  readings[index] = magnitude;
+
+  // move to the next index in the readings array
+  index++;
+  if (index >= numReadings) {
+    index = 0;
+  }
+
+  // calculate the average of the readings
+  average = total / numReadings;
+
+  // print the average to the serial monitor
+  Serial.print("Average acceleration: ");
+  Serial.println(average);
+
+  // wait for a short time before taking the next reading
+  delay(100);
+}
