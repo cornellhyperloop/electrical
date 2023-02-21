@@ -1,0 +1,25 @@
+const int thermistorPin = A0;   // Analog pin used to read thermistor
+
+void setup() {
+  Serial.begin(9600);  // Initialize serial communication
+}
+
+void loop() {
+  int sum = 0;
+  int count = 0;
+  
+  // Read and accumulate 10 values from the thermistor pin
+  for (int i = 0; i < 10; i++) {
+    int val = analogRead(thermistorPin);
+    sum += val;
+    count++;
+    delay(100);  // Wait a short time between readings
+  }
+  
+  // Calculate and output the average of the 10 readings
+  float avg = (float) sum / count;
+  Serial.print("Average: ");
+  Serial.println(avg);
+
+  delay(1000); // Wait a bit before taking the next set of readings
+}
