@@ -16,7 +16,16 @@ int main(int argc, char *argv[])
 	int stop = 0;
 	// system( "MODE /dev/ttyACM0: BAUD=9600 PARITY=n DATA=8 STOP=1" );
 	fd = open("/dev/ttyACM0", O_RDWR | O_NOCTTY);
-	char buf[7];
+	char buf[256];
+	char accx[256];
+	char accy[256];
+	char accz[256];
+	char gyro[256];
+	char mag[256];
+	char press[256];
+	char prox[256];
+	char dist[256];
+
 	// int n = read(serialPort, &buf, 128);
 	sensor_info_t msg;
 	// printf("%s\n",buf);
@@ -64,21 +73,28 @@ int main(int argc, char *argv[])
 	tcflush(fd, TCIFLUSH);
 
 	msg.imu_acceleration_x = 1.0;
+	// msg.imu_acceleration_x = atof(accx);
 	msg.imu_acceleration_y = 2.0;
+	// msg.imu_acceleration_y = atof(accy);
 	msg.imu_acceleration_z = 3.0;
+	// msg.imu_acceleration_z = atof(accz);
 	msg.imu_gyroscope = 4.0;
+	// msg.imu_gyroscope= atof(gyro);
 	msg.imu_magnetometer = 5.0;
+	// msg.imu_magnetometer = atof(mag);
 	msg.pressure = 6.0;
-	msg.temperature = 32.0;
-	// msg.temperature = atof(buf); // TODO: Get value from arduino
+	// msg.pressure = atof(press);
+	// msg.temperature = 32.0;
+	msg.temperature = atof(buf); // TODO: Get value from arduino
 	msg.proximity = 8.0;
+	// msg.proximity = atof(prox);
 	msg.distance = 9.0;
+	// msg.distance = atof(dist);
 
 	while (stop == 0)
 	{
-
 		/* read up to 128 bytes from the fd */
-		int n = read(fd, &buf, 7);
+		int n = read(fd, &buf, 128);
 		usleep(500 * 1000);
 		/* print how many bytes read */
 		printf("%i bytes got read...\n", n);
@@ -88,19 +104,6 @@ int main(int argc, char *argv[])
 		// msg.temperature = atof(buf); // TODO: Get value from arduino
 		sensor_info_t_publish(zcm, "SENSOR_INFO", &msg);
 	}
-
-	// struct sensor_info_t
-	// {
-	//   float imu_acceleration_x;
-	//   float imu_acceleration_y;
-	//   float imu_acceleration_z;
-	//   float imu_gyroscope;
-	//   float imu_magnetometer;
-	//   float pressure;
-	//   float temperature;
-	//   float proximity;
-	//   float distance;
-	// }
 
 	while (1)
 	{
