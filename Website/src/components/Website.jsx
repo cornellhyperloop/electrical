@@ -19,8 +19,7 @@ export default class Website extends Component {
     render() {
         return (
             <div className="Website">
-                <Navbar toCallBack={(childState) => this.setState({page: childState.page})}/>
-                <HomePage display={this.state.page} />
+                <HomePage />
                 <AboutPage display={this.state.page} />
                 <PowerSystems display={this.state.page} />
                 <CommunicationsSP21 display={this.state.page} />

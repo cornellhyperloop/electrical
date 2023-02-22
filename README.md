@@ -13,13 +13,21 @@ The Electrical team's repo.
     * Ashley Heckman
     * David Lilienfeld
     * Yaqi Gao
+    * Levi Zeng
+    * Shefali Awasthi
+    * Zarif Karim
+    * Neera Kapoor
 
 * Power Systems
     * Schuyler Seyram
     * Berk Gokmen
     * Steven Wei Chen
+    * Lalo Esparza
+    * Rares-Stefan Busca
+    * Kirti Bagepalli
+    * Max Trager
 
-* UI
+* User Interfaces
     * Morgan Lo
     * Kelvin Wang
     * Ryan Mao
@@ -27,3 +35,8 @@ The Electrical team's repo.
     * Devika Krishna
     * Patrick Choo
     * Mihika Jain
+    * Devan Flores
+    * Cooper Proctor
+    * Aislinn Ennis
+    * Benson Yee
+    
