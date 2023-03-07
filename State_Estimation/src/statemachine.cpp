@@ -209,7 +209,16 @@ states openBrakes()
   // Add manual interrupt to go into Emergency state
   // Check if there is a sensor/mechanism to get feedback on the Brake states, i.e opened/closed.
   // TODO: Implement and return correct state
-  return Acceleration;
+
+  /*
+    send signal to open the break;
+    receive signal to see if successfully opened;
+    if (not opened){
+      return Emergency
+    }
+    return Acceleration
+  */
+  return Acceleration; // placeholder
 }
 
 void closeBrakes()
@@ -217,6 +226,11 @@ void closeBrakes()
   // TODO: Implement closeBrakeMain in helperFunctions.h
   // bool brakeClosed = closeBrakeMain();
   // Use bool brakeClosed to verify if the sensor implementation works correctly
+
+  /*
+    send signal to close break
+    receive signal to check that break is closed
+  */
 }
 
 states accelerate(double sensor1)
