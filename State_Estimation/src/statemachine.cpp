@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string>
+#include <tuple>
 #include "constants.hpp"
 #include "helperFunctions.hpp"
 #include "SerialClass.h"
@@ -144,18 +146,19 @@ bool Serial::IsConnected()
   return this->connected;
 }
 
-int readData()
+std::tuple<int, int> readData()
 {
   double startTime = GetTickCount();
   Serial *SP = new Serial("\\\\.\\COM3"); // adjust as needed
 
   if (SP->IsConnected())
-    printf("We're connected");
+    printf("We're connected\n");
 
-  char incomingData[256] = ""; // don't forget to pre-allocate memory
+  char incomingData[1000] = ""; // don't forget to pre-allocate memory
   // printf("%s\n",incomingData);
-  int dataLength = 255;
+  int dataLength = 1000;
   int readResult = 0;
+  int readResult2 = 0;
 
   while (SP->IsConnected())
   {
@@ -164,18 +167,21 @@ int readData()
     // printf("Bytes read: (0 means no data available) %i\n",readResult);
     incomingData[readResult] = 0;
 
-    printf("%s", incomingData);
+    // printf("%s\n", incomingData);
+    // printf("%f\n", std::stof(incomingData));
 
     Sleep(500);
     if (currTime >= 1000)
     {
+      readResult = std::stof(incomingData);
       break;
     }
   }
-  return readResult;
+  std::tuple<int, int> t(readResult, readResult2);
+  return t;
 }
 
-states verifySensors(int sensor1, double sensor2)
+states verifySensors(double sensor1, double sensor2)
 {
   // TODO: Add more sensor parameters as needed with average values,
   // create functionality for average data value
@@ -187,6 +193,7 @@ states verifySensors(int sensor1, double sensor2)
     return Stop;
   if (sensor2 < minSensor2 || sensor2 > maxSensor2)
     return Stop;
+  printf("It has successfully passed\n");
   return PreAcceleration;
 }
 bool checkDistance(double totalDist, double travelDist, const float epsilon = 1E-5f)
@@ -208,7 +215,7 @@ states openBrakes()
 void closeBrakes()
 {
   // TODO: Implement closeBrakeMain in helperFunctions.h
-  bool brakeClosed = closeBrakeMain();
+  // bool brakeClosed = closeBrakeMain();
   // Use bool brakeClosed to verify if the sensor implementation works correctly
 }
 
@@ -270,11 +277,11 @@ states emergency()
   return Stop;
 }
 
-void turnOff()
-{
-  // TODO: Implement killPower in helperFunctions.h
-  killPower();
-}
+// void turnOff()
+// {
+//   // TODO: Implement killPower in helperFunctions.h
+//   // killPower();
+// }
 
 int main()
 {
@@ -292,7 +299,7 @@ int main()
       **/
       //  Update function call for verifySensors() with  appropriate parameters
 
-      curr = verifySensors(readData(), stubValue);
+      curr = verifySensors(std::get<0>(readData()), stubValue);
       prev = Verification;
     };
     case PreAcceleration:
@@ -327,7 +334,10 @@ int main()
     };
     case Stop:
     {
-      curr = stop();
+      printf("We have stopped!\n");
+
+      // curr = stop();
+      curr = PodOff;
     };
     case PodOff:
     {

@@ -147,7 +147,7 @@ int main(int argc, _TCHAR *argv[])
 {
   printf("Welcome to the serial test app!\n\n");
 
-  Serial *SP = new Serial("\\\\.\\COM4"); // adjust as needed
+  Serial *SP = new Serial("\\\\.\\COM3"); // adjust as needed
 
   if (SP->IsConnected())
     printf("We're connected");
