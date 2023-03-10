@@ -2,17 +2,16 @@
 The Electrical team's repo.
 
 ## Current Team Members
-* Ronin Sharma: Electrical and UI Lead
-* David Wolfers: Computing Systems Lead
+* David Wolfers: Electrical Lead
 * Robert Fleming: Power Systems Lead
+* Ridhit Bhura: Computing Systems Lead
+* Vanshaj Jain: User Interface Lead
 
 * Computing Systems
-    * Ridhit Bhura
-    * Vanshaj Jain
-    * Anoushka Kabra
     * Ashley Heckman
     * David Lilienfeld
     * Yaqi Gao
+    * Aiman Mobhani
     * Levi Zeng
     * Shefali Awasthi
     * Zarif Karim
@@ -26,17 +25,15 @@ The Electrical team's repo.
     * Rares-Stefan Busca
     * Kirti Bagepalli
     * Max Trager
+    * Jenna Kafrawi
 
 * User Interfaces
-    * Morgan Lo
     * Kelvin Wang
-    * Ryan Mao
     * Christina Unkenholz
     * Devika Krishna
     * Patrick Choo
-    * Mihika Jain
     * Devan Flores
     * Cooper Proctor
     * Aislinn Ennis
-    * Benson Yee
+    * Stephen Chien
     
