@@ -15,7 +15,6 @@ export default class Website extends Component {
             page: 0
         }
     }
-
     render() {
         return (
             <div className="Website">
