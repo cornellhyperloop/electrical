@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+import HeroImage from '../img/logo_symbol.png';
 
 import Header from '../partials/Header';
 import HeroHome from '../partials/HeroHome';

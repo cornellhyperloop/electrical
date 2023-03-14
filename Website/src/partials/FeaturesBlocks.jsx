@@ -1,7 +1,7 @@
 import React from 'react';
-import Business from '../img/business.png';
-import Mechanical from '../img/mechanical.png';
-import Electrical from '../img/electrical.png';
+import Business from '../img/IMG_0078.JPG';
+import Mechanical from '../img/mechanical.jpg';
+import Electrical from '../img/img3.jpg';
 
 function FeaturesBlocks() {
   return (
@@ -18,7 +18,7 @@ s
             <h2 className="h2 mb-4 text-xl font-semibold">Our teams</h2>
             <div>
 
-              <h2 className=" h2 mb-4 text-xl text-red-500 font-semibold">Apply Now ></h2>
+              <a className=" h2 mb-4 text-xl text-red-500 font-semibold hover:underline" href="/apply">Apply Now </a>
               
               </div>
 
@@ -28,22 +28,22 @@ s
           <div className="max-w-sm mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start md:max-w-2xl lg:max-w-none">
 
             {/* 1st item */}
-            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
-                        <img className="h-full w-full rounded-md" src={Mechanical}></img>
+            <a href="/team#mechanical" className="hover:opacity-90 relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
+                        <img className=" w-full rounded-md object-cover h-64" src={Mechanical}></img>
 
               <h4 className="text-xl font-bold leading-snug tracking-tight mb-1 mt-4 self-start">Mechanical</h4>
-            </div>
-            <div className="relative flex h-full flex-col items-center p-6 bg-white rounded shadow-xl">
-                        <img className="h-full w-full rounded-md" src={Electrical}></img>
-
-              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1 mt-4 self-start">Electrical</h4>
-            </div>
-            <div className="relative h-full flex flex-col items-center p-6 bg-white rounded shadow-xl">
-                        <img className="h-full w-full rounded-md" src={Business}></img>
+            </a>
+            
+          <a href="/team#business" className=" hover:opacity-90  relative h-full flex flex-col items-center p-6 bg-white rounded shadow-xl">
+                        <img className="h-64 w-full object-cover rounded-md" src={Business}></img>
 
               <h4 className="text-xl font-bold leading-snug tracking-tight mb-1 mt-4 self-start">Business</h4>
-            </div>
+            </a>
+          <a href="/team#electrical" className="hover:opacity-90  relative flex h-full flex-col items-center p-6 bg-white rounded shadow-xl">
+                        <img className="h-64 w-full rounded-md object-cover" src={Electrical}></img>
 
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1 mt-4 self-start">Electrical</h4>
+            </a>
             
 
           </div>
