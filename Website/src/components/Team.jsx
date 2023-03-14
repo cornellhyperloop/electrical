@@ -34,7 +34,7 @@ function Team() {
 }
 
 function FeaturesBlocks() {
-    var teammembers=[{name:"john doe",imageurl:"mechanical.png",title:"lead"}]
+    var teammembers=[{name:"john doe",imageurl:"mechanical.png",title:"lead"},{name:"john doe",imageurl:"mechanical.png",title:"lead"}]
   return (
     <section className="relative">
 
@@ -140,7 +140,7 @@ function FeaturesBlocks() {
                 <h3 className="h3 my-1 font-light text-xl">Description</h3>
                 <h3 className="h3 my-1 ">The main goal of the business team is to support all of Hyperloop's business-related initiatives. This includes budgeting, organization, sponsorship outreach, social media, and marketing - including our website!</h3>
                               <h3 className="h3 mt-8 mb-1 font-light text-xl">Tools & Tech</h3>
-                <h3 className="h3 my-1 ">The business team uses Adobe Creative Cloud to produce marketing materials for social media sites such as Instagram, Twitter, and LinkedIn. We also use Excel for budgeting spreadsheets, and the WebDev team uses HTML, CSS, and JavaScript to code our website from scratch.</h3>
+                <h3 className="h3 my-1 ">The business team uses Adobe Creative Cloud to produce marketing materials for social media sites such as Instagram, Twitter, and LinkedIn. We also use Excel for budgeting spreadsheets.</h3>
 
               </div>            </div >
 
