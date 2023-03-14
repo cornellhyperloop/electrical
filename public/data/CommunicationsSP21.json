@@ -1,0 +1,53 @@
+{
+  "header": "Communications SP '21",
+  "Members":{
+    "a":{
+      "name": "David Wolfer:",
+      "text": "Worked to connect Odroid to Arduinos and sensors. Researched ZCM packet structure.",
+      "image": "./img/headshots/DavidWolfers.jpg"
+    },
+    "b":{
+      "name": "Anoushka Kabra:",
+      "text": "Worked to connect Odroid to Arduinos and sensors. Researched ZCM packet structure.",
+      "image": "./img/headshots/AnoushkaKabra.jpg"
+    },
+    "c":{
+      "name": "Jonathan Chen:",
+      "text": "Worked to connect Odroid to Arduinos and sensors. Researched ZCM packet structure.",
+      "image": "./img/headshots/JonathanChen.jpg"
+    },
+    "d":{
+      "name": "Ridhit Bhura:",
+      "text": "Worked to connect Odroid to Arduinos and sensors. Researched ZCM packet structure.",
+      "image": "./img/headshots/RidhitBhura.jpeg"
+    },
+    "e":{
+      "name": "Nandita Kathiresan:",
+      "text":  "Worked on Hyperloop Gui and coded a live graphing component that captures real time sensor data. This hyperloop gui can run on the pilot laptop.",
+      "image": "./img/headshots/AnoushkaKabra.jpg"
+    }
+  },
+  "Projects":{
+    "a":{
+      "name":"Odroid",
+      "text": "The communications team worked largely with our onboard computer, the Odroid-C2 and how it communicates with the rest of the pod. The team worked with the Sensors team to research and develop a network structure so the odroid could receive data from the pod’s Arduinos and sensors. The Arduinos will be connected to the Odroid using USB - serial and the Odroid communicates with the off-pod computer via a wireless connection. To test when the pod is disassembled, a network switch was used in place of a wireless connection.",
+      "link":"https://magazine.odroid.com/wp-content/uploads/odroid-c2-user-manual.pdf",
+      "linkText": "Odroid C2 Manual"
+    },
+    "b":{
+      "name":"ZCM",
+      "text": "The team also researched a packet structure for ZCM, which is used to communicate between the Odroid and the off-pod computer. ZCM publishes the sensor data so that important information can be displayed in the GUI.",
+      "link":"http://zerocm.github.io/zcm/",
+      "linkText": "ZCM"
+    },
+    "c":{
+      "name":"Hyperloop GUI",
+      "text": "In addition, we also worked on plotting real-time data onto the arduino & pilot laptop. The data is from the serial port from the sensors, and the data plotted using pyqtgraph. We embedded this into the hyperloop gui, and we tested using temperature data that was sent live to the pilot computer and it successfully was able to plot. We did not have a chance this semester to test the code on the arduino because there were some dependencies (pyqtgraph) that we did not have a chance to install.",
+      "link":"https://doc.qt.io/qtforpython/",
+      "linkText": "PyQT Documentation"
+    }
+  },
+  "NextText": "Moving ahead, we would like to test multiple live data on both the pilot computer and the odroid, and further refine the hyperloop gui to include all the relevant information."
+
+
+}

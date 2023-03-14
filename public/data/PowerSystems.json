@@ -1,0 +1,9 @@
+{
+  "header": "Power Systems",
+  "robertFlemingText": "An ECE major, class of 2023. Created and designed circuits for the battery systems and determined what power supply to use for them.",
+  "maxGarvalText": "An ECE major, class of 2024. Worked with Arduinos and batteries to power a variety of sensors.",
+  "powerSystemsTeamText": "Our pod is completely battery operated. There are three main components that require power: the sensor systems, braking mechanisms, and the motors.",
+  "sensorsText": "For the sensor systems, we used four Arduino Mega boards each powered by four AA batteries connected by a 100 ohm resistor to the Vin pin on the Arduino board and connected to an array of ground pins which is grounded by the Arduino GND pin as displayed in the image below.",
+  "brakingText": "For the braking system, we also used a battery pack of 4 AAs connected directly to the relay module which is also connected to both an Arduino board for control and the solenoid itself in order to actuate the pneumatic brakes. This can be seen in the diagram below.",
+  "motorsText": "In order to power the motors we used 248 Li-Ion batteries for each engine, in modules of 62 cells. Two modules are in series with each other which are in parallel with another two modules which are in series to meet the current and voltage requirements of the motor. We replicated this setup for each motor. This battery pack is connected to the motor controller which is connected to the actual motors. These setups are depicted in the diagram below."
+}
