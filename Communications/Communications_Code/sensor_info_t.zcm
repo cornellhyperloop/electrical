@@ -1,12 +1,14 @@
 struct sensor_info_t
 {
-	float imu_acceleration_x;
-	float imu_acceleration_y;
-	float imu_acceleration_z;
-	float imu_gyroscope;
-	float imu_magnetometer;
+	float accelerometer_x;
+	float accelerometer_y;
+	float accelerometer_z;
+	float gyroscope_x;
+	float gyroscope_y;
+	float gyroscope_z;
 	float pressure;
-	float temperature;
-	float proximity;
-	float distance;
+	float temperature1;
+	float temperature2;
+	float short_dist;
+	float long_dist;
 }

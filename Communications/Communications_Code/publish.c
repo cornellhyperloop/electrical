@@ -17,14 +17,17 @@ int main(int argc, char *argv[])
 	// system( "MODE /dev/ttyACM0: BAUD=9600 PARITY=n DATA=8 STOP=1" );
 	fd = open("/dev/ttyACM0", O_RDWR | O_NOCTTY);
 	char buf[256];
-	char accx[256];
-	char accy[256];
-	char accz[256];
+	// char accx[256];
+	// char accy[256];
+	// char accz[256];
+	char accel[256];
 	char gyro[256];
 	char mag[256];
 	char press[256];
 	char prox[256];
-	char dist[256];
+	// char dist[256];
+	char s_dist[256];
+	char l_dist[256];
 
 	// int n = read(serialPort, &buf, 128);
 	sensor_info_t msg;
@@ -72,24 +75,22 @@ int main(int argc, char *argv[])
 	/* Flush anything already in the serial buffer */
 	tcflush(fd, TCIFLUSH);
 
-	msg.imu_acceleration_x = 1.0;
-	// msg.imu_acceleration_x = atof(accx);
-	msg.imu_acceleration_y = 2.0;
-	// msg.imu_acceleration_y = atof(accy);
-	msg.imu_acceleration_z = 3.0;
-	// msg.imu_acceleration_z = atof(accz);
-	msg.imu_gyroscope = 4.0;
+	msg.accelerometer_x = 11.3;
+	msg.accelerometer_y = 11.3;
+	msg.accelerometer_z = 11.3;
+	msg.gyroscope_x = 4.5;
+	msg.gyroscope_y = 5.6;
+	msg.gyroscope_z = 7.1;
 	// msg.imu_gyroscope= atof(gyro);
-	msg.imu_magnetometer = 5.0;
-	// msg.imu_magnetometer = atof(mag);
-	msg.pressure = 6.0;
+	msg.pressure = 180;
 	// msg.pressure = atof(press);
-	// msg.temperature = 32.0;
-	msg.temperature = atof(buf); // TODO: Get value from arduino
-	msg.proximity = 8.0;
-	// msg.proximity = atof(prox);
-	msg.distance = 9.0;
+	msg.temperature1 = 56;
+	msg.temperature2 = 56;
+	// msg.temperature = atof(buf); // TODO: Get value from arduino
+	// msg.distance = 9.0;
 	// msg.distance = atof(dist);
+	msg.short_dist = 12;
+	msg.long_dist = 150;
 
 	while (stop == 0)
 	{

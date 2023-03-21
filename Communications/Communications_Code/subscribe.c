@@ -21,15 +21,17 @@ void writeJson(char *fileName, const sensor_info_t *msg, size_t size);
 void callback_handler(const zcm_recv_buf_t *rbuf, const char *channel, const sensor_info_t *msg, void *usr)
 {
 	printf("Received a message on channel '%s'\n", channel);
-	printf("msg->imu_acceleration_x = '%f'\n", msg->imu_acceleration_x);
-	printf("msg->imu_acceleration_y = '%f'\n", msg->imu_acceleration_y);
-	printf("msg->imu_acceleration_z = '%f'\n", msg->imu_acceleration_z);
-	printf("msg->imu_gyroscope = '%f'\n", msg->imu_gyroscope);
-	printf("msg->imu_magnetometer = '%f'\n", msg->imu_magnetometer);
+	printf("msg->accelerometer_x = '%f'\n", msg->accelerometer_x);
+	printf("msg->accelerometer_y = '%f'\n", msg->accelerometer_y);
+	printf("msg->accelerometer_z = '%f'\n", msg->accelerometer_x);
+	printf("msg->gyroscope_x = '%f'\n", msg->gyroscope_x);
+	printf("msg->gyroscope_y = '%f'\n", msg->gyroscope_y);
+	printf("msg->gyroscope_z = '%f'\n", msg->gyroscope_z);
 	printf("msg->pressure = '%f'\n", msg->pressure);
-	printf("msg->temperature = '%f'\n", msg->temperature);
-	printf("msg->proximity = '%f'\n", msg->proximity);
-	printf("msg->distance = '%f'\n", msg->distance);
+	printf("msg->temperature1 = '%f'\n", msg->temperature1);
+	printf("msg->temperature2 = '%f'\n", msg->temperature2);
+	printf("msg->short_dist = '%f'\n", msg->short_dist);
+	printf("msg->long_dist = '%f'\n", msg->long_dist);
 	printf("\n");
 	writeJson("../../GUI/example.json", msg, 5);
 }
@@ -67,85 +69,63 @@ void writeJson(char *fileName, const sensor_info_t *msg, size_t size)
 	//   float distance;
 	// }
 
-	// 	{
-	//   "IMU":{
-	//     "accelerometer": [11.5, 9.6, 7.7],
-	//     "gyroscope": 4.5,
-	//     "magnetometer": 7.8
-	//   },
-	//   "Pressure":{
-	//     "pressure": 180
-	//   },
-	//   "Temperature":{
-	//     "temperature": 56
-	//   },
-	//   "Inductive Proximity":{
-	//     "proximity": 2
-	//   },
-	//   "Long-range sensor":{
-	//     "distance": 150
-	//   }
+	// {
+	// "Temperature":{
+	//   "temperature1" : 56,
+	//   "temp2" : 56
+	// 	},
+	//  "Accelerometer" : [11.5, 9.6, 7.7],
+	//  "Gyroscope" : [4.5, 5.7, 2.3],
+	//  "Pressure" : 180,
+	//  "Short-range distance" : 12,
+	//  "Long-range distance" : 150
 	// }
 
-	// IMU
-	fprintf(fp, "{ \n\"IMU\" : \n{");
+	// Temperature
+	fprintf(fp, "{ \n\"Temperature\" : \n{\n");
+	fprintf(fp, "\"temperature1\" : ");
+	// Print value
+	fprintf(fp, "%f,\n", msg->temperature1);
+	fprintf(fp, "\"temperature2\" : ");
+	// Print value
+	fprintf(fp, "%f", msg->temperature2);
+	// fprintf(fp, "%f", 5.6);
+	fprintf(fp, "\n },\n");
+
 	// Accelerometer
 	fprintf(fp, "\"accelerometer\" : [");
 	// Print value
-	fprintf(fp, "%f, %f, %f", msg->imu_acceleration_x, msg->imu_acceleration_y, msg->imu_acceleration_z);
+	fprintf(fp, "%f, %f, %f", msg->accelerometer_x, msg->accelerometer_y, msg->accelerometer_z);
 	// fprintf(fp, "%f, %f, %f", 1, 2, 3);
 	fprintf(fp, "],\n");
 
 	// Gyroscope
-	fprintf(fp, "\"gyroscope\" : ");
+	fprintf(fp, "\"gyroscope\" : [");
 	// Print value
-	fprintf(fp, "%f", msg->imu_gyroscope);
+	fprintf(fp, "%f, %f, %f", msg->gyroscope_x, msg->gyroscope_y, msg->gyroscope_z);
 	// fprintf(fp, "%f", 1);
-	fprintf(fp, ",\n");
-
-	// Magnetometer
-	fprintf(fp, "\"magnetometer\" : ");
-	// Print value
-	fprintf(fp, "%f", msg->imu_magnetometer);
-	// fprintf(fp, "%f", 1);
-	fprintf(fp, "\n");
-	fprintf(fp, "},\n");
+	fprintf(fp, "],\n");
 
 	// Pressure
-	fprintf(fp, "\"Pressure\" : \n{");
-	fprintf(fp, "\"pressure\" : ");
+	fprintf(fp, "\"Pressure\" : ");
 	// Print value
 	fprintf(fp, "%f", msg->pressure);
 	// fprintf(fp, "%f", 5.6);
-	fprintf(fp, "\n },");
-
-	// Temperature
-	fprintf(fp, "\"Temperature\" : \n{");
-	fprintf(fp, "\"temperature1\" : ");
-	// Print value
-	fprintf(fp, "%f,\n", msg->temperature);
-	fprintf(fp, "\"temperature2\" : ");
-	// Print value
-	fprintf(fp, "%f", msg->temperature);
-	// fprintf(fp, "%f", 5.6);
-	fprintf(fp, "\n },");
-
-	// Inductive Proximity
-	fprintf(fp, "\"Inductive Proximity\" : \n{");
-	fprintf(fp, "\"proximity\" : ");
-	// Print value
-	fprintf(fp, "%f", msg->proximity);
-	// fprintf(fp, "%f", 5.6);
-	fprintf(fp, "\n },");
+	fprintf(fp, ",\n");
 
 	// Long-range sensor
-	fprintf(fp, "\"Long-range sensor\" : \n{");
-	fprintf(fp, "\"proximity\" : ");
+	fprintf(fp, "\"Long-range sensor\" : ");
 	// Print value
-	fprintf(fp, "%f", msg->distance);
+	fprintf(fp, "%f", msg->long_dist);
 	// fprintf(fp, "%f", 5.6);
-	fprintf(fp, "\n }");
+	fprintf(fp, ",\n");
 
+	// Short-range sensor
+	fprintf(fp, "\"Short-range sensor\" : ");
+	// Print value
+	fprintf(fp, "%f", msg->short_dist);
+	// fprintf(fp, "%f", 5.6);
+	fprintf(fp, "\n");
 	fprintf(fp, "}\n");
 
 	fclose(fp);
