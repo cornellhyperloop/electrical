@@ -231,7 +231,7 @@ states openBrakes()
 void closeBrakes()
 {
   // TODO: Implement closeBrakeMain in helperFunctions.h
-  // bool brakeClosed = closeBrakeMain();
+  // bool brakeClosed = closeBrakeMain(); // Commented for now since it's causing causing compilation errors due to function not being defined
   // Use bool brakeClosed to verify if the sensor implementation works correctly
 
   // TODO: Test functionality of writing to Serial
@@ -303,11 +303,11 @@ states emergency()
   return Stop;
 }
 
-// void turnOff()
-// {
-//   // TODO: Implement killPower in helperFunctions.h
-//   // killPower();
-// }
+void turnOff()
+{
+  // TODO: Implement killPower in helperFunctions.h
+  // killPower(); // Commented out for now since it's causing compilation errors due to function not being defined
+}
 
 int main()
 {

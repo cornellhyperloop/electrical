@@ -1,0 +1,12 @@
+name: auto-assign-PR
+on:
+  pull_request:
+    branches: [master, UI]
+    types: [opened, reopened]
+jobs:
+  assign:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: delivery-much/actions-assigner@v1.0.2
+        with:
+          reviewers: davidsw34
