@@ -84,9 +84,9 @@ int main(int argc, char *argv[])
 	// msg.imu_gyroscope= atof(gyro);
 	msg.pressure = 180;
 	// msg.pressure = atof(press);
-	msg.temperature1 = 56;
+	// msg.temperature1 = 56;
 	msg.temperature2 = 56;
-	// msg.temperature = atof(buf); // TODO: Get value from arduino
+	// msg.temperature1 = atof(buf); // TODO: Get value from arduino
 	// msg.distance = 9.0;
 	// msg.distance = atof(dist);
 	msg.short_dist = 12;
@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
 		/* print what's in the buffer */
 		printf("Buffer contains...\n%s\n", buf);
 
-		// msg.temperature = atof(buf); // TODO: Get value from arduino
+		msg.temperature1 = atof(buf); // TODO: Get value from arduino
 		sensor_info_t_publish(zcm, "SENSOR_INFO", &msg);
 	}
 
