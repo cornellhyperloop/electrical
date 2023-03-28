@@ -1,0 +1,26 @@
+Format of the data: 
+The Arduino script for all_sensors_average_10 outputs a list containing 14 values. These values are the average of every 10 readings of all 13 of the values that an accelerometer transmits plus the distance from an object, which is the value that the ultrasonic rangefinder outputs. 
+These values include x, y, and z accelerations; the yaw, pitch, and roll; the x, y, and z euler’s; and the w, x, y, and z quaternions. 
+The order of the values in the list that gets outputted is: 
+values[0] = averageQuaternionW 
+values[1] = averageQuaternionX
+values[2] = averageQuaternionY
+values[3] = averageQuaternionZ
+values[4] = averageEulerX
+values[5] = averageEulerY
+values[6] =averageEulerZ
+values[7] = averageYaw
+values[8] = averagePitch
+values[9] = averageRoll
+values[10] = averageXWorld	 	(x acceleration adjusted with gravity)
+values[11] = averageYWorld		(y acceleration adjusted with gravity)
+values[12] = averageZWorld		(z acceleration adjusted with gravity)
+values[13] = averageDistanceFrom
+
+Data processing: 
+For the x, y, and z acceleration values used in the list, we have factored in gravity and adjusted the values accordingly. (There is also some commented out code that finds the x, y, and z accelerations without factoring gravity in, and the average of every 10 readings of these values can also be outputted, if needed.)
+The yaw and roll values are capped to be between -180º and +180º (positive yaw means it is positioned right, and negative yaw means it is positioned negative) (positive roll means it is rotate clockwise, and negative means counterclockwise)
+The pitch values are capped to be between -90º and +90º (positive pitch is up, negative is down)
+The x, y, and z acceleration values are at least 0, they cannot be negative
+Timing of data being transmitted: 
+The baud rate is 9600, which has a speed of 960 bytes/second. It outputs data every 1.042 ms. Since we are only outputting the average of every 10 readings, this code outputs data every 10.42 ms.
