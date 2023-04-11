@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
 	msg.pressure = 180;
 	// msg.pressure = atof(press);
 	// msg.temperature1 = 56;
-	msg.temperature2 = 56;
+	// msg.temperature2 = 56;
 	// msg.temperature1 = atof(buf); // TODO: Get value from arduino
 	// msg.distance = 9.0;
 	// msg.distance = atof(dist);
@@ -101,8 +101,44 @@ int main(int argc, char *argv[])
 		printf("%i bytes got read...\n", n);
 		/* print what's in the buffer */
 		printf("Buffer contains...\n%s\n", buf);
-
-		msg.temperature1 = atof(buf); // TODO: Get value from arduino
+		char *token = strtok(buf, " ");
+		int count = 0;
+		while (token != NULL)
+		{
+			if (count== 0){
+				msg.temperature1 = atof(token);
+			}
+			if (count== 1){
+				msg.temperature2 = atof(token);
+			}
+			if (count==2){
+				msg.accelerometer_x = atof(token);
+			}
+			if(count==3){
+				msg.accelerometer_y = atof(token);
+			}
+			if (count==4){
+				msg.accelerometer_z = atof(token);
+			}
+			if(count==5){
+				msg.gyroscope_x = atof(token);
+			}
+			if(count==6){
+				msg.gyroscope_y = atof(token);
+			}
+			if(count == 7){
+				msg.gyroscope_z = atof(token);
+			}
+			if(count==8){
+				msg.short_dist = atof(token);
+			}
+			if(count==9){
+				msg.long_dist = atof(token);
+			}
+			token = strtok(NULL, " ");
+			count = count + 1;
+		}
+		//msg.temperature1 = atof(buf); // TODO: Get value from arduino
 		sensor_info_t_publish(zcm, "SENSOR_INFO", &msg);
 	}
 
