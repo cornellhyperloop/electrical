@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <tchar.h>
 #include "SerialClass.h"
+#include "serialClassMac.h"
 #include <string>
 
 Serial::Serial(const char *portName)
