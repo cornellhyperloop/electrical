@@ -38,12 +38,12 @@ void read_sensor() {
   // Conversion for PW: 147 uS per Inch
   pW = pulseIn(pwPin, HIGH);
 
-  inches = pW/147;
-  cm = inches * 2.54;
-  meters = cm/100;
+  float inches = pW/147;
+  float cm = inches * 2.54;
+  float meters = cm/100;
   
   Serial.print("Distance from object is: ");
-  Serial.print(meters);
+  Serial.println(meters);
 }
 
 void lights(){
@@ -65,4 +65,3 @@ void loop() {
   lights();
   delay(500); // Delay reading by 500 milliseconds
 }
-

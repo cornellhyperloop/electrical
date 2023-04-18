@@ -47,7 +47,7 @@ Serial::Serial(const char *portName)
     else
     {
       // Define serial connection parameters for the arduino board
-      dcbSerialParams.BaudRate = CBR_9600;
+      dcbSerialParams.BaudRate = CBR_115200;
       dcbSerialParams.ByteSize = 8;
       dcbSerialParams.StopBits = ONESTOPBIT;
       dcbSerialParams.Parity = NOPARITY;
@@ -148,14 +148,18 @@ int main(int argc, _TCHAR *argv[])
 {
   printf("Welcome to the serial test app!\n\n");
 
+<<<<<<< HEAD
   Serial *SP = new Serial("\\\\.\\COM3"); // adjust as needed
+=======
+  Serial *SP = new Serial("\\\\.\\COM7"); // adjust as needed
+>>>>>>> 1c3f2fddadc98e14349681d59498617cc3608c11
 
   if (SP->IsConnected())
     printf("We're connected");
 
-  char incomingData[256] = ""; // don't forget to pre-allocate memory
+  char incomingData[10] = ""; // don't forget to pre-allocate memory
   // printf("%s\n",incomingData);
-  int dataLength = 255;
+  int dataLength = 9;
   int readResult = 0;
 
   while (SP->IsConnected())
@@ -168,5 +172,6 @@ int main(int argc, _TCHAR *argv[])
 
     Sleep(500);
   }
+  printf("Disconnected");
   return 0;
 }
