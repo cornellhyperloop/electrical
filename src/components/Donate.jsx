@@ -14,7 +14,7 @@ import Electrical from '../img/electrical.png';
 
 function Donate() {
   return (
-    <div className="flex flex-col min-h-screen overflow-hidden">
+    <div className="flex flex-col min-h-screen overflow-hidden justify-center items-center sm:px-4">
 
       {/*  Site header */}
       <Header/>
@@ -123,17 +123,19 @@ function HeroMembers(myRef) {
          
 
           </div>
-          <div className="text-center pb-12 md:pb-0 flex w-screen justify-center items-center mt-40">
-            <h1 className="w-1/2 text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">Help support the future of transportation</h1>
-            
-          </div>
+          
+          <div className="flex flex-wrap justify-center">
+  <h1 className="mx-auto w-full md:w-1/2 text-4xl md:text-5xl font-extrabold leading-tighter tracking-tighter mb-4 py-2 px-4" data-aos="zoom-y-out">
+    Help Support the Future of Transportation
+  </h1>
+</div>
+
+      
           <div className=' w-screen flex justify-center'>
-                        <button className="hover:opacity-90 hover:bg-red-400 absolute  top-full mb-20 flex items-center transform -translate-y-1/2 bg-red-400 rounded-md font-medium group p-4 shadow-lg" onClick={(e) => { e.preventDefault();   const section = document.querySelector( '#goals' );
-  section.scrollIntoView( { behavior: 'smooth', block: 'start' } );
- }} aria-controls="modal">
+                        <a href="https://givingday.cornell.edu/campaigns/cu-hyperloop" className="hover:opacity-90 hover:bg-red-400 absolute  top-full mb-20 flex items-center transform -translate-y-1/2 bg-red-400 rounded-md font-medium group p-4 shadow-lg"  aria-controls="modal">
                
                 <span className="mx-2 text-white">Donate now!</span>
-            </button>
+            </a>
             </div>
 
 
