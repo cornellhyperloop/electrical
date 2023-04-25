@@ -209,7 +209,19 @@ states openBrakes()
   // Add manual interrupt to go into Emergency state
   // Check if there is a sensor/mechanism to get feedback on the Brake states, i.e opened/closed.
   // TODO: Implement and return correct state
-  return Acceleration;
+
+  
+  
+
+  WriteData((char*)"Open", 4);
+  double relay_status = 0; //assuming 0 for open, 1 for close
+  // ReadData(); // read relay status from arduino
+
+  if (relay_status==1){
+    return Emergency;
+  }
+  return Acceleration; 
+   
 }
 
 void closeBrakes()
@@ -221,6 +233,18 @@ void closeBrakes()
   // bool brakeClosed = closeBrakeMain(); // Commented for now since it's causing causing compilation errors due to function not being defined
 >>>>>>> 1c3f2fddadc98e14349681d59498617cc3608c11
   // Use bool brakeClosed to verify if the sensor implementation works correctly
+
+  // TODO: Test functionality of writing to Serial
+  WriteData((char*)"Close", 5);
+  // TODO: extract data of relay
+  ReadData();
+  double relay_status; //assuming 0 for open, 1 for close
+  if (relay_status==1){
+    return;
+  }
+  return;
+
+  //return Emergency; 
 }
 
 states accelerate(double sensor1)
