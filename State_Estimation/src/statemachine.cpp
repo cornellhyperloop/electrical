@@ -235,6 +235,7 @@ states openBrakes()
   // Add manual interrupt to go into Emergency state
   // Check if there is a sensor/mechanism to get feedback on the Brake states, i.e opened/closed.
   // TODO: Implement and return correct state
+
   WriteData((char *)"Open", 4);
   double relay_status = 0; // assuming 0 for open, 1 for close
   // ReadData(); // read relay status from arduino
@@ -252,6 +253,7 @@ void closeBrakes()
   // bool brakeClosed = closeBrakeMain();
   // bool brakeClosed = closeBrakeMain(); // Commented for now since it's causing causing compilation errors due to function not being defined
   // Use bool brakeClosed to verify if the sensor implementation works correctly
+
   // TODO: Test functionality of writing to Serial
   WriteData((char *)"Close", 5);
   // TODO: extract data of relay
@@ -324,19 +326,11 @@ states emergency()
   return Stop;
 }
 
-<<<<<<< HEAD
-// void turnOff()
-// {
-//   // TODO: Implement killPower in helperFunctions.h
-//   // killPower();
-// }
-=======
 void turnOff()
 {
   // TODO: Implement killPower in helperFunctions.h
   // killPower(); // Commented out for now since it's causing compilation errors due to function not being defined
 }
->>>>>>> 1c3f2fddadc98e14349681d59498617cc3608c11
 
 int main()
 {
@@ -353,8 +347,8 @@ int main()
                   and ensure readings are in a reasonable range.
       **/
       //  Update function call for verifySensors() with  appropriate parameters
-
-      curr = verifySensors(std::get<0>(readData()), stubValue);
+      curr = verifySensors(std::get<0>(readData()), std::get<1>(readData()), std::get<2>(readData()), std::get<3>(readData()));
+      // curr = verifySensors(std::get<0>(readData()), stubValue);
       prev = Verification;
     };
     case PreAcceleration:
