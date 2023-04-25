@@ -212,19 +212,15 @@ states openBrakes()
 
   
   
-  // TODO: Test functionality of writing to Serial, 
+
   WriteData((char*)"Open", 4);
-  // ReadData();
-  double relay_status; //assuming 0 for open, 1 for close
-  if (relay_status){
+  double relay_status = 0; //assuming 0 for open, 1 for close
+  // ReadData(); // read relay status from arduino
+
+  if (relay_status==1){
     return Emergency;
   }
   return Acceleration; 
-
-  /*
-  write to arduino
-  */
-  
    
 }
 
@@ -239,10 +235,12 @@ void closeBrakes()
   // TODO: extract data of relay
   ReadData();
   double relay_status; //assuming 0 for open, 1 for close
-  if (relay_status){
+  if (relay_status==1){
     return;
   }
-  return Emergency; 
+  return;
+
+  //return Emergency; 
 }
 
 states accelerate(double sensor1)
