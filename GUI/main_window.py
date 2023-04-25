@@ -8,8 +8,6 @@ from utils.body import Body
 from utils.visualizer import Visualizer
 from utils.batteryPage import BatteryPage
 from utils.FSM import FSM
-from utils import stateMachine
-import constants
 
 
 class MainWindow(QWidget):
@@ -24,9 +22,7 @@ class MainWindow(QWidget):
         width = 1250
         height = 900
 
-        fsm = stateMachine.FSM()
-
-        header = Header(fsm, w=int(width), h=int(height))
+        header = Header(w=int(width), h=int(height))
         header.b1.clicked.connect(
             lambda: self.renderPage(header.navbar(header.b1)))
         header.b2.clicked.connect(
@@ -40,28 +36,31 @@ class MainWindow(QWidget):
 
         self.Stack = QStackedWidget(self)
 
-        body = Body(int(width), int(height), constants.LIVE_DATA)
+        body = Body(int(width), int(height))
         visualizer = Visualizer()
         batteryPage = BatteryPage()
-        fsm_page = FSM(fsm, width, height)
+        fsm = FSM(width, height)
 
         self.Stack.addWidget(body)
         self.Stack.addWidget(visualizer)
         self.Stack.addWidget(batteryPage)
         # temperature page not implemented yet
-        self.Stack.addWidget(Body(width, height, False))
-        self.Stack.addWidget(fsm_page)
+        self.Stack.addWidget(Body(width, height))
+        self.Stack.addWidget(fsm)
 
-        grid = QGridLayout(self)
+        splitter4 = QSplitter(Qt.Vertical)
+        splitter4.addWidget(header)
 
-        grid.addWidget(header, 0, 0)
-        grid.addWidget(self.Stack, 1, 0)
+        splitter4.addWidget(self.Stack)
+        splitter4.setSizes([50, 350])
 
-        hbox.addLayout(grid)
+        hbox.addWidget(splitter4)
 
         self.setLayout(hbox)
         QApplication.setStyle(QStyleFactory.create('Cleanlooks'))
         self.setStyleSheet("background-color: #bebebe;")
+
+        self.setGeometry(300, 300, width, height)
 
         self.showFullScreen()
 

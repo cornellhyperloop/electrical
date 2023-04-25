@@ -11,10 +11,6 @@ class Battery(QWidget):
         self.initUI(battNum)
 
     def initUI(self, battNum):
-        cssFile = "utils/body.css"
-        with open(cssFile, "r") as fh:
-            qstr = str(fh.read())
-        
         battery = QLabel(self)
         temperature = QLabel(self)
         current = QLabel(self)
@@ -23,24 +19,24 @@ class Battery(QWidget):
         battery.setText("Cell " + str(battNum))
         battery.setAlignment(Qt.AlignCenter)
         battery.setStyleSheet(
-            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1;")
+            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
 
         if (battNum <= 5):
-            temperature.setText(f"Temperature: {BATTERY[battNum-1]} °C")
-            voltage.setText(f"Voltage: {VOLTAGE[battNum-1]} V")
-            current.setText(f"Current: {CURRENT[battNum-1]} A")
+            temperature.setText("Temperature: " + str(BATTERY[battNum-1]) + " °C")
+            voltage.setText("Voltage: " + str(VOLTAGE[battNum-1]))
+            current.setText("Current: " + str(CURRENT[battNum-1]))
 
         else:
             battery.setText("Averages ")
             avgTemp = (BATTERY[0] + BATTERY[1] +
                        BATTERY[2] + BATTERY[3] + BATTERY[4])/5
-            temperature.setText(f"Average Temperature: {avgTemp} °C")
+            temperature.setText("Average Temperature: " + str(avgTemp) + " °C")
             avgVolt = (VOLTAGE[0] + VOLTAGE[1]+
                        VOLTAGE[2] + VOLTAGE[3] + VOLTAGE[4])/5
-            voltage.setText(f"Average Voltage: {avgVolt} V")
+            voltage.setText("Average Voltage: " + str(avgVolt))
             avgCurrent = (CURRENT[0] + CURRENT[1] +
                           CURRENT[2]+ CURRENT[3]+ CURRENT[4])/5
-            current.setText(f"Average Current: {avgCurrent} A")
+            current.setText("Average Current: " + str(avgCurrent))
 
         temperature.setAlignment(Qt.AlignCenter)
         current.setAlignment(Qt.AlignCenter)
@@ -61,4 +57,3 @@ class Battery(QWidget):
         vbox.addLayout(vbox2)
 
         self.setLayout(vbox)
-        self.setStyleSheet(qstr)

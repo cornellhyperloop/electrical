@@ -4,12 +4,8 @@ from PyQt5.QtCore import *
 from utils import stateMachine
 import constants
 import random
-import constants as cons
 
 
-"""
-THIS IS THE OLD FSM WIDGET (NOT USED ANYMORE)
-"""
 class FSM(QWidget):
     def __init__(self, parent=None):
         super(FSM, self).__init__(parent)
@@ -17,10 +13,6 @@ class FSM(QWidget):
         self.fsm = stateMachine.FSM()
 
     def initUI(self):
-        widFile = cons.WIDGETS
-        with open(widFile, "r") as fh:
-            qstr = str(fh.read())
-
         self.im = QPixmap(constants.STATES[constants.CURRENT_STATE])
         self.im = self.im.scaled(
             100, 100, Qt.KeepAspectRatio, Qt.FastTransformation)
@@ -32,7 +24,8 @@ class FSM(QWidget):
         vbox.addWidget(self.label)
 
         self.setLayout(vbox)
-        self.setStyleSheet(qstr)
+        self.setStyleSheet(
+            "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
 
         # Use a timer to randomly change state for testing purposes
         self.timerFSMRand = QTimer(self, timeout=self.update)
