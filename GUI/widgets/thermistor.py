@@ -3,14 +3,13 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 import pyqtgraph as pg
 import serial
-import constants
 
 
 class Thermistor(QWidget):
     def __init__(self, parent=None):
         super(Thermistor, self).__init__(parent)
         self.initUI()
-        self.arduino = serial.Serial(constants.ARDUINO_SERIAL)
+        self.arduino = serial.Serial("/dev/cu.usbmodem143201")
         self.x = 0
         self.y = 0
         self.layout = QGridLayout()
@@ -22,9 +21,6 @@ class Thermistor(QWidget):
         self.setLayout(self.layout)
         self.timer = QTimer(self, timeout=self.update)
         self.timer.start(1000)
-
-    def getPlotItem(self):
-        return self.graphWidget.getPlotItem()
 
     def initUI(self):
         self.temp = QLabel(self)
@@ -38,7 +34,7 @@ class Thermistor(QWidget):
         self.x += 1
         line = self.arduino.readline().decode()
         if line:
-            self.y = float(line[:-2])
+            self.y = int(line)
 
         pen = pg.mkPen(width=10)
         self.graphWidget.plot([self.x], [self.y],

@@ -1,9 +1,3 @@
-# Use live data for graph
-LIVE_DATA = False
-ARDUINO_SERIAL = "/dev/cu.usbmodem141301"
-
-GRAPH_IMG_NAME = "Graph.png"
-
 # FSM Data
 CURRENT_STATE = "Deceleration"
 STATES = {
@@ -63,7 +57,7 @@ ALTITUDE = 33000
 DISTANCE = 30
 
 # Progress Bar Data
-LABEL_STYLE_SHEET = "color: white; background-color: #2B26c1; selection-color: grey; selection-background-color: blue; border: 1px grey"
+LABEL_STYLE_SHEET = "color: blue; background-color: grey; selection-color: grey; selection-background-color: blue; border: 1px grey"
 PBAR_LOW_PROGRESS = "QProgressBar::chunk {background-color: red;}"
 PBAR_MED_PROGRESS = "QProgressBar::chunk {background-color: gold;}"
 PBAR_HIGH_PROGRESS = "QProgressBar::chunk {background-color: green;}"
@@ -75,6 +69,3 @@ PLOT_INCREMENTS = [1, 10]
 
 # File names
 GRAPH_IMG_NAME = "Graph.png"
-
-WIDGETS = "widgets/widgets.css"
-REDWIDGETS = "widgets/redwidgets.css"

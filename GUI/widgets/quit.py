@@ -2,7 +2,6 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import QSize
 import sys
-import constants as cons
 
 
 class Quit(QWidget):
@@ -14,15 +13,12 @@ class Quit(QWidget):
         self.initUI()
 
     def initUI(self):
-        widFile = cons.REDWIDGETS
-        with open(widFile, "r") as fh:
-            qstr = str(fh.read())
-        
         self.setWindowTitle("Quit")
         self.push = QPushButton(self)
         self.push.setText("Quit")
         self.push.setFont(QFont('AnyStyle', 18))
-        self.push.setStyleSheet(qstr)
+        self.push.setStyleSheet(
+            "background-color : red; border-radius: 5px; font-family: Helvetica; font-size: 14px; border: 3px solid black")
         self.push.clicked.connect(self.pushedQuit)
         self.push.resize(int(self.width), int(self.height))
 
