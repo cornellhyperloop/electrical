@@ -98,16 +98,15 @@ int main(int argc, char *argv[])
 	{
 		/* read up to 128 bytes from the fd */
 		int n = read(fd, &buf, 128);
-		int k = read(dl, &buf2, 128);
+		// int k = read(dl, &buf2, 128);
 		usleep(500 * 1000);
 		/* print how many bytes read */
 		printf("%i bytes got read...\n", n);
 		/* print what's in the buffer */
-		printf("Buffer contains...\n%s\n", buf);
+		printf("Buffer 1 contains...\n%s\n", buf);
+		printf("Buffer 2 contains...\n%s\n", buf2);
 		char *token = strtok(buf, " ");
-		char *token2 = strtok(buf2, " ");
 		int count = 0;
-		int count2 = 0;
 		while (token != NULL)
 		{
 			if (count == 0)
@@ -153,6 +152,8 @@ int main(int argc, char *argv[])
 			token = strtok(NULL, " ");
 			count = count + 1;
 		}
+		char *token2 = strtok(buf2, " ");
+		int count2 = 0;
 		while (token2 != NULL)
 		{
 			if (count2 == 0)
@@ -163,6 +164,8 @@ int main(int argc, char *argv[])
 			{
 				msg.temperature2 = atof(token2);
 			}
+			token2 = strtok(NULL, " ");
+			count2 = count2 + 1;
 		}
 		// msg.temperature1 = atof(buf); // TODO: Get value from arduino
 		sensor_info_t_publish(zcm, "SENSOR_INFO", &msg);
