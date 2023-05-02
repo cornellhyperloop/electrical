@@ -98,10 +98,11 @@ int main(int argc, char *argv[])
 	{
 		/* read up to 128 bytes from the fd */
 		int n = read(fd, &buf, 128);
-		// int k = read(dl, &buf2, 128);
+		int k = read(dl, &buf2, 128);
 		usleep(500 * 1000);
 		/* print how many bytes read */
 		printf("%i bytes got read...\n", n);
+		printf("%i bytes got read...\n", k);
 		/* print what's in the buffer */
 		printf("Buffer 1 contains...\n%s\n", buf);
 		printf("Buffer 2 contains...\n%s\n", buf2);
