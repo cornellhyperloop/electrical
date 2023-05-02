@@ -268,46 +268,64 @@ void closeBrakes()
   // return Emergency;
 }
 
-states accelerate(double sensor1)
+states accelerate(double sensorVelocity, double traveledDist)
 {
   // Go to Emergency if does not work, otherwise go to Cruise or Deceleration
   // Add a while loop to stay in this case till it reaches the required velocity
   // Add manual interrupt to go into Emergency state
   // TODO: Implement and return correct state
-  if (sensor1 > desiredVelocity)
+  if checkDistance (traveledDist, totalDist - decelRange)
   {
-    return Cruise;
+    return Deceleration;
   }
   else
   {
-    return Emergency;
+    if (sensorVelocity < desiredVelocity)
+    {
+      return Acceleration;
+    }
+    else
+    {
+      return Cruise;
+    }
   }
+  return Emergency;
 }
 
-states cruise()
+states cruise(double sensorVelocity, double traveledDist)
 {
   // Go to Emergency if does not work, otherwise go to Deceleration
   // Maintain the desired velocity while constantly reading form the sensor
   // Add manual interrupt to go into Emergency state
   // TODO: Implement and return correct state
-  return Deceleration;
+  // logic is taken care off in acceleration!
+  return accelerate(sensorVelocity, traveledDist);
 }
-states decelerate()
+
+states decelerate(double traveledDist)
 {
   // Go to Emergency if does not work, otherwise go to Deceleration
   // Add a while loop to stay in this case till it needs to start to slow down
   // Add manual interrupt to go into Emergency state
   // TODO: Implement and return correct state
   closeBrakes();
-  return Deceleration;
+  if checkDistance (traveledDist, totalDist)
+  {
+    return Stop;
+  }
+  else
+  {
+    return Deceleration;
+  }
+  return Emergency;
 }
 
-states stop()
+states stop(double traveledDist)
 {
   // Go to Crawl if does not work, otherwise go to PodOff
   // Add manual interrupt to go into Emergency state
   // TODO: Implement and return correct state
-  if (checkDistance(1, 5))
+  if (checkDistance(traveledDist, totalDist))
   {
     return PodOff;
   }
@@ -336,6 +354,8 @@ int main()
 {
   states curr = Verification;
   states prev = Verification;
+  // traveledDist = Serial Read for LIDAR to get Traveled Distance
+  double traveledDist = 0.0;
   while (1)
   {
     switch (curr)
@@ -384,9 +404,7 @@ int main()
     case Stop:
     {
       printf("We have stopped!\n");
-
-      // curr = stop();
-      curr = PodOff;
+      // curr = stop(); Call stop function
     };
     case PodOff:
     {

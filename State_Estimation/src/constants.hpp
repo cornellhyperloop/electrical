@@ -17,6 +17,9 @@ const double ultrasonicMax = 0.0;
 const double desiredVelocity = 1.0;
 const double stubValue = 0.5;
 
+const double totalDist = 0.0;
+const double decelRange = 0.0;
+
 enum states
 {
   Verification,
