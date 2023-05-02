@@ -113,7 +113,7 @@ int Serial::ReadData(char *buffer, unsigned int nbChar)
       toRead = this->status.cbInQue;
     }
 
-    // Try to read the require number of chars, and return the number of read bytes on success
+    // Try to read the required number of chars, and return the number of read bytes on success
     if (ReadFile(this->hSerial, buffer, toRead, &bytesRead, NULL))
     {
       return bytesRead;
@@ -181,21 +181,47 @@ std::tuple<int, int> readData()
   return t;
 }
 
-states verifySensors(double sensor1, double sensor2)
+states verifySensors(double acceleromter[9], double thermistor, double lidar_distance[2], double ultrasonic)
 {
   // TODO: Add more sensor parameters as needed with average values,
   // create functionality for average data value
   // double sensor1, sensor2 are average values of sensors over x amount of time
   // If sensors function correctly, go to PreAcceleration, otherwise go to Stop
   // TODO: Implement and return correct state
-  printf("%d", sensor1);
-  if (sensor1 < minSensor1 || sensor1 > maxSensor1)
+  // Accelerometer - 9 output values
+  // Thermistor - 1 output value
+  // Lidar - 2 output values
+  // Ultrasonic - 1 output value
+
+  // Accelerometer
+  for (int i = 0; i < 9; i++)
+  {
+    printf("%d\n", acceleromter[i]);
+    if (acceleromter[i] < accelerometerMin[i] || acceleromter[i] > accelerometerMax[i])
+      return Stop;
+  }
+
+  // Thermistor
+  printf("%d\n", thermistor);
+  if (thermistor < thermistorMin || thermistor > thermistorMax)
     return Stop;
-  if (sensor2 < minSensor2 || sensor2 > maxSensor2)
+
+  // Lidar for Distance
+  for (int i = 0; i < 2; i++)
+  {
+    printf("%d\n", lidar_distance[i]);
+    if (lidar_distance[i] < lidar_distanceMin[i] || lidar_distance[i] > lidar_distanceMax[i])
+      return Stop;
+  }
+
+  // Ultrasonic
+  printf("%d\n", ultrasonic);
+  if (ultrasonic < ultrasonicMin || ultrasonic > ultrasonicMax)
     return Stop;
   printf("It has successfully passed\n");
   return PreAcceleration;
 }
+
 bool checkDistance(double totalDist, double travelDist, const float epsilon = 1E-5f)
 {
   // TODO: Calibrate epsilon value after confirming with the mechanical team
@@ -209,18 +235,37 @@ states openBrakes()
   // Add manual interrupt to go into Emergency state
   // Check if there is a sensor/mechanism to get feedback on the Brake states, i.e opened/closed.
   // TODO: Implement and return correct state
+
+  WriteData((char *)"Open", 4);
+  double relay_status = 0; // assuming 0 for open, 1 for close
+  // ReadData(); // read relay status from arduino
+
+  if (relay_status == 1)
+  {
+    return Emergency;
+  }
   return Acceleration;
 }
 
 void closeBrakes()
 {
   // TODO: Implement closeBrakeMain in helperFunctions.h
-<<<<<<< HEAD
   // bool brakeClosed = closeBrakeMain();
-=======
   // bool brakeClosed = closeBrakeMain(); // Commented for now since it's causing causing compilation errors due to function not being defined
->>>>>>> 1c3f2fddadc98e14349681d59498617cc3608c11
   // Use bool brakeClosed to verify if the sensor implementation works correctly
+
+  // TODO: Test functionality of writing to Serial
+  WriteData((char *)"Close", 5);
+  // TODO: extract data of relay
+  ReadData();
+  double relay_status; // assuming 0 for open, 1 for close
+  if (relay_status == 1)
+  {
+    return;
+  }
+  return;
+
+  // return Emergency;
 }
 
 states accelerate(double sensor1)
@@ -281,19 +326,11 @@ states emergency()
   return Stop;
 }
 
-<<<<<<< HEAD
-// void turnOff()
-// {
-//   // TODO: Implement killPower in helperFunctions.h
-//   // killPower();
-// }
-=======
 void turnOff()
 {
   // TODO: Implement killPower in helperFunctions.h
   // killPower(); // Commented out for now since it's causing compilation errors due to function not being defined
 }
->>>>>>> 1c3f2fddadc98e14349681d59498617cc3608c11
 
 int main()
 {
@@ -310,8 +347,8 @@ int main()
                   and ensure readings are in a reasonable range.
       **/
       //  Update function call for verifySensors() with  appropriate parameters
-
-      curr = verifySensors(std::get<0>(readData()), stubValue);
+      curr = verifySensors(std::get<0>(readData()), std::get<1>(readData()), std::get<2>(readData()), std::get<3>(readData()));
+      // curr = verifySensors(std::get<0>(readData()), stubValue);
       prev = Verification;
     };
     case PreAcceleration:

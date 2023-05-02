@@ -1,10 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-const double minSensor1 = 0.5;
-const double maxSensor1 = 2.0;
-const double minSensor2 = 1.0;
-const double maxSensor2 = 1.0;
+// sensor min/max values
+const double accelerometerMin[9] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+const double accelerometerMax[9] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+
+const double thermistorMin = 0.0;
+const double thermistorMax = 0.0;
+
+const double lidar_distanceMin[2] = {0.0, 0.0};
+const double lidar_distanceMax[2] = {0.0, 0.0};
+
+const double ultrasonicMin = 0.0;
+const double ultrasonicMax = 0.0;
+
 const double desiredVelocity = 1.0;
 const double stubValue = 0.5;
 
