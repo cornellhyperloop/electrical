@@ -12,11 +12,13 @@
 int main(int argc, char *argv[])
 {
 	zcm_t *zcm = zcm_create("udpm://234.255.76.67:7667?ttl=1");
-	int fd;
+	int fd, dl;
 	int stop = 0;
 	// system( "MODE /dev/ttyACM0: BAUD=9600 PARITY=n DATA=8 STOP=1" );
 	fd = open("/dev/ttyACM0", O_RDWR | O_NOCTTY);
+	dl = open("/dev/ttyACM1", O_RDWR | O_NOCTTY);
 	char buf[256];
+	char buf2[256];
 	// char accx[256];
 	// char accy[256];
 	// char accz[256];
@@ -96,49 +98,73 @@ int main(int argc, char *argv[])
 	{
 		/* read up to 128 bytes from the fd */
 		int n = read(fd, &buf, 128);
+		int k = read(dl, &buf2, 128);
 		usleep(500 * 1000);
 		/* print how many bytes read */
 		printf("%i bytes got read...\n", n);
 		/* print what's in the buffer */
 		printf("Buffer contains...\n%s\n", buf);
 		char *token = strtok(buf, " ");
+		char *token2 = strtok(buf2, " ");
 		int count = 0;
+		int count2 = 0;
 		while (token != NULL)
 		{
-			if (count== 0){
+			if (count == 0)
+			{
 				msg.temperature1 = atof(token);
 			}
-			if (count== 1){
+			if (count == 1)
+			{
 				msg.temperature2 = atof(token);
 			}
-			if (count==2){
+			if (count == 2)
+			{
 				msg.accelerometer_x = atof(token);
 			}
-			if(count==3){
+			if (count == 3)
+			{
 				msg.accelerometer_y = atof(token);
 			}
-			if (count==4){
+			if (count == 4)
+			{
 				msg.accelerometer_z = atof(token);
 			}
-			if(count==5){
+			if (count == 5)
+			{
 				msg.gyroscope_x = atof(token);
 			}
-			if(count==6){
+			if (count == 6)
+			{
 				msg.gyroscope_y = atof(token);
 			}
-			if(count == 7){
+			if (count == 7)
+			{
 				msg.gyroscope_z = atof(token);
 			}
-			if(count==8){
+			if (count == 8)
+			{
 				msg.short_dist = atof(token);
 			}
-			if(count==9){
+			if (count == 9)
+			{
 				msg.long_dist = atof(token);
 			}
 			token = strtok(NULL, " ");
 			count = count + 1;
 		}
-		//msg.temperature1 = atof(buf); // TODO: Get value from arduino
+		while (token2 != NULL)
+		{
+			if (count2 == 0)
+			{
+				msg.temperature1 = atof(token2);
+			}
+			if (count2 == 1)
+			{
+				msg.temperature2 = atof(token2);
+			}
+		}
+		// msg.temperature1 = atof(buf); // TODO: Get value from arduino
 		sensor_info_t_publish(zcm, "SENSOR_INFO", &msg);
 	}
 
