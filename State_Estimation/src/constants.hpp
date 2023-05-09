@@ -10,6 +10,7 @@ const double thermistorMax = 0.0;
 
 const double lidar_distanceMin[2] = {0.0, 0.0};
 const double lidar_distanceMax[2] = {0.0, 0.0};
+// Min is 11.8 inches = 29.972 cm
 
 const double ultrasonicMin = 0.0;
 const double ultrasonicMax = 0.0;

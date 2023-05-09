@@ -378,22 +378,22 @@ int main()
     };
     case Acceleration:
     {
-      curr = accelerate(stubValue);
+      curr = accelerate(lidar_distanceMax[0], traveledDist);
       prev = Acceleration;
     };
     case Cruise:
     {
-      curr = cruise();
+      curr = cruise(lidar_distanceMax[0], traveledDist);
       prev = Cruise;
     };
     case Deceleration:
     {
-      curr = decelerate();
+      curr = decelerate(traveledDist);
       prev = Deceleration;
     };
     case Crawl:
     {
-      curr = accelerate(stubValue); // accelerate with slower speed
+      curr = accelerate(lidar_distanceMax[0], traveledDist); // accelerate with slower speed
       prev = Crawl;
     };
     case Emergency:
