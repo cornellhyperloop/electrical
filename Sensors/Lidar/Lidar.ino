@@ -33,7 +33,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "TFMini.h"
 
 // Setup software serial port 
-//SoftwareSerial Serial1(19, 18);      // Uno RX (TFMINI TX), Uno TX (TFMINI RX)
+SoftwareSerial mySerial(10, 11);      // Uno RX (TFMINI TX), Uno TX (TFMINI RX)
 TFMini tfmini;
 
 void setup() {
@@ -45,10 +45,10 @@ void setup() {
   Serial.println ("Initializing...");
 
   // Step 2: Initialize the data rate for the SoftwareSerial port
-  Serial1.begin(TFMINI_BAUDRATE);
+  mySerial.begin(TFMINI_BAUDRATE);
 
   // Step 3: Initialize the TF Mini sensor
-  tfmini.begin(&Serial1);    
+  tfmini.begin(&mySerial);    
 }
 
 
