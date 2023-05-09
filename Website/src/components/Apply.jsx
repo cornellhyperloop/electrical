@@ -135,7 +135,7 @@ function Timeline() {
     
     </div>
     <div className="text-center pb-12 z-100 ">
-  <a href="#" className="bg-red-700 text-white font-bold py-4 px-8 rounded-full mt-12 inline-block" 
+  <a href="/team#mechanical" className="bg-red-700 text-white font-bold py-4 px-8 rounded-full mt-12 inline-block" 
   style={{boxShadow: "inset 0px 0px 10px 3px rgba(255,0,0,0.7)"}}>
     Apply Now
   </a>
