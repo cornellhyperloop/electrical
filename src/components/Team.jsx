@@ -59,10 +59,10 @@ function FeaturesBlocks() {
             <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6" data-aos="fade-right">
               <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
                 <h3 className="h3 mb-4 font-light text-3xl">Subteams</h3>
-                <h3 className="h3 my-1 font-light text-xl">Propulsion</h3>
-                <h3 className="h3 my-1 ">The propulsion subteam works on our propulsion system and fuselage.</h3>
-                <h3 className="h3 mt-8 mb-1 font-light text-xl">Suspension</h3>
-                <h3 className="h3 my-1 ">The suspension team focuses on the pod's suspension mechanisms and chassis design.</h3>
+                <h3 className="h3 my-1 font-light text-xl">Magnetics</h3>
+                <h3 className="h3 my-1 ">The magnetics team works on our propulsion and levitation systems.</h3>
+                <h3 className="h3 mt-8 mb-1 font-light text-xl">Structures</h3>
+                <h3 className="h3 my-1 ">The structures team focuses on the pod's cooling and systems integration and chassis design.</h3>
                 <h3 className="h3 mt-8 mb-1 font-light text-xl">Braking</h3>
                 <h3 className="h3 my-1 ">The braking team specializes within the mechanical and magnetic braking systems.</h3>
               </div>
@@ -74,7 +74,7 @@ function FeaturesBlocks() {
             <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6  md:mb-0 md:order-1" >
  <div className="md:pr-4 lg:pr-12 xl:pr-16 bg-gray-50 p-3 rounded-sm ">
                 <h3 className="h3 my-1 font-light text-xl">Description</h3>
-                <h3 className="h3 my-1 ">The mechanical team is responsible for developing all mechanical subsystems on the pod, including the chassis, suspension, propulsion system, brakes, and fuselage.</h3>
+                <h3 className="h3 my-1 ">The mechanical team is responsible for developing all mechanical subsystems on the pod, including the chassis, suspension, propulsion system, brakes, and levitation.</h3>
                               <h3 className="h3 mt-8 mb-1 font-light text-xl">Tools & Tech</h3>
                 <h3 className="h3 my-1 ">The pod designs employ a variety of manufacturing techniques, inluding traditional machining, welding, CNC, 3D printing, and carbon fiber composite structures.</h3>
 
@@ -142,8 +142,8 @@ function FeaturesBlocks() {
                               <h3 className="h3 mt-8 mb-1 font-light text-xl">Tools & Tech</h3>
                 <h3 className="h3 my-1 ">The business team uses Adobe Creative Cloud to produce marketing materials for social media sites such as Instagram, Twitter, and LinkedIn. We also use Excel for budgeting spreadsheets.</h3>
 
-              </div>            </div >
-
+            </div>            </div >
+          
           </div >
           {/* Items */}
           

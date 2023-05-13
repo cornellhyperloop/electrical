@@ -19,9 +19,9 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "craco start ",
-    "build": "craco build",
-    "predeploy": "npm run build",
+    "start": "craco --openssl-legacy-provider start ",
+    "build": "craco --openssl-legacy-provider build ",
+    "predeploy": "npm run --openssl-legacy-provider build",
     "deploy": "gh-pages -b master -d build",
     "test": "craco test",
     "eject": "react-scripts eject"

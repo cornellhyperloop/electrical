@@ -1,0 +1,59 @@
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex; /* add this */
+    justify-content: center; /* add this */
+    align-items: center; /* add this */
+    }
+    
+    .timeline-bar {
+        margin-top: 60px;
+        width: 100%;
+        height: 2px;
+        background-color: #ccc;
+        margin-bottom: 20px;
+    }
+    
+    .timeline {
+    margin-top: 50px;
+    display: flex;
+    }
+    
+    .timeline-item {
+    position: relative;
+    margin-right: 75px;
+    }
+    
+    .timeline-date {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    background-color: #fff;
+    padding: 0 10px;
+    font-weight: bold;
+    border-radius: 20px;
+    border: 2px solid #ccc;
+    }
+    
+    .timeline-content {
+    padding-top: 25px;
+    }
+    
+    .timeline-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    }
+    
+    .timeline-description {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 0px;
+    }
+
+    .image {
+        width: 582px;
+        height: 326px;
+    }

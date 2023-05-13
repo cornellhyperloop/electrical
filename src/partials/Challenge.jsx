@@ -17,6 +17,9 @@ function Challenge() {
     }
   }
 
+  const [videoHeight, setVideoHeight] = useState(390);
+  const [videoWidth, setVideoWidth] = useState('100%');
+
   useEffect(() => {
     heightFix()
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -26,13 +29,14 @@ function Challenge() {
   }
 
   const opts = {
-    height: '390',
-    width: '640',
+    height: videoHeight,
+    width: videoWidth,
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
     },
   };
+  
   return (
     <section className="relative">
 
@@ -49,10 +53,13 @@ function Challenge() {
             {/* Content */}
                                     <YouTube className="md:col-span-7" videoId="0d7ttUMODt0" opts={opts} onReady={onPlayerReady} />
 
-            <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-5 md:mt-6 " data-aos="fade-right">
-              <div className="md:pr-4 lg:pr-12 xl:pr-16 mb-8">
-                <h3 className="h3 mb-3 font-bold">Competition</h3>
-                <p className="text-xl text-gray-600">In order to accomplish our goal, Cornell Hyperloop will participate in the SpaceX Hyperloop Challenge. With the goal of dramatically shortening transit times over long distances, SpaceX has proposed a challenge to all who are able: to design and build a pod to test on their track in Hawthorne, California each summer. At Cornell Hyperloop, we will answer this call with determination and exacting precision.
+                                    <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-5 md:mt-6 " data-aos="fade-right">
+  <div className="md:pr-4 lg:pr-12 xl:pr-16 mb-8">
+    <h3 className="h3 mb-3 font-bold text-red-700 tracking-wide uppercase">Competition</h3>
+    <p className="text-xl text-black-600 leading-relaxed">To achieve our goal, Cornell Hyperloop will participate in the SpaceX Hyperloop Challenge. 
+    This is a call to all who are able to design and build a pod to test on their track in Hawthorne, California each summer. 
+    Our team will rise to this challenge with
+    <span className="font-bold text-red-700"> relentless determination and exacting precision.</span>
 </p>
               </div>
               {/* Tabs buttons */}
