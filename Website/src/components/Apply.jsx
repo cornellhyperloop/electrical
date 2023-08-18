@@ -95,7 +95,7 @@ function Timeline() {
       <div className="timeline-bar"></div>
       <div className="timeline">
         <div className="timeline-item">
-          <div className="timeline-date">August 20th</div>
+          <div className="timeline-date">August 14th</div>
           <div className="timeline-content">
             <h3 className="timeline-title">Project Team Announcement</h3>
             <p className="timeline-description">
@@ -104,29 +104,29 @@ function Timeline() {
           </div>
         </div>
         <div className="timeline-item">
-          <div className="timeline-date">August 21st - September 21st</div>
+          <div className="timeline-date">August 14th - August 31st</div>
           <div className="timeline-content">
             <h3 className="timeline-title">Application Period</h3>
             <p className="timeline-description">
-              Applications will be accepted during this time period.
+              Applications for upperclassmen will be accepted during this time period. 
             </p>
           </div>
         </div>
         <div className="timeline-item">
-          <div className="timeline-date">September 21st-27th</div>
+          <div className="timeline-date">August 14th - September 27th</div>
           <div className="timeline-content">
             <h3 className="timeline-title">Interviews</h3>
             <p className="timeline-description">
-              Selected candidates will be invited for an interview.
+              Applications for freshmen will be accepted during this time period.
             </p>
           </div>
         </div>
         <div className="timeline-item">
-          <div className="timeline-date">Sept 28th-30th</div>
+          <div className="timeline-date">Sept 13; Oct 16th</div>
           <div className="timeline-content">
             <h3 className="timeline-title">Selection</h3>
             <p className="timeline-description">
-              Selected candidates will be notified of their selection.
+              Upperclassmen will be notified of their selection on the 13th, freshmen on the 16th.
             </p>
           </div>
         </div>
@@ -135,7 +135,7 @@ function Timeline() {
     
     </div>
     <div className="text-center pb-12 z-100 ">
-  <a href="/team#mechanical" className="bg-red-700 text-white font-bold py-4 px-8 rounded-full mt-12 inline-block" 
+  <a href="https://forms.gle/55mEu3RbK8n9cHxf9" className="bg-red-700 text-white font-bold py-4 px-8 rounded-full mt-12 inline-block" 
   style={{boxShadow: "inset 0px 0px 10px 3px rgba(255,0,0,0.7)"}}>
     Apply Now
   </a>
