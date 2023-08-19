@@ -23,8 +23,6 @@ function Donate() {
 
         {/*  Page sections */}
         <HeroMembers />
-        <FeaturesBlocks />
-        <Sponsors/>
       </main>
       <Banner />
       
@@ -46,16 +44,34 @@ s
         <div className="py-12 md:py-20">
 
           {/* Section header */}
-            <h2 className="h2 mb-2 text-4xl md:text-5xl w-full text-center font-bold pb-20">Choose your package</h2>
-          <h2 className="h2 mb-2 text-xl w-full text-center  pb-20">Ready to donate? We have multiple tier packages available</h2>
-            <div className='flex justify-center'>
-                        <a href="https://givingday.cornell.edu/campaigns/cu-hyperloop" className="hover:opacity-90 hover:bg-red-400   top-full mb-20 flex items-center bg-red-400 rounded-md font-medium  p-4 shadow-lg"  aria-controls="modal">
-               
-                <span className="mx-2 text-white">Donate now!</span>
-            </a>
-          </div>
-                    <h2 className="h2 mb-2 text-xl w-full text-center  pb-20">Questions? Feel free to <a className='underline cursor-pointer hover:opacity-60' href="mailto:cornellhyperloop@gmail.com">email us</a> </h2>
+          <div className=" mx-auto flex justify-between text-center pb-8 md:pb-8">
+            <h2 className="h2 mb-2 text-2xl font-bold">Mechanical</h2>
+            <div>
 
+              
+              </div>
+
+          </div>
+ <div className="md:grid md:grid-cols-12 md:gap-6">
+
+            {/* Content */}
+            <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6 md:mt-6 pb-20" data-aos="fade-right">
+              <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 mb-8">
+                <h3 className="h3 mb-3 font-bold">The Goal</h3>
+                <p className="text-xl text-gray-600">Every few centuries, something comes along that revolutionizes the world - something that, once integrated with society, leaves us wondering how we had lived without it. The examples are plenty: fire, the wheel, the ship, the train, the car, the plane. Now we find ourselves on the brink of another such innovation: the Hyperloop. Cornell Hyperloop seeks to spearhead the revolution in transportation technology.</p>
+              </div>
+              {/* Tabs buttons */}
+              
+            </div>
+
+            {/* Tabs items */}
+            <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 md:order-1" >
+ <div className="md:pr-4 lg:pr-12 xl:pr-16 bg-gray-50 p-3 rounded-sm  mb-8">
+                <h3 className="h3 mb-3 font-bold">The Goal</h3>
+                <p className="text-xl text-gray-600">Every few centuries, something comes along that revolutionizes the world - something that, once integrated with society, leaves us wondering how we had lived without it. The examples are plenty: fire, the wheel, the ship, the train, the car, the plane. Now we find ourselves on the brink of another such innovation: the Hyperloop. Cornell Hyperloop seeks to spearhead the revolution in transportation technology.</p>
+              </div>            </div >
+
+          </div >
           {/* Items */}
           
 
@@ -64,38 +80,7 @@ s
     </section>
   );
 }
-
-function Sponsors() {
-    var teammembers=[{name:"john doe",imageurl:"mechanical.png",title:"lead"}]
-  return (
-    <section className="relative bg-gray-50">
-
-      {/* Section background (needs .relative class on parent and next sibling elements) */}
-      <div className="absolute inset-0 bottom-1/2 md:mt-4 lg:mt-0  pointer-events-none" aria-hidden="true"></div>
-s
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="py-12 md:py-20">
-
-          {/* Section header */}
-            <h2 className="h2 mb-2 text-4xl md:text-5xl w-full text-center font-bold pb-20">Thanks to our sponsors</h2>
-
-
-<div className=" mx-auto flex flex-wrap flex-row gap-6 w-3/4 items-center justify-center  lg:max-w-none">
-      <img className="h-36 object-cover w-36 rounded-md contain" src={require("../img/headshots/3erp.png").default}></img>
-
-
-          
-          </div>
-          {/* Items */}
-          
-
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Member({ src, title, subtitle }) {
+function Member({ src,title,subtitle }) {
   return (
     <div className="relative flex flex-col items-center mx-4 bg-white rounded ">
       <img className="h-44 w-44 rounded-md" src={require("../img/"+src).default}></img>
@@ -106,7 +91,6 @@ function Member({ src, title, subtitle }) {
     </div>
   );
 }
-
 function HeroMembers(myRef) {
 
   const [videoModalOpen, setVideoModalOpen] = useState(false);
@@ -140,18 +124,20 @@ function HeroMembers(myRef) {
 
           </div>
           
-          <div className="flex w-screen flex-wrap justify-center">
-  <h1 className="mx-auto w-full md:w-1/2 text-4xl md:text-5xl font-extrabold text-center leading-tighter tracking-tighter mb-4 py-2" data-aos="zoom-y-out">
+          <div className="flex flex-wrap justify-center">
+  <h1 className="mx-auto w-full md:w-1/2 text-4xl md:text-5xl font-extrabold leading-tighter tracking-tighter mb-4 py-2 px-4" data-aos="zoom-y-out">
     Help Support the Future of Transportation
   </h1>
 </div>
 
       
           <div className=' w-screen flex justify-center'>
-                        <a href="https://givingday.cornell.edu/campaigns/cu-hyperloop" className="hover:opacity-90 hover:bg-red-400 absolute  top-full mb-20 flex items-center transform -translate-y-1/2 bg-red-400 rounded-md font-medium group p-4 shadow-lg"  aria-controls="modal">
+                        <button className="hover:opacity-90 hover:bg-red-400 absolute  top-full mb-20 flex items-center transform -translate-y-1/2 bg-red-400 rounded-md font-medium group p-4 shadow-lg" onClick={(e) => { e.preventDefault();   const section = document.querySelector( '#goals' );
+  section.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+ }} aria-controls="modal">
                
                 <span className="mx-2 text-white">Donate now!</span>
-            </a>
+            </button>
             </div>
 
 
