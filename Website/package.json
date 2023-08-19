@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@craco/craco": "^5.9.0",
+    "@craco/craco": "^7.1.0",
     "@testing-library/jest-dom": "^6.0.1",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
@@ -45,6 +45,7 @@
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.2.17",
     "autoprefixer": "^10.4.15",
+    "eslint-loader": "^4.0.2",
     "gh-pages": "^6.0.0",
     "postcss": "^8.4.28",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
