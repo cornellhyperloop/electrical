@@ -18,7 +18,7 @@
     "web-vitals": "^3.4.0"
   },
   "scripts": {
-    "start": "export SET NODE_OPTIONS=--openssl-legacy-provider && craco start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "deploy": "gh-pages -d build",
     "test": "craco test",
