@@ -16,13 +16,14 @@ The Electrical team's repo.
     * Shefali Awasthi
     * Zarif Karim
     * Neera Kapoor
+    * Rares-Stefan Busca
+
 
 * Power Systems
     * Schuyler Seyram
     * Berk Gokmen
     * Steven Wei Chen
     * Lalo Esparza
-    * Rares-Stefan Busca
     * Kirti Bagepalli
     * Max Trager
     * Jenna Kafrawi
