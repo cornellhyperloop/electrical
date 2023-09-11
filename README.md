@@ -29,12 +29,9 @@ The Electrical team's repo.
     * Jenna Kafrawi
 
 * User Interfaces
-    * Kelvin Wang
-    * Christina Unkenholz
     * Devika Krishna
     * Patrick Choo
     * Devan Flores
-    * Cooper Proctor
     * Aislinn Ennis
     * Stephen Chien
     
