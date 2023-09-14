@@ -35,8 +35,10 @@ function Members() {
 
 function FeaturesBlocks() {
   var faculty=[{name:"Rick Geddes",imageurl:"GeddesRick.jpg",title:"Faculty Co-Advisor"},{name:"Zhiting Tian",imageurl:"TianZhiting.jpg",title:"Faculty Co-Advisor"}]
-  var leads = [{ name: "Cameron Robinson", imageurl: "CameronRobinson.jpg", title: "Team Manager" }, { name: "David Wolfers", imageurl: "DavidWolfers.jpg", title: "Electrical Lead" }, { name: "Ellie Perlitz", imageurl: "ElliePerlitz.jpg", title: "Business Lead" }, { name: "Mahika Goel", imageurl: "profilephoto.png", title: "Mechanical Lead" }, { name: "Courtney Kraft", imageurl: "CourtneyKraft.jpg", title: "Mechanical Advisor" }, { name: "Mark Edwards", imageurl: "profilephoto.png", title: "Magnetic Levitation Lead" }, { name: "Jack Crespo", imageurl: "profilephoto.png", title: "Lead Systems Engineer"},{name:"Joshua Coombs",imageurl:"profilephoto.png",title:"Braking Lead"},{name:"Ashna Gupta",imageurl:"profilephoto.png",title:"Structures Lead"},{name:"Vanshaj Jain",imageurl:"vanshajjain.jpg",title:"GUI Lead"},{name:"Robert Fleming",imageurl:"profilephoto.png",title:"Power Systems Lead"},{name:"Ridhit Bhura",imageurl:"profilephoto.png",title:"Computing Systems Lead"},{name:"Devan Flores",imageurl:"profilephoto.png",title:"Web Lead"}]
-  var gui=["Kelvin Wang","Ryan Mao" ,"Christina Unkenholz","Devika Krishna","Patrick Choo","Mihika Jain","Stephen Chien","Cooper Proctor","Aislinn Ennis", "Benson Yee"]
+  var leads = [{ name: "Cameron Robinson", imageurl: "CameronRobinson.jpg", title: "Team Manager" }, { name: "David Wolfers", imageurl: "DavidWolfers.jpg", title: "Electrical Lead" }, { name: "Ellie Perlitz", imageurl: "ElliePerlitz.jpg", title: "Business Lead" }, { name: "Mahika Goel", imageurl: "profilephoto.png", title: "Mechanical Lead" }, { name: "Courtney Kraft", imageurl: "CourtneyKraft.jpg", title: "Mechanical Advisor" }, { name: "Mark Edwards", imageurl: "profilephoto.png", title: "Magnetic Levitation Lead" }, { name: "Jack Crespo", imageurl: "profilephoto.png", title: "Lead Systems Engineer"},{name:"Joshua Coombs",imageurl:"profilephoto.png",title:"Braking Lead"},{name:"Ashna Gupta",imageurl:"profilephoto.png",title:"Structures Lead"},{name:"Vanshaj Jain",imageurl:"vanshajjain.jpg",title:"GUI Lead"},{name:"Robert Fleming",imageurl:"profilephoto.png",title:"Power Systems Lead"},
+  {name:"Ridhit Bhura",imageurl:"profilephoto.png",title:"Computing Systems Lead"},
+  {name:"Devan Flores",imageurl:"profilephoto.png",title:"Web Lead"}]
+  var gui=["Kelvin Wang","Ryan Mao" ,"Devika Krishna","Patrick Choo","Mihika Jain","Stephen Chien","Cooper Proctor","Aislinn Ennis", "Benson Yee"]
   var computing=["Anoushka Kabra","Ashley Heckman","David Lilienfeld","Yaqi Gao","Levi Zeng","Shefali Awasthi","Zarif Karim", "Neera Kapoor", "Aiman Mobhani"]
   var powersystems=["Schuyler Seyram", "Berk Gokmen" , "Steven Wei Chen", "Lalo Esparza", "Rares-Stefan Busca","Kirti Bagepalli", "Max Trager", "Jenna Kafrawi"]
   var magnetic = ["Nikita Dolgopolov", "Rushil Choudary", "Verena Gonzalez"]
@@ -71,10 +73,6 @@ function FeaturesBlocks() {
           </div>
           <div className=" mx-auto flex justify-between text-center pt-4 pb-4 md:pb-4">
             <h2 className="h2 mb-4 text-3xl font-semibold">Leads</h2>
-            <div>
-
-              
-              </div>
 
           </div>
 
@@ -128,7 +126,6 @@ function FeaturesBlocks() {
             <h2 className="h2 my-4 text-3xl font-semibold">Mechanical</h2>
             <div>
 
-              
               </div>
 
           </div>
@@ -151,11 +148,12 @@ function FeaturesBlocks() {
     </section>
   );
 }
+
+
 function Member({ src,title,subtitle }) {
   return (
     <div className="relative flex flex-col items-center mr-4 bg-white rounded ">
       <img className="h-36 object-cover w-36 rounded-md contain" src={require("../img/headshots/"+src).default}></img>
-
       <h4 className="text-xl font-bold w-36 leading-snug tracking-tight mb-1 mt-4 self-start">{title}</h4>
       <h4 className="text-lg font-normal object-contain leading-snug tracking-tight mb-1 mt-1 self-start">{subtitle}</h4>
 
