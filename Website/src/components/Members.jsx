@@ -74,6 +74,7 @@ function FeaturesBlocks() {
           <div className=" mx-auto flex justify-between text-center pt-4 pb-4 md:pb-4">
             <h2 className="h2 mb-4 text-3xl font-semibold">Leads</h2>
 
+
           </div>
 
           {/* Items */}
@@ -149,16 +150,20 @@ function FeaturesBlocks() {
   );
 }
 
-
-function Member({ src,title,subtitle }) {
+function Member({ src, title, subtitle }) {
   return (
-    <div className="relative flex flex-col items-center mr-4 bg-white rounded ">
-      <img className="h-36 object-cover w-36 rounded-md contain" src={require("../img/headshots/"+src).default}></img>
-      <h4 className="text-xl font-bold w-36 leading-snug tracking-tight mb-1 mt-4 self-start">{title}</h4>
-      <h4 className="text-lg font-normal object-contain leading-snug tracking-tight mb-1 mt-1 self-start">{subtitle}</h4>
-
+    <div className="relative flex flex-col items-center mx-4 my-4 bg-white p-4 shadow-md transition transform hover:scale-105 hover:shadow-xl">
+      <div className="relative w-48 h-48 overflow-hidden">
+        <img
+          className="object-cover w-full h-full"
+          src={"/img/headshots/" + src}
+        />
+      </div>
+      <h4 className="text-xl font-bold mt-3 text-center">{title}</h4>
+      <h4 className="text-lg text-center text-gray-600">{subtitle}</h4>
     </div>
   );
 }
+
 
 export default Members;
