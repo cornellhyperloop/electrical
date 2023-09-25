@@ -57,3 +57,15 @@
         width: 582px;
         height: 326px;
     }
+
+    /* Add this to your Timeline.css or a separate CSS file */
+.gallery-container {
+    display: flex;
+    overflow: hidden;
+  }
+  
+  .gallery-image {
+    width: 100%; /* Set your desired width */
+    height: auto; /* Maintain the image's aspect ratio */
+    transition: transform 0.5s ease-in-out;
+  }
