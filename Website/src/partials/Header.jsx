@@ -74,6 +74,7 @@ function Header() {
               <Link to="/members" className="text-black-300 hover:bg-red-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Members</Link>
               <Link to="/donate" className="text-black-300 hover:bg-red-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Donate</Link>
               <Link to="/apply" className="text-black-300 hover:bg-red-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Apply</Link>
+              <Link to="/competition" className="text-black-300 hover:bg-red-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">News</Link>
             </div>
           </div>)}
         </div>

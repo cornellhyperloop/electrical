@@ -8,6 +8,7 @@ import Apply from './components/Apply';
 
 import { Route,Routes,BrowserRouter} from 'react-router-dom';
 import Donate from './components/Donate';
+import CompetitionPage from './components/Competition';
 
 
 function App() {
@@ -22,6 +23,8 @@ function App() {
           <Route  path="/team" element={<Team/>}/>
           <Route  path="/apply" element={<Apply/>}/>
           <Route  path="/donate" element={<Donate/>}/>
+          <Route  path="/competition" element={<CompetitionPage/>}/>
+          
 
           </Routes>
 
