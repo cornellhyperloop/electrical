@@ -18,7 +18,7 @@ s
             <h2 className="h2 mb-4 text-xl font-semibold">Our Teams</h2>
             <div>
 
-              <a className=" h2 mb-4 text-xl text-red-700 font-semibold hover:underline" href="/apply">Apply Now </a>
+              <a className=" h2 mb-4 text-xl text-red-700 font-semibold hover:underline" href="https://forms.gle/55mEu3RbK8n9cHxf9">Apply Now </a>
               
               </div>
 
