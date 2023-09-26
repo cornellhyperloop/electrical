@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
 		usleep(500 * 1000);
 		/* print how many bytes read */
 		printf("%i bytes got read...\n", n);
-		printf("%i bytes got read...\n", k);
+		// printf("%i bytes got read...\n", k);
 		/* print what's in the buffer */
 		printf("Buffer 1 contains...\n%s\n", buf);
 		printf("Buffer 2 contains...\n%s\n", buf2);
@@ -159,7 +159,7 @@ int main(int argc, char *argv[])
 		{
 			if (count2 == 0)
 			{
-				msg.temperature1 = atof(token2);
+				msg.temperature2 = atof(token2);
 			}
 			if (count2 == 1)
 			{
@@ -170,6 +170,7 @@ int main(int argc, char *argv[])
 		}
 		// msg.temperature1 = atof(buf); // TODO: Get value from arduino
 		sensor_info_t_publish(zcm, "SENSOR_INFO", &msg);
+		usleep(1000000);
 	}
 
 	while (1)
