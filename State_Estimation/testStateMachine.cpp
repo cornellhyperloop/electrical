@@ -38,7 +38,6 @@ int Factorial(int n)
   }
   return n * Factorial(n - 1);
 }
-
 // Demonstrate some basic assertions.
 TEST(HelloTest, BasicAssertions)
 {
@@ -50,62 +49,78 @@ TEST(HelloTest, BasicAssertions)
   EXPECT_EQ(Factorial(5), 120);
 }
 
+//checkDistance
+TEST(CheckDistance){
+  EXPECT_EQ(checkDistance(double distance, double desiredDistance, const float epsilon), Acceleration) //Pass
+  EXPECT_EQ(checkDistance(double distance, double desiredDistance, const float epsilon), Deceleration) // Fail
+}
+
 //verify state
-TEST(VerifyTest){
-  EXPECT_EQ(verifySensors(one failed), Stop)
-  EXPECT_EQ(verifySensors(all failed), PreAcceleration)
-  EXPECT_EQ(verifySensors(no failed), PreAcceleration)
+TEST(VerifyTest){ 
+  EXPECT_EQ(verifySensors(double accelerometerFAIL, double thermistorPASS, lidar_distancePASS, ultrasonicPASS), Stop) //1fail
+  EXPECT_EQ(verifySensors(double accelerometer, double thermistorFAIL, lidar_distancePASS, ultrasonicPASS), Stop) //1fail
+  EXPECT_EQ(verifySensors(double accelerometerFAIL, double thermistorFAIL, lidar_distanceFAIL, ultrasonicFAIL), Stop) // all fail
+  EXPECT_EQ(verifySensors(double accelerometerPASS, double thermistorPASS, lidar_distancePASS, ultrasonicPASS), PreAcceleration) // all pass
 }
 
 //pre-acceleration state
-//TODO: Add Inputs
+//test with opoenBrakes
+//no inputs, read directly form aruduino to work, maybe write a testing verison of this function
 TEST(PreAccelerationTest){
   EXPECT_EQ(openBrakes(), Acceleration)
   EXPECT_EQ(openBrakes(), Emergency)
 }
 
 //acceleration state
-//TODO: Add Inputs
+  //states accelerate(double sensorVelocity, double traveledDist)
+//how do we test manual interrupt?
+/*
+are the confluence test cases up to date or statemachine up to date?
+the code says it returns deceleration if its close to finish line, but
+that's not a case on confluence. we added another case below for this.
+This is a test case for Cruise, but not acceleration, though. 
+*/
 TEST(AccelerationTest){
-  EXPECT_EQ(accelerate(), Acceleration)
-  EXPECT_EQ(accelerate(), Cruise)
-  EXPECT_EQ(accelerate(), Emergency)
-  EXPECT_EQ(accelerate(), Emergency)
+  EXPECT_EQ(accelerate(double sensorVelocity-underDesired, double traveledDist), Acceleration) // under desired vel
+  EXPECT_EQ(accelerate(double sensorVelocity-overDesired, double treveledDist), Cruise) // over desired vel
+  EXPECT_EQ(accelerate(double sensorVelocity, double treveledDist), Cruise) // desired
+  EXPECT_EQ(accelerate(double sensorVelocity, double treveledDist-closeToEnd), Deceleration) // near end of track
+  EXPECT_EQ(accelerate(double sensorVelocity, double treveledDist), Emergency) // sensor malfunction
+  EXPECT_EQ(accelerate(double sensorVelocity, double treveledDist), Emergency) // manual interrupt
 }
 
 //cruise state
-//TODO: Add Inputs
+  //states cruise(double sensorVelocity, double traveledDist)
 TEST(CruiseTest){
-  EXPECT_EQ(cruise(), Emergency)
-  EXPECT_EQ(cruise(), Emergency)
-  EXPECT_EQ(cruise(), Deceleration)
+  EXPECT_EQ(cruise(double sensorVelocity-notDesired, double traveledDist), Emergency) // undesired velocity
+  EXPECT_EQ(cruise(double sensorVelocity, double traveledDist), Cruise) // desired velocity
+  EXPECT_EQ(cruise(double sensorVelocity, double traveledDist), Emergency) // manual interrupt
+  EXPECT_EQ(cruise(double sensorVelocity, double treveledDist-closeToEnd), Deceleration) // near end of track
 }
 
 //deaceleration state
-//TODO: Add Inputs
+  //states decelerate(double traveledDist)
 TEST(DecelerationTest){
-  EXPECT_EQ(decelerate(), Stop)
-  EXPECT_EQ(decelerate(), Emergency)
+  EXPECT_EQ(decelerate(double traveledDist-Reached), Stop) 
+  EXPECT_EQ(decelerate(double traveledDist-Not-Reached), Emergency)
 }
 
 //emergency state
-//TODO: Add Inputs
+  //states emergency()
+//simply returns Stop after executing 
 TEST(EmergencyTest){
   EXPECT_EQ(emergency(), Stop)
 }
 
 //stop state
-//TODO: Add Inputs
+  //states stop(double traveledDist)
 TEST(StopTest){
-  EXPECT_EQ(stop(), Crawl)
-  EXPECT_EQ(stop(), PodOff)
+  EXPECT_EQ(stop(traveledDist-Not-Reached), Crawl) //used to be crawl, need to change bc Crawl DNE
+  EXPECT_EQ(stop(traveledDist-Reached), PodOff)
 }
 
-//crawl state
-//TODO: Add Inputs
-TEST(CrawlTest){
-  EXPECT_EQ(checkDistance(), Deceleration)
-}
+//unsure about what crawl is supposed to do. review statemachine.cpp file!
 
-// cmake -S . -B build
-// cmake --build build
+//how to start google test in terminal:
+  // cmake -S . -B build
+  // cmake --build build

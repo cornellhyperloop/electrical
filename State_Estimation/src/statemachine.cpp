@@ -75,7 +75,7 @@ Serial::Serial(const char *portName)
     }
   }
 }
-
+i
 Serial::~Serial()
 {
   // Check if we are connected before trying to disconnect
