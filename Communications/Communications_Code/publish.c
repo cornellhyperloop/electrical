@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
 	msg.gyroscope_y = 5.6;
 	msg.gyroscope_z = 7.1;
 	// msg.imu_gyroscope= atof(gyro);
-	msg.pressure = 180;
+	// msg.pressure = 180;
 	// msg.pressure = atof(press);
 	// msg.temperature1 = 56;
 	// msg.temperature2 = 56;
@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
 	// msg.distance = 9.0;
 	// msg.distance = atof(dist);
 	msg.short_dist = 12;
-	msg.long_dist = 150;
+	// msg.long_dist = 150;
 
 	while (stop == 0)
 	{
@@ -114,42 +114,42 @@ int main(int argc, char *argv[])
 			{
 				msg.temperature1 = atof(token);
 			}
-			if (count == 1)
+			else if (count == 1)
 			{
 				msg.temperature2 = atof(token);
 			}
-			if (count == 2)
-			{
-				msg.accelerometer_x = atof(token);
-			}
-			if (count == 3)
-			{
-				msg.accelerometer_y = atof(token);
-			}
-			if (count == 4)
-			{
-				msg.accelerometer_z = atof(token);
-			}
-			if (count == 5)
-			{
-				msg.gyroscope_x = atof(token);
-			}
-			if (count == 6)
-			{
-				msg.gyroscope_y = atof(token);
-			}
-			if (count == 7)
-			{
-				msg.gyroscope_z = atof(token);
-			}
-			if (count == 8)
-			{
-				msg.short_dist = atof(token);
-			}
-			if (count == 9)
-			{
-				msg.long_dist = atof(token);
-			}
+			// else if (count == 2)
+			// {
+			// 	// msg.accelerometer_x = atof(token);
+			// }
+			// else if (count == 3)
+			// {
+			// 	// msg.accelerometer_y = atof(token);
+			// }
+			// else if (count == 4)
+			// {
+			// 	msg.accelerometer_z = atof(token);
+			// }
+			// else if (count == 5)
+			// {
+			// 	msg.gyroscope_x = atof(token);
+			// }
+			// if (count == 6)
+			// {
+			// 	msg.gyroscope_y = atof(token);
+			// }
+			// if (count == 7)
+			// {
+			// 	msg.gyroscope_z = atof(token);
+			// }
+			// if (count == 8)
+			// {
+			// 	msg.short_dist = atof(token);
+			// }
+			// if (count == 9)
+			// {
+			// 	msg.long_dist = atof(token);
+			// }
 			token = strtok(NULL, " ");
 			count = count + 1;
 		}
@@ -159,11 +159,11 @@ int main(int argc, char *argv[])
 		{
 			if (count2 == 0)
 			{
-				msg.temperature2 = atof(token2);
+				msg.long_dist = atof(token2);
 			}
-			if (count2 == 1)
+			else if (count2 == 1)
 			{
-				msg.temperature2 = atof(token2);
+				msg.pressure = atof(token2);
 			}
 			token2 = strtok(NULL, " ");
 			count2 = count2 + 1;
