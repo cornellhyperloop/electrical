@@ -5,6 +5,7 @@ import HomePage from './components/HomePage';
 import Members from './components/Members';
 import Team from './components/Team';
 import Apply from './components/Apply';
+import Mechanical2 from './components/Mechanical2'
 
 import { Route,Routes,BrowserRouter} from 'react-router-dom';
 import Donate from './components/Donate';
@@ -24,6 +25,7 @@ function App() {
           <Route  path="/apply" element={<Apply/>}/>
           <Route  path="/donate" element={<Donate/>}/>
           <Route  path="/competition" element={<CompetitionPage/>}/>
+          <Route  path="/mechanical" element={<Mechanical2/>}/>
           
 
           </Routes>
