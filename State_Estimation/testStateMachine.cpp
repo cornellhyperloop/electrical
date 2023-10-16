@@ -38,6 +38,7 @@ int Factorial(int n)
   }
   return n * Factorial(n - 1);
 }
+
 // Demonstrate some basic assertions.
 TEST(HelloTest, BasicAssertions)
 {

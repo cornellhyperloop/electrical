@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <tchar.h>
 #include "SerialClass.h"
+#include "serialClassMac.h"
 #include <string>
 
 Serial::Serial(const char *portName)
@@ -147,7 +148,11 @@ int main(int argc, _TCHAR *argv[])
 {
   printf("Welcome to the serial test app!\n\n");
 
+<<<<<<< HEAD
+  Serial *SP = new Serial("\\\\.\\COM3"); // adjust as needed
+=======
   Serial *SP = new Serial("\\\\.\\COM7"); // adjust as needed
+>>>>>>> 1c3f2fddadc98e14349681d59498617cc3608c11
 
   if (SP->IsConnected())
     printf("We're connected");

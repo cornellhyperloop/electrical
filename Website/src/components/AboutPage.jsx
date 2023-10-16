@@ -86,7 +86,7 @@ export default class AboutPage extends Component {
       .attr("class", "x axis")
       .attr(
         "transform",
-        `translate(${margin.left}, ${chartHeight + margin.top + 10})`
+        `translate(${margin.left}, ${chartHeight + margin.top + 10})`,
       )
       .call(xAxis);
 
@@ -121,7 +121,7 @@ export default class AboutPage extends Component {
           .attr("width", barWidth)
           .attr(
             "height",
-            (d) => chartHeight + margin.top - 10 - yScale(d.values[0])
+            (d) => chartHeight + margin.top - 10 - yScale(d.values[0]),
           );
 
         enter
@@ -133,7 +133,7 @@ export default class AboutPage extends Component {
           .attr("width", barWidth)
           .attr(
             "height",
-            (d) => chartHeight + margin.top - 10 - yScale(d.values[1])
+            (d) => chartHeight + margin.top - 10 - yScale(d.values[1]),
           );
 
         enter
@@ -145,7 +145,7 @@ export default class AboutPage extends Component {
           .attr("width", barWidth)
           .attr(
             "height",
-            (d) => chartHeight + margin.top - 10 - yScale(d.values[2])
+            (d) => chartHeight + margin.top - 10 - yScale(d.values[2]),
           );
       });
 

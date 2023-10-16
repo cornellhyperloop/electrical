@@ -255,9 +255,11 @@ void closeBrakes()
   // bool brakeClosed = closeBrakeMain(); // Commented for now since it's causing causing compilation errors due to function not being defined
   // Use bool brakeClosed to verify if the sensor implementation works correctly
 
-  // Test functionality of writing to Serial
+
+  // TODO: Test functionality of writing to Serial
   WriteData((char *)"Close", 5);
-  // extract data of relay
+  // TODO: extract data of relay
+
   ReadData();
   double relay_status; // assuming 0 for open, 1 for close
   if (relay_status == 1)
@@ -274,7 +276,7 @@ states accelerate(double sensorVelocity, double traveledDist)
   // Go to Emergency if does not work, otherwise go to Cruise or Deceleration
   // Add a while loop to stay in this case till it reaches the required velocity
   // Add manual interrupt to go into Emergency state
-  // Implement and return correct state
+  // TODO: Implement and return correct state
   if checkDistance (traveledDist, totalDist - decelRange)
   {
     return Deceleration;
@@ -298,7 +300,6 @@ states cruise(double sensorVelocity, double traveledDist)
   // Go to Emergency if does not work, otherwise go to Deceleration
   // Maintain the desired velocity while constantly reading form the sensor
   // Add manual interrupt to go into Emergency state
-  // Implement and return correct state
   // logic is taken care off in acceleration!
   return accelerate(sensorVelocity, traveledDist);
 }
@@ -325,7 +326,6 @@ states stop(double traveledDist)
 {
   // Go to Crawl if does not work, otherwise go to PodOff
   // Add manual interrupt to go into Emergency state
-  // Implement and return correct state
   if (checkDistance(traveledDist, totalDist))
   {
     return PodOff;

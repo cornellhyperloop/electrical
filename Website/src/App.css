@@ -194,3 +194,61 @@
   opacity: 1;
   right: 0;
 }
+
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline-bar {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: #ccc;
+  transform: translateX(-50%);
+}
+
+.timeline {
+  margin-top: 50px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.timeline-date {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  padding: 0 10px;
+  font-weight: bold;
+  border-radius: 20px;
+  border: 2px solid #ccc;
+}
+
+.timeline-content {
+  padding-left: 50px;
+}
+
+.timeline-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.timeline-description {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+
+
+
+

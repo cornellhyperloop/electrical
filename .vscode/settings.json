@@ -1,5 +1,7 @@
 {
   "files.associations": {
-    "sensor_info_t.h": "c"
+    "sensor_info_t.h": "c",
+    "array": "cpp",
+    "tuple": "cpp"
   }
 }
