@@ -47,6 +47,7 @@ function FeaturesBlocks() {
             <h2 className="h3 mb-2 text-4xl font-bold">Subteams</h2>
             <div></div>
           </div>
+
           <div className="md:grid md:grid-cols-12 md:gap-6">
             {/* Content */}
             <div
@@ -70,6 +71,60 @@ function FeaturesBlocks() {
                   magnetic braking systems.
                 </h3>
               </div>
+
+
+              {/* Tabs buttons */}
+            </div>
+
+            <div
+              className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6"
+              data-aos="fade-right"
+            >
+              <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
+                <h3 className="h3 my-1 font-light text-xl">Propulsion</h3>
+                <h3 className="h3 my-1 ">
+                  The propulsion subteam works on our propulsion system and
+                  fuselage.
+                </h3>
+                <h3 className="h3 mt-8 mb-1 font-light text-xl">Suspension</h3>
+                <h3 className="h3 my-1 ">
+                  The suspension team focuses on the pod's suspension mechanisms
+                  and chassis design.
+                </h3>
+                <h3 className="h3 mt-8 mb-1 font-light text-xl">Braking</h3>
+                <h3 className="h3 my-1 ">
+                  The braking team specializes within the mechanical and
+                  magnetic braking systems.
+                </h3>
+              </div>
+
+
+              {/* Tabs buttons */}
+            </div>
+
+            <div
+              className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6"
+              data-aos="fade-right"
+            >
+              <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
+                <h3 className="h3 my-1 font-light text-xl">Propulsion</h3>
+                <h3 className="h3 my-1 ">
+                  The propulsion subteam works on our propulsion system and
+                  fuselage.
+                </h3>
+                <h3 className="h3 mt-8 mb-1 font-light text-xl">Suspension</h3>
+                <h3 className="h3 my-1 ">
+                  The suspension team focuses on the pod's suspension mechanisms
+                  and chassis design.
+                </h3>
+                <h3 className="h3 mt-8 mb-1 font-light text-xl">Braking</h3>
+                <h3 className="h3 my-1 ">
+                  The braking team specializes within the mechanical and
+                  magnetic braking systems.
+                </h3>
+              </div>
+
+
               {/* Tabs buttons */}
             </div>
 
