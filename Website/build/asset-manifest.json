@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.d6ce421b.css",
-    "main.js": "/static/js/main.d834aedb.js",
+    "main.css": "/static/css/main.fa872588.css",
+    "main.js": "/static/js/main.1facfa5c.js",
     "static/js/496.dc3c5f84.chunk.js": "/static/js/496.dc3c5f84.chunk.js",
     "static/media/ELL.jpeg": "/static/media/ELL.fce9104868a76f3b743d.jpeg",
     "static/media/Max_and_Tim_working.png": "/static/media/Max_and_Tim_working.b6e37afeef9aac68beec.png",
@@ -37,20 +37,24 @@
     "static/media/IMG_4365.jpg": "/static/media/IMG_4365.580831c319836067337a.jpg",
     "static/media/IMG_4295.jpg": "/static/media/IMG_4295.41a9b687ac0ba8a875fa.jpg",
     "static/media/vanshajjain.jpg": "/static/media/vanshajjain.4d31ab3690a0355ab9f2.jpg",
+    "static/media/power-shot2.png": "/static/media/power-shot2.8f6f5d1da45f5378aa7c.png",
     "static/media/IMG_4332.jpg": "/static/media/IMG_4332.315b162a28dcb07e4eb5.jpg",
     "static/media/RidhitBhura.jpg": "/static/media/RidhitBhura.52a2900039a2cf800f16.jpg",
     "static/media/img3.jpg": "/static/media/img3.8b56b88aba9899c391c8.jpg",
     "static/media/devanflores.jpg": "/static/media/devanflores.4221e25fa61f34f93c5f.jpg",
     "static/media/Ridhit.jpg": "/static/media/Ridhit.e10806560ae7ffc9a23a.jpg",
     "static/media/IMG_4472.jpg": "/static/media/IMG_4472.0029ad0dfb5651a6d3c6.jpg",
+    "static/media/power-shot1.png": "/static/media/power-shot1.d21cd907f88004f3482f.png",
     "static/media/JackCrespo.jpg": "/static/media/JackCrespo.0538a9623e9e8b4b081a.jpg",
     "static/media/IMG_4373.jpg": "/static/media/IMG_4373.122d415e7e3b8409b2d4.jpg",
     "static/media/IMG_4336.jpg": "/static/media/IMG_4336.203a51456c2ceee60a29.jpg",
     "static/media/IMG_4433.jpg": "/static/media/IMG_4433.1fcc938640d87400a67c.jpg",
     "static/media/mechanical.jpg": "/static/media/mechanical.d477588b68f6e311e8ec.jpg",
     "static/media/Team.png": "/static/media/Team.07a5838bc997330b246f.png",
+    "static/media/fun.jpg": "/static/media/fun.18b093a925566adde1a6.jpg",
     "static/media/img3.jpg.sb-9d3fc040-VyKWGX": "/static/media/img3.jpg.c79c97fdab853ee843c1.sb-9d3fc040-VyKWGX",
     "static/media/AgileWorkshop.png": "/static/media/AgileWorkshop.209b02b798d3ecbd2b12.png",
+    "static/media/team_CHC.jpg": "/static/media/team_CHC.66586b05d91ea9de656b.jpg",
     "static/media/hyperloop.png": "/static/media/hyperloop.48b001178f129dd47cc4.png",
     "static/media/business.png": "/static/media/business.ffc61db10b8da10268be.png",
     "static/media/mechanical.png": "/static/media/mechanical.5af2039501c0b3e366ab.png",
@@ -65,15 +69,16 @@
     "static/media/hero-image.png": "/static/media/hero-image.cf7f7105bc0f885f167e.png",
     "static/media/profilephoto.png": "/static/media/profilephoto.7a6a6c54279a54d1977c.png",
     "static/media/TianZhiting.jpg": "/static/media/TianZhiting.a1eccc74c8b41baa366f.jpg",
+    "static/media/banana.jpeg": "/static/media/banana.50c35e9ac57c3f906af4.jpeg",
     "static/media/GeddesRick.jpg": "/static/media/GeddesRick.2fd65310ab6c2da5470b.jpg",
     "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/index.html",
-    "main.d6ce421b.css.map": "/static/css/main.d6ce421b.css.map",
-    "main.d834aedb.js.map": "/static/js/main.d834aedb.js.map",
+    "main.fa872588.css.map": "/static/css/main.fa872588.css.map",
+    "main.1facfa5c.js.map": "/static/js/main.1facfa5c.js.map",
     "496.dc3c5f84.chunk.js.map": "/static/js/496.dc3c5f84.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d6ce421b.css",
-    "static/js/main.d834aedb.js"
+    "static/css/main.fa872588.css",
+    "static/js/main.1facfa5c.js"
   ]
 }
