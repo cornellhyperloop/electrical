@@ -5,7 +5,7 @@
 
 // to use instead of Mac OS X's default /dev/tty.*
 #define SERIAL_PORT "/dev/tty.ttyACM0"
-// #include <windows.h>
+#include <windows.h>
 #include <stdio.h>
 #include <stdlib.h>
 
