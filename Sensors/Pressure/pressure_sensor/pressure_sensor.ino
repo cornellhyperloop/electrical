@@ -69,7 +69,7 @@ V1.1.2 Updates for Arduino 1.6.4 5/2015
 
 SFE_BMP180 pressure;
 
-#define ALTITUDE 1655.0 // Altitude of SparkFun's HQ in Boulder, CO. in meters
+#define ALTITUDE 123 // Altitude of Ithaca, NY
 
 void setup()
 {

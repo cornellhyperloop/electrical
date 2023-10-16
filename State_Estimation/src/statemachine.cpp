@@ -75,7 +75,7 @@ Serial::Serial(const char *portName)
     }
   }
 }
-
+i
 Serial::~Serial()
 {
   // Check if we are connected before trying to disconnect
@@ -194,6 +194,7 @@ states verifySensors(double acceleromter[9], double thermistor, double lidar_dis
   // Ultrasonic - 1 output value
 
   // Accelerometer
+  Thread.sleep(1000);
   for (int i = 0; i < 9; i++)
   {
     printf("%d\n", acceleromter[i]);
@@ -234,7 +235,7 @@ states openBrakes()
   // Go to Emergency if does not work, otherwise go to Acceleration
   // Add manual interrupt to go into Emergency state
   // Check if there is a sensor/mechanism to get feedback on the Brake states, i.e opened/closed.
-  // TODO: Implement and return correct state
+  // Implement and return correct state
 
   WriteData((char *)"Open", 4);
   double relay_status = 0; // assuming 0 for open, 1 for close
@@ -254,9 +255,11 @@ void closeBrakes()
   // bool brakeClosed = closeBrakeMain(); // Commented for now since it's causing causing compilation errors due to function not being defined
   // Use bool brakeClosed to verify if the sensor implementation works correctly
 
+
   // TODO: Test functionality of writing to Serial
   WriteData((char *)"Close", 5);
   // TODO: extract data of relay
+
   ReadData();
   double relay_status; // assuming 0 for open, 1 for close
   if (relay_status == 1)
@@ -289,7 +292,7 @@ states accelerate(double sensorVelocity, double traveledDist)
       return Cruise;
     }
   }
-  return Emergency;
+  //return Emergency;
 }
 
 states cruise(double sensorVelocity, double traveledDist)
@@ -297,7 +300,6 @@ states cruise(double sensorVelocity, double traveledDist)
   // Go to Emergency if does not work, otherwise go to Deceleration
   // Maintain the desired velocity while constantly reading form the sensor
   // Add manual interrupt to go into Emergency state
-  // TODO: Implement and return correct state
   // logic is taken care off in acceleration!
   return accelerate(sensorVelocity, traveledDist);
 }
@@ -307,7 +309,7 @@ states decelerate(double traveledDist)
   // Go to Emergency if does not work, otherwise go to Deceleration
   // Add a while loop to stay in this case till it needs to start to slow down
   // Add manual interrupt to go into Emergency state
-  // TODO: Implement and return correct state
+  // Implement and return correct state
   closeBrakes();
   if checkDistance (traveledDist, totalDist)
   {
@@ -317,14 +319,13 @@ states decelerate(double traveledDist)
   {
     return Deceleration;
   }
-  return Emergency;
+  // return Emergency;
 }
 
 states stop(double traveledDist)
 {
   // Go to Crawl if does not work, otherwise go to PodOff
   // Add manual interrupt to go into Emergency state
-  // TODO: Implement and return correct state
   if (checkDistance(traveledDist, totalDist))
   {
     return PodOff;
@@ -333,7 +334,7 @@ states stop(double traveledDist)
   {
     return Crawl;
   }
-  return Emergency;
+ // return Emergency;
 }
 
 states emergency()
@@ -346,8 +347,10 @@ states emergency()
 
 void turnOff()
 {
-  // TODO: Implement killPower in helperFunctions.h
-  // killPower(); // Commented out for now since it's causing compilation errors due to function not being defined
+  //  Implement killPower in helperFunctions.h
+  // killPower(); 
+  // there is no software control to turn the pod on and off. 
+  // This function is empty
 }
 
 int main()
