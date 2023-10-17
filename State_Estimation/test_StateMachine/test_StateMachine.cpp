@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 // #include "src/constants.hpp"
-#include "src/statemachine.cpp"
-#include "src/statemachine.hpp"
-#include "src/helperFunctions.hpp"
+#include "../src/statemachine.cpp"
+#include "../src/statemachine.hpp"
+#include "../src/helperFunctions.hpp"
 #include <gtest/gtest.h>
 
 // 1. Test if the correct states are being entered from the relevant states
