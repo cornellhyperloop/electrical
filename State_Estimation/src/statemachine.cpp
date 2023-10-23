@@ -181,7 +181,7 @@ std::tuple<int, int> readData()
   return t;
 }
 
-states verifySensors(double acceleromter[9], double thermistor, double lidar_distance[2], double ultrasonic)
+states verifySensors(double acceleromter[], double thermistor, double lidar_distance[], double ultrasonic)
 {
   // TODO: Add more sensor parameters as needed with average values,
   // create functionality for average data value
@@ -358,7 +358,7 @@ int main()
   // traveledDist = Serial Read for LIDAR to get Traveled Distance
   double traveledDist = 0.0;
 
-  Serial serial = new Serial();
+  //Serial serial = new Serial();
 
   while (1)
   {
@@ -392,7 +392,7 @@ int main()
     };
     case Deceleration:
     {
-      curr = decelerate(traveledDist);
+      curr = decelerate(traveledDist, serial);
       prev = Deceleration;
     };
     case Crawl:
@@ -402,7 +402,7 @@ int main()
     };
     case Emergency:
     {
-      curr = emergency();
+      curr = emergency(serial);
       prev = Emergency;
     };
     case Stop:
