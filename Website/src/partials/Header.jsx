@@ -6,31 +6,27 @@ function Header() {
   const [top, setTop] = useState(true);
   const [url, setUrl] = useState("");
 
-  // detect whether user has scrolled the page down by 10px
   useEffect(() => {
     const scrollHandler = () => {
-      window.pageYOffset > 10 ? setTop(false) : setTop(true)
+      window.pageYOffset > 10 ? setTop(false) : setTop(true);
     };
     setUrl(window.location.href);
     window.addEventListener('scroll', scrollHandler);
     return () => window.removeEventListener('scroll', scrollHandler);
   }, [top]);
 
-  // show or hide the menu based on screen size
   const [showMenu, setShowMenu] = useState(false);
-  const [showMenuItems, setShowMenuItems] = useState(false);
-
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 768) { // show menu on screens less than 768px wide (mobile and tablet)
+      if (window.innerWidth < 768) {
         setShowMenu(true);
       } else {
         setShowMenu(false);
       }
     };
 
-    handleResize(); // call handleResize on initial render
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -42,15 +38,13 @@ function Header() {
 
           {/* Site branding */}
           <div className="flex-shrink-0 mr-4">
-            {/* Logo */}
             <a className="hover:opacity-60" href="/">
               <img className="h-10 max-w-none sm:h-16 mx-auto " src={HeroImage} alt="Logo"></img>
             </a>
           </div>
 
           {/* Site navigation */}
-          {/* Render the hamburger menu on small screens */}
-          {showMenu && (
+        {showMenu && (
         
           // create a hamburger menu that links to team, members, donate, and apply, and closes when clicked
           <div className="sm:hidden">
@@ -68,15 +62,31 @@ function Header() {
 
           {/* Render the full menu on large screens */}
           {!showMenu && (
-          <div className={`sm:flex sm:items-center sm:ml-6`}>
-            <div className="flex space-x-4">
-              <Link to="/team" className="text-black-300 hover:bg-red-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</Link>
+            <div className={`sm:flex sm:items-center sm:ml-6`}>
+              <div className="relative group inline-block">
+                <span className="text-black-300 hover:bg-red-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer">
+                  Team
+                </span>
+                <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="rounded-md ring-1 ring-black ring-opacity-5">
+                    <Link to="/electrical" className="block px-4 py-2 text-sm text-black-300 hover:bg-red-700 hover:text-white">
+                      Electrical
+                    </Link>
+                    <Link to="/mechanical" className="block px-4 py-2 text-sm text-black-300 hover:bg-red-700 hover:text-white">
+                      Mechanical
+                    </Link>
+                    <Link to="/business" className="block px-4 py-2 text-sm text-black-300 hover:bg-red-700 hover:text-white">
+                      Business
+                    </Link>
+                  </div>
+                </div>
+              </div>
               <Link to="/members" className="text-black-300 hover:bg-red-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Members</Link>
               <Link to="/donate" className="text-black-300 hover:bg-red-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Donate</Link>
               <Link to="/apply" className="text-black-300 hover:bg-red-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Apply</Link>
               <Link to="/competition" className="text-black-300 hover:bg-red-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">News</Link>
             </div>
-          </div>)}
+          )}
         </div>
       </div>
     </header>
@@ -84,3 +94,5 @@ function Header() {
 }
 
 export default Header;
+
+
