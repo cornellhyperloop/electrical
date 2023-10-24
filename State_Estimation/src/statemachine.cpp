@@ -173,7 +173,9 @@ std::tuple<int, int> readData()
     Sleep(500);
     if (currTime >= 1000)
     {
-      readResult = std::stof(incomingData);
+      //parsing incoming data
+      
+      readResult = std::stof(incomingData); //returns one value
       break;
     }
   }
