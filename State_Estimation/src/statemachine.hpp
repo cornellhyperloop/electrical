@@ -38,3 +38,4 @@ bool checkDistance(double distance, double desiredDistance, const float epsilon)
 
 //tesing to fix error error C3861: 'WriteData': identifier not found from google tests
 bool Serial::WriteData(const char *buffer, unsigned int nbChar)
+bool MockSerial::WriteData(const char *buffer, unsigned int nbChar)

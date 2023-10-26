@@ -89,7 +89,7 @@ Serial::~Serial()
   }
 }
 
-int Serial::ReadData(char *buffer, unsigned int nbChar)
+int Serial::ReadData(char *buffer, int nbChar)
 {
   // Number of bytes we'll have read
   DWORD bytesRead;
@@ -365,6 +365,7 @@ void turnOff()
 
 int main()
 {
+  //MockSerial serialObject = ...
   states curr = Verification;
   states prev = Verification;
   // traveledDist = Serial Read for LIDAR to get Traveled Distance
@@ -414,7 +415,7 @@ int main()
       curr = emergency();
       prev = Emergency;
     };
-    case Stop
+    case Stop:
     {
       printf("We have stopped!\n");
       // curr = stop(); Call stop function
