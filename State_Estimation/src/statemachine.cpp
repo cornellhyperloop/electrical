@@ -6,6 +6,7 @@
 #include "helperFunctions.hpp"
 #include "SerialClass.h"
 #include <iostream>
+#include <thread>
 
 Serial::Serial(const char *portName)
 {
@@ -75,7 +76,7 @@ Serial::Serial(const char *portName)
     }
   }
 }
-i
+
 Serial::~Serial()
 {
   // Check if we are connected before trying to disconnect
@@ -154,7 +155,7 @@ std::tuple<int, int> readData()
   if (SP->IsConnected())
     printf("We're connected\n");
 
-  char incomingData[1000] = ""; // don't forget to pre-allocate memory
+  char incomingData[1000]; // don't forget to pre-allocate memory
   // printf("%s\n",incomingData);
   int dataLength = 1000;
   int readResult = 0;
@@ -194,31 +195,40 @@ states verifySensors(double acceleromter[9], double thermistor, double lidar_dis
   // Ultrasonic - 1 output value
 
   // Accelerometer
-  Thread.sleep(1000);
+  
+  //error
+  // Thread.sleep(1000);
+
+  //fixed with this line 
+  std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
   for (int i = 0; i < 9; i++)
   {
     printf("%d\n", acceleromter[i]);
-    if (acceleromter[i] < accelerometerMin[i] || acceleromter[i] > accelerometerMax[i])
+    if (acceleromter[i] < accelerometerMin[i] || acceleromter[i] > accelerometerMax[i]){
       return Stop;
+    }
   }
 
   // Thermistor
   printf("%d\n", thermistor);
-  if (thermistor < thermistorMin || thermistor > thermistorMax)
+  if (thermistor < thermistorMin || thermistor > thermistorMax) {
     return Stop;
-
+  }
   // Lidar for Distance
   for (int i = 0; i < 2; i++)
   {
     printf("%d\n", lidar_distance[i]);
-    if (lidar_distance[i] < lidar_distanceMin[i] || lidar_distance[i] > lidar_distanceMax[i])
+    if (lidar_distance[i] < lidar_distanceMin[i] || lidar_distance[i] > lidar_distanceMax[i]) {
       return Stop;
+    }
   }
 
   // Ultrasonic
   printf("%d\n", ultrasonic);
-  if (ultrasonic < ultrasonicMin || ultrasonic > ultrasonicMax)
+  if (ultrasonic < ultrasonicMin || ultrasonic > ultrasonicMax) {
     return Stop;
+  }
   printf("It has successfully passed\n");
   return PreAcceleration;
 }
@@ -277,7 +287,7 @@ states accelerate(double sensorVelocity, double traveledDist)
   // Add a while loop to stay in this case till it reaches the required velocity
   // Add manual interrupt to go into Emergency state
   // TODO: Implement and return correct state
-  if checkDistance (traveledDist, totalDist - decelRange)
+  if (checkDistance(traveledDist, totalDist - decelRange))
   {
     return Deceleration;
   }
@@ -311,7 +321,7 @@ states decelerate(double traveledDist)
   // Add manual interrupt to go into Emergency state
   // Implement and return correct state
   closeBrakes();
-  if checkDistance (traveledDist, totalDist)
+  if (checkDistance(traveledDist, totalDist))
   {
     return Stop;
   }
@@ -334,13 +344,13 @@ states stop(double traveledDist)
   {
     return Crawl;
   }
- // return Emergency;
+ // return Emergency
 }
 
 states emergency()
 {
   // Close brakes rapidly and stop any propulsion
-  decelerate();
+  decelerate(traveledDist);
   closeBrakes();
   return Stop;
 }
@@ -404,7 +414,7 @@ int main()
       curr = emergency();
       prev = Emergency;
     };
-    case Stop:
+    case Stop
     {
       printf("We have stopped!\n");
       // curr = stop(); Call stop function
