@@ -2,7 +2,6 @@
 
 #include "stdio.h"
 #include "stdlib.h"
-#include "constants.hpp"
 
 // Runs the state machine for the pod
 int main();

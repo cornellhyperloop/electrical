@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-// #include "src/constants.hpp"
+// #include "../src/constants.hpp"
 #include "../src/statemachine.cpp"
 #include "../src/statemachine.hpp"
 #include "../src/helperFunctions.hpp"
@@ -51,25 +51,37 @@ TEST(HelloTest, BasicAssertions)
 }
 
 //checkDistance
-TEST(CheckDistance){
-  EXPECT_EQ(checkDistance(double distance, double desiredDistance, const float epsilon), Acceleration) //Pass
-  EXPECT_EQ(checkDistance(double distance, double desiredDistance, const float epsilon), Deceleration) // Fail
+TEST(CheckDistance, BasicAssertions){
+  double distancePass = 10.0;
+  double distanceFail = 0.0;
+  double desiredDistance = 0.0;
+  const float epsilon = 0.0;
+  EXPECT_EQ(checkDistance(distancePass, desiredDistance, epsilon), Acceleration); //Pass
+  EXPECT_EQ(checkDistance(distanceFail, desiredDistance, epsilon), Deceleration); // Fail
 }
 
 //verify state
-TEST(VerifyTest){ 
-  EXPECT_EQ(verifySensors(double accelerometerFAIL, double thermistorPASS, lidar_distancePASS, ultrasonicPASS), Stop) //1fail
-  EXPECT_EQ(verifySensors(double accelerometer, double thermistorFAIL, lidar_distancePASS, ultrasonicPASS), Stop) //1fail
-  EXPECT_EQ(verifySensors(double accelerometerFAIL, double thermistorFAIL, lidar_distanceFAIL, ultrasonicFAIL), Stop) // all fail
-  EXPECT_EQ(verifySensors(double accelerometerPASS, double thermistorPASS, lidar_distancePASS, ultrasonicPASS), PreAcceleration) // all pass
+TEST(VerifyTest, BasicAssertions){ 
+  double accelerometerFAIL[9] = {-1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0};
+  double accelerometerPASS[9] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+  double thermistorFAIL = -1.0;
+  double thermistorPASS = 0.0;
+  double lidar_distancePASS[2] = {0.0, 0.0};
+  double lidar_distanceFAIL[2] = {-1.0, -1.0};
+  double ultrasonicFAIL = -1.0;
+  double ultrasonicPASS = 1.0;
+  EXPECT_EQ(verifySensors(accelerometerFAIL, thermistorPASS, lidar_distancePASS, ultrasonicPASS), Stop); //1fail
+  EXPECT_EQ(verifySensors(accelerometerPASS, thermistorFAIL, lidar_distancePASS, ultrasonicPASS), Stop); //1fail
+  EXPECT_EQ(verifySensors(accelerometerFAIL, thermistorFAIL, lidar_distanceFAIL, ultrasonicFAIL), Stop); // all fail
+  EXPECT_EQ(verifySensors(accelerometerPASS, thermistorPASS, lidar_distancePASS, ultrasonicPASS), PreAcceleration); // all pass
 }
 
 //pre-acceleration state
 //test with opoenBrakes
 //no inputs, read directly form aruduino to work, maybe write a testing verison of this function
-TEST(PreAccelerationTest){
-  EXPECT_EQ(openBrakes(), Acceleration)
-  EXPECT_EQ(openBrakes(), Emergency)
+TEST(PreAccelerationTest, BasicAssertions){
+  EXPECT_EQ(openBrakes(), Acceleration);
+  EXPECT_EQ(openBrakes(), Emergency);
 }
 
 //acceleration state
@@ -81,43 +93,56 @@ the code says it returns deceleration if its close to finish line, but
 that's not a case on confluence. we added another case below for this.
 This is a test case for Cruise, but not acceleration, though. 
 */
-TEST(AccelerationTest){
-  EXPECT_EQ(accelerate(double sensorVelocity-underDesired, double traveledDist), Acceleration) // under desired vel
-  EXPECT_EQ(accelerate(double sensorVelocity-overDesired, double treveledDist), Cruise) // over desired vel
-  EXPECT_EQ(accelerate(double sensorVelocity, double treveledDist), Cruise) // desired
-  EXPECT_EQ(accelerate(double sensorVelocity, double treveledDist-closeToEnd), Deceleration) // near end of track
-  EXPECT_EQ(accelerate(double sensorVelocity, double treveledDist), Emergency) // sensor malfunction
-  EXPECT_EQ(accelerate(double sensorVelocity, double treveledDist), Emergency) // manual interrupt
+TEST(AccelerationTest, BasicAssertions){
+  double sensorVelocityunder = 0.0;
+  double sensorVelocityover = 0.0;
+  double sensorVelocitygood = 0.0;
+  double traveledDist = 0.0;
+  double traveledDistEnd = 0.0;
+  EXPECT_EQ(accelerate(sensorVelocityunder, traveledDist), Acceleration); // under desired vel
+  EXPECT_EQ(accelerate(sensorVelocityover, traveledDist), Cruise); // over desired vel
+  EXPECT_EQ(accelerate(sensorVelocitygood, traveledDist), Cruise); // desired
+  EXPECT_EQ(accelerate(sensorVelocitygood, traveledDistEnd), Deceleration); // near end of track
+  EXPECT_EQ(accelerate(sensorVelocitygood, traveledDist), Emergency); // sensor malfunction
+  EXPECT_EQ(accelerate(sensorVelocitygood, traveledDist), Emergency); // manual interrupt
 }
 
 //cruise state
   //states cruise(double sensorVelocity, double traveledDist)
-TEST(CruiseTest){
-  EXPECT_EQ(cruise(double sensorVelocity-notDesired, double traveledDist), Emergency) // undesired velocity
-  EXPECT_EQ(cruise(double sensorVelocity, double traveledDist), Cruise) // desired velocity
-  EXPECT_EQ(cruise(double sensorVelocity, double traveledDist), Emergency) // manual interrupt
-  EXPECT_EQ(cruise(double sensorVelocity, double treveledDist-closeToEnd), Deceleration) // near end of track
+TEST(CruiseTest, BasicAssertions){
+  double sensorVel = 0.0;
+  double sensorVelNo = 0.0;
+  double traveledDist = 0.0;
+  double traveledDistEnd = 0.0;
+  EXPECT_EQ(cruise(sensorVelNo, traveledDist), Emergency); // undesired velocity
+  EXPECT_EQ(cruise(sensorVel, traveledDist), Cruise); // desired velocity
+  EXPECT_EQ(cruise(sensorVel, traveledDist), Emergency); // manual interrupt
+  EXPECT_EQ(cruise(sensorVel, traveledDistEnd), Deceleration); // near end of track
 }
 
 //deaceleration state
   //states decelerate(double traveledDist)
-TEST(DecelerationTest){
-  EXPECT_EQ(decelerate(double traveledDist-Reached), Stop) 
-  EXPECT_EQ(decelerate(double traveledDist-Not-Reached), Emergency)
+TEST(DecelerationTest, BasicAssertions){
+  double traveledDistEnd = 0.0;
+  double traveledDistMid = 0.0;
+  EXPECT_EQ(decelerate(traveledDistEnd), Stop) ;
+  EXPECT_EQ(decelerate(traveledDistMid), Emergency);
 }
 
 //emergency state
   //states emergency()
 //simply returns Stop after executing 
-TEST(EmergencyTest){
-  EXPECT_EQ(emergency(), Stop)
+TEST(EmergencyTest, BasicAssertions){
+  EXPECT_EQ(emergency(), Stop);
 }
 
 //stop state
   //states stop(double traveledDist)
-TEST(StopTest){
-  EXPECT_EQ(stop(traveledDist-Not-Reached), Crawl) //used to be crawl, need to change bc Crawl DNE
-  EXPECT_EQ(stop(traveledDist-Reached), PodOff)
+TEST(StopTest, BasicAssertions){
+  double traveledDistEnd = 0.0;
+  double traveledDistMid = 0.0;
+  EXPECT_EQ(stop(traveledDistMid), Crawl); //used to be crawl, need to change bc Crawl DNE
+  EXPECT_EQ(stop(traveledDistEnd), PodOff);
 }
 
 //unsure about what crawl is supposed to do. review statemachine.cpp file!
