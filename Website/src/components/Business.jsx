@@ -12,7 +12,7 @@ import Business from "../img/business.png";
 import Mechanical from "../img/mechanical.png";
 import Electrical from "../img/electrical.png";
 
-function Business2() {
+function Buisness2() {
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
       {/*  Site header */}
@@ -20,7 +20,6 @@ function Business2() {
       {/*  Page content */}
       <main className="flex-grow">
         {/*  Page sections */}
-        <HeroMembers />
         {FeaturesBlocks()}
       </main>
       <Banner />
@@ -40,13 +39,40 @@ function FeaturesBlocks() {
         aria-hidden="true"
       ></div>
 
+    
+
+
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="py-12 md:py-20" id="business">
+        <div className="py-12 md:py-20" id="mechanical">
+
           {/* Section header */}
           <div className=" mx-auto flex justify-between text-center pb-8 md:pb-8">
-            <h2 className="h3 mb-2 text-4xl font-bold">Subteams</h2>
+            <h2 className="h3 mb-2 text-4xl font-bold text-red-700 font-semibold"> Business Subteams</h2>
             <div></div>
           </div>
+
+
+
+          <div className="mt-4"></div>
+            {/* Tabs items */}
+            <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6  md:mb-0 md:order-1">
+              <div className="md:pr-4 lg:pr-12 xl:pr-16 bg-gray-50 p-3 rounded-sm ">
+                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Description</h3>
+                <h3 className="h3 my-1 ">
+                  The business subteam is in charge of all of our expenses. 
+                </h3>
+                <h3 className="text-red-700 font-semibold h3 mt-8 mb-1 font-light text-xl">
+                  Tools & Tech
+                </h3>
+                <h3 className="h3 my-1 ">
+                  The pod designs employ a variety of manufacturing techniques,
+                  including traditional machining, welding, CNC, 3D printing, and
+                  carbon fiber composite structures.
+                </h3>
+              </div>{" "}
+            </div>
+
+            <div className="mt-4"></div>
 
           <div className="md:grid md:grid-cols-12 md:gap-6">
             {/* Content */}
@@ -54,16 +80,17 @@ function FeaturesBlocks() {
               className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6"
               data-aos="fade-right"
             >
-              <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
-                <h3 className="h3 my-1 font-light text-xl">Operations</h3>
+              <div className="md:pr-4  bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
+                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Structures</h3>
                 <h3 className="h3 my-1 ">
-                  The operations subteam manages budgeting, procurement,
-                  sponsorship outreach, and fundraising.
-                </h3>
-                <h3 className="h3 mt-8 mb-1 font-light text-xl">Marketing</h3>
-                <h3 className="h3 my-1 ">
-                  The marketing subteam maintains our team’s social media presence
-                  and is also jointly responsible for the website.
+                The Structures subteam is an interdisciplinary team open to taking on problems as they apply to the overall architecture of the pod, 
+                from the chassis and shell to the cooling system and more. 
+                This means revamping the whole chassis, the pod's skeleton, iteration to iteration,
+                 which requires careful planning of the many subsystems and their placement. 
+                 On top of that we must come up with new designs for the aeroshell to optimize both space and aerodynamics 
+                 while fitting nicely with the pod, and we are currently still in the process of creating a tried and tested process
+                  for the manufacture of a carbon-fiber shell of such a scale. 
+                 
                 </h3>
               </div>
 
@@ -76,16 +103,41 @@ function FeaturesBlocks() {
               data-aos="fade-right"
             >
               <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
-                <h3 className="h3 my-1 font-light text-xl">Operations</h3>
+                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Suspension</h3>
                 <h3 className="h3 my-1 ">
-                  The operations subteam manages budgeting, procurement,
-                  sponsorship outreach, and fundraising.
+                The magnetics subteam is in charge of the levitation, propulsion, and guidance systems of the pod. 
+                 Our levitation system uses custom-made electromagnets that induce eddy currents in the track for levitation,
+                  and our propulsion system relies on a linear induction motor to create a moving magnetic pole to attract
+                   and repel the track as the pod travels. Our guidance system allows for control in the horizontal, 
+                   roll, and yaw directions, and this year also allows for control in the vertical and pitch directions.
+                    The magnetics team is very research-focused and brings together a lot of
+                     novel technologies in order to make our pods' ambitious goals a reality.
                 </h3>
-                <h3 className="h3 mt-8 mb-1 font-light text-xl">Marketing</h3>
+
+              </div>
+
+
+              {/* Tabs buttons */}
+            </div>
+
+
+            <div
+              className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6"
+              data-aos="fade-right"
+            >
+              <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16  ">
+                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Cooling </h3>
                 <h3 className="h3 my-1 ">
-                  The marketing subteam maintains our team’s social media presence
-                  and is also jointly responsible for the website.
+                The cooling subteam is currently working on developing a robust 
+                  but simple cooling architecture for our batteries and BMS.
+                   Future problems will include continued iteration of the chassis and shell, 
+                   but also the expansion of our cooling system from just the batteries to other parts of the pod that will need it 
+                   ,currently under the jurisdiction of other subteams but likely to be united under one cooling subsystem owned by structures.
+                    In short, the structures subteam is a particularly multifaceted subteam here on Cornell Hyperloop, 
+                    and a great team for learning the general architecture of the pod before delving into specifics. 
+
                 </h3>
+
               </div>
 
 
@@ -97,49 +149,32 @@ function FeaturesBlocks() {
               data-aos="fade-right"
             >
               <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
-                <h3 className="h3 my-1 font-light text-xl">Operations</h3>
+
+                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Braking</h3>
                 <h3 className="h3 my-1 ">
-                  The operations subteam manages budgeting, procurement,
-                  sponsorship outreach, and fundraising.
-                </h3>
-                <h3 className="h3 mt-8 mb-1 font-light text-xl">Marketing</h3>
-                <h3 className="h3 my-1 ">
-                  The marketing subteam maintains our team’s social media presence
-                  and is also jointly responsible for the website.
+                  The braking subteam is responsible for the design, construction, and testing of two braking systems:
+                   magnetic braking and pneumatic braking. 
+                   Magnetic brakes employ electromagnets to generate eddy currents in the track,
+                    creating resistance against the pod's motion.
+                     The braking force increases with speed, making it effective at decelerating the pod from high velocities.
+                      Pneumatic brakes utilize compressed air and pneumatic cylinders to activate frictional brake pads,
+                       which make contact with the track and bring the pod to a complete halt. 
+                       The braking team is actively engaged in researching and experimenting with various design possibilities, 
+                       while also collaborating closely with other subteams to develop and test our electromagnets and pneumatic actuation systems.
+                   Our collective efforts are dedicated to turning the highperloop concept into a reality.
                 </h3>
               </div>
 
 
               {/* Tabs buttons */}
             </div>
-
-            {/* Tabs items */}
-            <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6  md:mb-0 md:order-1">
-              <div className="md:pr-4 lg:pr-12 xl:pr-16 bg-gray-50 p-3 rounded-sm ">
-                <h3 className="h3 my-1 font-light text-xl">Description</h3>
-                <h3 className="h3 my-1 ">
-                  The business team is responsible for supporting the team’s
-                  business-related initiatives, including leading multiple
-                  initiatives to fund the development of our pod.
-
-
-                </h3>
-                <h3 className="h3 mt-8 mb-1 font-light text-xl">
-                  Tools & Tech
-                </h3>
-                <h3 className="h3 my-1 ">
-                  The business team uses Adobe Creative Cloud to produce marketing
-                  materials for the website and our social media. We also use
-                  Excel and spreadsheets to manage the team’s finances.
-                </h3>
-              </div>{" "}
-            </div>
+          
           </div>
 
 
           {/* Items */}
         </div>
-
+   
         {/* Items */}
       </div>
     </section>
@@ -234,7 +269,7 @@ function HeroMembers(myRef) {
               className="text-5xl md:text-6xl font-extrabold mb-4"
               data-aos="zoom-y-out"
             >
-              Business
+              Mechanical
             </h1>
           </div>
         </div>
@@ -242,4 +277,4 @@ function HeroMembers(myRef) {
     </section>
   );
 }
-export default Business2;
+export default Buisness2;

@@ -22,7 +22,6 @@ function Members() {
       <main className="flex-grow">
 
         {/*  Page sections */}
-        <HeroMembers />
         {FeaturesBlocks()}
       </main>
       <Banner />

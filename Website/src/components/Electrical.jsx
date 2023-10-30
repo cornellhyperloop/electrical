@@ -20,7 +20,6 @@ function Electrical2() {
       {/*  Page content */}
       <main className="flex-grow">
         {/*  Page sections */}
-        <HeroMembers />
         {FeaturesBlocks()}
       </main>
       <Banner />
@@ -40,13 +39,45 @@ function FeaturesBlocks() {
         aria-hidden="true"
       ></div>
 
+      
+
+
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="py-12 md:py-20" id="electrical">
+        <div className="py-12 md:py-20" id="mechanical">
+
           {/* Section header */}
           <div className=" mx-auto flex justify-between text-center pb-8 md:pb-8">
-            <h2 className="h3 mb-2 text-4xl font-bold">Subteams</h2>
+            <h2 className="h3 mb-2 text-4xl font-bold text-red-700 font-semibold"> Electrical Subteams</h2>
             <div></div>
           </div>
+
+
+          <div className="mt-4"></div>
+            {/* Tabs items */}
+            <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6  md:mb-0 md:order-1">
+              <div className="md:pr-4 lg:pr-12 xl:pr-16 bg-gray-50 p-3 rounded-sm ">
+                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Description</h3>
+                <h3 className="h3 my-1 ">
+                The main goal of the team is to construct and maintain the electrical system.
+                This includes the batteries, motors, and sensors.
+                 We are also in charge of developing software that enables the pod to be fully autonomous.
+                  Lastly, we maintain an electrical website to showcase the team. 
+                  The team is currently building a battery pack, as well as set up several sensor sets along with the internal pod network.
+                </h3>
+                <h3 className="text-red-700 font-semibold h3 mt-8 mb-1 font-light text-xl">
+                  Tools & Tech
+                </h3>
+                <h3 className="h3 my-1 ">
+                The team uses a variety of tools, 
+                since we are involved in both the hardware and software.
+                 On the hardware side, there's KiCAD and physical benches to develop the circuits. 
+                On the software side, we use Python to develop our embedded systems, 
+                as well as a networking protocol called ZCM.
+                </h3>
+              </div>{" "}
+            </div>
+
+            <div className="mt-4"></div>
 
           <div className="md:grid md:grid-cols-12 md:gap-6">
             {/* Content */}
@@ -54,20 +85,11 @@ function FeaturesBlocks() {
               className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6"
               data-aos="fade-right"
             >
-              <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
-                <h3 className="h3 my-1 font-light text-xl">Power Systems</h3>
+              <div className="md:pr-4  bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
+                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Power Systems</h3>
                 <h3 className="h3 my-1 ">
-                  The power systems subteam is in charge of our pod’s
-                  electrical components.
-                </h3>
-                <h3 className="h3 mt-8 mb-1 font-light text-xl">Computing Systems</h3>
-                <h3 className="h3 my-1 ">
-                  The computing subteam manages all of the embedded software.
-                </h3>
-                <h3 className="h3 mt-8 mb-1 font-light text-xl">User Interface</h3>
-                <h3 className="h3 my-1 ">
-                  The user interface subteam maintains our electrical system’s GUI
-                  and is jointly-responsible for the website.
+              The Power Systems team is directly resposible for maintaining our batteries and checking that all of our sensors recieve POWER!
+                 
                 </h3>
               </div>
 
@@ -80,79 +102,43 @@ function FeaturesBlocks() {
               data-aos="fade-right"
             >
               <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
-                <h3 className="h3 my-1 font-light text-xl">Power Systems</h3>
+                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Computing Systems</h3>
                 <h3 className="h3 my-1 ">
-                  The power systems subteam is in charge of our pod’s electrical
-                  components.
+
                 </h3>
-                <h3 className="h3 mt-8 mb-1 font-light text-xl">Computing Systems</h3>
-                <h3 className="h3 my-1 ">
-                  The computing subteam manages all of the embedded software.
-                </h3>
-                <h3 className="h3 mt-8 mb-1 font-light text-xl">User Interface</h3>
-                <h3 className="h3 my-1 ">
-                  The user interface subteam maintains our electrical system’s GUI
-                  and is jointly-responsible for the website.
-                </h3>
+
+                Computing Systems is a pretty cool team, in charge of all of the embedded software!
+
               </div>
 
 
               {/* Tabs buttons */}
             </div>
+
 
             <div
               className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6"
               data-aos="fade-right"
             >
-              <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
-                <h3 className="h3 my-1 font-light text-xl">Power Systems</h3>
+              <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16  ">
+                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">GUI </h3>
                 <h3 className="h3 my-1 ">
-                  The power systems subteam is in charge of our pod’s electrical
-                  components.
+                GUI, or user interfaces, is responsible for a nice clean user interface for all of our users!
                 </h3>
-                <h3 className="h3 mt-8 mb-1 font-light text-xl">Computing Systems</h3>
-                <h3 className="h3 my-1 ">
-                  The computing subteam manages all of the embedded software.
-                </h3>
-                <h3 className="h3 mt-8 mb-1 font-light text-xl">User Interface</h3>
-                <h3 className="h3 my-1 ">
-                  The user interface subteam maintains our electrical system’s GUI
-                  and is jointly-responsible for the website.
-                </h3>
+
               </div>
 
 
               {/* Tabs buttons */}
             </div>
 
-            {/* Tabs items */}
-            <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6  md:mb-0 md:order-1">
-              <div className="md:pr-4 lg:pr-12 xl:pr-16 bg-gray-50 p-3 rounded-sm ">
-                <h3 className="h3 my-1 font-light text-xl">Description</h3>
-                <h3 className="h3 my-1 ">
-                  The electrical team is responsible for constructing and
-                  maintaining the pod’s electrical system, including building a
-                  battery pack, sensor sets, and the internal pod network.
-
-
-                </h3>
-                <h3 className="h3 mt-8 mb-1 font-light text-xl">
-                  Tools & Tech
-                </h3>
-                <h3 className="h3 my-1 ">
-                  On the software side, the team uses Python to develop our
-                  embedded systems and leverages the networking protocol called
-                  ZCM. On the hardware side, KiCAD and physical benches are used
-                  to develop the circuits.
-                </h3>
-              </div>{" "}
-            </div>
+          
           </div>
 
 
           {/* Items */}
         </div>
-
+   
         {/* Items */}
       </div>
     </section>
@@ -247,7 +233,7 @@ function HeroMembers(myRef) {
               className="text-5xl md:text-6xl font-extrabold mb-4"
               data-aos="zoom-y-out"
             >
-              Electrical
+              Mechanical
             </h1>
           </div>
         </div>
