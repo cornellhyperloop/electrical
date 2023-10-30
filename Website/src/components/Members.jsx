@@ -34,10 +34,17 @@ function Members() {
 
 function FeaturesBlocks() {
   var faculty=[{name:"Rick Geddes",imageurl:"GeddesRick.jpg",title:"Faculty Co-Advisor"},{name:"Zhiting Tian",imageurl:"TianZhiting.jpg",title:"Faculty Co-Advisor"}]
-  var leads = [{ name: "Cameron Robinson", imageurl: "CameronRobinson.jpg", title: "Team Manager" }, { name: "David Wolfers", imageurl: "DavidWolfers.jpg", title: "Electrical Lead" }, { name: "Ellie Perlitz", imageurl: "ElliePerlitz.jpg", title: "Business Lead" }, { name: "Mahika Goel", imageurl: "profilephoto.png", title: "Mechanical Lead" }, { name: "Courtney Kraft", imageurl: "CourtneyKraft.jpg", title: "Mechanical Advisor" }, { name: "Mark Edwards", imageurl: "profilephoto.png", title: "Magnetic Levitation Lead" }, { name: "Jack Crespo", imageurl: "profilephoto.png", title: "Lead Systems Engineer"},{name:"Joshua Coombs",imageurl:"profilephoto.png",title:"Braking Lead"},{name:"Ashna Gupta",imageurl:"profilephoto.png",title:"Structures Lead"},{name:"Vanshaj Jain",imageurl:"vanshajjain.jpg",title:"GUI Lead"},{name:"Robert Fleming",imageurl:"profilephoto.png",title:"Power Systems Lead"},
+  var leads = [{ name: "Cameron Robinson", imageurl: "CameronRobinson.jpg", title: "Team Manager" }, { name: "David Wolfers", imageurl: "DavidWolfers.jpg", title: "Electrical Lead" }, { name: "Ellie Perlitz", imageurl: "ElliePerlitz.jpg", title: "Business Lead" }, { name: "Mahika Goel", imageurl: "profilephoto.png", title: "Mechanical Lead" }, 
+  { name: "Courtney Kraft", imageurl: "CourtneyKraft.jpg", title: "Mechanical Advisor" }, 
+  { name: "Mark Edwards", imageurl: "profilephoto.png", title: "Magnetic Levitation Lead" }, 
+  { name: "Jack Crespo", imageurl: "profilephoto.png", title: "Lead Systems Engineer"},
+  {name:"Joshua Coombs",imageurl:"profilephoto.png",title:"Braking Lead"},
+  {name:"Ashna Gupta",imageurl:"profilephoto.png",title:"Structures Lead"},
+  {name:"Vanshaj Jain",imageurl:"vanshajjain.jpg",title:"GUI Lead"},
+  {name:"Robert Fleming",imageurl:"profilephoto.png",title:"Power Systems Lead"},
   {name:"Ridhit Bhura",imageurl:"profilephoto.png",title:"Computing Systems Lead"},
-  {name:"Devan Flores",imageurl:"profilephoto.png",title:"Web Lead"}]
-  var gui=["Kelvin Wang","Ryan Mao" ,"Devika Krishna","Patrick Choo","Mihika Jain","Stephen Chien","Cooper Proctor","Aislinn Ennis", "Benson Yee"]
+  {name:"Stephen Chien",imageurl:"profilephoto.png",title:"Web Lead"}]
+  var gui=["Kelvin Wang","Ryan Mao" ,"Devika Krishna","Patrick Choo","Mihika Jain","Cooper Proctor","Aislinn Ennis", "Benson Yee"]
   var computing=["Anoushka Kabra","Ashley Heckman","David Lilienfeld","Yaqi Gao","Levi Zeng","Shefali Awasthi","Zarif Karim", "Neera Kapoor", "Aiman Mobhani"]
   var powersystems=["Schuyler Seyram", "Berk Gokmen" , "Steven Wei Chen", "Lalo Esparza", "Rares-Stefan Busca","Kirti Bagepalli", "Max Trager", "Jenna Kafrawi"]
   var magnetic = ["Nikita Dolgopolov", "Rushil Choudary", "Verena Gonzalez"]

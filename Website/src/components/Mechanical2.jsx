@@ -11,6 +11,8 @@ import Challenge from "../partials/Challenge";
 import Business from "../img/business.png";
 import Mechanical from "../img/mechanical.png";
 import Electrical from "../img/electrical.png";
+import powershot1 from "../img/MechanicalTeamImgs/image.png";
+import powershot2 from "../img/MechanicalTeamImgs/smartppl.png";
 
 function Mechanical2() {
   return (
@@ -83,7 +85,7 @@ function FeaturesBlocks() {
               data-aos="fade-right"
             >
               <div className="md:pr-4  bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
-                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Structures</h3>
+                <h3 className="h3 my-1  text-xl text-red-700 font-semibold">Structures</h3>
                 <h3 className="h3 my-1 ">
                 The Structures subteam is an interdisciplinary team open to taking on problems as they apply to the overall architecture of the pod, 
                 from the chassis and shell to the cooling system and more. 
@@ -105,7 +107,7 @@ function FeaturesBlocks() {
               data-aos="fade-right"
             >
               <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
-                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Suspension</h3>
+                <h3 className="h3 my-1 text-xl text-red-700 font-semibold">Suspension</h3>
                 <h3 className="h3 my-1 ">
                 The magnetics subteam is in charge of the levitation, propulsion, and guidance systems of the pod. 
                  Our levitation system uses custom-made electromagnets that induce eddy currents in the track for levitation,
@@ -128,7 +130,7 @@ function FeaturesBlocks() {
               data-aos="fade-right"
             >
               <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16  ">
-                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Cooling </h3>
+                <h3 className="h3 my-1  text-xl text-red-700 font-semibold">Cooling </h3>
                 <h3 className="h3 my-1 ">
                 The cooling subteam is currently working on developing a robust 
                   but simple cooling architecture for our batteries and BMS.
@@ -163,22 +165,47 @@ function FeaturesBlocks() {
                        which make contact with the track and bring the pod to a complete halt. 
                        The braking team is actively engaged in researching and experimenting with various design possibilities, 
                        while also collaborating closely with other subteams to develop and test our electromagnets and pneumatic actuation systems.
-                   Our collective efforts are dedicated to turning the highperloop concept into a reality.
+                   Our collective efforts are dedicated to turning the hyperloop concept into a reality.
                 </h3>
               </div>
 
 
               {/* Tabs buttons */}
             </div>
-          
           </div>
-
-
-          {/* Items */}
         </div>
-   
-        {/* Items */}
       </div>
+
+      <section className="py-16">
+  <div className="container mx-auto px-4">
+    <h2 className="text-2xl font-semibold mb-4">Photo Gallery</h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {/* Add your gallery images here */}
+      <div className="rounded-lg p-4 bg-white">
+        <img
+          src={powershot1}
+          alt="Gallery Image 3"
+          className="w-full h-auto"  // You can adjust these values
+          style={{ width: '100%', height: 'auto' }} // You can also use inline CSS
+        />
+      </div>
+      <div className="rounded-lg p-4 bg-white">
+        <img
+          src={powershot2}
+          alt="Gallery Image 3"
+          className="w-full h-auto"  // You can adjust these values
+          style={{ width: '100%', height: 'auto' }} // You can also use inline CSS
+        />
+      </div>
+      {/* Add more images as needed */}
+    </div>
+  </div>
+</section>
+
+
+
+
+
     </section>
   );
 }

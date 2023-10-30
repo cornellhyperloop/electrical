@@ -59,7 +59,7 @@ function FeaturesBlocks() {
               <div className="md:pr-4 lg:pr-12 xl:pr-16 bg-gray-50 p-3 rounded-sm ">
                 <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Description</h3>
                 <h3 className="h3 my-1 ">
-                  The business subteam is in charge of all of our expenses. 
+                  The business subteam is in charge of all of our expenses and our socials. 
                 </h3>
                 <h3 className="text-red-700 font-semibold h3 mt-8 mb-1 font-light text-xl">
                   Tools & Tech
@@ -81,7 +81,7 @@ function FeaturesBlocks() {
               data-aos="fade-right"
             >
               <div className="md:pr-4  bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
-                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Structures</h3>
+                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Social Team</h3>
                 <h3 className="h3 my-1 ">
                 The Structures subteam is an interdisciplinary team open to taking on problems as they apply to the overall architecture of the pod, 
                 from the chassis and shell to the cooling system and more. 
@@ -103,7 +103,7 @@ function FeaturesBlocks() {
               data-aos="fade-right"
             >
               <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
-                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Suspension</h3>
+                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Funding Team</h3>
                 <h3 className="h3 my-1 ">
                 The magnetics subteam is in charge of the levitation, propulsion, and guidance systems of the pod. 
                  Our levitation system uses custom-made electromagnets that induce eddy currents in the track for levitation,
