@@ -89,7 +89,7 @@ Serial::~Serial()
   }
 }
 
-int Serial::ReadData(char *buffer, int nbChar)
+int Serial::ReadData(char *buffer, unsigned int nbChar)
 {
   // Number of bytes we'll have read
   DWORD bytesRead;
@@ -155,7 +155,7 @@ std::tuple<int, int> readData()
   if (SP->IsConnected())
     printf("We're connected\n");
 
-  char incomingData[1000]; // don't forget to pre-allocate memory
+  char incomingData[1000] = ""; // don't forget to pre-allocate memory
   // printf("%s\n",incomingData);
   int dataLength = 1000;
   int readResult = 0;
@@ -174,7 +174,9 @@ std::tuple<int, int> readData()
     Sleep(500);
     if (currTime >= 1000)
     {
-      readResult = std::stof(incomingData);
+      //parsing incoming data
+      
+      readResult = std::stof(incomingData); //returns one value
       break;
     }
   }
@@ -182,7 +184,7 @@ std::tuple<int, int> readData()
   return t;
 }
 
-states verifySensors(double acceleromter[9], double thermistor, double lidar_distance[2], double ultrasonic)
+states verifySensors(double acceleromter[], double thermistor, double lidar_distance[], double ultrasonic)
 {
   // TODO: Add more sensor parameters as needed with average values,
   // create functionality for average data value
@@ -195,40 +197,32 @@ states verifySensors(double acceleromter[9], double thermistor, double lidar_dis
   // Ultrasonic - 1 output value
 
   // Accelerometer
-  
-  //error
-  // Thread.sleep(1000);
-
-  //fixed with this line 
   std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
   for (int i = 0; i < 9; i++)
   {
     printf("%d\n", acceleromter[i]);
-    if (acceleromter[i] < accelerometerMin[i] || acceleromter[i] > accelerometerMax[i]){
+    if (acceleromter[i] < accelerometerMin[i] || acceleromter[i] > accelerometerMax[i])
       return Stop;
-    }
   }
 
   // Thermistor
   printf("%d\n", thermistor);
-  if (thermistor < thermistorMin || thermistor > thermistorMax) {
+  if (thermistor < thermistorMin || thermistor > thermistorMax)
     return Stop;
-  }
+
   // Lidar for Distance
   for (int i = 0; i < 2; i++)
   {
     printf("%d\n", lidar_distance[i]);
-    if (lidar_distance[i] < lidar_distanceMin[i] || lidar_distance[i] > lidar_distanceMax[i]) {
+    if (lidar_distance[i] < lidar_distanceMin[i] || lidar_distance[i] > lidar_distanceMax[i])
       return Stop;
-    }
   }
 
   // Ultrasonic
   printf("%d\n", ultrasonic);
-  if (ultrasonic < ultrasonicMin || ultrasonic > ultrasonicMax) {
+  if (ultrasonic < ultrasonicMin || ultrasonic > ultrasonicMax)
     return Stop;
-  }
   printf("It has successfully passed\n");
   return PreAcceleration;
 }
@@ -240,14 +234,14 @@ bool checkDistance(double totalDist, double travelDist, const float epsilon = 1E
   return (abs(totalDist - travelDist) <= epsilon);
 }
 
-states openBrakes()
+states openBrakes(Serial &serial)
 {
   // Go to Emergency if does not work, otherwise go to Acceleration
   // Add manual interrupt to go into Emergency state
   // Check if there is a sensor/mechanism to get feedback on the Brake states, i.e opened/closed.
-  // Implement and return correct state
+  // TODO: Implement and return correct state
 
-  WriteData((char *)"Open", 4);
+  serial.WriteData((char *)"Open", 4);
   double relay_status = 0; // assuming 0 for open, 1 for close
   // ReadData(); // read relay status from arduino
 
@@ -258,19 +252,17 @@ states openBrakes()
   return Acceleration;
 }
 
-void closeBrakes()
+void closeBrakes(Serial &serial)
 {
   // TODO: Implement closeBrakeMain in helperFunctions.h
   // bool brakeClosed = closeBrakeMain();
   // bool brakeClosed = closeBrakeMain(); // Commented for now since it's causing causing compilation errors due to function not being defined
   // Use bool brakeClosed to verify if the sensor implementation works correctly
 
-
   // TODO: Test functionality of writing to Serial
-  WriteData((char *)"Close", 5);
+  serial.WriteData((char *)"Close", 5);
   // TODO: extract data of relay
-
-  ReadData();
+  // serial.ReadData();
   double relay_status; // assuming 0 for open, 1 for close
   if (relay_status == 1)
   {
@@ -302,7 +294,7 @@ states accelerate(double sensorVelocity, double traveledDist)
       return Cruise;
     }
   }
-  //return Emergency;
+  return Emergency;
 }
 
 states cruise(double sensorVelocity, double traveledDist)
@@ -310,17 +302,18 @@ states cruise(double sensorVelocity, double traveledDist)
   // Go to Emergency if does not work, otherwise go to Deceleration
   // Maintain the desired velocity while constantly reading form the sensor
   // Add manual interrupt to go into Emergency state
+  // TODO: Implement and return correct state
   // logic is taken care off in acceleration!
   return accelerate(sensorVelocity, traveledDist);
 }
 
-states decelerate(double traveledDist)
+states decelerate(double traveledDist, Serial &serial)
 {
   // Go to Emergency if does not work, otherwise go to Deceleration
   // Add a while loop to stay in this case till it needs to start to slow down
   // Add manual interrupt to go into Emergency state
-  // Implement and return correct state
-  closeBrakes();
+  // TODO: Implement and return correct state
+  closeBrakes(serial);
   if (checkDistance(traveledDist, totalDist))
   {
     return Stop;
@@ -329,13 +322,14 @@ states decelerate(double traveledDist)
   {
     return Deceleration;
   }
-  // return Emergency;
+  return Emergency;
 }
 
 states stop(double traveledDist)
 {
   // Go to Crawl if does not work, otherwise go to PodOff
   // Add manual interrupt to go into Emergency state
+  // TODO: Implement and return correct state
   if (checkDistance(traveledDist, totalDist))
   {
     return PodOff;
@@ -344,32 +338,33 @@ states stop(double traveledDist)
   {
     return Crawl;
   }
- // return Emergency
+  return Emergency;
 }
 
-states emergency()
+states emergency(Serial &serial)
 {
   // Close brakes rapidly and stop any propulsion
-  decelerate(traveledDist);
-  closeBrakes();
+  decelerate(0.0, serial);
+  closeBrakes(serial);
   return Stop;
 }
 
 void turnOff()
 {
-  //  Implement killPower in helperFunctions.h
-  // killPower(); 
-  // there is no software control to turn the pod on and off. 
-  // This function is empty
+  // TODO: Implement killPower in helperFunctions.h
+  // killPower(); // Commented out for now since it's causing compilation errors due to function not being defined
 }
 
 int main()
 {
-  //MockSerial serialObject = ...
+  Serial serial = Serial("PN");
   states curr = Verification;
   states prev = Verification;
   // traveledDist = Serial Read for LIDAR to get Traveled Distance
   double traveledDist = 0.0;
+
+  //Serial serial = new Serial();
+
   while (1)
   {
     switch (curr)
@@ -380,6 +375,7 @@ int main()
       /* Task 2: Make a verifySensors function to check they're all on,
                   and ensure readings are in a reasonable range.
       **/
+     
       //  Update function call for verifySensors() with  appropriate parameters
       curr = verifySensors(std::get<0>(readData()), std::get<1>(readData()), std::get<2>(readData()), std::get<3>(readData()));
       // curr = verifySensors(std::get<0>(readData()), stubValue);
@@ -387,7 +383,7 @@ int main()
     };
     case PreAcceleration:
     {
-      curr = openBrakes();
+      curr = openBrakes(serial);
       prev = PreAcceleration;
     };
     case Acceleration:
@@ -402,7 +398,7 @@ int main()
     };
     case Deceleration:
     {
-      curr = decelerate(traveledDist);
+      curr = decelerate(traveledDist, serial);
       prev = Deceleration;
     };
     case Crawl:
@@ -412,7 +408,7 @@ int main()
     };
     case Emergency:
     {
-      curr = emergency();
+      curr = emergency(serial);
       prev = Emergency;
     };
     case Stop:
