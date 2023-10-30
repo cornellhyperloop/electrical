@@ -27,6 +27,7 @@ The Electrical team's repo.
     * Kirti Bagepalli
     * Max Trager
     * Jenna Kafrawi
+    * Ivan Huang
 
 * User Interfaces
     * Devika Krishna
