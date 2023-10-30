@@ -7,7 +7,7 @@ The Electrical team's repo.
 * Ridhit Bhura: Computing Systems Lead
 * Vanshaj Jain: User Interface Lead
 
-* Computing Systems
+* Computing System
     * Ashley Heckman
     * David Lilienfeld
     * Yaqi Gao
