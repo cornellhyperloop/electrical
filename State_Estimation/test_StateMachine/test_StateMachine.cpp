@@ -5,6 +5,79 @@
 #include "../src/statemachine.hpp"
 #include "../src/helperFunctions.hpp"
 #include <gtest/gtest.h>
+#include "../src/SerialClass.h"
+
+// class Serial {
+
+//   private:
+//     // Serial comm handler
+//     HANDLE hSerial;
+//     // Connection statusf
+//     bool connected;
+//     // Get various information about the connection
+//     COMSTAT status;
+//     // Keep track of last error
+//     DWORD errors;
+
+
+//   public:
+//     Serial(const char *portName) {
+//       this<-connected = true;
+//     }
+//     ~Serial() {
+//       if (this->connected)
+//       {
+//         // We're no longer connected
+//         this->connected = false;
+//         // Close the serial handler
+//         CloseHandle(this->hSerial);
+//       }
+//     }
+//     int ReadData(char *buffer, unsigned int nbChar) {
+//       return 0
+//     }
+//     bool WriteData(const char *buffer, unsigned int nbChar) {
+//       return true;
+//     }
+//     bool IsConnected() {
+//       return this->connected;
+//     }
+
+// }
+
+Serial::Serial(const char *portName)
+{
+  // We're not yet connected
+  this->connected = false;
+}
+
+Serial::~Serial()
+{
+  // Check if we are connected before trying to disconnect
+  if (this->connected)
+  {
+    // We're no longer connected
+    this->connected = false;
+    // Close the serial handler
+    CloseHandle(this->hSerial);
+  }
+}
+
+int Serial::ReadData(char *buffer, unsigned int nbChar)
+{
+  return 0;
+}
+
+bool Serial::WriteData(const char *buffer, unsigned int nbChar)
+{
+  return true;
+}
+
+bool Serial::IsConnected()
+{
+  // Simply return the connection status
+  return this->connected;
+}
 
 // 1. Test if the correct states are being entered from the relevant states
 // 2. Test possible wrong ways of getting to those states and seeing if we can break our code
@@ -30,25 +103,25 @@
 //   printf("All tests are completed!");
 // }
 
-int Factorial(int n)
-{
-  if (n == 0)
-  {
-    return 1;
-  }
-  return n * Factorial(n - 1);
-}
+// int Factorial(int n)
+// {
+//   if (n == 0)
+//   {
+//     return 1;
+//   }
+//   return n * Factorial(n - 1);
+// }
 
 // Demonstrate some basic assertions.
-TEST(HelloTest, BasicAssertions)
-{
-  // Expect two strings not to be equal.
-  EXPECT_STRNE("hello", "world");
-  // Expect equality.
-  EXPECT_EQ(7 * 6, 42);
-  // Expect equality.
-  EXPECT_EQ(Factorial(5), 120);
-}
+// TEST(HelloTest, BasicAssertions)
+// {
+//   // Expect two strings not to be equal.
+//   EXPECT_STRNE("hello", "world");
+//   // Expect equality.
+//   EXPECT_EQ(7 * 6, 42);
+//   // Expect equality.
+//   EXPECT_EQ(Factorial(5), 120);
+// }
 
 //checkDistance
 TEST(CheckDistance, BasicAssertions){
@@ -125,8 +198,9 @@ TEST(CruiseTest, BasicAssertions){
 TEST(DecelerationTest, BasicAssertions){
   double traveledDistEnd = 0.0;
   double traveledDistMid = 0.0;
-  EXPECT_EQ(decelerate(traveledDistEnd), Stop) ;
-  EXPECT_EQ(decelerate(traveledDistMid), Emergency);
+  Serial mockSerial = Serial();
+  EXPECT_EQ(decelerate(traveledDistEnd, mockSerial), Stop) ;
+  EXPECT_EQ(decelerate(traveledDistMid, mockSerial), Emergency);
 }
 
 //emergency state
