@@ -28,7 +28,7 @@ The Electrical team's repo.
     * Max Trager
     * Jenna Kafrawi
     * Ivan Huang
-    * Xueqing Tsang
+    * Sophia Tsang
 
 * User Interfaces
     * Devika Krishna
