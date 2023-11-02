@@ -1,0 +1,19 @@
+// this is a basic test for one of the FSM functions, this must be edited and reformatted
+
+#include <stdio.h>
+#include <gtest/gtest.h> // Include the Google Test header for C
+
+// Define your emergency() function. You should replace this with your actual implementation.
+int emergency() {
+    return 1; // Change this to return the appropriate value for your test.
+}
+
+// Define a test case function
+TEST(EmergencyTest, BasicAssertions) {
+    EXPECT_EQ(emergency(), 1); // Change 1 to the expected result (e.g., Stop) in your test.
+}
+
+int main(int argc, char **argv) {
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
