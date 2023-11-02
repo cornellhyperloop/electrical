@@ -7,8 +7,9 @@
 #include "SerialClass.h"
 #include <iostream>
 #include <thread>
+#include <vector>
 
-std::tuple<int, int> readData()
+std::vector<double> readData()
 {
   double startTime = GetTickCount();
   Serial *SP = new Serial("\\\\.\\COM3"); // adjust as needed
@@ -20,14 +21,17 @@ std::tuple<int, int> readData()
   // printf("%s\n",incomingData);
   int dataLength = 1000;
   int readResult = 0;
-  int readResult2 = 0;
+  double readResult0 = 0;
+  double readResult1 = 0;
+  double readResult2 = 0;
+  double readResult3 = 0;
 
   while (SP->IsConnected())
   {
     double currTime = GetTickCount() - startTime;
     readResult = SP->ReadData(incomingData, dataLength);
     // printf("Bytes read: (0 means no data available) %i\n",readResult);
-    incomingData[readResult] = 0;
+    incomingData[readResult] = '0';
 
     // printf("%s\n", incomingData);
     // printf("%f\n", std::stof(incomingData));
@@ -36,12 +40,11 @@ std::tuple<int, int> readData()
     if (currTime >= 1000)
     {
       //parsing incoming data
-      
       readResult = std::stof(incomingData); //returns one value
       break;
     }
   }
-  std::tuple<int, int> t(readResult, readResult2);
+  std::vector<double> t = {readResult0, readResult1, readResult2, readResult3};
   return t;
 }
 
@@ -238,7 +241,7 @@ int main()
       **/
      
       //  Update function call for verifySensors() with  appropriate parameters
-      curr = verifySensors(std::get<0>(readData()), std::get<1>(readData()), std::get<2>(readData()), std::get<3>(readData()));
+      curr = verifySensors(readData()[0], readData()[1], readData()[2], readData()[3]);
       // curr = verifySensors(std::get<0>(readData()), stubValue);
       prev = Verification;
     };

@@ -7,7 +7,7 @@
 int main();
 
 // Verifies that the sensors are working properly
-states verifySensors(double sensor1, double sensor2);
+states verifySensors(double sensor0[], double sensor1, double sensor2[], double sensor3);
 
 // Opens the brakes
 states openBrakes();
