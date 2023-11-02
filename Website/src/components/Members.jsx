@@ -17,7 +17,7 @@ function Members() {
     <div className="flex flex-col min-h-screen overflow-hidden">
 
       {/*  Site header */}
-      <Header/>
+      <Header />
       {/*  Page content */}
       <main className="flex-grow">
 
@@ -26,7 +26,7 @@ function Members() {
         {FeaturesBlocks()}
       </main>
       <Banner />
-      
+
       {/*  Site footer */}
 
     </div>
@@ -34,17 +34,28 @@ function Members() {
 }
 
 function FeaturesBlocks() {
-  var faculty=[{name:"Rick Geddes",imageurl:"GeddesRick.jpg",title:"Faculty Co-Advisor"},{name:"Zhiting Tian",imageurl:"TianZhiting.jpg",title:"Faculty Co-Advisor"}]
-  var leads = [{ name: "Cameron Robinson", imageurl: "CameronRobinson.jpg", title: "Team Manager" }, { name: "David Wolfers", imageurl: "DavidWolfers.jpg", title: "Electrical Lead" }, { name: "Ellie Perlitz", imageurl: "ElliePerlitz.jpg", title: "Business Lead" }, { name: "Mahika Goel", imageurl: "profilephoto.png", title: "Mechanical Lead" }, { name: "Courtney Kraft", imageurl: "CourtneyKraft.jpg", title: "Mechanical Advisor" }, { name: "Mark Edwards", imageurl: "profilephoto.png", title: "Magnetic Levitation Lead" }, { name: "Jack Crespo", imageurl: "profilephoto.png", title: "Lead Systems Engineer"},{name:"Joshua Coombs",imageurl:"profilephoto.png",title:"Braking Lead"},{name:"Ashna Gupta",imageurl:"profilephoto.png",title:"Structures Lead"},{name:"Vanshaj Jain",imageurl:"vanshajjain.jpg",title:"GUI Lead"},{name:"Robert Fleming",imageurl:"profilephoto.png",title:"Power Systems Lead"},
-  {name:"Ridhit Bhura",imageurl:"profilephoto.png",title:"Computing Systems Lead"},
-  {name:"Devan Flores",imageurl:"profilephoto.png",title:"Web Lead"}]
-  var gui=["Kelvin Wang","Ryan Mao" ,"Devika Krishna","Patrick Choo","Mihika Jain","Stephen Chien","Cooper Proctor","Aislinn Ennis", "Benson Yee"]
-  var computing=["Anoushka Kabra","Ashley Heckman","David Lilienfeld","Yaqi Gao","Levi Zeng","Shefali Awasthi","Zarif Karim", "Neera Kapoor", "Aiman Mobhani"]
-  var powersystems=["Schuyler Seyram", "Berk Gokmen" , "Steven Wei Chen", "Lalo Esparza", "Rares-Stefan Busca","Kirti Bagepalli", "Max Trager", "Jenna Kafrawi"]
+  var faculty = [{ name: "Rick Geddes", imageurl: "GeddesRick.jpg", title: "Faculty Co-Advisor", rurl: "https://www.linkedin.com/in/rick-geddes-5134475/" },
+  { name: "Zhiting Tian", imageurl: "TianZhiting.jpg", title: "Faculty Co-Advisor", rurl: "https://www.linkedin.com/in/zhiting-tian-3103179/" }]
+  var leads = [{ name: "Cameron Robinson", imageurl: "CameronRobinson.jpg", title: "Team Manager", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Robert Fleming", imageurl: "profilephoto.jpg", title: "Electrical Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Ellie Perlitz", imageurl: "ElliePerlitz.jpg", title: "Business Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Mahika Goel", imageurl: "profilephoto.png", title: "Mechanical Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Courtney Kraft", imageurl: "CourtneyKraft.jpg", title: "Mechanical Advisor", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Mark Edwards", imageurl: "profilephoto.png", title: "Magnetic Levitation Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Jack Crespo", imageurl: "profilephoto.png", title: "Lead Systems Engineer", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Joshua Coombs", imageurl: "profilephoto.png", title: "Braking Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Ashna Gupta", imageurl: "profilephoto.png", title: "Structures Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Vanshaj Jain", imageurl: "vanshajjain.jpg", title: "GUI Lead", rurl: "https://www.linkedin.com/in/vanshaj24/" },
+  { name: "Berk Gokmen", imageurl: "profilephoto.png", title: "Power Systems Lead", rurl: "https://www.linkedin.com/in/berk-gokmen/" },
+  { name: "Ridhit Bhura", imageurl: "profilephoto.png", title: "Computing Systems Lead", rurl: "https://www.linkedin.com/in/ridhit/" },
+  { name: "Devan Flores", imageurl: "profilephoto.png", title: "Web Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" }]
+  var gui = ["Kelvin Wang", "Ryan Mao", "Devika Krishna", "Patrick Choo", "Mihika Jain", "Stephen Chien", "Cooper Proctor", "Aislinn Ennis", "Benson Yee"]
+  var computing = ["Anoushka Kabra", "Ashley Heckman", "David Lilienfeld", "Yaqi Gao", "Levi Zeng", "Shefali Awasthi", "Zarif Karim", "Neera Kapoor", "Aiman Mobhani"]
+  var powersystems = ["Schuyler Seyram", "Berk Gokmen", "Steven Wei Chen", "Lalo Esparza", "Rares-Stefan Busca", "Kirti Bagepalli", "Max Trager", "Jenna Kafrawi"]
   var magnetic = ["Nikita Dolgopolov", "Rushil Choudary", "Verena Gonzalez"]
-  var braking = ["Yueming Liu","Sal Ciminello","Moez Amini","Michelle Yu","Madison Schaaff","Siddhant Ahuja"]
-  var structures = ["David Ovetsky","Harsh Maskara","Allison Liao", "Jack Meyer","Riya Guttigoli", "Daniel Akinwale"]
-  var business = [ "Tyler Angelica", "Jonathan Chen", "Luke Shao", "Elizabeth Song", "Aidan Shor", "Ryan Graziano", "Jason Ng", "Vasu Patel", "John Goepfert"]
+  var braking = ["Yueming Liu", "Sal Ciminello", "Moez Amini", "Michelle Yu", "Madison Schaaff", "Siddhant Ahuja"]
+  var structures = ["David Ovetsky", "Harsh Maskara", "Allison Liao", "Jack Meyer", "Riya Guttigoli", "Daniel Akinwale"]
+  var business = ["Tyler Angelica", "Jonathan Chen", "Luke Shao", "Elizabeth Song", "Aidan Shor", "Ryan Graziano", "Jason Ng", "Vasu Patel", "John Goepfert"]
 
 
   return (
@@ -65,11 +76,11 @@ function FeaturesBlocks() {
 
           {/* Items */}
           <div className="max-w-sm mx-auto flex flex-wrap flex-row gap-6  items-start md:max-w-2xl lg:max-w-none">
-            { faculty.map((item) => {
-              return <Member src={item.imageurl} title={item.title} subtitle={item.name} />;
-              }) }
-            
-          
+            {faculty.map((item) => {
+              return <Member src={item.imageurl} title={item.title} subtitle={item.name} rurl={item.rurl} />;
+            })}
+
+
           </div>
           <div className=" mx-auto flex justify-between text-center pt-4 pb-4 md:pb-4">
             <h2 className="h2 mb-4 text-3xl font-semibold">Leads</h2>
@@ -79,85 +90,86 @@ function FeaturesBlocks() {
 
           {/* Items */}
           <div className="max-w-sm mx-auto flex flex-wrap flex-row gap-6  items-start md:max-w-2xl lg:max-w-none">
-            { leads.map((item) => {
-              return <Member src={item.imageurl} title={item.title} subtitle={item.name} />;
-              }) }
-            
-          
+            {leads.map((item) => {
+              return <Member src={item.imageurl} title={item.title} subtitle={item.name} rurl={item.rurl} />;
+            })}
+
+
           </div>          <div className=" mx-auto flex justify-between text-center pb-4 md:pb-4">
             <h2 className="h2 my-4 text-3xl font-semibold">Electrical</h2>
             <div>
 
-              
-              </div>
+
+            </div>
 
           </div>
 
           {/* Items */}
           <div className="max-w-sm mx-auto flex flex-wrap flex-row gap-6  items-start md:max-w-2xl lg:max-w-none">
-            { gui.map((item) => {
+            {gui.map((item) => {
               return <Member src={"profilephoto.png"} title={"User Interfaces"} subtitle={item} />;
-              }) }
-              { powersystems.map((item) => {
+            })}
+            {powersystems.map((item) => {
               return <Member src={"profilephoto.png"} title={"Power Systems"} subtitle={item} />;
-              })}
-              { computing.map((item) => {
+            })}
+            {computing.map((item) => {
               return <Member src={"profilephoto.png"} title={"Computing Systems"} subtitle={item} />;
-              }) }
-          
+            })}
+
           </div>
-           <div className=" mx-auto flex justify-between text-center pb-4 md:pb-4">
+          <div className=" mx-auto flex justify-between text-center pb-4 md:pb-4">
             <h2 className="h2 my-4 text-3xl font-semibold">Business</h2>
             <div>
 
-              
-              </div>
+
+            </div>
 
           </div>
 
           {/* Items */}
           <div className="max-w-sm mx-auto flex flex-wrap flex-row gap-6  items-start md:max-w-2xl lg:max-w-none">
-            { business.map((item) => {
+            {business.map((item) => {
               return <Member src={"profilephoto.png"} title={"Business"} subtitle={item} />;
-              }) }
-             
-          
-          </div>    
+            })}
+
+
+          </div>
           <div className=" mx-auto flex justify-between text-center pb-4 md:pb-4">
             <h2 className="h2 my-4 text-3xl font-semibold">Mechanical</h2>
             <div>
 
-              </div>
+            </div>
 
           </div>
 
           {/* Items */}
           <div className="max-w-sm mx-auto flex flex-wrap flex-row gap-6  items-start md:max-w-2xl lg:max-w-none">
-            { magnetic.map((item) => {
+            {magnetic.map((item) => {
               return <Member src={"profilephoto.png"} title={"Magnetic"} subtitle={item} />;
-              }) }
-              { braking.map((item) => {
+            })}
+            {braking.map((item) => {
               return <Member src={"profilephoto.png"} title={"Braking"} subtitle={item} />;
-              })}
-              { structures.map((item) => {
+            })}
+            {structures.map((item) => {
               return <Member src={"profilephoto.png"} title={"Structures"} subtitle={item} />;
-              }) }
-          
-          </div>    
+            })}
+
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-function Member({ src, title, subtitle }) {
+function Member({ src, title, subtitle, rurl }) {
   return (
     <div className="relative flex flex-col items-center mx-4 my-4 bg-white p-4 shadow-md transition transform hover:scale-105 hover:shadow-xl">
       <div className="relative w-48 h-48 overflow-hidden">
-        <img
-          className="object-cover w-full h-full"
-          src={"/img/headshots/" + src}
-        />
+        <a href={rurl} >
+          <img
+            className="object-cover w-full h-full"
+            src={"/img/headshots/" + src}
+          /></a>
       </div>
       <h4 className="text-xl font-bold mt-3 text-center">{title}</h4>
       <h4 className="text-lg text-center text-gray-600">{subtitle}</h4>
