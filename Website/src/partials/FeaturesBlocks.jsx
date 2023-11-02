@@ -34,12 +34,12 @@ s
               <h4 className="text-xl font-bold leading-snug tracking-tight mb-1 mt-4 self-start">Mechanical</h4>
             </a>
             
-          <a href="/team#business" className=" hover:opacity-90  relative h-full flex flex-col items-center p-6 bg-white rounded shadow-xl">
+          <a href="/business" className=" hover:opacity-90  relative h-full flex flex-col items-center p-6 bg-white rounded shadow-xl">
                         <img className="h-64 w-full object-cover rounded-md" src={Business}></img>
 
               <h4 className="text-xl font-bold leading-snug tracking-tight mb-1 mt-4 self-start">Business</h4>
             </a>
-          <a href="/team#electrical" className="hover:opacity-90  relative flex h-full flex-col items-center p-6 bg-white rounded shadow-xl">
+          <a href="/electrical" className="hover:opacity-90  relative flex h-full flex-col items-center p-6 bg-white rounded shadow-xl">
                         <img className="h-64 w-full rounded-md object-cover" src={Electrical}></img>
 
               <h4 className="text-xl font-bold leading-snug tracking-tight mb-1 mt-4 self-start">Electrical</h4>

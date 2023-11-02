@@ -11,6 +11,8 @@ import Challenge from "../partials/Challenge";
 import Business from "../img/business.png";
 import Mechanical from "../img/mechanical.png";
 import Electrical from "../img/electrical.png";
+import powershot1 from "../img/MechanicalTeamImgs/image.png";
+import powershot2 from "../img/MechanicalTeamImgs/smartppl.png";
 
 function Mechanical2() {
   return (
@@ -20,7 +22,6 @@ function Mechanical2() {
       {/*  Page content */}
       <main className="flex-grow">
         {/*  Page sections */}
-        <HeroMembers />
         {FeaturesBlocks()}
       </main>
       <Banner />
@@ -40,12 +41,7 @@ function FeaturesBlocks() {
         aria-hidden="true"
       ></div>
 
-      
-
-
-
-
-
+    
 
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
@@ -53,7 +49,7 @@ function FeaturesBlocks() {
 
           {/* Section header */}
           <div className=" mx-auto flex justify-between text-center pb-8 md:pb-8">
-            <h2 className="h3 mb-2 text-4xl font-bold">Subteams</h2>
+            <h2 className="h3 mb-2 text-4xl font-bold text-red-700 font-semibold"> Mechanical Subteams</h2>
             <div></div>
           </div>
 
@@ -63,18 +59,18 @@ function FeaturesBlocks() {
             {/* Tabs items */}
             <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6  md:mb-0 md:order-1">
               <div className="md:pr-4 lg:pr-12 xl:pr-16 bg-gray-50 p-3 rounded-sm ">
-                <h3 className="h3 my-1 font-light text-xl">Description</h3>
+                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Description</h3>
                 <h3 className="h3 my-1 ">
                   The mechanical team is responsible for developing all
                   mechanical subsystems on the pod, including the chassis,
                   suspension, propulsion system, brakes, and fuselage.
                 </h3>
-                <h3 className="h3 mt-8 mb-1 font-light text-xl">
+                <h3 className="text-red-700 font-semibold h3 mt-8 mb-1 font-light text-xl">
                   Tools & Tech
                 </h3>
                 <h3 className="h3 my-1 ">
                   The pod designs employ a variety of manufacturing techniques,
-                  inluding traditional machining, welding, CNC, 3D printing, and
+                  including traditional machining, welding, CNC, 3D printing, and
                   carbon fiber composite structures.
                 </h3>
               </div>{" "}
@@ -88,15 +84,17 @@ function FeaturesBlocks() {
               className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6"
               data-aos="fade-right"
             >
-              <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
-                <h3 className="h3 my-1 font-light text-xl">Propulsion</h3>
+              <div className="md:pr-4  bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
+                <h3 className="h3 my-1  text-xl text-red-700 font-semibold">Structures</h3>
                 <h3 className="h3 my-1 ">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                  Excepteur sint occaecat cupidatat non proident,
-                   sunt in culpa qui officia deserunt mollit anim id est laborum.
+                The Structures subteam is an interdisciplinary team open to taking on problems as they apply to the overall architecture of the pod, 
+                from the chassis and shell to the cooling system and more. 
+                This means revamping the whole chassis, the pod's skeleton, iteration to iteration,
+                 which requires careful planning of the many subsystems and their placement. 
+                 On top of that we must come up with new designs for the aeroshell to optimize both space and aerodynamics 
+                 while fitting nicely with the pod, and we are currently still in the process of creating a tried and tested process
+                  for the manufacture of a carbon-fiber shell of such a scale. 
+                 
                 </h3>
               </div>
 
@@ -109,10 +107,39 @@ function FeaturesBlocks() {
               data-aos="fade-right"
             >
               <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
-                <h3 className="h3 my-1 font-light text-xl">Suspension</h3>
+                <h3 className="h3 my-1 text-xl text-red-700 font-semibold">Suspension</h3>
                 <h3 className="h3 my-1 ">
-                The suspension team focuses on the pod's suspension mechanisms
-                  and chassis design.
+                The magnetics subteam is in charge of the levitation, propulsion, and guidance systems of the pod. 
+                 Our levitation system uses custom-made electromagnets that induce eddy currents in the track for levitation,
+                  and our propulsion system relies on a linear induction motor to create a moving magnetic pole to attract
+                   and repel the track as the pod travels. Our guidance system allows for control in the horizontal, 
+                   roll, and yaw directions, and this year also allows for control in the vertical and pitch directions.
+                    The magnetics team is very research-focused and brings together a lot of
+                     novel technologies in order to make our pods' ambitious goals a reality.
+                </h3>
+
+              </div>
+
+
+              {/* Tabs buttons */}
+            </div>
+
+
+            <div
+              className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6"
+              data-aos="fade-right"
+            >
+              <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16  ">
+                <h3 className="h3 my-1  text-xl text-red-700 font-semibold">Cooling </h3>
+                <h3 className="h3 my-1 ">
+                The cooling subteam is currently working on developing a robust 
+                  but simple cooling architecture for our batteries and BMS.
+                   Future problems will include continued iteration of the chassis and shell, 
+                   but also the expansion of our cooling system from just the batteries to other parts of the pod that will need it 
+                   ,currently under the jurisdiction of other subteams but likely to be united under one cooling subsystem owned by structures.
+                    In short, the structures subteam is a particularly multifaceted subteam here on Cornell Hyperloop, 
+                    and a great team for learning the general architecture of the pod before delving into specifics. 
+
                 </h3>
 
               </div>
@@ -127,25 +154,58 @@ function FeaturesBlocks() {
             >
               <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
 
-                <h3 className="h3 mt-8 mb-1 font-light text-xl">Braking</h3>
+                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Braking</h3>
                 <h3 className="h3 my-1 ">
-                  The braking team specializes within the mechanical and
-                  magnetic braking systems.
+                  The braking subteam is responsible for the design, construction, and testing of two braking systems:
+                   magnetic braking and pneumatic braking. 
+                   Magnetic brakes employ electromagnets to generate eddy currents in the track,
+                    creating resistance against the pod's motion.
+                     The braking force increases with speed, making it effective at decelerating the pod from high velocities.
+                      Pneumatic brakes utilize compressed air and pneumatic cylinders to activate frictional brake pads,
+                       which make contact with the track and bring the pod to a complete halt. 
+                       The braking team is actively engaged in researching and experimenting with various design possibilities, 
+                       while also collaborating closely with other subteams to develop and test our electromagnets and pneumatic actuation systems.
+                   Our collective efforts are dedicated to turning the hyperloop concept into a reality.
                 </h3>
               </div>
 
 
               {/* Tabs buttons */}
             </div>
-          
           </div>
-
-
-          {/* Items */}
         </div>
-   
-        {/* Items */}
       </div>
+
+      <section className="py-16">
+  <div className="container mx-auto px-4">
+    <h2 className="text-2xl font-semibold mb-4">Photo Gallery</h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {/* Add your gallery images here */}
+      <div className="rounded-lg p-4 bg-white">
+        <img
+          src={powershot1}
+          alt="Gallery Image 3"
+          className="w-full h-auto"  // You can adjust these values
+          style={{ width: '100%', height: 'auto' }} // You can also use inline CSS
+        />
+      </div>
+      <div className="rounded-lg p-4 bg-white">
+        <img
+          src={powershot2}
+          alt="Gallery Image 3"
+          className="w-full h-auto"  // You can adjust these values
+          style={{ width: '100%', height: 'auto' }} // You can also use inline CSS
+        />
+      </div>
+      {/* Add more images as needed */}
+    </div>
+  </div>
+</section>
+
+
+
+
+
     </section>
   );
 }
