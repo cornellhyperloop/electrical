@@ -1,10 +1,11 @@
-// main.c
+// // main.c
 
-// unit testing for publish.c
+// // unit testing for publish.c main function
+
 
 #include <unistd.h>
 #include <zcm/zcm.h>
-#include <sensor_info_t.h>
+#include "sensor_info_t.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/ioctl.h>
@@ -12,6 +13,8 @@
 #include <termios.h>
 #include <fcntl.h>
 #include <string.h>
+
+
 
 // Function to read data from the file descriptor
 int readData(int fd, char* buf, int bufSize) {
@@ -207,11 +210,14 @@ int main(int argc, char* argv[]) {
 	return 0;
 }
 }
-// test_main.cpp
+
 
 #include "gtest/gtest.h"
 #include <stdio.h>
-#include "main.c"
+#include "testing.cpp"
+
+
+
 
 // Mock functions for testing
 int mock_readData(int fd, char* buf, int bufSize) {
@@ -234,6 +240,11 @@ TEST(ParseBufferTest, PositiveTest) {
     parseBuffer(&msg, buf);
     ASSERT_FLOAT_EQ(msg.temperature1, 25.5);
     ASSERT_FLOAT_EQ(msg.temperature2, 26.5);
+}
+
+int main(int argc, char** argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
 
 int main(int argc, char** argv) {
