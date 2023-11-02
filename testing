@@ -1,1 +1,72 @@
-// this is a basic test for one of the 
+// main.c
+
+// unit testing for publish.c
+
+#include <unistd.h>
+#include <zcm/zcm.h>
+#include <sensor_info_t.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/ioctl.h>
+#include <fcntl.h>
+#include <termios.h>
+#include <fcntl.h>
+#include <string.h>
+
+// Function to read data from the file descriptor
+int readData(int fd, char* buf, int bufSize) {
+    return read(fd, buf, bufSize);
+}
+
+// Function to parse the buffer and update the sensor_info_t structure
+void parseBuffer(sensor_info_t* msg, char* buf) {
+    char* token = strtok(buf, " ");
+    int count = 0;
+    while (token != NULL) {
+        if (count == 0) {
+            msg->temperature1 = atof(token);
+        } else if (count == 1) {
+            msg->temperature2 = atof(token);
+        }
+        token = strtok(NULL, " ");
+        count++;
+    }
+}
+
+int main(int argc, char* argv[]) {
+    // ... (Your main function code remains the same)
+}
+
+// test_main.cpp
+
+#include "gtest/gtest.h"
+#include <stdio.h>
+#include "main.c"
+
+// Mock functions for testing
+int mock_readData(int fd, char* buf, int bufSize) {
+    strcpy(buf, "25.5 26.5"); // Mock data
+    return 10;
+}
+
+// Unit tests
+TEST(ReadDataTest, PositiveTest) {
+    char buf[256];
+    int result = readData(1, buf, 256);
+    ASSERT_EQ(result, 10);
+    ASSERT_STREQ(buf, "25.5 26.5");
+}
+
+TEST(ParseBufferTest, PositiveTest) {
+    sensor_info_t msg;
+    char buf[256];
+    strcpy(buf, "25.5 26.5");
+    parseBuffer(&msg, buf);
+    ASSERT_FLOAT_EQ(msg.temperature1, 25.5);
+    ASSERT_FLOAT_EQ(msg.temperature2, 26.5);
+}
+
+int main(int argc, char** argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
