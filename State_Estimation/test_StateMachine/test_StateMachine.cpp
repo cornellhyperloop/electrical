@@ -51,6 +51,7 @@ Serial::Serial(const char *portName)
   this->connected = false;
 }
 
+
 Serial::~Serial()
 {
   // Check if we are connected before trying to disconnect
