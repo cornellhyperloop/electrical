@@ -62,15 +62,7 @@ function FeaturesBlocks() {
             <div className="md:pr-4 lg:pr-12 xl:pr-16 bg-gray-50 p-3 rounded-sm ">
               <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Description</h3>
               <h3 className="h3 my-1 ">
-                The business team is in charge of all of our expenses and our socials.
-              </h3>
-              <h3 className="text-red-700 font-semibold h3 mt-8 mb-1 font-light text-xl">
-                Tools & Tech
-              </h3>
-              <h3 className="h3 my-1 ">
-                The business team uses Adobe Creative Cloud to produce marketing
-                materials for the website and our social media. We also use Excel
-                and spreadsheets to manage the team’s finances.
+                The business subteam is in charge of Marketing, Operations, and Development.
               </h3>
             </div>{" "}
           </div>
@@ -83,7 +75,17 @@ function FeaturesBlocks() {
               className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6"
               data-aos="fade-right"
             >
+              <div className="md:pr-4  bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
+                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Operations Team</h3>
+                <h3 className="h3 my-1 ">
+                  The operations subteam handles all of Cornell Hyperloop's finances.
+                  Operations closely monitors income and spending while also performing monthly account verifications for audits.
+                  Operations is also responsible for competition planning,
+                  and is currently working on facilitating this summer's Hyperloop Global Conference in Canada.
 
+
+                </h3>
+              </div>
 
 
               {/* Tabs buttons */}
@@ -94,14 +96,11 @@ function FeaturesBlocks() {
               data-aos="fade-right"
             >
               <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
-                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Operations</h3>
+                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Development Team</h3>
                 <h3 className="h3 my-1 ">
-                  The operations subteam handles all of Cornell Hyperloop's
-                  finances. Operations closely monitors income and spending while
-                  also performing monthly account verifications for audits.
-                  Operations is also responsible for competition planning, and is
-                  currently working on facilitating this summer's Hyperloop Global
-                  Conference in Canada.
+                  The development subteam fuels all of Cornell Hyperloop's outreach,
+                  sponsorship acquisition, and fundraising. Development's recent projects include creating an updated sponsorship packet,
+                  facilitating crowdfunding, and maintaining connections with our extensive network of alumni.
                 </h3>
 
               </div>
@@ -111,26 +110,8 @@ function FeaturesBlocks() {
             </div>
 
 
-            <div
-              className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6"
-              data-aos="fade-right"
-            >
-              <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16  ">
-                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Development </h3>
-                <h3 className="h3 my-1 ">
-                  The development subteam fuels all of Cornell Hyperloop's
-                  outreach, sponsorship acquisition, and fundraising. Development's
-                  recent projects include creating an updated sponsorship packet,
-                  facilitating crowdfunding, and maintaining connections with our
-                  extensive network of alumni.
+            {/* Tabs buttons */}
 
-                </h3>
-
-              </div>
-
-
-              {/* Tabs buttons */}
-            </div>
 
             <div
               className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6"
@@ -143,9 +124,9 @@ function FeaturesBlocks() {
                   The marketing subteam is the artistic soul of Cornell Hyperloop.
                   Marketing designs a wide variety of visuals for the team,
                   ranging from professional logos to creative concept art.
-                  Marketing is also responsible for creating every semester's new
-                  team merchandise, as well as maintaining of Cornell Hyperloop's
-                  social media accounts.
+                  Marketing is also responsible for creating every semester's new team merchandise,
+                  as well as maintaining of Cornell Hyperloop's social media accounts.
+
                 </h3>
               </div>
 
