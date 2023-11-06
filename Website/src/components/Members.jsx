@@ -52,7 +52,7 @@ function FeaturesBlocks() {
 
   var gui = ["Kelvin Wang", "Ryan Mao", "Devika Krishna", "Patrick Choo", "Mihika Jain", "Stephen Chien", "Cooper Proctor", "Aislinn Ennis", "Benson Yee"]
   var computing = ["Anoushka Kabra", "Ashley Heckman", "David Lilienfeld", "Yaqi Gao", "Levi Zeng", "Shefali Awasthi", "Zarif Karim", "Neera Kapoor", "Aiman Mobhani"]
-  var powersystems = ["Schuyler Seyram", "Berk Gokmen", "Steven Wei Chen", "Lalo Esparza", "Rares-Stefan Busca", "Kirti Bagepalli", "Max Trager", "Jenna Kafrawi"]
+  var powersystems = ["Schuyler Seyram", "Steven Wei Chen", "Lalo Esparza", "Rares-Stefan Busca", "Kirti Bagepalli", "Max Trager", "Jenna Kafrawi"]
   var faculty = [{ name: "Rick Geddes", imageurl: "GeddesRick.jpg", title: "Faculty Co-Advisor" }, { name: "Zhiting Tian", imageurl: "TianZhiting.jpg", title: "Faculty Co-Advisor" }]
   var leads = [{ name: "Cameron Robinson", imageurl: "CameronRobinson.jpg", title: "Team Manager" }, { name: "David Wolfers", imageurl: "DavidWolfers.jpg", title: "Electrical Lead" }, { name: "Ellie Perlitz", imageurl: "ElliePerlitz.jpg", title: "Business Lead" }, { name: "Mahika Goel", imageurl: "profilephoto.png", title: "Mechanical Lead" },
   { name: "Courtney Kraft", imageurl: "CourtneyKraft.jpg", title: "Mechanical Advisor" },
