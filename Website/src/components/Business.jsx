@@ -59,15 +59,7 @@ function FeaturesBlocks() {
               <div className="md:pr-4 lg:pr-12 xl:pr-16 bg-gray-50 p-3 rounded-sm ">
                 <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Description</h3>
                 <h3 className="h3 my-1 ">
-                  The business subteam is in charge of all of our expenses and our socials. 
-                </h3>
-                <h3 className="text-red-700 font-semibold h3 mt-8 mb-1 font-light text-xl">
-                  Tools & Tech
-                </h3>
-                <h3 className="h3 my-1 ">
-                  The pod designs employ a variety of manufacturing techniques,
-                  including traditional machining, welding, CNC, 3D printing, and
-                  carbon fiber composite structures.
+                  The business subteam is in charge of Marketing, Operations, and Development. 
                 </h3>
               </div>{" "}
             </div>
@@ -81,15 +73,13 @@ function FeaturesBlocks() {
               data-aos="fade-right"
             >
               <div className="md:pr-4  bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
-                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Social Team</h3>
+                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Operations Team</h3>
                 <h3 className="h3 my-1 ">
-                The Structures subteam is an interdisciplinary team open to taking on problems as they apply to the overall architecture of the pod, 
-                from the chassis and shell to the cooling system and more. 
-                This means revamping the whole chassis, the pod's skeleton, iteration to iteration,
-                 which requires careful planning of the many subsystems and their placement. 
-                 On top of that we must come up with new designs for the aeroshell to optimize both space and aerodynamics 
-                 while fitting nicely with the pod, and we are currently still in the process of creating a tried and tested process
-                  for the manufacture of a carbon-fiber shell of such a scale. 
+                The operations subteam handles all of Cornell Hyperloop's finances.
+                 Operations closely monitors income and spending while also performing monthly account verifications for audits.
+                  Operations is also responsible for competition planning,
+                   and is currently working on facilitating this summer's Hyperloop Global Conference in Canada.
+
                  
                 </h3>
               </div>
@@ -103,15 +93,11 @@ function FeaturesBlocks() {
               data-aos="fade-right"
             >
               <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
-                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Funding Team</h3>
+                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Development Team</h3>
                 <h3 className="h3 my-1 ">
-                The magnetics subteam is in charge of the levitation, propulsion, and guidance systems of the pod. 
-                 Our levitation system uses custom-made electromagnets that induce eddy currents in the track for levitation,
-                  and our propulsion system relies on a linear induction motor to create a moving magnetic pole to attract
-                   and repel the track as the pod travels. Our guidance system allows for control in the horizontal, 
-                   roll, and yaw directions, and this year also allows for control in the vertical and pitch directions.
-                    The magnetics team is very research-focused and brings together a lot of
-                     novel technologies in order to make our pods' ambitious goals a reality.
+                The development subteam fuels all of Cornell Hyperloop's outreach, 
+                sponsorship acquisition, and fundraising. Development's recent projects include creating an updated sponsorship packet, 
+                facilitating crowdfunding, and maintaining connections with our extensive network of alumni.
                 </h3>
 
               </div>
@@ -121,28 +107,8 @@ function FeaturesBlocks() {
             </div>
 
 
-            <div
-              className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6"
-              data-aos="fade-right"
-            >
-              <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16  ">
-                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Cooling </h3>
-                <h3 className="h3 my-1 ">
-                The cooling subteam is currently working on developing a robust 
-                  but simple cooling architecture for our batteries and BMS.
-                   Future problems will include continued iteration of the chassis and shell, 
-                   but also the expansion of our cooling system from just the batteries to other parts of the pod that will need it 
-                   ,currently under the jurisdiction of other subteams but likely to be united under one cooling subsystem owned by structures.
-                    In short, the structures subteam is a particularly multifaceted subteam here on Cornell Hyperloop, 
-                    and a great team for learning the general architecture of the pod before delving into specifics. 
-
-                </h3>
-
-              </div>
-
-
               {/* Tabs buttons */}
-            </div>
+ 
 
             <div
               className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6"
@@ -150,18 +116,14 @@ function FeaturesBlocks() {
             >
               <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
 
-                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Braking</h3>
+                <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Marketing</h3>
                 <h3 className="h3 my-1 ">
-                  The braking subteam is responsible for the design, construction, and testing of two braking systems:
-                   magnetic braking and pneumatic braking. 
-                   Magnetic brakes employ electromagnets to generate eddy currents in the track,
-                    creating resistance against the pod's motion.
-                     The braking force increases with speed, making it effective at decelerating the pod from high velocities.
-                      Pneumatic brakes utilize compressed air and pneumatic cylinders to activate frictional brake pads,
-                       which make contact with the track and bring the pod to a complete halt. 
-                       The braking team is actively engaged in researching and experimenting with various design possibilities, 
-                       while also collaborating closely with other subteams to develop and test our electromagnets and pneumatic actuation systems.
-                   Our collective efforts are dedicated to turning the highperloop concept into a reality.
+                The marketing subteam is the artistic soul of Cornell Hyperloop. 
+                Marketing designs a wide variety of visuals for the team,
+                 ranging from professional logos to creative concept art. 
+                 Marketing is also responsible for creating every semester's new team merchandise, 
+                 as well as maintaining of Cornell Hyperloop's social media accounts.
+
                 </h3>
               </div>
 

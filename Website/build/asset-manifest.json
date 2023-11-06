@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.fa872588.css",
-    "main.js": "/static/js/main.1facfa5c.js",
+    "main.css": "/static/css/main.53a70395.css",
+    "main.js": "/static/js/main.b7e2cdfd.js",
     "static/js/496.dc3c5f84.chunk.js": "/static/js/496.dc3c5f84.chunk.js",
     "static/media/ELL.jpeg": "/static/media/ELL.fce9104868a76f3b743d.jpeg",
     "static/media/Max_and_Tim_working.png": "/static/media/Max_and_Tim_working.b6e37afeef9aac68beec.png",
@@ -53,9 +53,12 @@
     "static/media/Team.png": "/static/media/Team.07a5838bc997330b246f.png",
     "static/media/fun.jpg": "/static/media/fun.18b093a925566adde1a6.jpg",
     "static/media/img3.jpg.sb-9d3fc040-VyKWGX": "/static/media/img3.jpg.c79c97fdab853ee843c1.sb-9d3fc040-VyKWGX",
+    "static/media/image.png": "/static/media/image.933732bdcde0663f7aff.png",
+    "static/media/nitikabeingsmart.png": "/static/media/nitikabeingsmart.efdb5bd86fbaefcc4c61.png",
     "static/media/AgileWorkshop.png": "/static/media/AgileWorkshop.209b02b798d3ecbd2b12.png",
     "static/media/team_CHC.jpg": "/static/media/team_CHC.66586b05d91ea9de656b.jpg",
     "static/media/hyperloop.png": "/static/media/hyperloop.48b001178f129dd47cc4.png",
+    "static/media/smartppl.png": "/static/media/smartppl.d316a22abeeca09b5857.png",
     "static/media/business.png": "/static/media/business.ffc61db10b8da10268be.png",
     "static/media/mechanical.png": "/static/media/mechanical.5af2039501c0b3e366ab.png",
     "static/media/electrical.png": "/static/media/electrical.ed201539435e3fa8c9b9.png",
@@ -63,6 +66,7 @@
     "static/media/IMG_0078.JPG": "/static/media/IMG_0078.a43eb7698dc1935d6015.JPG",
     "static/media/sample.jpg": "/static/media/sample.c42cde7a6d92fa189053.jpg",
     "static/media/logotextthin.png": "/static/media/logotextthin.c4c756609b36d0d32f69.png",
+    "static/media/testingsetup.png": "/static/media/testingsetup.6a9eccc67dc26aec59f8.png",
     "static/media/Arduino_diagram.png": "/static/media/Arduino_diagram.b09f19d8707d6c0740ea.png",
     "static/media/logo_symbol.png": "/static/media/logo_symbol.2e56b1bfb3b462e78b34.png",
     "static/media/features-bg.png": "/static/media/features-bg.69c5091d6233e25e8ef6.png",
@@ -73,12 +77,12 @@
     "static/media/GeddesRick.jpg": "/static/media/GeddesRick.2fd65310ab6c2da5470b.jpg",
     "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/index.html",
-    "main.fa872588.css.map": "/static/css/main.fa872588.css.map",
-    "main.1facfa5c.js.map": "/static/js/main.1facfa5c.js.map",
+    "main.53a70395.css.map": "/static/css/main.53a70395.css.map",
+    "main.b7e2cdfd.js.map": "/static/js/main.b7e2cdfd.js.map",
     "496.dc3c5f84.chunk.js.map": "/static/js/496.dc3c5f84.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fa872588.css",
-    "static/js/main.1facfa5c.js"
+    "static/css/main.53a70395.css",
+    "static/js/main.b7e2cdfd.js"
   ]
 }

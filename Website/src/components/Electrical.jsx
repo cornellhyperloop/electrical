@@ -88,7 +88,8 @@ function FeaturesBlocks() {
               <div className="md:pr-4  bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
                 <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Power Systems</h3>
                 <h3 className="h3 my-1 ">
-              The Power Systems team is directly resposible for maintaining our batteries and checking that all of our sensors recieve POWER!
+              The Power Systems team is directly resposible for maintaining our batteries and checking that all of our sensors recieve power. 
+              They work closely with Mechanical to ensure everything flows smoothly.
                  
                 </h3>
               </div>
@@ -107,7 +108,7 @@ function FeaturesBlocks() {
 
                 </h3>
 
-                Computing Systems is a pretty cool team, in charge of all of the embedded software!
+                Computing Systems is in charge of all of the embedded software in the Hyperloop. 
 
               </div>
 
@@ -123,7 +124,9 @@ function FeaturesBlocks() {
               <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16  ">
                 <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">GUI </h3>
                 <h3 className="h3 my-1 ">
-                GUI, or user interfaces, is responsible for a nice clean user interface for all of our users!
+                GUI, or user interfaces, is responsible for recieving data from the Hyperloop through our Raspberry PI. GUI works closely 
+                with Computing Systems to see that our sensors are outputting data correctly and efficently. 
+                
                 </h3>
 
               </div>
