@@ -18,17 +18,22 @@ function App() {
   return (
     <div className="App" class="p-0 items-center justify-center">
       <Routes>
-        <Route path="/" element={<HomePage />}  >
 
-        </Route>
-        <Route path="/members" element={<Members />} />
-        <Route path="/team" element={<Team />} />
-        <Route path="/apply" element={<Apply />} />
-        <Route path="/donate" element={<Donate />} />
+ 
         <Route path="/competition" element={<CompetitionPage />} />
         <Route path="/mechanical" element={<Mechanical2 />} />
         <Route path="/electrical" element={<Electrical />} />
         <Route path="/business" element={<Business />} />
+
+        <Route path="/members" element={<Members />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/apply" element={<Apply />} />
+        <Route path="/donate" element={<Donate />} />
+
+
+        <Route path="/" element={<HomePage />}  >
+
+</Route>
 
 
 
