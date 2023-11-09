@@ -7,45 +7,8 @@
 #include <gtest/gtest.h>
 #include "../src/SerialClass.h"
 
-// class Serial {
 
-//   private:
-//     // Serial comm handler
-//     HANDLE hSerial;
-//     // Connection statusf
-//     bool connected;
-//     // Get various information about the connection
-//     COMSTAT status;
-//     // Keep track of last error
-//     DWORD errors;
-
-
-//   public:
-//     Serial(const char *portName) {
-//       this<-connected = true;
-//     }
-//     ~Serial() {
-//       if (this->connected)
-//       {
-//         // We're no longer connected
-//         this->connected = false;
-//         // Close the serial handler
-//         CloseHandle(this->hSerial);
-//       }
-//     }
-//     int ReadData(char *buffer, unsigned int nbChar) {
-//       return 0
-//     }
-//     bool WriteData(const char *buffer, unsigned int nbChar) {
-//       return true;
-//     }
-//     bool IsConnected() {
-//       return this->connected;
-//     }
-
-// }
-
-Serial::Serial(const char *portName)
+int Serial::OSerial(const char *portName)
 {
   // We're not yet connected
   this->connected = false;

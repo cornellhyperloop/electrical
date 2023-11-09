@@ -12,7 +12,7 @@
 std::vector<double> readData()
 {
   double startTime = GetTickCount();
-  Serial *SP = new Serial("\\\\.\\COM3"); // adjust as needed
+  Serial *SP = new SerialClass.Serial.OSerial("\\\\.\\COM3"); // adjust as needed
 
   if (SP->IsConnected())
     printf("We're connected\n");
@@ -221,7 +221,7 @@ void turnOff()
 
 int main()
 {
-  Serial serial = Serial("PN");
+  Serial serial = SerialClass.Serial.OSerial("PN");
   states curr = Verification;
   states prev = Verification;
   // traveledDist = Serial Read for LIDAR to get Traveled Distance

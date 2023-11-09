@@ -1,6 +1,6 @@
 #include "SerialClass.h"
 
-Serial::Serial(const char *portName)
+int Serial::OSerial(const char *portName)
 {
   // We're not yet connected
   this->connected = false;
