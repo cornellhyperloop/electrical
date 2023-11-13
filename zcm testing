@@ -251,3 +251,64 @@ int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
+
+
+
+
+
+
+// subscribe.c tests
+
+#include <gtest/gtest.h>
+#include <cstdio>
+#include <cstring>
+
+extern "C" {
+#include "subscribe.h"
+}
+
+
+// Test case for writeJson function
+TEST_F(WriteJsonTest, TestWriteJson) {
+    const char* testFileName = "test.json";
+
+    // Create dummy sensor_info_t data for testing
+    sensor_info_t dummyData[] = {
+        {1, "Sensor1", 25.5, 70.0},
+        {2, "Sensor2", 30.0, 65.5},
+        // Add more test data as needed
+    };
+
+    size_t dataSize = sizeof(dummyData) / sizeof(dummyData[0]);
+
+    // Call the function
+    writeJson(testFileName, dummyData, dataSize);
+
+    // Validate that the file is created
+    FILE* fp = fopen(testFileName, "r");
+    ASSERT_NE(fp, nullptr);
+
+    // Read the contents of the file and validate them if needed
+    // For example, you can use fscanf to read the file and compare with dummyData
+
+    sensor_info_t readData[dataSize];
+    for (size_t i = 0; i < dataSize; ++i) {
+        fscanf(fp, "%d %s %lf %lf", &readData[i].id, readData[i].name, &readData[i].temperature, &readData[i].humidity);
+    }
+
+    for (size_t i = 0; i < dataSize; ++i) {
+        EXPECT_EQ(readData[i].id, dummyData[i].id);
+        EXPECT_STREQ(readData[i].name, dummyData[i].name);
+        EXPECT_DOUBLE_EQ(readData[i].temperature, dummyData[i].temperature);
+        EXPECT_DOUBLE_EQ(readData[i].humidity, dummyData[i].humidity);
+    }
+
+    // Cleanup required for Google Tests because I ran into issues without this
+    fclose(fp);
+    remove(testFileName);
+}
+
+int main(int argc, char** argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
