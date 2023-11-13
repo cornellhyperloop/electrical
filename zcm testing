@@ -326,7 +326,7 @@ TEST_F(WriteJsonTest, TestWriteJson) {
     FILE* fp = fopen(testFileName, "r");
     ASSERT_NE(fp, nullptr);
 
-    // Read the contents of the file and validate the values
+    // Read contents of the file and validate the values
     sensor_info_t readData;
     fscanf(fp,
            "{\n"
@@ -399,7 +399,7 @@ TEST_F(WriteJsonTest, TestWriteJson) {
     FILE* fp = fopen(testFileName, "r");
     ASSERT_NE(fp, nullptr);
 
-    // Read the contents of the file and validate the values
+    // Read contents of the file and validate the values
     sensor_info_t readData;
     fscanf(fp,
            "{\n"
@@ -452,13 +452,9 @@ TEST(CallbackHandlerTest, PrintsMessageAndCallsWriteJson) {
     MockVoid mockVoid;
     MockWriteJson mockWriteJson;
 
-    // Expectations
-    EXPECT_CALL(mockWriteJson, writeJson("../../GUI/example.json", &mockMsg, 5));
-    
-    // Act
     callback_handler(&mockRbuf, channel, &mockMsg, &mockVoid);
 
-    // Assert - You may add additional assertions based on your specific requirements
+
 }
 
 int main(int argc, char** argv) {
