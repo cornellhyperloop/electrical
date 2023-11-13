@@ -288,8 +288,6 @@ TEST_F(WriteJsonTest, TestWriteJson) {
     FILE* fp = fopen(testFileName, "r");
     ASSERT_NE(fp, nullptr);
 
-    // Read the contents of the file and validate them if needed
-    // For example, you can use fscanf to read the file and compare with dummyData
 
     sensor_info_t readData[dataSize];
     for (size_t i = 0; i < dataSize; ++i) {
@@ -302,8 +300,63 @@ TEST_F(WriteJsonTest, TestWriteJson) {
         EXPECT_DOUBLE_EQ(readData[i].temperature, dummyData[i].temperature);
         EXPECT_DOUBLE_EQ(readData[i].humidity, dummyData[i].humidity);
     }
+TEST_F(WriteJsonTest, TestWriteJson) {
+    const char* testFileName = "test.json";
 
-    // Cleanup required for Google Tests because I ran into issues without this
+    // Create dummy sensor_info_t data for testing
+    sensor_info_t dummyData = {
+        /* Initialize your test data based on the new structure */
+        25.5,  // temperature1
+        30.0,  // temperature2
+        11.5,  // accelerometer_x
+        9.6,   // accelerometer_y
+        7.7,   // accelerometer_z
+        4.5,   // gyroscope_x
+        5.7,   // gyroscope_y
+        2.3,   // gyroscope_z
+        180.0, // pressure
+        150.0, // long_dist
+        12.0   // short_dist
+    };
+
+    //Call the function
+    writeJson(testFileName, &dummyData, 1);
+
+    // Validate that the file is created
+    FILE* fp = fopen(testFileName, "r");
+    ASSERT_NE(fp, nullptr);
+
+    // Read the contents of the file and validate the values
+    sensor_info_t readData;
+    fscanf(fp,
+           "{\n"
+           "  \"Temperature\": {\n"
+           "    \"temperature1\": %f,\n"
+           "    \"temperature2\": %f\n"
+           "  },\n"
+           "  \"accelerometer\": [%f, %f, %f],\n"
+           "  \"gyroscope\": [%f, %f, %f],\n"
+           "  \"Pressure\": %f,\n"
+           "  \"Long-range sensor\": %f,\n"
+           "  \"Short-range sensor\": %f\n"
+           "}\n",
+           &readData.temperature1, &readData.temperature2, &readData.accelerometer_x, &readData.accelerometer_y, &readData.accelerometer_z,
+           &readData.gyroscope_x, &readData.gyroscope_y, &readData.gyroscope_z, &readData.pressure, &readData.long_dist, &readData.short_dist);
+
+    // Compare read values with expected values
+    EXPECT_DOUBLE_EQ(readData.temperature1, dummyData.temperature1);
+    EXPECT_DOUBLE_EQ(readData.temperature2, dummyData.temperature2);
+    EXPECT_DOUBLE_EQ(readData.accelerometer_x, dummyData.accelerometer_x);
+    EXPECT_DOUBLE_EQ(readData.accelerometer_y, dummyData.accelerometer_y);
+    EXPECT_DOUBLE_EQ(readData.accelerometer_z, dummyData.accelerometer_z);
+    EXPECT_DOUBLE_EQ(readData.gyroscope_x, dummyData.gyroscope_x);
+    EXPECT_DOUBLE_EQ(readData.gyroscope_y, dummyData.gyroscope_y);
+    EXPECT_DOUBLE_EQ(readData.gyroscope_z, dummyData.gyroscope_z);
+    EXPECT_DOUBLE_EQ(readData.pressure, dummyData.pressure);
+    EXPECT_DOUBLE_EQ(readData.long_dist, dummyData.long_dist);
+    EXPECT_DOUBLE_EQ(readData.short_dist, dummyData.short_dist);
+
+    // Cleanup
     fclose(fp);
     remove(testFileName);
 }
@@ -312,3 +365,79 @@ int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
+    // Cleanup required for Google Tests because I ran into issues without this
+    fclose(fp);
+    remove(testFileName);
+}
+
+
+// testing the printing of the writeJson function
+
+TEST_F(WriteJsonTest, TestWriteJson) {
+    const char* testFileName = "test.json";
+
+    // Create dummy sensor_info_t data for testing
+    sensor_info_t dummyData = {
+        /* Initialize your test data based on the new structure */
+        25.5,  // temperature1
+        30.0,  // temperature2
+        11.5,  // accelerometer_x
+        9.6,   // accelerometer_y
+        7.7,   // accelerometer_z
+        4.5,   // gyroscope_x
+        5.7,   // gyroscope_y
+        2.3,   // gyroscope_z
+        180.0, // pressure
+        150.0, // long_dist
+        12.0   // short_dist
+    };
+
+    // Call the function
+    writeJson(testFileName, &dummyData, 1);
+
+    // Validate that the file is created
+    FILE* fp = fopen(testFileName, "r");
+    ASSERT_NE(fp, nullptr);
+
+    // Read the contents of the file and validate the values
+    sensor_info_t readData;
+    fscanf(fp,
+           "{\n"
+           "  \"Temperature\": {\n"
+           "    \"temperature1\": %f,\n"
+           "    \"temperature2\": %f\n"
+           "  },\n"
+           "  \"accelerometer\": [%f, %f, %f],\n"
+           "  \"gyroscope\": [%f, %f, %f],\n"
+           "  \"Pressure\": %f,\n"
+           "  \"Long-range sensor\": %f,\n"
+           "  \"Short-range sensor\": %f\n"
+           "}\n",
+           &readData.temperature1, &readData.temperature2, &readData.accelerometer_x, &readData.accelerometer_y, &readData.accelerometer_z,
+           &readData.gyroscope_x, &readData.gyroscope_y, &readData.gyroscope_z, &readData.pressure, &readData.long_dist, &readData.short_dist);
+
+    // Compare read values with expected values
+    EXPECT_DOUBLE_EQ(readData.temperature1, dummyData.temperature1);
+    EXPECT_DOUBLE_EQ(readData.temperature2, dummyData.temperature2);
+    EXPECT_DOUBLE_EQ(readData.accelerometer_x, dummyData.accelerometer_x);
+    EXPECT_DOUBLE_EQ(readData.accelerometer_y, dummyData.accelerometer_y);
+    EXPECT_DOUBLE_EQ(readData.accelerometer_z, dummyData.accelerometer_z);
+    EXPECT_DOUBLE_EQ(readData.gyroscope_x, dummyData.gyroscope_x);
+    EXPECT_DOUBLE_EQ(readData.gyroscope_y, dummyData.gyroscope_y);
+    EXPECT_DOUBLE_EQ(readData.gyroscope_z, dummyData.gyroscope_z);
+    EXPECT_DOUBLE_EQ(readData.pressure, dummyData.pressure);
+    EXPECT_DOUBLE_EQ(readData.long_dist, dummyData.long_dist);
+    EXPECT_DOUBLE_EQ(readData.short_dist, dummyData.short_dist);
+
+    // Cleanup
+    fclose(fp);
+    remove(testFileName);
+}
+
+// Runs tests for all parts of the function
+
+int main(int argc, char** argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
+
