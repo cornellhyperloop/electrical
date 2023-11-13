@@ -88,8 +88,12 @@ function FeaturesBlocks() {
               <div className="md:pr-4  bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16 ">
                 <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">Power Systems</h3>
                 <h3 className="h3 my-1 ">
-              The Power Systems team is directly resposible for maintaining our batteries and checking that all of our sensors recieve power. 
-              They work closely with Mechanical to ensure everything flows smoothly.
+                The power systems team is in charge of supplying power to all electrical systems. 
+                This includes the on pod motors, electromagnets, actuators, computers, as well as any test rigs before pod assembly.
+                 The high voltage systems such as the pod's 
+                 linear induction motor (LIM) require our team to configure, assemble, and test our in-house battery pack using the 
+                 LiFePO4 batteries by spot welding them and converting that to an AC power source through our voltage frequency drive (VFD),
+                 so we can remotely control the motors speed through the VFD.
                  
                 </h3>
               </div>
@@ -108,7 +112,10 @@ function FeaturesBlocks() {
 
                 </h3>
 
-                Computing Systems is in charge of all of the embedded software in the Hyperloop. 
+                The computing systems comes in here to help program our VFD so we can remotely control it. 
+                We are are also in charge of configuring all of the on-pod sensors to receive live data on how the pod is
+                 moving and functioning including: thermistors, long-range rangefinders, accelerometers, and pressure sensors.
+                  We interact with majority of our sensors via an Arduino Mega 2560.
 
               </div>
 
@@ -124,8 +131,10 @@ function FeaturesBlocks() {
               <div className="md:pr-4 bg-gray-50 p-3 rounded-sm lg:pr-12 xl:pr-16  ">
                 <h3 className="h3 my-1 font-light text-xl text-red-700 font-semibold">GUI </h3>
                 <h3 className="h3 my-1 ">
-                GUI, or user interfaces, is responsible for recieving data from the Hyperloop through our Raspberry PI. GUI works closely 
-                with Computing Systems to see that our sensors are outputting data correctly and efficently. 
+                The UI team receives all of the sensor data
+                 and displays it in a comprehensive yet readable manner 
+                 so we can make real-time decisions while the pod is running.
+                  We also maintain and push updates to the Hyperloop website.
                 
                 </h3>
 
