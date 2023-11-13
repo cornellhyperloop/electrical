@@ -441,3 +441,27 @@ int main(int argc, char** argv) {
     return RUN_ALL_TESTS();
 }
 
+
+// subscribe.c code for callback handler without any specifics, may need to ask more specifics
+// Google Test for callback_handler
+TEST(CallbackHandlerTest, PrintsMessageAndCallsWriteJson) {
+    // Arrange
+    MockZcmRecvBuf mockRbuf;
+    const char* channel = "test_channel";
+    MockSensorInfo mockMsg;
+    MockVoid mockVoid;
+    MockWriteJson mockWriteJson;
+
+    // Expectations
+    EXPECT_CALL(mockWriteJson, writeJson("../../GUI/example.json", &mockMsg, 5));
+    
+    // Act
+    callback_handler(&mockRbuf, channel, &mockMsg, &mockVoid);
+
+    // Assert - You may add additional assertions based on your specific requirements
+}
+
+int main(int argc, char** argv) {
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
