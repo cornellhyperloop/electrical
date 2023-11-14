@@ -3,8 +3,6 @@
 
 #define ARDUINO_WAIT_TIME 2000
 
-// to use instead of Mac OS X's default /dev/tty.*
-#define SERIAL_PORT "/dev/tty.ttyACM0"
 #include <windows.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -23,7 +21,7 @@ private:
 
 public:
   // Initialize Serial communication with the given COM port
-  int OSerial(const char *portName);
+  Serial(const char *portName);
   // Close the connection
   ~Serial();
   // Read data in a buffer, if nbChar is greater than the

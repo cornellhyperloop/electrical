@@ -1,51 +1,204 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string>
-#include <tuple>
 #include "constants.hpp"
 #include "helperFunctions.hpp"
 #include "SerialClass.h"
 #include <iostream>
-#include <thread>
-#include <vector>
 
-std::vector<double> readData()
+Serial::Serial(const char *portName)
+{
+  // We're not yet connected
+  this->connected = false;
+
+  // Try to connect to the given port throuh CreateFile
+  this->hSerial = CreateFile(portName,
+                             GENERIC_READ | GENERIC_WRITE,
+                             0,
+                             NULL,
+                             OPEN_EXISTING,
+                             FILE_ATTRIBUTE_NORMAL,
+                             NULL);
+
+  // Check if the connection was successfull
+  if (this->hSerial == INVALID_HANDLE_VALUE)
+  {
+    // If not success full display an Error
+    if (GetLastError() == ERROR_FILE_NOT_FOUND)
+    {
+
+      // Print Error if neccessary
+      printf("ERROR: Handle was not attached. Reason: %s not available.\n", portName);
+    }
+    else
+    {
+      printf("ERROR!!!");
+    }
+  }
+  else
+  {
+    // If connected we try to set the comm parameters
+    DCB dcbSerialParams = {0};
+
+    // Try to get the current
+    if (!GetCommState(this->hSerial, &dcbSerialParams))
+    {
+      // If impossible, show an error
+      printf("failed to get current serial parameters!");
+    }
+    else
+    {
+      // Define serial connection parameters for the arduino board
+      dcbSerialParams.BaudRate = CBR_9600;
+      dcbSerialParams.ByteSize = 8;
+      dcbSerialParams.StopBits = ONESTOPBIT;
+      dcbSerialParams.Parity = NOPARITY;
+      // Setting the DTR to Control_Enable ensures that the Arduino is properly
+      // reset upon establishing a connection
+      dcbSerialParams.fDtrControl = DTR_CONTROL_ENABLE;
+
+      // Set the parameters and check for their proper application
+      if (!SetCommState(hSerial, &dcbSerialParams))
+      {
+        printf("ALERT: Could not set Serial Port parameters");
+      }
+      else
+      {
+        // If everything went fine we're connected
+        this->connected = true;
+        // Flush any remaining characters in the buffers
+        PurgeComm(this->hSerial, PURGE_RXCLEAR | PURGE_TXCLEAR);
+        // We wait 2s as the arduino board will be reseting
+        Sleep(ARDUINO_WAIT_TIME);
+      }
+    }
+  }
+}
+
+Serial::~Serial()
+{
+  // Check if we are connected before trying to disconnect
+  if (this->connected)
+  {
+    // We're no longer connected
+    this->connected = false;
+    // Close the serial handler
+    CloseHandle(this->hSerial);
+  }
+}
+
+int Serial::ReadData(char *buffer, unsigned int nbChar)
+{
+  // Number of bytes we'll have read
+  DWORD bytesRead;
+  // Number of bytes we'll really ask to read
+  unsigned int toRead;
+
+  // Use the ClearCommError function to get status info on the Serial port
+  ClearCommError(this->hSerial, &this->errors, &this->status);
+
+  // Check if there is something to read
+  if (this->status.cbInQue > 0)
+  {
+    // If there is we check if there is enough data to read the required number
+    // of characters, if not we'll read only the available characters to prevent
+    // locking of the application.
+    if (this->status.cbInQue > nbChar)
+    {
+      toRead = nbChar;
+    }
+    else
+    {
+      toRead = this->status.cbInQue;
+    }
+
+    // Try to read the require number of chars, and return the number of read bytes on success
+    if (ReadFile(this->hSerial, buffer, toRead, &bytesRead, NULL))
+    {
+      return bytesRead;
+    }
+  }
+
+  // If nothing has been read, or that an error was detected return 0
+  return 0;
+}
+
+bool Serial::WriteData(const char *buffer, unsigned int nbChar)
+{
+  DWORD bytesSend;
+
+  // Try to write the buffer on the Serial port
+  if (!WriteFile(this->hSerial, (void *)buffer, nbChar, &bytesSend, 0))
+  {
+    // In case it don't work get comm error and return false
+    ClearCommError(this->hSerial, &this->errors, &this->status);
+
+    return false;
+  }
+  else
+    return true;
+}
+
+bool Serial::IsConnected()
+{
+  // Simply return the connection status
+  return this->connected;
+}
+
+int readData()
 {
   double startTime = GetTickCount();
-  Serial *SP = new SerialClass.Serial.OSerial("\\\\.\\COM3"); // adjust as needed
+  Serial *SP = new Serial("\\\\.\\COM3"); // adjust as needed
 
   if (SP->IsConnected())
-    printf("We're connected\n");
+    printf("We're connected");
 
-  char incomingData[1000] = ""; // don't forget to pre-allocate memory
+  char incomingData[256] = ""; // don't forget to pre-allocate memory
   // printf("%s\n",incomingData);
-  int dataLength = 1000;
+  int dataLength = 255;
   int readResult = 0;
-  double readResult0 = 0;
-  double readResult1 = 0;
-  double readResult2 = 0;
-  double readResult3 = 0;
 
   while (SP->IsConnected())
   {
     double currTime = GetTickCount() - startTime;
     readResult = SP->ReadData(incomingData, dataLength);
     // printf("Bytes read: (0 means no data available) %i\n",readResult);
-    incomingData[readResult] = '0';
+    incomingData[readResult] = 0;
 
-    // printf("%s\n", incomingData);
-    // printf("%f\n", std::stof(incomingData));
+    printf("%s", incomingData);
 
     Sleep(500);
     if (currTime >= 1000)
     {
-      //parsing incoming data
-      readResult = std::stof(incomingData); //returns one value
       break;
     }
   }
-  std::vector<double> t = {readResult0, readResult1, readResult2, readResult3};
-  return t;
+  return readResult;
+}
+
+bool writeData(const char *buffer, unsigned int nbChar)
+{
+  double startTime = GetTickCount();
+  Serial *SP = new Serial("\\\\.\\COM3"); // adjust as needed
+
+  if (SP->IsConnected())
+    printf("We're connected");
+
+  bool writeResult;
+
+  while (SP->IsConnected())
+  {
+    double currTime = GetTickCount() - startTime;
+    writeResult = SP->WriteData(buffer, nbChar);
+
+    printf("%d", writeResult);
+
+    Sleep(500);
+    if (currTime >= 1000)
+    {
+      break;
+    }
+  }
+  return writeResult;
 }
 
 states verifySensors(double acceleromter[], double thermistor, double lidar_distance[], double ultrasonic)
@@ -61,7 +214,7 @@ states verifySensors(double acceleromter[], double thermistor, double lidar_dist
   // Ultrasonic - 1 output value
 
   // Accelerometer
-  std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+  // std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
   for (int i = 0; i < 9; i++)
   {
@@ -98,14 +251,17 @@ bool checkDistance(double totalDist, double travelDist, const float epsilon = 1E
   return (abs(totalDist - travelDist) <= epsilon);
 }
 
-states openBrakes(Serial &serial)
+states openBrakes()
 {
   // Go to Emergency if does not work, otherwise go to Acceleration
   // Add manual interrupt to go into Emergency state
   // Check if there is a sensor/mechanism to get feedback on the Brake states, i.e opened/closed.
   // TODO: Implement and return correct state
 
-  serial.WriteData((char *)"Open", 4);
+  if (!writeData((char *)"Open", 4)) {
+    printf("Error: Couldn't write data succesfully");
+  }
+
   double relay_status = 0; // assuming 0 for open, 1 for close
   // ReadData(); // read relay status from arduino
 
@@ -114,17 +270,20 @@ states openBrakes(Serial &serial)
     return Emergency;
   }
   return Acceleration;
+
 }
 
-void closeBrakes(Serial &serial)
+void closeBrakes()
 {
   // TODO: Implement closeBrakeMain in helperFunctions.h
-  // bool brakeClosed = closeBrakeMain();
   // bool brakeClosed = closeBrakeMain(); // Commented for now since it's causing causing compilation errors due to function not being defined
   // Use bool brakeClosed to verify if the sensor implementation works correctly
 
   // TODO: Test functionality of writing to Serial
-  serial.WriteData((char *)"Close", 5);
+  if (!writeData((char *)"Close", 5)) {
+    printf("Error: Couldn't write data succesfully");
+  }
+
   // TODO: extract data of relay
   // serial.ReadData();
   double relay_status; // assuming 0 for open, 1 for close
@@ -171,13 +330,13 @@ states cruise(double sensorVelocity, double traveledDist)
   return accelerate(sensorVelocity, traveledDist);
 }
 
-states decelerate(double traveledDist, Serial &serial)
+states decelerate(double traveledDist)
 {
   // Go to Emergency if does not work, otherwise go to Deceleration
   // Add a while loop to stay in this case till it needs to start to slow down
   // Add manual interrupt to go into Emergency state
   // TODO: Implement and return correct state
-  closeBrakes(serial);
+  closeBrakes();
   if (checkDistance(traveledDist, totalDist))
   {
     return Stop;
@@ -205,11 +364,11 @@ states stop(double traveledDist)
   return Emergency;
 }
 
-states emergency(Serial &serial)
+states emergency()
 {
   // Close brakes rapidly and stop any propulsion
-  decelerate(0.0, serial);
-  closeBrakes(serial);
+  decelerate(0.0);
+  closeBrakes();
   return Stop;
 }
 
@@ -221,13 +380,10 @@ void turnOff()
 
 int main()
 {
-  Serial serial = SerialClass.Serial.OSerial("PN");
   states curr = Verification;
   states prev = Verification;
   // traveledDist = Serial Read for LIDAR to get Traveled Distance
   double traveledDist = 0.0;
-
-  //Serial serial = new Serial();
 
   while (1)
   {
@@ -239,15 +395,15 @@ int main()
       /* Task 2: Make a verifySensors function to check they're all on,
                   and ensure readings are in a reasonable range.
       **/
-     
+      
       //  Update function call for verifySensors() with  appropriate parameters
-      curr = verifySensors(readData()[0], readData()[1], readData()[2], readData()[3]);
+      curr = verifySensors(readData()[0], readData()[1], readData()[2], readData()[3]); // CHANGE
       // curr = verifySensors(std::get<0>(readData()), stubValue);
       prev = Verification;
     };
     case PreAcceleration:
     {
-      curr = openBrakes(serial);
+      curr = openBrakes();
       prev = PreAcceleration;
     };
     case Acceleration:
@@ -262,7 +418,7 @@ int main()
     };
     case Deceleration:
     {
-      curr = decelerate(traveledDist, serial);
+      curr = decelerate(traveledDist);
       prev = Deceleration;
     };
     case Crawl:
@@ -272,13 +428,12 @@ int main()
     };
     case Emergency:
     {
-      curr = emergency(serial);
+      curr = emergency();
       prev = Emergency;
     };
     case Stop:
     {
-      printf("We have stopped!\n");
-      // curr = stop(); Call stop function
+      curr = stop(traveledDist);
     };
     case PodOff:
     {

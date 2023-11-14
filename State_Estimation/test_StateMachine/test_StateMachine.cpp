@@ -1,47 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-// #include "../src/constants.hpp"
 #include "../src/statemachine.cpp"
-#include "../src/statemachine.hpp"
 #include "../src/helperFunctions.hpp"
 #include <gtest/gtest.h>
-#include "../src/SerialClass.h"
 
-
-int Serial::OSerial(const char *portName)
-{
-  // We're not yet connected
-  this->connected = false;
-}
-
-
-Serial::~Serial()
-{
-  // Check if we are connected before trying to disconnect
-  if (this->connected)
-  {
-    // We're no longer connected
-    this->connected = false;
-    // Close the serial handler
-    CloseHandle(this->hSerial);
-  }
-}
-
-int Serial::ReadData(char *buffer, unsigned int nbChar)
-{
-  return 0;
-}
-
-bool Serial::WriteData(const char *buffer, unsigned int nbChar)
-{
-  return true;
-}
-
-bool Serial::IsConnected()
-{
-  // Simply return the connection status
-  return this->connected;
-}
 
 // 1. Test if the correct states are being entered from the relevant states
 // 2. Test possible wrong ways of getting to those states and seeing if we can break our code
@@ -162,9 +124,8 @@ TEST(CruiseTest, BasicAssertions){
 TEST(DecelerationTest, BasicAssertions){
   double traveledDistEnd = 0.0;
   double traveledDistMid = 0.0;
-  Serial mockSerial = Serial();
-  EXPECT_EQ(decelerate(traveledDistEnd, mockSerial), Stop) ;
-  EXPECT_EQ(decelerate(traveledDistMid, mockSerial), Emergency);
+  EXPECT_EQ(decelerate(traveledDistEnd), Stop) ;
+  EXPECT_EQ(decelerate(traveledDistMid), Emergency);
 }
 
 //emergency state

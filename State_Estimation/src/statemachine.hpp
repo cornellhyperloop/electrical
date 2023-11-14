@@ -2,12 +2,13 @@
 
 #include "stdio.h"
 #include "stdlib.h"
+#include "constants.hpp"
 
 // Runs the state machine for the pod
 int main();
 
 // Verifies that the sensors are working properly
-states verifySensors(double sensor0[], double sensor1, double sensor2[], double sensor3);
+states verifySensors(double sensor1, double sensor2);
 
 // Opens the brakes
 states openBrakes();
