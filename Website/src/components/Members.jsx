@@ -39,30 +39,96 @@ function FeaturesBlocks() {
   var leads = [{ name: "Cameron Robinson", imageurl: "CameronRobinson.jpg", title: "Team Manager", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
   { name: "Robert Fleming", imageurl: "robertfleming.jpg", title: "Electrical Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
   { name: "Ellie Perlitz", imageurl: "ElliePerlitz.jpg", title: "Business Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Nikita Dolgopolov", imageurl: "banana.jpeg", title: "Mechanical Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Nikita Dolgopolov", imageurl: "nikitadolgopolov.jpg", title: "Mechanical Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
   { name: "Courtney Kraft", imageurl: "CourtneyKraft.jpg", title: "Mechanical Advisor", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
   { name: "Mark Edwards", imageurl: "markedwards.jpg", title: "Magnetic Levitation Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Jack Crespo", imageurl: "profilephoto.png", title: "Lead Systems Engineer", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Joshua Coombs", imageurl: "profilephoto.png", title: "Braking Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Ashna Gupta", imageurl: "profilephoto.png", title: "Structures Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Jack Crespo", imageurl: "JackCrespo.jpg", title: "Lead Systems Engineer", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Yueming Liu", imageurl: "yuemingliu.jpg", title: "Braking Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Ashna Gupta", imageurl: "ashnagupta.jpg", title: "Structures Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
   { name: "Vanshaj Jain", imageurl: "vanshajjain.jpg", title: "GUI Lead", rurl: "https://www.linkedin.com/in/vanshaj24/" },
-  { name: "Berk Gokmen", imageurl: "profilephoto.png", title: "Power Systems Lead", rurl: "https://www.linkedin.com/in/berk-gokmen/" },
-  { name: "Ridhit Bhura", imageurl: "profilephoto.png", title: "Computing Systems Lead", rurl: "https://www.linkedin.com/in/ridhit/" },
-  { name: "Stephen Chien", imageurl: "profilephoto.png", title: "Web Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" }]
+  { name: "Berk Gokmen", imageurl: "berkgokmen.jpg", title: "Power Systems Lead", rurl: "https://www.linkedin.com/in/berk-gokmen/" },
+  { name: "Ridhit Bhura", imageurl: "RidhitBhura.jpg", title: "Computing Systems Lead", rurl: "https://www.linkedin.com/in/ridhit/" },
+  { name: "Stephen Chien", imageurl: "apple.jpeg", title: "Web Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
 
-  var gui = ["Kelvin Wang", "Ryan Mao", "Devika Krishna", "Patrick Choo", "Mihika Jain", "Stephen Chien", "Cooper Proctor", "Aislinn Ennis", "Benson Yee"]
-  var computing = ["Anoushka Kabra", "Ashley Heckman", "David Lilienfeld", "Yaqi Gao", "Levi Zeng", "Shefali Awasthi", "Zarif Karim", "Neera Kapoor", "Aiman Mobhani"]
-  var powersystems = ["Schuyler Seyram", "Steven Wei Chen", "Lalo Esparza", "Rares-Stefan Busca", "Kirti Bagepalli", "Max Trager", "Jenna Kafrawi"]
 
- 
-  var gui = ["Kelvin Wang", "Ryan Mao", "Devika Krishna", "Patrick Choo", "Mihika Jain", "Cooper Proctor", "Aislinn Ennis", "Benson Yee"]
-  var computing = ["Anoushka Kabra", "Ashley Heckman", "David Lilienfeld", "Yaqi Gao", "Levi Zeng", "Shefali Awasthi", "Zarif Karim", "Neera Kapoor", "Aiman Mobhani"]
-  var powersystems = ["Schuyler Seyram", "Berk Gokmen", "Steven Wei Chen", "Lalo Esparza", "Rares-Stefan Busca", "Kirti Bagepalli", "Max Trager", "Jenna Kafrawi"]
 
-  var magnetic = ["Nikita Dolgopolov", "Rushil Choudary", "Verena Gonzalez"]
-  var braking = ["Yueming Liu", "Sal Ciminello", "Moez Amini", "Michelle Yu", "Madison Schaaff", "Siddhant Ahuja"]
-  var structures = ["David Ovetsky", "Harsh Maskara", "Allison Liao", "Jack Meyer", "Riya Guttigoli", "Daniel Akinwale"]
-  var business = ["Tyler Angelica", "Jonathan Chen", "Luke Shao", "Elizabeth Song", "Aidan Shor", "Ryan Graziano", "Jason Ng", "Vasu Patel", "John Goepfert"]
+
+]
+
+  var gui = [
+    { name: "Devika Krishna", imageurl: "devikakrishna.png", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Patrick Choo", imageurl: "banana.jpeg",  rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Aislinn Ennis", imageurl: "aislinnennis.jpg",  rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Brandon Lerit", imageurl: "brandonlerit.jpg",  rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Max Farma", imageurl: "maxfarma.jpg",  rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+
+  ]
+
+  var powersystems = [
+    { name: "Schuyler Seyram", imageurl: "devikakrishna.png", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Steven Wei Chen", imageurl: "banana.jpeg",  rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Lalo Esparza", imageurl: "aislinnennis.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Max Trager", imageurl: "brandonlerit.jpg",  rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Jenna Kafrawi", imageurl: "maxfarma.jpg",  rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Ivan Huang", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Xueqing Tsang", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" }
+  ]
+
+
+  var computing = [
+    { name: "Anoushka Kabra", imageurl: "devikakrishna.png", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Ashley Heckman", imageurl: "banana.jpeg",  rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name:"David Lilienfeld", imageurl: "aislinnennis.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Yaqi Gao", imageurl: "brandonlerit.jpg",  rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Levi Zeng", imageurl: "maxfarma.jpg",  rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Shefali Awasthi", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Zarif Karim", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Neera Kapoor", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name:"Aiman Mobhani", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" }
+  ]
+
+
+  var magnetic = [
+
+    { name: "Nikita Dolgopolov", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Rushil Choudary", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Verena Gonzalez", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+
+  ]
+
+
+  var braking = [
+
+    { name: "Nikita Dolgopolov", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Rushil Choudary", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Verena Gonzalez", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+
+  ]
+
+
+  var structures = [
+
+    { name: "Nikita Dolgopolov", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Rushil Choudary", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Verena Gonzalez", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+
+  ]
+
+  var business = [
+
+    { name: "Tyler Angelica", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Jonathan Chen", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Luke Shao", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Elizabeth Song", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Aidan Shor", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Ryan Graziano", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Jason Ng", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Vasu Patel", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "John Goepfort", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" }
+
+
+  ]
+
 
 
   return (
@@ -102,10 +168,36 @@ function FeaturesBlocks() {
             })}
 
 
-          </div>          <div className=" mx-auto flex justify-between text-center pb-4 md:pb-4">
+          </div>        
+            <div className=" mx-auto flex justify-between text-center pb-4 md:pb-4">
             <h2 className="h2 my-4 text-3xl font-semibold">Electrical</h2>
-            <div>
 
+          </div>
+          <div className="max-w-sm mx-auto flex flex-wrap flex-row gap-6  items-start md:max-w-2xl lg:max-w-none">
+          <div className="max-w-sm mx-auto flex flex-wrap flex-row gap-6  items-start md:max-w-2xl lg:max-w-none">
+            {gui.map((item) => {
+              return <Member src={item.imageurl} title={"User Interfaces"} subtitle={item.name} rurl={item.rurl} />;
+            })}
+            </div>
+
+            <div className="max-w-sm mx-auto flex flex-wrap flex-row gap-6  items-start md:max-w-2xl lg:max-w-none">
+            {powersystems.map((item) => {
+              return <Member src={item.imageurl} title={"Power Systems"} subtitle={item.name} rurl={item.rurl} />;
+            })}
+            </div>
+
+
+            <div className="max-w-sm mx-auto flex flex-wrap flex-row gap-6  items-start md:max-w-2xl lg:max-w-none">
+            {computing.map((item) => {
+              return <Member src={item.imageurl} title={"Computing Systems"} subtitle={item.name} rurl={item.rurl} />;
+            })}
+            </div>
+
+          </div>
+
+          <div className=" mx-auto flex justify-between text-center pb-4 md:pb-4">
+            <h2 className="h2 my-4 text-3xl font-semibold">Mechanical</h2>
+            <div>
 
             </div>
 
@@ -113,17 +205,21 @@ function FeaturesBlocks() {
 
           {/* Items */}
           <div className="max-w-sm mx-auto flex flex-wrap flex-row gap-6  items-start md:max-w-2xl lg:max-w-none">
-            {gui.map((item) => {
-              return <Member src={"profilephoto.png"} title={"User Interfaces"} subtitle={item} />;
+          
+            {magnetic.map((item) => {
+              return <Member src={item.imageurl} title={"Magnetic"} subtitle={item.name} rurl={item.rurl} />;
             })}
-            {powersystems.map((item) => {
-              return <Member src={"profilephoto.png"} title={"Power Systems"} subtitle={item} />;
+        
+            {braking.map((item) => {
+              return <Member src={item.imageurl} title={"Braking"} subtitle={item.name} rurl={item.rurl} />;
             })}
-            {computing.map((item) => {
-              return <Member src={"profilephoto.png"} title={"Computing Systems"} subtitle={item} />;
+            {structures.map((item) => {
+              return <Member src={item.imageurl} title={"Structures"} subtitle={item.name} rurl={item.rurl} />;
             })}
 
+
           </div>
+
           <div className=" mx-auto flex justify-between text-center pb-4 md:pb-4">
             <h2 className="h2 my-4 text-3xl font-semibold">Business</h2>
             <div>
@@ -135,33 +231,16 @@ function FeaturesBlocks() {
 
           {/* Items */}
           <div className="max-w-sm mx-auto flex flex-wrap flex-row gap-6  items-start md:max-w-2xl lg:max-w-none">
-            {business.map((item) => {
-              return <Member src={"profilephoto.png"} title={"Business"} subtitle={item} />;
+          {business.map((item) => {
+              return <Member src={item.imageurl} title={"Business"} subtitle={item.name} rurl={item.rurl} />;
             })}
 
 
           </div>
-          <div className=" mx-auto flex justify-between text-center pb-4 md:pb-4">
-            <h2 className="h2 my-4 text-3xl font-semibold">Mechanical</h2>
-            <div>
 
-            </div>
 
-          </div>
 
-          {/* Items */}
-          <div className="max-w-sm mx-auto flex flex-wrap flex-row gap-6  items-start md:max-w-2xl lg:max-w-none">
-            {magnetic.map((item) => {
-              return <Member src={"profilephoto.png"} title={"Magnetic"} subtitle={item} />;
-            })}
-            {braking.map((item) => {
-              return <Member src={"profilephoto.png"} title={"Braking"} subtitle={item} />;
-            })}
-            {structures.map((item) => {
-              return <Member src={"profilephoto.png"} title={"Structures"} subtitle={item} />;
-            })}
 
-          </div>
         </div>
       </div>
     </section>
