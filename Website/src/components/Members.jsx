@@ -38,18 +38,20 @@ function FeaturesBlocks() {
   { name: "Zhiting Tian", imageurl: "TianZhiting.jpg", title: "Faculty Co-Advisor", rurl: "https://www.linkedin.com/in/zhiting-tian-3103179/" }]
   var leads = [
     { name: "Vanshaj Jain", imageurl: "vanshajjain.jpg", title: "Electrical Lead", rurl: "https://www.linkedin.com/in/vanshaj24/" },
-  { name: "Ellie Perlitz", imageurl: "ElliePerlitz.jpg", title: "Business Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Jonathan Chen", imageurl: "jonathanchen.jpg", title: "Business Advisor", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Nikita Dolgopolov", imageurl: "nikitadolgopolov.jpg", title: "Mechanical Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Courtney Kraft", imageurl: "CourtneyKraft.jpg", title: "Mechanical Advisor", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Mark Edwards", imageurl: "markedwards.jpg", title: "Magnetic Levitation Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Jack Crespo", imageurl: "JackCrespo.jpg", title: "Lead Systems Engineer", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Yueming Liu", imageurl: "yuemingliu.jpg", title: "Braking Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Ashna Gupta", imageurl: "ashnagupta.jpg", title: "Structures Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Jonathan Chen", imageurl: "jonathanchen.jpg", title: "Business Lead", rurl: "https://www.linkedin.com/in/jonathan-chen-377a261b6/" },
+  { name: "Nikita Dolgopolov", imageurl: "nikitadolgopolov.jpg", title: "Mechanical Lead", rurl: "https://www.linkedin.com/in/nikita-dolgopolov/" },
+  { name: "David Ovetsky", imageurl: "davidovetsky.jpg", title: "Structures Lead", rurl: "https://www.linkedin.com/in/david-ovetsky/" },
+  { name: "Mark Edwards", imageurl: "markedwards.jpg", title: "Magnetics Lead", rurl: "https://www.linkedin.com/in/markvedwards02/" },
+  { name: "Moez Amini", imageurl: "moezamini.jpg", title: "Braking Lead", rurl: "https://www.linkedin.com/in/moezamini/" },
+  { name: "Daniel Akinwale", imageurl: "danielakinwale.jpg", title: "Composites Lead", rurl: "https://www.linkedin.com/in/daniel-akinwale-894297202/" },
+  { name: "Sal Ciminello", imageurl: "salciminello.jpg", title: "Prototyping Lead", rurl: "https://www.linkedin.com/in/sal-ciminello-863471255/" },
   { name: "Berk Gokmen", imageurl: "berkgokmen.jpg", title: "Power Systems Lead", rurl: "https://www.linkedin.com/in/berk-gokmen/" },
-  { name: "Ridhit Bhura", imageurl: "RidhitBhura.jpg", title: "Computing Systems Lead", rurl: "https://www.linkedin.com/in/ridhit/" },
-  { name: "Stephen Chien", imageurl: "apple.jpeg", title: "Web Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-
+  { name: "David Lilienfeld", imageurl: "davidlilienfeld.jpg", title: "Computing Systems Lead", rurl: "https://www.linkedin.com/in/david-lilienfeld-aa7162133/" },
+  { name: "Aislinn Ennis", imageurl: "AislinnEnnis.jpg", title: "UI Lead", rurl: "https://www.linkedin.com/in/aislinn-ennis/" },
+  { name: "John Goepfert", imageurl: "johngoepfort.jpg", title: "Operations Lead", rurl: "https://www.linkedin.com/in/john-goepfert/" },
+  { name: "Vasu Patel", imageurl: "vasupatel.jpg", title: "Business Dev Lead", rurl: "https://www.linkedin.com/in/patelv1/" },
+  { name: "Luke Shao", imageurl: "banana.jpeg", title: "Marketing Lead", rurl: "https://www.linkedin.com/in/luke-shao/" },
+  { name: "Stephen Chien", imageurl: "apple.jpeg", title: "Web Lead", rurl: "https://www.linkedin.com/in/stephenlchien/" },
 
 
 
