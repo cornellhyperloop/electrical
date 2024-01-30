@@ -36,16 +36,16 @@ function FeaturesBlocks() {
 
   var faculty = [{ name: "Ricky Geddes", imageurl: "GeddesRick.jpg", title: "Faculty Co-Advisor", rurl: "https://www.linkedin.com/in/rick-geddes-5134475/" },
   { name: "Zhiting Tian", imageurl: "TianZhiting.jpg", title: "Faculty Co-Advisor", rurl: "https://www.linkedin.com/in/zhiting-tian-3103179/" }]
-  var leads = [{ name: "Cameron Robinson", imageurl: "CameronRobinson.jpg", title: "Team Manager", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Robert Fleming", imageurl: "robertfleming.jpg", title: "Electrical Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  var leads = [
+    { name: "Vanshaj Jain", imageurl: "vanshajjain.jpg", title: "Electrical Lead", rurl: "https://www.linkedin.com/in/vanshaj24/" },
   { name: "Ellie Perlitz", imageurl: "ElliePerlitz.jpg", title: "Business Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Jonathan Chen", imageurl: "jonathanchen.jpg", title: "Business Advisor", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
   { name: "Nikita Dolgopolov", imageurl: "nikitadolgopolov.jpg", title: "Mechanical Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
   { name: "Courtney Kraft", imageurl: "CourtneyKraft.jpg", title: "Mechanical Advisor", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
   { name: "Mark Edwards", imageurl: "markedwards.jpg", title: "Magnetic Levitation Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
   { name: "Jack Crespo", imageurl: "JackCrespo.jpg", title: "Lead Systems Engineer", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
   { name: "Yueming Liu", imageurl: "yuemingliu.jpg", title: "Braking Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
   { name: "Ashna Gupta", imageurl: "ashnagupta.jpg", title: "Structures Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Vanshaj Jain", imageurl: "vanshajjain.jpg", title: "GUI Lead", rurl: "https://www.linkedin.com/in/vanshaj24/" },
   { name: "Berk Gokmen", imageurl: "berkgokmen.jpg", title: "Power Systems Lead", rurl: "https://www.linkedin.com/in/berk-gokmen/" },
   { name: "Ridhit Bhura", imageurl: "RidhitBhura.jpg", title: "Computing Systems Lead", rurl: "https://www.linkedin.com/in/ridhit/" },
   { name: "Stephen Chien", imageurl: "apple.jpeg", title: "Web Lead", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
@@ -116,7 +116,7 @@ function FeaturesBlocks() {
 
   var business = [
 
-    { name: "Tyler Angelica", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Tyler Angelica", imageurl: "zarifkarim.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
     { name: "Jonathan Chen", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
     { name: "Luke Shao", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
     { name: "Elizabeth Song", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
