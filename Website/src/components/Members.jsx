@@ -50,43 +50,47 @@ function FeaturesBlocks() {
   { name: "Aislinn Ennis", imageurl: "AislinnEnnis.jpg", title: "UI Lead", rurl: "https://www.linkedin.com/in/aislinn-ennis/" },
   { name: "John Goepfert", imageurl: "johngoepfort.jpg", title: "Operations Lead", rurl: "https://www.linkedin.com/in/john-goepfert/" },
   { name: "Vasu Patel", imageurl: "vasupatel.jpg", title: "Business Dev Lead", rurl: "https://www.linkedin.com/in/patelv1/" },
-  { name: "Luke Shao", imageurl: "banana.jpeg", title: "Marketing Lead", rurl: "https://www.linkedin.com/in/luke-shao/" },
-  { name: "Stephen Chien", imageurl: "apple.jpeg", title: "Web Lead", rurl: "https://www.linkedin.com/in/stephenlchien/" },
-
+  { name: "Luke Shao", imageurl: "profilephoto.png", title: "Marketing Lead", rurl: "https://www.linkedin.com/in/luke-shao/" },
+  { name: "Stephen Chien", imageurl: "profilephoto.png", title: "Web Lead", rurl: "https://www.linkedin.com/in/stephenlchien/" },
 
 
 ]
+var advisors = [
+  { name: "Mahika Goel", imageurl: "MahikaGoel.jpg", title: "Mechanical Advisor", rurl: "https://www.linkedin.com/in/mahika-goel-2bbb201a5/" },
+{ name: "Jack Crespo", imageurl: "JackCrespo.jpg", title:"Mechanical Advisor",  rurl: "https://www.linkedin.com/in/jack-crespo/" },
+{ name: "Ellie Perlitz", imageurl: "ElliePerlitz.jpg",title:"Business Advisor",   rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+{ name: "Jack Rebillard", imageurl: "profilephoto.png", title:"Business Advisor",  rurl: "https://www.linkedin.com/in/jack-rebillard/" },
+{ name: "Tyler Angelica", imageurl: "profilephoto.png", title:"Business Advisor",  rurl: "https://www.linkedin.com/in/tylerangelica/" },
+]
+
+
+
 
   var gui = [
-    { name: "Devika Krishna", imageurl: "devikakrishna.png", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Patrick Choo", imageurl: "banana.jpeg",  rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Aislinn Ennis", imageurl: "aislinnennis.jpg",  rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Brandon Lerit", imageurl: "brandonlerit.jpg",  rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Devika Krishna", imageurl: "devikakrishna.png", rurl: "https://www.linkedin.com/in/devika-krishna-9a60711b2/" },
+  { name: "Brandon Lerit", imageurl: "brandonlerit.jpg",  rurl: "https://www.linkedin.com/in/brandonlerit/" },
   { name: "Max Farma", imageurl: "maxfarma.jpg",  rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-
   ]
 
   var powersystems = [
-    { name: "Schuyler Seyram", imageurl: "devikakrishna.png", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Steven Wei Chen", imageurl: "banana.jpeg",  rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Lalo Esparza", imageurl: "aislinnennis.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Max Trager", imageurl: "brandonlerit.jpg",  rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Jenna Kafrawi", imageurl: "maxfarma.jpg",  rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Ivan Huang", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Xueqing Tsang", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" }
+    { name: "Kirti Bagepalli", imageurl: "kirtibagepalli.jpg", rurl: "https://www.linkedin.com/in/kirti-bagepalli/" },
+  { name: "Steven Wei Chen", imageurl: "profilephoto.png",  rurl: "https://www.linkedin.com/in/steven-chen-bb4798286/" },
+  { name: "Lalo Esparza", imageurl: "laloesparza.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+  { name: "Max Trager", imageurl: "maxtrager.jpg",  rurl: "https://www.linkedin.com/in/max-trager-679652183/" },
+  { name: "Jenna Kafrawi", imageurl: "profilephoto.png",  rurl: "https://www.linkedin.com/in/jenna-kafrawi/" },
   ]
 
 
   var computing = [
-    { name: "Anoushka Kabra", imageurl: "devikakrishna.png", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Ashley Heckman", imageurl: "banana.jpeg",  rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name:"David Lilienfeld", imageurl: "aislinnennis.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Yaqi Gao", imageurl: "brandonlerit.jpg",  rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Levi Zeng", imageurl: "maxfarma.jpg",  rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Shefali Awasthi", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Zarif Karim", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name: "Neera Kapoor", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-  { name:"Aiman Mobhani", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" }
+  { name: "Ashley Heckman", imageurl: "ashley_heckman.jpg",  rurl: "https://www.linkedin.com/in/ashley-heckman-6b3848224/" },
+  { name: "Yaqi Gao", imageurl: "yaqigao.jpg",  rurl: "https://www.linkedin.com/in/yaqi-gao/" },
+  { name: "Levi Zeng", imageurl: "levizeng.jpg",  rurl: "https://www.linkedin.com/in/levi-zeng-529b37255/" },
+  { name: "Shefali Awasthi", imageurl: "shefaliawasthi.jpg", rurl: "https://www.linkedin.com/in/shefali-awasthi-46a14a1aa/" },
+  { name: "Zarif Karim", imageurl: "zarifkarim.jpg", rurl: "https://www.linkedin.com/in/zkarim28/" },
+  { name: "Neera Kapoor", imageurl: "profilephoto.png", rurl: "https://www.linkedin.com/in/neera-kapoor-7a673327b/" },
+  { name:"Aiman Mobhani", imageurl: "aimanmobhani.jpg", rurl: "https://www.linkedin.com/in/aiman-mobhani-19247720a/" },
+  { name:"Rares-Stefan Busca"  , imageurl: "profilephoto.png", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/",
+  },{ name:"Jake Ludgin"  , imageurl: "jakeludgin.jpg", rurl: "https://www.linkedin.com/in/jake-ludgin-059287252/"},
   ]
 
 
@@ -168,9 +172,24 @@ function FeaturesBlocks() {
             {leads.map((item) => {
               return <Member src={item.imageurl} title={item.title} subtitle={item.name} rurl={item.rurl} />;
             })}
+             </div>   
+
+        <div className=" mx-auto flex justify-between text-center pt-4 pb-4 md:pb-4">
+            <h2 className="h2 mb-4 text-3xl font-semibold">Advisors </h2>
+
+          </div>
+          
+          <div className="max-w-sm mx-auto flex flex-wrap flex-row gap-6  items-start md:max-w-2xl lg:max-w-none">
+            {advisors.map((item) => {
+              return <Member src={item.imageurl} title={item.title} subtitle={item.name} rurl={item.rurl} />;
+            })}
+            </div>
 
 
-          </div>        
+          
+
+
+              
             <div className=" mx-auto flex justify-between text-center pb-4 md:pb-4">
             <h2 className="h2 my-4 text-3xl font-semibold">Electrical</h2>
 
