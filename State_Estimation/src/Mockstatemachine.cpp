@@ -4,7 +4,7 @@
 #include <tuple>
 #include "constants.hpp"
 #include "helperFunctions.hpp"
-#include "SerialClass.h"
+#include "MockSerialClass.h"
 #include <iostream>
 #include <thread>
 

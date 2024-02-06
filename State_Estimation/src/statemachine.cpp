@@ -2,204 +2,204 @@
 #include <stdlib.h>
 #include "constants.hpp"
 #include "helperFunctions.hpp"
-#include "SerialClass.h"
+// #include "SerialClass.h"
 #include <iostream>
 
-Serial::Serial(const char *portName)
-{
-  // We're not yet connected
-  this->connected = false;
+// Serial::Serial(const char *portName)
+// {
+//   // We're not yet connected
+//   this->connected = false;
 
-  // Try to connect to the given port throuh CreateFile
-  this->hSerial = CreateFile(portName,
-                             GENERIC_READ | GENERIC_WRITE,
-                             0,
-                             NULL,
-                             OPEN_EXISTING,
-                             FILE_ATTRIBUTE_NORMAL,
-                             NULL);
+//   // Try to connect to the given port throuh CreateFile
+//   this->hSerial = CreateFile(portName,
+//                              GENERIC_READ | GENERIC_WRITE,
+//                              0,
+//                              NULL,
+//                              OPEN_EXISTING,
+//                              FILE_ATTRIBUTE_NORMAL,
+//                              NULL);
 
-  // Check if the connection was successfull
-  if (this->hSerial == INVALID_HANDLE_VALUE)
-  {
-    // If not success full display an Error
-    if (GetLastError() == ERROR_FILE_NOT_FOUND)
-    {
+//   // Check if the connection was successfull
+//   if (this->hSerial == INVALID_HANDLE_VALUE)
+//   {
+//     // If not success full display an Error
+//     if (GetLastError() == ERROR_FILE_NOT_FOUND)
+//     {
 
-      // Print Error if neccessary
-      printf("ERROR: Handle was not attached. Reason: %s not available.\n", portName);
-    }
-    else
-    {
-      printf("ERROR!!!");
-    }
-  }
-  else
-  {
-    // If connected we try to set the comm parameters
-    DCB dcbSerialParams = {0};
+//       // Print Error if neccessary
+//       printf("ERROR: Handle was not attached. Reason: %s not available.\n", portName);
+//     }
+//     else
+//     {
+//       printf("ERROR!!!");
+//     }
+//   }
+//   else
+//   {
+//     // If connected we try to set the comm parameters
+//     DCB dcbSerialParams = {0};
 
-    // Try to get the current
-    if (!GetCommState(this->hSerial, &dcbSerialParams))
-    {
-      // If impossible, show an error
-      printf("failed to get current serial parameters!");
-    }
-    else
-    {
-      // Define serial connection parameters for the arduino board
-      dcbSerialParams.BaudRate = CBR_9600;
-      dcbSerialParams.ByteSize = 8;
-      dcbSerialParams.StopBits = ONESTOPBIT;
-      dcbSerialParams.Parity = NOPARITY;
-      // Setting the DTR to Control_Enable ensures that the Arduino is properly
-      // reset upon establishing a connection
-      dcbSerialParams.fDtrControl = DTR_CONTROL_ENABLE;
+//     // Try to get the current
+//     if (!GetCommState(this->hSerial, &dcbSerialParams))
+//     {
+//       // If impossible, show an error
+//       printf("failed to get current serial parameters!");
+//     }
+//     else
+//     {
+//       // Define serial connection parameters for the arduino board
+//       dcbSerialParams.BaudRate = CBR_9600;
+//       dcbSerialParams.ByteSize = 8;
+//       dcbSerialParams.StopBits = ONESTOPBIT;
+//       dcbSerialParams.Parity = NOPARITY;
+//       // Setting the DTR to Control_Enable ensures that the Arduino is properly
+//       // reset upon establishing a connection
+//       dcbSerialParams.fDtrControl = DTR_CONTROL_ENABLE;
 
-      // Set the parameters and check for their proper application
-      if (!SetCommState(hSerial, &dcbSerialParams))
-      {
-        printf("ALERT: Could not set Serial Port parameters");
-      }
-      else
-      {
-        // If everything went fine we're connected
-        this->connected = true;
-        // Flush any remaining characters in the buffers
-        PurgeComm(this->hSerial, PURGE_RXCLEAR | PURGE_TXCLEAR);
-        // We wait 2s as the arduino board will be reseting
-        Sleep(ARDUINO_WAIT_TIME);
-      }
-    }
-  }
-}
+//       // Set the parameters and check for their proper application
+//       if (!SetCommState(hSerial, &dcbSerialParams))
+//       {
+//         printf("ALERT: Could not set Serial Port parameters");
+//       }
+//       else
+//       {
+//         // If everything went fine we're connected
+//         this->connected = true;
+//         // Flush any remaining characters in the buffers
+//         PurgeComm(this->hSerial, PURGE_RXCLEAR | PURGE_TXCLEAR);
+//         // We wait 2s as the arduino board will be reseting
+//         Sleep(ARDUINO_WAIT_TIME);
+//       }
+//     }
+//   }
+// }
 
-Serial::~Serial()
-{
-  // Check if we are connected before trying to disconnect
-  if (this->connected)
-  {
-    // We're no longer connected
-    this->connected = false;
-    // Close the serial handler
-    CloseHandle(this->hSerial);
-  }
-}
+// Serial::~Serial()
+// {
+//   // Check if we are connected before trying to disconnect
+//   if (this->connected)
+//   {
+//     // We're no longer connected
+//     this->connected = false;
+//     // Close the serial handler
+//     CloseHandle(this->hSerial);
+//   }
+// }
 
-int Serial::ReadData(char *buffer, unsigned int nbChar)
-{
-  // Number of bytes we'll have read
-  DWORD bytesRead;
-  // Number of bytes we'll really ask to read
-  unsigned int toRead;
+// int Serial::ReadData(char *buffer, unsigned int nbChar)
+// {
+//   // Number of bytes we'll have read
+//   DWORD bytesRead;
+//   // Number of bytes we'll really ask to read
+//   unsigned int toRead;
 
-  // Use the ClearCommError function to get status info on the Serial port
-  ClearCommError(this->hSerial, &this->errors, &this->status);
+//   // Use the ClearCommError function to get status info on the Serial port
+//   ClearCommError(this->hSerial, &this->errors, &this->status);
 
-  // Check if there is something to read
-  if (this->status.cbInQue > 0)
-  {
-    // If there is we check if there is enough data to read the required number
-    // of characters, if not we'll read only the available characters to prevent
-    // locking of the application.
-    if (this->status.cbInQue > nbChar)
-    {
-      toRead = nbChar;
-    }
-    else
-    {
-      toRead = this->status.cbInQue;
-    }
+//   // Check if there is something to read
+//   if (this->status.cbInQue > 0)
+//   {
+//     // If there is we check if there is enough data to read the required number
+//     // of characters, if not we'll read only the available characters to prevent
+//     // locking of the application.
+//     if (this->status.cbInQue > nbChar)
+//     {
+//       toRead = nbChar;
+//     }
+//     else
+//     {
+//       toRead = this->status.cbInQue;
+//     }
 
-    // Try to read the require number of chars, and return the number of read bytes on success
-    if (ReadFile(this->hSerial, buffer, toRead, &bytesRead, NULL))
-    {
-      return bytesRead;
-    }
-  }
+//     // Try to read the require number of chars, and return the number of read bytes on success
+//     if (ReadFile(this->hSerial, buffer, toRead, &bytesRead, NULL))
+//     {
+//       return bytesRead;
+//     }
+//   }
 
-  // If nothing has been read, or that an error was detected return 0
-  return 0;
-}
+//   // If nothing has been read, or that an error was detected return 0
+//   return 0;
+// }
 
-bool Serial::WriteData(const char *buffer, unsigned int nbChar)
-{
-  DWORD bytesSend;
+// bool Serial::WriteData(const char *buffer, unsigned int nbChar)
+// {
+//   DWORD bytesSend;
 
-  // Try to write the buffer on the Serial port
-  if (!WriteFile(this->hSerial, (void *)buffer, nbChar, &bytesSend, 0))
-  {
-    // In case it don't work get comm error and return false
-    ClearCommError(this->hSerial, &this->errors, &this->status);
+//   // Try to write the buffer on the Serial port
+//   if (!WriteFile(this->hSerial, (void *)buffer, nbChar, &bytesSend, 0))
+//   {
+//     // In case it don't work get comm error and return false
+//     ClearCommError(this->hSerial, &this->errors, &this->status);
 
-    return false;
-  }
-  else
-    return true;
-}
+//     return false;
+//   }
+//   else
+//     return true;
+// }
 
-bool Serial::IsConnected()
-{
-  // Simply return the connection status
-  return this->connected;
-}
+// bool Serial::IsConnected()
+// {
+//   // Simply return the connection status
+//   return this->connected;
+// }
 
-int readData()
-{
-  double startTime = GetTickCount();
-  Serial *SP = new Serial("\\\\.\\COM3"); // adjust as needed
+// int readData()
+// {
+//   double startTime = GetTickCount();
+//   Serial *SP = new Serial("\\\\.\\COM3"); // adjust as needed
 
-  if (SP->IsConnected())
-    printf("We're connected");
+//   if (SP->IsConnected())
+//     printf("We're connected");
 
-  char incomingData[256] = ""; // don't forget to pre-allocate memory
-  // printf("%s\n",incomingData);
-  int dataLength = 255;
-  int readResult = 0;
+//   char incomingData[256] = ""; // don't forget to pre-allocate memory
+//   // printf("%s\n",incomingData);
+//   int dataLength = 255;
+//   int readResult = 0;
 
-  while (SP->IsConnected())
-  {
-    double currTime = GetTickCount() - startTime;
-    readResult = SP->ReadData(incomingData, dataLength);
-    // printf("Bytes read: (0 means no data available) %i\n",readResult);
-    incomingData[readResult] = 0;
+//   while (SP->IsConnected())
+//   {
+//     double currTime = GetTickCount() - startTime;
+//     readResult = SP->ReadData(incomingData, dataLength);
+//     // printf("Bytes read: (0 means no data available) %i\n",readResult);
+//     incomingData[readResult] = 0;
 
-    printf("%s", incomingData);
+//     printf("%s", incomingData);
 
-    Sleep(500);
-    if (currTime >= 1000)
-    {
-      break;
-    }
-  }
-  return readResult;
-}
+//     Sleep(500);
+//     if (currTime >= 1000)
+//     {
+//       break;
+//     }
+//   }
+//   return readResult;
+// }
 
-bool writeData(const char *buffer, unsigned int nbChar)
-{
-  double startTime = GetTickCount();
-  Serial *SP = new Serial("\\\\.\\COM3"); // adjust as needed
+// bool writeData(const char *buffer, unsigned int nbChar)
+// {
+//   double startTime = GetTickCount();
+//   Serial *SP = new Serial("\\\\.\\COM3"); // adjust as needed
 
-  if (SP->IsConnected())
-    printf("We're connected");
+//   if (SP->IsConnected())
+//     printf("We're connected");
 
-  bool writeResult;
+//   bool writeResult;
 
-  while (SP->IsConnected())
-  {
-    double currTime = GetTickCount() - startTime;
-    writeResult = SP->WriteData(buffer, nbChar);
+//   while (SP->IsConnected())
+//   {
+//     double currTime = GetTickCount() - startTime;
+//     writeResult = SP->WriteData(buffer, nbChar);
 
-    printf("%d", writeResult);
+//     printf("%d", writeResult);
 
-    Sleep(500);
-    if (currTime >= 1000)
-    {
-      break;
-    }
-  }
-  return writeResult;
-}
+//     Sleep(500);
+//     if (currTime >= 1000)
+//     {
+//       break;
+//     }
+//   }
+//   return writeResult;
+// }
 
 states verifySensors(double acceleromter[], double thermistor, double lidar_distance[], double ultrasonic)
 {
@@ -219,8 +219,9 @@ states verifySensors(double acceleromter[], double thermistor, double lidar_dist
   for (int i = 0; i < 9; i++)
   {
     printf("%f\n", acceleromter[i]);
-    if (acceleromter[i] < accelerometerMin[i] || acceleromter[i] > accelerometerMax[i])
-      return Stop;
+    if (acceleromter[i] < accelerometerMin[i] || acceleromter[i] > accelerometerMax[i]) {
+      return Stop; 
+      }
   }
 
   // Thermistor
@@ -237,10 +238,10 @@ states verifySensors(double acceleromter[], double thermistor, double lidar_dist
   }
 
   // Ultrasonic
-  printf("%f\n", ultrasonic);
+  std::printf("%f\n", ultrasonic);
   if (ultrasonic < ultrasonicMin || ultrasonic > ultrasonicMax)
     return Stop;
-  printf("It has successfully passed\n");
+  std::printf("It has successfully passed\n");
   return PreAcceleration;
 }
 
@@ -258,11 +259,11 @@ states openBrakes()
   // Check if there is a sensor/mechanism to get feedback on the Brake states, i.e opened/closed.
   // TODO: Implement and return correct state
 
-  if (!writeData((char *)"Open", 4)) {
-    printf("Error: Couldn't write data succesfully");
-  }
+  // if (!writeData((char *)"Open", 4)) {
+  //   printf("Error: Couldn't write data succesfully");
+  // }
 
-  double relay_status = 0; // assuming 0 for open, 1 for close
+  double relay_status = 0.0; // assuming 0 for open, 1 for close
   // ReadData(); // read relay status from arduino
 
   if (relay_status == 1)
@@ -280,13 +281,13 @@ void closeBrakes()
   // Use bool brakeClosed to verify if the sensor implementation works correctly
 
   // TODO: Test functionality of writing to Serial
-  if (!writeData((char *)"Close", 5)) {
-    printf("Error: Couldn't write data succesfully");
-  }
+  // if (!writeData((char *)"Close", 5)) {
+  //   printf("Error: Couldn't write data succesfully");
+  // }
 
   // TODO: extract data of relay
   // serial.ReadData();
-  double relay_status; // assuming 0 for open, 1 for close
+  double relay_status = 0.0; // assuming 0 for open, 1 for close
   if (relay_status == 1)
   {
     return;
@@ -395,9 +396,10 @@ int main()
       /* Task 2: Make a verifySensors function to check they're all on,
                   and ensure readings are in a reasonable range.
       **/
-      
+     double t1[1] = {1.0};
+     double t3[1] = {1.0};
       //  Update function call for verifySensors() with  appropriate parameters
-      curr = verifySensors(readData()[0], readData()[1], readData()[2], readData()[3]); // CHANGE
+      curr = verifySensors(t1, 0.0, t3, 0.0); // CHANGE
       // curr = verifySensors(std::get<0>(readData()), stubValue);
       prev = Verification;
     };
