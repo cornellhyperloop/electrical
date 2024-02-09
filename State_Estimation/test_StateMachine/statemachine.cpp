@@ -1,8 +1,9 @@
-#include <iostream>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "constants.hpp"
 #include "helperFunctions.hpp"
+#include <iostream>
 
 
 states verifySensors(double accelerometer[], double thermistor, double lidar_distance[], double ultrasonic) {

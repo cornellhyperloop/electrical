@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../src/statemachine.cpp"
-#include "../src/helperFunctions.hpp"
+#include "statemachine.cpp"
 #include <gtest/gtest.h>
-
 
 // 1. Test if the correct states are being entered from the relevant states
 // 2. Test possible wrong ways of getting to those states and seeing if we can break our code

@@ -2,8 +2,10 @@ cmake_minimum_required(VERSION 3.14)
 set( CMAKE_CXX_COMPILER "C:/msys64/mingw64/bin/g++.exe" ) # Path to your g++ compiler
 set( CMAKE_C_COMPILER "C:/msys64/mingw64/bin/gcc.exe" ) # Path to your gcc compiler
 
-project(test_project)
+project(state_machine)
  
+include_directories(${YOUR_DIRECTORY}/../src)
+
 # GoogleTest requires at least C++14
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
