@@ -128,15 +128,14 @@ function FeaturesBlocks() {
 
   var business = [
 
-    { name: "Tyler Angelica", imageurl: "zarifkarim.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-    { name: "Jonathan Chen", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-    { name: "Luke Shao", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-    { name: "Elizabeth Song", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-    { name: "Aidan Shor", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-    { name: "Ryan Graziano", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-    { name: "Jason Ng", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-    { name: "Vasu Patel", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-    { name: "John Goepfort", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" }
+    { name: "Tyler Angelica", imageurl: "profilephoto.png", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Jonathan Chen", imageurl: "jonathanchen.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Luke Shao", imageurl: "profilephoto.png", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Elizabeth Song", imageurl: "elizabethsong.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Ryan Graziano", imageurl: "IMG_4393.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Jason Ng", imageurl: "IMG_4355.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Vasu Patel", imageurl: "vasupatel.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "John Goepfert", imageurl: "johngoepfort.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" }
 
 
   ]
