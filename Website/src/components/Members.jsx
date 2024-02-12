@@ -101,7 +101,7 @@ function FeaturesBlocks() {
     { name: "Riya Guttigoli", imageurl: "riyaguttigoli.jpg", rurl: "https://www.linkedin.com/in/riya-guttigoli-39a979196/" },
     { name: "Verena Gonzalez", imageurl: "verenagonzalez.jpg", rurl: "https://www.linkedin.com/in/verena-gonzalez-a7a62024a/" },
     { name: "Marcel Latasa", imageurl: "marcellatasa.jpg", rurl: "https://www.linkedin.com/in/marcel-latasa-a633ba219/" },
-    { name: "Aarian Mepani", imageurl: "aarianmepani.jpeg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Aarian Mepani", imageurl: "profilephoto.png", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
     { name: "Anubhav Nigam", imageurl: "anubhavnigam.jpg", rurl: "https://www.linkedin.com/in/anubhav-nigam/" },
 
   ]
