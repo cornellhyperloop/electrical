@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "statemachine.cpp"
+#include "../src/statemachine.cpp"
 #include <gtest/gtest.h>
 
 // 1. Test if the correct states are being entered from the relevant states
@@ -37,15 +37,15 @@
 // }
 
 // Demonstrate some basic assertions.
-// TEST(HelloTest, BasicAssertions)
-// {
-//   // Expect two strings not to be equal.
-//   EXPECT_STRNE("hello", "world");
-//   // Expect equality.
-//   EXPECT_EQ(7 * 6, 42);
-//   // Expect equality.
-//   EXPECT_EQ(Factorial(5), 120);
-// }
+TEST(HelloTest, BasicAssertions)
+{
+  // Expect two strings not to be equal.
+  EXPECT_STRNE("hello", "world");
+  // Expect equality.
+  EXPECT_EQ(7 * 6, 42);
+  // Expect equality.
+  EXPECT_EQ(5, 120);
+}
 
 //checkDistance
 TEST(CheckDistance, BasicAssertions){
@@ -53,8 +53,8 @@ TEST(CheckDistance, BasicAssertions){
   double distanceFail = 0.0;
   double desiredDistance = 0.0;
   const float epsilon = 0.0;
-  EXPECT_EQ(checkDistance(distancePass, desiredDistance, epsilon), Acceleration); //Pass
-  EXPECT_EQ(checkDistance(distanceFail, desiredDistance, epsilon), Deceleration); // Fail
+  EXPECT_EQ(checkDistance(distancePass, desiredDistance, epsilon), true); //Pass
+  EXPECT_EQ(checkDistance(distanceFail, desiredDistance, epsilon), false); // Fail
 }
 
 //verify state
@@ -73,9 +73,9 @@ TEST(VerifyTest, BasicAssertions){
   EXPECT_EQ(verifySensors(accelerometerPASS, thermistorPASS, lidar_distancePASS, ultrasonicPASS), PreAcceleration); // all pass
 }
 
-//pre-acceleration state
-//test with opoenBrakes
-//no inputs, read directly form aruduino to work, maybe write a testing verison of this function
+// pre-acceleration state
+// test with opoenBrakes
+// no inputs, read directly form aruduino to work, maybe write a testing verison of this function
 TEST(PreAccelerationTest, BasicAssertions){
   EXPECT_EQ(openBrakes(), Acceleration);
   EXPECT_EQ(openBrakes(), Emergency);

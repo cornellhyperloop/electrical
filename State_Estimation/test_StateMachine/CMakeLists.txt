@@ -3,8 +3,6 @@ set( CMAKE_CXX_COMPILER "C:/msys64/mingw64/bin/g++.exe" ) # Path to your g++ com
 set( CMAKE_C_COMPILER "C:/msys64/mingw64/bin/gcc.exe" ) # Path to your gcc compiler
 
 project(state_machine)
- 
-include_directories(${YOUR_DIRECTORY}/../src)
 
 # GoogleTest requires at least C++14
 set(CMAKE_CXX_STANDARD 14)
