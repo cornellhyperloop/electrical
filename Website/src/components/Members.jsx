@@ -41,7 +41,7 @@ function FeaturesBlocks() {
     { name: "Jonathan Chen", imageurl: "jonathanchen.jpg", title: "Business Lead", rurl: "https://www.linkedin.com/in/jonathan-chen-377a261b6/" },
     { name: "Nikita Dolgopolov", imageurl: "nikitadolgopolov.jpg", title: "Mechanical Lead", rurl: "https://www.linkedin.com/in/nikita-dolgopolov/" },
     { name: "David Ovetsky", imageurl: "davidovetsky.jpg", title: "Structures Lead", rurl: "https://www.linkedin.com/in/david-ovetsky/" },
-    { name: "Mark Edwards", imageurl: "markedwards.jpg", title: "Magnetics Lead", rurl: "https://www.linkedin.com/in/markvedwards02/" },
+    { name: "Mark Edwards", imageurl: "mark_edwards_2.jpg", title: "Magnetics Lead", rurl: "https://www.linkedin.com/in/markvedwards02/" },
     { name: "Moez Amini", imageurl: "moezamini.jpg", title: "Braking Lead", rurl: "https://www.linkedin.com/in/moezamini/" },
     { name: "Daniel Akinwale", imageurl: "danielakinwale.jpg", title: "Composites Lead", rurl: "https://www.linkedin.com/in/daniel-akinwale-894297202/" },
     { name: "Sal Ciminello", imageurl: "salciminello.jpg", title: "Prototyping Lead", rurl: "https://www.linkedin.com/in/sal-ciminello-863471255/" },
@@ -69,7 +69,7 @@ function FeaturesBlocks() {
   var gui = [
     { name: "Devika Krishna", imageurl: "devikakrishna.png", rurl: "https://www.linkedin.com/in/devika-krishna-9a60711b2/" },
     { name: "Brandon Lerit", imageurl: "brandonlerit.jpg", rurl: "https://www.linkedin.com/in/brandonlerit/" },
-    { name: "Max Farma", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Max Farma", imageurl: "maxfarma.jpg", rurl: "https://www.linkedin.com/in/maximilian-farma-529420289/" },
   ]
 
   var powersystems = [

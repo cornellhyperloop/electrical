@@ -69,3 +69,20 @@
     height: auto; /* Maintain the image's aspect ratio */
     transition: transform 0.5s ease-in-out;
   }
+
+
+  .animated-border {
+    animation: fadeInUp 0.5s ease forwards;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

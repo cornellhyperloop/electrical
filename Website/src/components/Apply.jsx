@@ -11,7 +11,7 @@ import Business from "../img/business.png";
 import Mechanical from "../img/mechanical.png";
 import Electrical from "../img/electrical.png";
 import "../Timeline.css";
-import OldTeam from "../img/oldteam.png";
+import OldTeam from "../img/teamphoto.jpg";
 
 function Apply() {
   return (
@@ -168,16 +168,18 @@ function WhoWeLookFor() {
         className="w-1/2 md:pr-4 md:pl-8 md:mt-0 mt-8"
         style={{ padding: "2rem" }}
       />
-      <div className="md:pl-16">
-        <h1 className="text-4xl font-bold mb-4">Who We Look For</h1>
-        <p className="text-lg leading-relaxed mb-8" style={{ padding: "2rem" }}>
-          Cornell Hyperloop has a position for everyone. We are broken down into
-          three teams, including a total of seven “sub-teams,” each focusing on
-          a specific component of our work. Each team recruits undergraduate
-          students of all years from any major that can demonstrate the skills
-          needed to succeed on that team.
-        </p>
-      </div>
+<div className="md:pl-16">
+  <h1 className="text-4xl font-bold mb-4">Who We Look For</h1>
+  {/* Part of animated border is in Timeline.css in main, please check timeline for more info.*/}
+  <p className="text-lg leading-relaxed mb-8 animated-border" style={{ padding: "1rem", border: "4px solid #ccc", borderRadius: "8px", opacity: 0, transform: 'translateY(20px)' }}>
+    Cornell Hyperloop has a position for everyone. We are broken down into
+    three teams, including a total of seven “sub-teams,” each focusing on
+    a specific component of our work. Each team recruits undergraduate
+    students of all years from any major that can demonstrate the skills
+    needed to succeed on that team.
+  </p>
+</div>
+
     </div>
   );
 }
