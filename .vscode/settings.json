@@ -6,5 +6,7 @@
     "ostream": "cpp",
     "iostream": "cpp",
     "cwchar": "cpp"
-  }
+  },
+  "cmake.configureOnOpen": true,
+  "cmake.sourceDirectory": "C:/Users/Hyperloop/electrical/State_Estimation/test_StateMachine"
 }
