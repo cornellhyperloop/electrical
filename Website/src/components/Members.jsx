@@ -95,7 +95,7 @@ function FeaturesBlocks() {
   ]
 
 
-  var magnetic = [
+  var magnetics = [
 
     { name: "Sal Ciminello", imageurl: "salciminello.jpg", rurl: "https://www.linkedin.com/in/sal-ciminello-863471255/" },
     { name: "Riya Guttigoli", imageurl: "riyaguttigoli.jpg", rurl: "https://www.linkedin.com/in/riya-guttigoli-39a979196/" },
