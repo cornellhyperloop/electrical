@@ -3,6 +3,13 @@
 #include "../src/statemachine.cpp"
 #include <gtest/gtest.h>
 
+/**
+ * Navigate to test file
+ * Test Commands: 
+ * -cmake -S . -B build
+ * -cmake --build build
+ * -cd build && ctest
+*/
 // 1. Test if the correct states are being entered from the relevant states
 // 2. Test possible wrong ways of getting to those states and seeing if we can break our code
 //      e.g. Having different sensors fail in Verification and see if all correctly cause transition to Stop
@@ -37,36 +44,36 @@
 // }
 
 // Demonstrate some basic assertions.
-TEST(HelloTest, BasicAssertions)
-{
-  // Expect two strings not to be equal.
-  EXPECT_STRNE("hello", "world");
-  // Expect equality.
-  EXPECT_EQ(7 * 6, 42);
-  // Expect equality.
-  EXPECT_EQ(5, 120);
-}
+// TEST(HelloTest, BasicAssertions)
+// {
+//   // Expect two strings not to be equal.
+//   EXPECT_STRNE("hello", "world");
+//   // Expect equality.
+//   EXPECT_EQ(7 * 6, 42);
+//   // Expect equality.
+//   EXPECT_EQ(5, 120);
+// }
 
 //checkDistance
 TEST(CheckDistance, BasicAssertions){
-  double distancePass = 10.0;
-  double distanceFail = 0.0;
-  double desiredDistance = 0.0;
-  const float epsilon = 0.0;
-  EXPECT_EQ(checkDistance(distancePass, desiredDistance, epsilon), true); //Pass
-  EXPECT_EQ(checkDistance(distanceFail, desiredDistance, epsilon), false); // Fail
+  double total_distance = 10.0; //actual distance traveled
+  double traveled_distance = 10.0; //according to our sensors
+  double failed_traveled_distance = 9.0;
+  const float epsilon = 0.1; //low number 
+  EXPECT_EQ(checkDistance(total_distance, traveled_distance, epsilon), true); //Pass
+  EXPECT_EQ(checkDistance(total_distance, failed_traveled_distance, epsilon), false); // Fail
 }
 
 //verify state
 TEST(VerifyTest, BasicAssertions){ 
   double accelerometerFAIL[9] = {-1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0};
-  double accelerometerPASS[9] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+  double accelerometerPASS[9] = {1.0, 2.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0};
   double thermistorFAIL = -1.0;
-  double thermistorPASS = 0.0;
-  double lidar_distancePASS[2] = {0.0, 0.0};
+  double thermistorPASS = 3.0;
+  double lidar_distancePASS[2] = {2.0, 2.0};
   double lidar_distanceFAIL[2] = {-1.0, -1.0};
   double ultrasonicFAIL = -1.0;
-  double ultrasonicPASS = 1.0;
+  double ultrasonicPASS = 2.0;
   EXPECT_EQ(verifySensors(accelerometerFAIL, thermistorPASS, lidar_distancePASS, ultrasonicPASS), Stop); //1fail
   EXPECT_EQ(verifySensors(accelerometerPASS, thermistorFAIL, lidar_distancePASS, ultrasonicPASS), Stop); //1fail
   EXPECT_EQ(verifySensors(accelerometerFAIL, thermistorFAIL, lidar_distanceFAIL, ultrasonicFAIL), Stop); // all fail

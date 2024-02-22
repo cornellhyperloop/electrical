@@ -50,8 +50,8 @@ bool checkDistance(double totalDist, double travelDist, const float epsilon = 1E
 {
   // TODO: Calibrate epsilon value after confirming with the mechanical team
   // Check if the pod has reached the total distance
-  return 0; //delete later
-  // return (abs(totalDist - travelDist) <= epsilon);
+  //return 0; //delete later
+  return (abs(totalDist - travelDist) <= epsilon);
 }
 
 states openBrakes()
