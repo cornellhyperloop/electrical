@@ -4,7 +4,15 @@
 #include "constants.hpp"
 #include "helperFunctions.hpp"
 
-
+/**
+ * @brief checks that sensors are operating and returning sensible values
+ * 
+ * @param accelerometer - accelerometer readings
+ * @param thermistor - thermistor readings
+ * @param lidar_distance - lidar readings
+ * @param ultrasonic - ultrasonics
+ * @return states - the next state -- either fail or continue on with process (preaccelerate)
+ */
 states verifySensors(double accelerometer[], double thermistor, double lidar_distance[], double ultrasonic) {
   // TODO: Add more sensor parameters as needed with average values,
   // create functionality for average data value
@@ -46,6 +54,15 @@ states verifySensors(double accelerometer[], double thermistor, double lidar_dis
   return PreAcceleration;
 }
 
+/**
+ * @brief checks to see if we traveled the amount of distance that we want
+ * 
+ * @param totalDist end goal
+ * @param travelDist how much we've traveled so far
+ * @param epsilon error
+ * @return true -- returns true if we're at our goal
+ * @return false -- returns false if we still need to keep going
+ */
 bool checkDistance(double totalDist, double travelDist, const float epsilon = 1E-5f)
 {
   // TODO: Calibrate epsilon value after confirming with the mechanical team
@@ -54,6 +71,11 @@ bool checkDistance(double totalDist, double travelDist, const float epsilon = 1E
   return (abs(totalDist - travelDist) <= epsilon);
 }
 
+/**
+ * @brief opens brakes
+ * 
+ * @return depending on whether brakes are successfully opened or not, returns the next state
+ */
 states openBrakes()
 {
   // Go to Emergency if does not work, otherwise go to Acceleration
@@ -75,7 +97,10 @@ states openBrakes()
   return Acceleration;
 
 }
-
+/**
+ * @brief close brakes
+ * 
+ *  */
 void closeBrakes()
 {
   // TODO: Implement closeBrakeMain in helperFunctions.h
@@ -99,6 +124,14 @@ void closeBrakes()
   // return Emergency;
 }
 
+/**
+ * @brief checks to see if we reached our desired distance. If we have, start decelerating. 
+ * If not, check if we reached our desired speed. If we have then cruise, if not then keep accelerating
+ * 
+ * @param sensorVelocity sensor reading for speed
+ * @param traveledDist total distance traveled
+ * @return states 
+ */
 states accelerate(double sensorVelocity, double traveledDist)
 {
   // Go to Emergency if does not work, otherwise go to Cruise or Deceleration
@@ -123,6 +156,13 @@ states accelerate(double sensorVelocity, double traveledDist)
   return Emergency;
 }
 
+/**
+ * @brief calls accelerate for logic
+ * 
+ * @param sensorVelocity 
+ * @param traveledDist 
+ * @return states 
+ */
 states cruise(double sensorVelocity, double traveledDist)
 {
   // Go to Emergency if does not work, otherwise go to Deceleration
@@ -132,7 +172,12 @@ states cruise(double sensorVelocity, double traveledDist)
   // logic is taken care off in acceleration!
   return accelerate(sensorVelocity, traveledDist);
 }
-
+/**
+ * @brief starts deceleraton, if we reached our end goal then stop, other wise keep decelerating
+ * 
+ * @param traveledDist 
+ * @return states 
+ */
 states decelerate(double traveledDist)
 {
   // Go to Emergency if does not work, otherwise go to Deceleration
@@ -151,6 +196,12 @@ states decelerate(double traveledDist)
   return Emergency;
 }
 
+/**
+ * @brief shuts the pod down if we have reached our desired distance
+ * 
+ * @param traveledDist 
+ * @return states 
+ */
 states stop(double traveledDist)
 {
   // Go to Crawl if does not work, otherwise go to PodOff
@@ -166,7 +217,11 @@ states stop(double traveledDist)
   }
   return Emergency;
 }
-
+/**
+ * @brief emergency state that stops the pod
+ * 
+ * @return states 
+ */
 states emergency()
 {
   // Close brakes rapidly and stop any propulsion
@@ -175,75 +230,79 @@ states emergency()
   return Stop;
 }
 
+/**
+ * @brief state that turns off the pod
+ * 
+ */
 void turnOff()
 {
   // TODO: Implement killPower in helperFunctions.h
   // killPower(); // Commented out for now since it's causing compilation errors due to function not being defined
 }
 
-// int main()
-// {
-//   states curr = Verification;
-//   states prev = Verification;
-//   // traveledDist = Serial Read for LIDAR to get Traveled Distance
-//   double traveledDist = 0.0;
+int main()
+{
+  states curr = Verification;
+  states prev = Verification;
+  // traveledDist = Serial Read for LIDAR to get Traveled Distance
+  double traveledDist = 0.0;
 
-//   while (1)
-//   {
-//     switch (curr)
-//     {
-//     case Verification:
-//     {
-//       // Task 1: Turn on all sensors and motor(if necessary)
-//       /* Task 2: Make a verifySensors function to check they're all on,
-//                   and ensure readings are in a reasonable range.
-//       **/
-//      double t1[1] = {1.0};
-//      double t3[1] = {1.0};
-//       //  Update function call for verifySensors() with  appropriate parameters
-//       curr = verifySensors(t1, 0.0, t3, 0.0); // CHANGE
-//       // curr = verifySensors(std::get<0>(readData()), stubValue);
-//       prev = Verification;
-//     };
-//     case PreAcceleration:
-//     {
-//       curr = openBrakes();
-//       prev = PreAcceleration;
-//     };
-//     case Acceleration:
-//     {
-//       curr = accelerate(lidar_distanceMax[0], traveledDist);
-//       prev = Acceleration;
-//     };
-//     case Cruise:
-//     {
-//       curr = cruise(lidar_distanceMax[0], traveledDist);
-//       prev = Cruise;
-//     };
-//     case Deceleration:
-//     {
-//       curr = decelerate(traveledDist);
-//       prev = Deceleration;
-//     };
-//     case Crawl:
-//     {
-//       curr = accelerate(lidar_distanceMax[0], traveledDist); // accelerate with slower speed
-//       prev = Crawl;
-//     };
-//     case Emergency:
-//     {
-//       curr = emergency();
-//       prev = Emergency;
-//     };
-//     case Stop:
-//     {
-//       curr = stop(traveledDist);
-//     };
-//     case PodOff:
-//     {
-//       break;
-//     }
-//     }
-//   }
-//   return 0;
-// }
+  while (1)
+  {
+    switch (curr)
+    {
+    case Verification:
+    {
+      // Task 1: Turn on all sensors and motor(if necessary)
+      /* Task 2: Make a verifySensors function to check they're all on,
+                  and ensure readings are in a reasonable range.
+      **/
+     double t1[1] = {1.0};
+     double t3[1] = {1.0};
+      //  Update function call for verifySensors() with  appropriate parameters
+      curr = verifySensors(t1, 0.0, t3, 0.0); // CHANGE
+      // curr = verifySensors(std::get<0>(readData()), stubValue);
+      prev = Verification;
+    };
+    case PreAcceleration:
+    {
+      curr = openBrakes();
+      prev = PreAcceleration;
+    };
+    case Acceleration:
+    {
+      curr = accelerate(lidar_distanceMax[0], traveledDist);
+      prev = Acceleration;
+    };
+    case Cruise:
+    {
+      curr = cruise(lidar_distanceMax[0], traveledDist);
+      prev = Cruise;
+    };
+    case Deceleration:
+    {
+      curr = decelerate(traveledDist);
+      prev = Deceleration;
+    };
+    case Crawl:
+    {
+      curr = accelerate(lidar_distanceMax[0], traveledDist); // accelerate with slower speed
+      prev = Crawl;
+    };
+    case Emergency:
+    {
+      curr = emergency();
+      prev = Emergency;
+    };
+    case Stop:
+    {
+      curr = stop(traveledDist);
+    };
+    case PodOff:
+    {
+      break;
+    }
+    }
+  }
+  return 0;
+}
