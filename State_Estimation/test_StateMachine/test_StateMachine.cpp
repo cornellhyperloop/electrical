@@ -25,41 +25,13 @@
 //   // TODO: Write test case. Test if the current state == desired state
 // }
 
-// void main()
-// {
-//   printf("Running tests: \n");
-//   printf("Running test1: \n");
-//   test1();
-//   // test_n();
-//   printf("All tests are completed!");
-// }
-
-// int Factorial(int n)
-// {
-//   if (n == 0)
-//   {
-//     return 1;
-//   }
-//   return n * Factorial(n - 1);
-// }
-
-// Demonstrate some basic assertions.
-// TEST(HelloTest, BasicAssertions)
-// {
-//   // Expect two strings not to be equal.
-//   EXPECT_STRNE("hello", "world");
-//   // Expect equality.
-//   EXPECT_EQ(7 * 6, 42);
-//   // Expect equality.
-//   EXPECT_EQ(5, 120);
-// }
-
 //checkDistance
 TEST(CheckDistance, BasicAssertions){
   double total_distance = 10.0; //actual distance traveled
   double traveled_distance = 10.0; //according to our sensors
   double failed_traveled_distance = 9.0;
   const float epsilon = 0.1; //low number 
+
   EXPECT_EQ(checkDistance(total_distance, traveled_distance, epsilon), true); //Pass
   EXPECT_EQ(checkDistance(total_distance, failed_traveled_distance, epsilon), false); // Fail
 }
@@ -70,22 +42,27 @@ TEST(VerifyTest, BasicAssertions){
   double accelerometerPASS[9] = {1.0, 2.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0};
   double thermistorFAIL = -1.0;
   double thermistorPASS = 3.0;
-  double lidar_distancePASS[2] = {2.0, 2.0};
   double lidar_distanceFAIL[2] = {-1.0, -1.0};
+  double lidar_distancePASS[2] = {2.0, 2.0};
   double ultrasonicFAIL = -1.0;
   double ultrasonicPASS = 2.0;
-  EXPECT_EQ(verifySensors(accelerometerFAIL, thermistorPASS, lidar_distancePASS, ultrasonicPASS), Stop); //1fail
-  EXPECT_EQ(verifySensors(accelerometerPASS, thermistorFAIL, lidar_distancePASS, ultrasonicPASS), Stop); //1fail
-  EXPECT_EQ(verifySensors(accelerometerFAIL, thermistorFAIL, lidar_distanceFAIL, ultrasonicFAIL), Stop); // all fail
-  EXPECT_EQ(verifySensors(accelerometerPASS, thermistorPASS, lidar_distancePASS, ultrasonicPASS), PreAcceleration); // all pass
+  EXPECT_EQ(verifySensors(accelerometerFAIL, thermistorPASS, lidar_distancePASS, ultrasonicPASS), Stop); // accelerometer misses threshold
+  EXPECT_EQ(verifySensors(accelerometerPASS, thermistorFAIL, lidar_distancePASS, ultrasonicPASS), Stop); // thermister sensor misses threshold
+  EXPECT_EQ(verifySensors(accelerometerPASS, thermistorPASS, lidar_distanceFAIL, ultrasonicPASS), Stop); // lidar sensor misses threshold
+  EXPECT_EQ(verifySensors(accelerometerPASS, thermistorPASS, lidar_distancePASS, ultrasonicFAIL), Stop); // ultrasonic sensor misses threshold
+  EXPECT_EQ(verifySensors(accelerometerFAIL, thermistorFAIL, lidar_distanceFAIL, ultrasonicFAIL), Stop); // all sesnors miss threshold
+  EXPECT_EQ(verifySensors(accelerometerPASS, thermistorPASS, lidar_distancePASS, ultrasonicPASS), PreAcceleration); // all sensors meet threshold
 }
 
 // pre-acceleration state
 // test with opoenBrakes
 // no inputs, read directly form aruduino to work, maybe write a testing verison of this function
 TEST(PreAccelerationTest, BasicAssertions){
-  EXPECT_EQ(openBrakes(), Acceleration);
-  EXPECT_EQ(openBrakes(), Emergency);
+  int close = 1;
+  int open = 0;
+
+  EXPECT_EQ(openBrakes(0), Acceleration);
+  EXPECT_EQ(openBrakes(1), Emergency);
 }
 
 //acceleration state
@@ -98,39 +75,50 @@ that's not a case on confluence. we added another case below for this.
 This is a test case for Cruise, but not acceleration, though. 
 */
 TEST(AccelerationTest, BasicAssertions){
-  double sensorVelocityunder = 0.0;
-  double sensorVelocityover = 0.0;
-  double sensorVelocitygood = 0.0;
-  double traveledDist = 0.0;
-  double traveledDistEnd = 0.0;
+  double sensorVelocityunder = 5.0;
+  double sensorVelocityover = 15.0;
+  double sensorVelocitygood = 10.0;
+  double sensorVelocitybad = -1.0;
+  double traveledDist = 30.0;
+  double traveledDistEnd = 80.0;
   EXPECT_EQ(accelerate(sensorVelocityunder, traveledDist), Acceleration); // under desired vel
   EXPECT_EQ(accelerate(sensorVelocityover, traveledDist), Cruise); // over desired vel
   EXPECT_EQ(accelerate(sensorVelocitygood, traveledDist), Cruise); // desired
   EXPECT_EQ(accelerate(sensorVelocitygood, traveledDistEnd), Deceleration); // near end of track
-  EXPECT_EQ(accelerate(sensorVelocitygood, traveledDist), Emergency); // sensor malfunction
-  EXPECT_EQ(accelerate(sensorVelocitygood, traveledDist), Emergency); // manual interrupt
+  EXPECT_EQ(accelerate(sensorVelocitybad, traveledDist), Emergency); // sensor malfunction
+
+  //manual interrupts can't be tested from here
+  // EXPECT_EQ(accelerate(sensorVelocitybad, traveledDist), Emergency); // manual interrupt
 }
 
 //cruise state
   //states cruise(double sensorVelocity, double traveledDist)
 TEST(CruiseTest, BasicAssertions){
-  double sensorVel = 0.0;
-  double sensorVelNo = 0.0;
-  double traveledDist = 0.0;
-  double traveledDistEnd = 0.0;
-  EXPECT_EQ(cruise(sensorVelNo, traveledDist), Emergency); // undesired velocity
+  double sensorVel = 10.0;
+  // double sensorVelNo = 0.0;
+  double traveledDist = 50.0;
+  double traveledDistEnd = 80.0;
+  // TODO: Fix when we figure out automatic emergency transitions
+  // EXPECT_EQ(cruise(sensorVelNo, traveledDist), Emergency); // undesired velocity
   EXPECT_EQ(cruise(sensorVel, traveledDist), Cruise); // desired velocity
-  EXPECT_EQ(cruise(sensorVel, traveledDist), Emergency); // manual interrupt
+  // EXPECT_EQ(cruise(sensorVel, traveledDist), Emergency); // manual interrupt
   EXPECT_EQ(cruise(sensorVel, traveledDistEnd), Deceleration); // near end of track
 }
 
 //deaceleration state
   //states decelerate(double traveledDist)
 TEST(DecelerationTest, BasicAssertions){
-  double traveledDistEnd = 0.0;
-  double traveledDistMid = 0.0;
-  EXPECT_EQ(decelerate(traveledDistEnd), Stop) ;
-  EXPECT_EQ(decelerate(traveledDistMid), Emergency);
+  //what is the purpose of epsilon at this point then?
+  // epsilon for calibration
+  // will continuously calling closeBrakes cause any problem on the arduino?
+
+  double traveledDistEnd = 0.00;
+  double traveledDistMid = 50.0;
+  EXPECT_EQ(decelerate(traveledDistEnd), Stop);
+  EXPECT_EQ(decelerate(traveledDistMid), Deceleration);
+
+  // manual interrrupt 
+  // EXPECT_EQ(decelerate(traveledDistMid), Emergency);
 }
 
 //emergency state

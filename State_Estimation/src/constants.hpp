@@ -15,11 +15,14 @@ const double lidar_distanceMax[2] = {100.0, 100.0};
 const double ultrasonicMin = 0.0;
 const double ultrasonicMax = 100.0;
 
-const double desiredVelocity = 1.0;
+const double desiredVelocity = 10.0;
 const double stubValue = 0.5;
 
-const double totalDist = 0.0;
-const double decelRange = 0.0;
+const double totalDist = 100.0;
+const double decelRange = 20.0;
+const double stopRange = 0.0;
+
+const double sensorStopEps = 1E-3f;
 
 enum states
 {
