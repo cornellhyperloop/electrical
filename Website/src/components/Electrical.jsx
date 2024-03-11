@@ -92,7 +92,7 @@ function FeaturesBlocks() {
                 This includes the on pod motors, electromagnets, actuators, computers, as well as any test rigs before pod assembly.
                  The high voltage systems such as the pod's 
                  linear induction motor (LIM) require our team to configure, assemble, and test our in-house battery pack using the 
-                 LiFePO4 batteries by spot welding them and converting that to an AC power source through our voltage frequency drive (VFD),
+                 LiFePO4 batteries by spot welding them and converting that to an AC power source through our variable frequency drive (VFD),
                  so we can remotely control the motors speed through the VFD.
                  
                 </h3>

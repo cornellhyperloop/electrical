@@ -128,14 +128,14 @@ function FeaturesBlocks() {
 
   var business = [
 
-    { name: "Tyler Angelica", imageurl: "profilephoto.png", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-    { name: "Jonathan Chen", imageurl: "jonathanchen.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-    { name: "Luke Shao", imageurl: "profilephoto.png", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-    { name: "Elizabeth Song", imageurl: "elizabethsong.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-    { name: "Ryan Graziano", imageurl: "IMG_4393.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
+    { name: "Tyler Angelica", imageurl: "profilephoto.png", rurl: "https://www.linkedin.com/in/tylerangelica/" },
+    { name: "Jonathan Chen", imageurl: "jonathanchen.jpg", rurl: "https://www.linkedin.com/in/jonathan-chen-377a261b6/" },
+    { name: "Luke Shao", imageurl: "profilephoto.png", rurl: "https://www.linkedin.com/in/luke-shao/" },
+    { name: "Elizabeth Song", imageurl: "elizabethsong.jpg", rurl: "https://www.linkedin.com/in/elizabethyurisong/" },
+    { name: "Ryan Graziano", imageurl: "ryangraziano.jpeg", rurl: "https://www.linkedin.com/in/ryangraziano/" },
     { name: "Jason Ng", imageurl: "IMG_4355.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-    { name: "Vasu Patel", imageurl: "vasupatel.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" },
-    { name: "John Goepfert", imageurl: "johngoepfort.jpg", rurl: "https://www.linkedin.com/company/cornell-hyperloop/mycompany/" }
+    { name: "Vasu Patel", imageurl: "vasupatel.jpg", rurl: "https://www.linkedin.com/in/patelv1/" },
+    { name: "John Goepfert", imageurl: "johngoepfort.jpg", rurl: "https://www.linkedin.com/in/john-goepfert/" }
 
 
   ]
@@ -233,7 +233,7 @@ function FeaturesBlocks() {
           <div className="max-w-sm mx-auto flex flex-wrap flex-row gap-6  items-start md:max-w-2xl lg:max-w-none">
 
             {magnetic.map((item) => {
-              return <Member src={item.imageurl} title={"Magnetic"} subtitle={item.name} rurl={item.rurl} />;
+              return <Member src={item.imageurl} title={"Magnetics"} subtitle={item.name} rurl={item.rurl} />;
             })}
 
             {braking.map((item) => {

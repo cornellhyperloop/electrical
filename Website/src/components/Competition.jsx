@@ -50,6 +50,26 @@ function CompetitionPage() {
               </a>
               .
             </p>
+
+            <p className="mt-5">
+              Our whitepaper can be seen   {" "}
+              <a
+               href="https://drive.google.com/file/d/1AYm1-NktUl_CGbKkUeXMM5AL6izH2LZa/view?usp=sharing"
+               target="_blank"
+               rel="noopener noreferrer"
+               className="text-blue-500 hover:underline"
+              
+              >
+                 here.
+
+              </a>
+
+            </p>
+
+
+
+
+
           </div>
         </section>
 
