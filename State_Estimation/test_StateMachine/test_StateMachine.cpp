@@ -112,10 +112,13 @@ TEST(DecelerationTest, BasicAssertions){
   // epsilon for calibration
   // will continuously calling closeBrakes cause any problem on the arduino?
 
-  double traveledDistEnd = 0.00;
+  double traveledDistEnd = 100.0;
   double traveledDistMid = 50.0;
-  EXPECT_EQ(decelerate(traveledDistEnd), Stop);
-  EXPECT_EQ(decelerate(traveledDistMid), Deceleration);
+  double sensorVelocitygood = 10.0;
+  double sensorVelocityslow = 0.00000001;
+  EXPECT_EQ(decelerate(traveledDistEnd, sensorVelocityslow), Stop);
+  EXPECT_EQ(decelerate(traveledDistEnd, sensorVelocitygood), Emergency);
+  EXPECT_EQ(decelerate(traveledDistMid, sensorVelocitygood), Deceleration);
 
   // manual interrrupt 
   // EXPECT_EQ(decelerate(traveledDistMid), Emergency);
@@ -131,8 +134,8 @@ TEST(EmergencyTest, BasicAssertions){
 //stop state
   //states stop(double traveledDist)
 TEST(StopTest, BasicAssertions){
-  double traveledDistEnd = 0.0;
-  double traveledDistMid = 0.0;
+  double traveledDistEnd = 100.0;
+  double traveledDistMid = 50.0;
   EXPECT_EQ(stop(traveledDistMid), Crawl); //used to be crawl, need to change bc Crawl DNE
   EXPECT_EQ(stop(traveledDistEnd), PodOff);
 }
