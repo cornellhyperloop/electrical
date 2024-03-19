@@ -25,6 +25,7 @@
 //   // TODO: Write test case. Test if the current state == desired state
 // }
 
+
 //checkDistance
 TEST(CheckDistance, BasicAssertions){
   double total_distance = 10.0; //actual distance traveled

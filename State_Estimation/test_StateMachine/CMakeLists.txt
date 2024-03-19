@@ -22,9 +22,12 @@ enable_testing()
 add_executable(
   test_StateMachine
   test_StateMachine.cpp
+  test_Serial
+  test_Serial.cpp
 )
 target_link_libraries(
   test_StateMachine
+  test_Serial
   GTest::gtest_main
 )
  
