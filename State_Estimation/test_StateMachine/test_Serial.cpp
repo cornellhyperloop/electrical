@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include "../src/statemachine.cpp"
 #include <gtest/gtest.h>
+#include "MockSerialClass.h" 
+#include <gmock/gmock.h>
+#include "MockSerial.h"
 using ::testing::Return;
 
 /**
@@ -22,14 +25,26 @@ using ::testing::Return;
 //how to start google test in terminal:
   // cmake -S . -B build
   // cmake --build build
+  // Define your mock class
+// class MockSensors : public MockSerial {
+// public:
+//     MOCK_METHOD(int, ReadData, (char *buffer, unsigned int nbChar), (const, override));
+//     // Define other mock methods if needed
+// };
+
 
 TEST(MockSerialTests, BasicAssertions) {
-  MockSensors serial;
+  MockSensors serial("testPort");
   EXPECT_CALL(serial, ReadData(0,0))
     .Times(3)
-    .WillRepeat(Return());
+    .WillRepeatedly(Return());
     //figure out the format of the output from the arduino that is being read from serial
     //use that as our guide for what this mock serial object outputs
+    // first test can be for when we want FSM to "stop", we shut down program --> just for testing purposes right now
+}
 
-
+// Entry point for running tests
+int main(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
