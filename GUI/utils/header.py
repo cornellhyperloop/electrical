@@ -23,6 +23,9 @@ class Header(QWidget):
 
         fsm = FSM()
 
+        cooling_systems = CoolingSystem()
+        splitter1.addWidget(cooling_systems)
+        
         emergency_button = EmergencyButton(fsm)
         splitter1.addWidget(emergency_button)
 
