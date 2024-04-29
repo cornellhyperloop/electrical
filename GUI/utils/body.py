@@ -33,7 +33,7 @@ class Body(QWidget):
         battery = Battery()
         cool_systems = CoolingSystem()
         home_footer.addWidget(bottom_left)
-        # home_footer.addWidget(prox_sensors)
+        home_footer.addWidget(prox_sensors)
         home_footer.addWidget(battery)
         home_footer.addWidget(cool_systems)
 
