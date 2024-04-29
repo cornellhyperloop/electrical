@@ -29,6 +29,8 @@ class MainWindow(QWidget):
             lambda: self.renderPage(header.navbar(header.b3)))
         header.b4.clicked.connect(
             lambda: self.renderPage(header.navbar(header.b4)))
+         header.b5.clicked.connect(
+            lambda: self.renderPage(header.navbar(header.b5)))
 
         self.Stack = QStackedWidget(self)
 
