@@ -82,7 +82,7 @@ class Header(QWidget):
         splitter3 = QSplitter(Qt.Vertical)
         splitter3.addWidget(splitter1)
         splitter3.addWidget(splitter2)
-        splitter3.setSizes([self.height / 3, self.height / 3])
+        splitter3.setSizes([self.height / 4, self.height / 4])
 
         hbox.addWidget(splitter3)
         self.setStyleSheet(qstr)
