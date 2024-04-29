@@ -105,7 +105,7 @@ class Header(QWidget):
 
     def navbar(self, b):
         print("clicked button is ", b.text())
-        buttons = [self.b1, self.b2, self.b3, self.b4]
+        buttons = [self.b1, self.b2, self.b3, self.b4, self.b5]
         if buttons.index(b) > 1:
             return 0
         else:
