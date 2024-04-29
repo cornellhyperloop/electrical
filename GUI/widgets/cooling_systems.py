@@ -2,7 +2,6 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 import constants
-import sys
 
 class CoolingSystem(QWidget):
     def __init__(self,parent = None):
