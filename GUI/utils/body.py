@@ -3,7 +3,6 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from widgets import *
 import pyqtgraph as pg
-from widgets.cooling_systems import *
 
 
 class Body(QWidget):
