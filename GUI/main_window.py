@@ -34,7 +34,7 @@ class MainWindow(QWidget):
 
         self.Stack = QStackedWidget(self)
 
-        body = Body()
+        # body = Body()
         visualizer = Visualizer()
 
         self.Stack.addWidget(body)
