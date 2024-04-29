@@ -11,7 +11,7 @@ class MainWindow(QWidget):
         super(MainWindow, self).__init__()
 
         # Insert change here
-        self.setWindowTitle("Hyperloop GUI")
+        # self.setWindowTitle("Hyperloop GUI")
 
         hbox = QHBoxLayout(self)
 
