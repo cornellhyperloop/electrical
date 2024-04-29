@@ -50,6 +50,8 @@ class Header(QWidget):
         self.b3.clicked.connect(lambda: self.navbar(self.b3))
         self.b4 = QPushButton("Temperature")
         self.b4.clicked.connect(lambda: self.navbar(self.b4))
+        self.b5 = QPushButton("Cooling Systems")
+        self.b5.clicked.connect(lambda: self.navbar(self.b5))
         splitter2.addWidget(self.b1)
         splitter2.addWidget(self.b2)
         splitter2.addWidget(self.b3)
@@ -57,6 +59,7 @@ class Header(QWidget):
         splitter2.addWidget(self.b4)
         splitter2.addWidget(self.b4)
         splitter2.addWidget(self.b4)
+        splitter2.addWidget(self.b5)
 
         # battery = Battery()
         # battery.setStyleSheet(qstr)
