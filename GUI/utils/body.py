@@ -29,7 +29,7 @@ class Body(QWidget):
         bottom_left.addWidget(vel_acc)
         bottom_left.addWidget(speed)
 
-        prox_sensors = ProximitySensor()
+        # prox_sensors = ProximitySensor()
         battery = Battery()
         cool_systems = CoolingSystem()
         home_footer.addWidget(bottom_left)
