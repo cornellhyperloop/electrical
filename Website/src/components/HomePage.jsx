@@ -23,6 +23,7 @@ function HomePage() {
         <FeaturesHome />
         <Challenge />
         <FeaturesBlocks />
+	<Footer />
       </main>
       <Banner />
 
