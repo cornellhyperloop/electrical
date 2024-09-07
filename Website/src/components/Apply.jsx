@@ -108,7 +108,7 @@ function Timeline() {
         <div className="timeline-bar"></div>
         <div className="timeline">
           <div className="timeline-item">
-            <div className="timeline-date">August 20th</div>
+            <div className="timeline-date">Aug. 19</div>
             <div className="timeline-content">
               <h3 className="timeline-title">Project Team Announcement</h3>
               <p className="timeline-description">
@@ -118,7 +118,7 @@ function Timeline() {
             </div>
           </div>
           <div className="timeline-item">
-            <div className="timeline-date">August 21st - September 21st</div>
+            <div className="timeline-date">Aug. 20 - Oct. 17</div>
             <div className="timeline-content">
               <h3 className="timeline-title">Application Period</h3>
               <p className="timeline-description">
@@ -127,7 +127,7 @@ function Timeline() {
             </div>
           </div>
           <div className="timeline-item">
-            <div className="timeline-date">September 21st-27th</div>
+            <div className="timeline-date">Oct. 18 - Nov. 1</div>
             <div className="timeline-content">
               <h3 className="timeline-title">Interviews</h3>
               <p className="timeline-description">
@@ -136,7 +136,7 @@ function Timeline() {
             </div>
           </div>
           <div className="timeline-item">
-            <div className="timeline-date">Sept 28th-30th</div>
+            <div className="timeline-date">Nov. 1st - Nov. 4</div>
             <div className="timeline-content">
               <h3 className="timeline-title">Selection</h3>
               <p className="timeline-description">
@@ -148,7 +148,7 @@ function Timeline() {
       </div>
       <div className="text-center pb-12 z-100 ">
         <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLScUVzb1aBWSy5-fX7qeXO9AY5f1sEoyPkBrTL0oD-s-u_A_zA/viewform"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSeTWn5lhU-Vfsqn4CbTJ7KYBrRScnG0g0XQ5-75t9fS8y63jQ/viewform"
           className="bg-red-700 text-white font-bold py-4 px-8 rounded-full mt-12 inline-block"
           style={{ boxShadow: "inset 0px 0px 10px 3px rgba(255,0,0,0.7)" }}
         >
