@@ -66,8 +66,8 @@ class FSM(QWidget):
             label = QLabel()
             label.setPixmap(arr)
             label.setStyleSheet("background-color: transparent;")
-            finalx, finaly = (startx + endx - arr.size().width() + 100) / \
-                2, (starty + endy - arr.size().height() + 100) / 2
+            finalx, finaly = int((startx + endx - arr.size().width() + 100) / \
+                2), int((starty + endy - arr.size().height() + 100) / 2)
             label.move(finalx, finaly)
             return label
 
@@ -78,8 +78,8 @@ class FSM(QWidget):
         # dimensions may depend on other labels, need to check on other devices
         scene = QGraphicsScene(self.left, self.top,
                                self.width * 1.07, self.height * 0.81)
-        xi = self.height * 0.81 / 5
-        yi = self.width * 1.07 / 7
+        xi = int(self.height * 0.81 / 5)
+        yi = int(self.width * 1.07 / 7)
         self.states["Stop"].move(2 * xi, 0*yi)
         scene.addWidget(self.states["Stop"])
         self.states["Crawl"].move(0 * xi, yi)

@@ -3,7 +3,7 @@ future==0.18.2
 iso8601==0.1.12
 kiwisolver==1.1.0
 matplotlib==3.2.0
-numpy==1.18.1
+numpy
 pyparsing==2.4.6
 PyQt5
 PyQt5-Qt5
@@ -15,4 +15,3 @@ PyOpenGL
 qtgui==0.0.1
 serial
 six==1.14.0
-PyOpenGL
