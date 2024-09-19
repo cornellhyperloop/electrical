@@ -62,7 +62,7 @@ function FeaturesBlocks() {
                   leaves us wondering how we had lived without it. The examples
                   are plenty: fire, the wheel, the ship, the train, the car, the
                   plane. Now we find ourselves on the brink of another such
-                  innovation: the Hyperloop. Cornell Hyperloop seeks to
+                  innovation: the Hyperloop. The Cornell Hyperloop Project Team seeks to
                   spearhead the revolution in transportation technology.
                 </p>
               </div>
@@ -79,7 +79,7 @@ function FeaturesBlocks() {
                   leaves us wondering how we had lived without it. The examples
                   are plenty: fire, the wheel, the ship, the train, the car, the
                   plane. Now we find ourselves on the brink of another such
-                  innovation: the Hyperloop. Cornell Hyperloop seeks to
+                  innovation: the Hyperloop. The Cornell Hyperloop Project Team seeks to
                   spearhead the revolution in transportation technology.
                 </p>
               </div>{" "}
@@ -146,26 +146,26 @@ function HeroMembers(myRef) {
           </div>
 
           <div className="flex flex-wrap justify-center">
-  <h1
-    className="text-6xl text-center align-middle font-bold"
-    data-aos="zoom-y-out"
-  >
-    Help Support the Future of Transportation
-  </h1>
-</div>
+            <h1
+              className="text-6xl text-center align-middle font-bold"
+              data-aos="zoom-y-out"
+            >
+              Help Support the Future of Transportation
+            </h1>
+          </div>
 
-<div className="w-screen flex justify-center">
-  <button
-    className="hover:opacity-90 text-black hover:bg-red-400 absolute top-full mt-4 flex items-center transform -translate-y-1/2 bg-red-400 rounded-md font-medium group p-2 md:p-4 shadow-lg"
-    onClick={() => {
-      window.location.href =
-        "https://securelb.imodules.com/s/1717/giving/interior.aspx?sid=1717&gid=2&pgid=403&cid=1031&dids=2235&sort=1&bledit=23"; // Replace with your actual donation URL
-    }}
-    aria-controls="modal"
-  >
-    <span className="text-lg md:text-xl text-white">Donate now!</span>
-  </button>
-</div>
+          <div className="w-screen flex justify-center">
+            <button
+              className="hover:opacity-90 text-black hover:bg-red-400 absolute top-full mt-4 flex items-center transform -translate-y-1/2 bg-red-400 rounded-md font-medium group p-2 md:p-4 shadow-lg"
+              onClick={() => {
+                window.location.href =
+                  "https://securelb.imodules.com/s/1717/giving/interior.aspx?sid=1717&gid=2&pgid=403&cid=1031&dids=2235&sort=1&bledit=23"; // Replace with your actual donation URL
+              }}
+              aria-controls="modal"
+            >
+              <span className="text-lg md:text-xl text-white">Donate now!</span>
+            </button>
+          </div>
         </div>
       </div>
     </section>

@@ -44,7 +44,7 @@ function HeroMembers() {
           {/* Section header */}
           <div className="flex flex-col md:flex-row justify-center items-center">
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900">
-              Join Cornell <span className="text-red-700"> Hyperloop </span>
+              Join Cornell <span className="text-red-700"> Hyperloop </span> Project Team
             </h1>
           </div>
           {/* Hero image */}
@@ -57,7 +57,7 @@ function HeroMembers() {
               Build the Future of Transportation
             </h2>
             <p className="text-xl md:text-2xl leading-relaxed tracking-wide text-gray-600 pt-6">
-              Cornell Hyperloop is an engineering project team dedicated to
+              The Cornell Hyperloop Project Team is dedicated to
               contributing to the development of Hyperloop technology. We are
               always looking for talented and ambitious students to join us and
               help build the future of transportation. Our team is open to
@@ -171,7 +171,7 @@ function WhoWeLookFor() {
       <div className="md:pl-16">
         <h1 className="text-4xl font-bold mb-4">Who We Look For</h1>
         <p className="text-lg leading-relaxed mb-8" style={{ padding: "2rem" }}>
-          Cornell Hyperloop has a position for everyone. We are broken down into
+          The Cornell Hyperloop Project Team has a position for everyone. We are broken down into
           three teams, including a total of seven “sub-teams,” each focusing on
           a specific component of our work. Each team recruits undergraduate
           students of all years from any major that can demonstrate the skills

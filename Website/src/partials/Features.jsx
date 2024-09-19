@@ -67,17 +67,17 @@ function Features() {
 
             {/* Content */}
             <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6 md:mt-6 pb-20" data-aos="fade-right">
-          <div className="md:pr-4 lg:pr-12 xl:pr-16 mb-8">
-            <h3 className="h3 mb-3 font-bold text-red-700 tracking-wide uppercase">The Goal</h3>
-            <p className="text-lg md:text-xl text-black-800 leading-loose md:leading-relaxed">Every few centuries, something comes along that revolutionizes the world - something that, once integrated with society, leaves us wondering how we had lived without it. The examples are plenty: fire, the wheel, the ship, the train, the car, the plane. Now we find ourselves on the brink of another such innovation: the Hyperloop. <span className="font-bold text-red-700">Cornell Hyperloop seeks to spearhead the revolution in transportation technology.</span></p>
-             </div>
-          </div>
+              <div className="md:pr-4 lg:pr-12 xl:pr-16 mb-8">
+                <h3 className="h3 mb-3 font-bold text-red-700 tracking-wide uppercase">The Goal</h3>
+                <p className="text-lg md:text-xl text-black-800 leading-loose md:leading-relaxed">Every few centuries, something comes along that revolutionizes the world - something that, once integrated with society, leaves us wondering how we had lived without it. The examples are plenty: fire, the wheel, the ship, the train, the car, the plane. Now we find ourselves on the brink of another such innovation: the Hyperloop. <span className="font-bold text-red-700">The Cornell Hyperloop Project Team seeks to spearhead the revolution in transportation technology.</span></p>
+              </div>
+            </div>
 
 
             {/* Tabs items */}
 
             <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 md:order-1" data-aos="zoom-y-out" ref={tabs}>
-            <YouTube videoId="S5fOWB6SNqs" opts={opts} onReady={onPlayerReady} />
+              <YouTube videoId="S5fOWB6SNqs" opts={opts} onReady={onPlayerReady} />
             </div >
 
           </div >

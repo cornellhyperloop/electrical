@@ -20,10 +20,10 @@ function CompetitionPage() {
         <section className="py-16 bg-gray-100">
           <div className="container mx-auto px-4">
             <h1 className="text-3xl font-semibold mb-8">
-              Cornell Hyperloop in the News
+              The Cornell Hyperloop Project Team in the News
             </h1>
             <p className="text-black-600">
-              Cornell Daily Sun wrote an article about Cornell Hyperloop's
+              Cornell Daily Sun wrote an article about the Cornell Hyperloop Project Team's
               recent achievements in competitions. You can read the full article
               by clicking the link below:
             </p>

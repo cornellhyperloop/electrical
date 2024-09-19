@@ -36,9 +36,9 @@ function HeroHome(myRef) {
           <div className="text-center pb-12 md:pb-0">
             <h1 className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">We’re building the future of <span className="text-red-700"> transportation.</span></h1>
             <div className="max-w-3xl mx-auto">
-              <p className="text-xl text-gray-600 mb-4" data-aos="zoom-y-out" data-aos-delay="150">Cornell Hyperloop is an engineering project team commited to the revolutionary development of Hyperloop technology in the transportation realm. </p>
+              <p className="text-xl text-gray-600 mb-4" data-aos="zoom-y-out" data-aos-delay="150">The Cornell Hyperloop Project Team is commited to the revolutionary development of Hyperloop technology in the transportation realm. </p>
               <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center" data-aos="zoom-y-out" data-aos-delay="300">
-                
+
               </div>
             </div>
           </div>
@@ -49,15 +49,16 @@ function HeroHome(myRef) {
               <div className="flex flex-col justify-center ">
                 <div className=' w-screen items-center justify-center'>
                   <img className="mx-auto w-1/4 h-full" src={HeroImage} alt="Hero" />
-                  </div>
+                </div>
                 <svg className="absolute inset-0 max-w-full mx-auto md:max-w-none h-auto" width="768" height="432" viewBox="0 0 768 432" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-                 
+
                 </svg>
               </div>
-              <button className="hover:opacity-90 hover:bg-gray-100 absolute top-full mb-20 flex items-center transform -translate-y-1/2 bg-white rounded-full font-medium group p-4 shadow-lg" onClick={(e) => { e.preventDefault();   const section = document.querySelector( '#goals' );
-  section.scrollIntoView( { behavior: 'smooth', block: 'start' } );
- }} aria-controls="modal">
-               
+              <button className="hover:opacity-90 hover:bg-gray-100 absolute top-full mb-20 flex items-center transform -translate-y-1/2 bg-white rounded-full font-medium group p-4 shadow-lg" onClick={(e) => {
+                e.preventDefault(); const section = document.querySelector('#goals');
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }} aria-controls="modal">
+
                 <span className="ml-3">Learn about our work</span>
               </button>
             </div>
