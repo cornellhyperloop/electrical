@@ -9,6 +9,15 @@ from utils.visualizer import Visualizer
 from utils.batteryPage import BatteryPage
 from utils.FSM import FSM
 
+"""
+Note that the only objects in utils folder being used are:
+
+Body (body.py): Thermistor graph
+Header (header.py): Horizontal Nav Bar
+Visualizer (visualizer.py): 3-D Pod Visualizer 
+Battery Page (batteryPage.py): Battery Visualizer
+FSM (FSM.py): State Transition Graph
+"""
 
 class MainWindow(QWidget):
     def __init__(self, *args, **kwargs):
