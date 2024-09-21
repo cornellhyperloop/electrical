@@ -2,118 +2,134 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from widgets import *
 from PyQt5.QtGui import *
-from PyQt5.QtCore import QObject, pyqtSignal
-import time
-from widgets import progressBar
 import constants as cons
+from widgets import progressBar
 
-
+"""
+Header represents the horizontal menu bar on the main Graph UI.
+"""
 class Header(QWidget):
     def __init__(self, w=1000, h=500, *args, **kwargs):
         super(Header, self).__init__()
-        hbox = QHBoxLayout(self)
-        sshFile = "utils/header.css"
-        with open(sshFile, "r") as fh:
-            qstr = str(fh.read())
         self.width = w
         self.height = h
+
+        # Set up main layout for the Header widget
+        hbox = QHBoxLayout(self)
         hbox.setContentsMargins(0, 0, 0, 0)
 
+        # Load custom stylesheet for header
+        sshFile = "utils/header.css"
+        with open(sshFile, "r") as fh:
+            stylesheet = fh.read()
+        self.setStyleSheet(stylesheet)
+
+        # Create and arrange the grid layout for buttons and widgets
         grid1 = QGridLayout(self)
-
-        quit = Quit(w, h)
-        grid1.addWidget(quit, 0, 0, alignment=Qt.AlignCenter)
-
-        timer = Timer(self.width, self.height)
-        grid1.addWidget(timer, 0, 2, alignment=Qt.AlignCenter)
-
-        help = HelpPopup(int(self.width), int(self.height))
-        grid1.addWidget(help, 0, 3, alignment=Qt.AlignCenter)
-
-        fsm = FSM()
-
-        emergency_button = EmergencyButton(fsm, self.width, self.height)
-        grid1.addWidget(emergency_button, 0, 4,
-                        alignment=Qt.AlignCenter)
+        self.addHeaderButtons(grid1)
 
         grid2 = QGridLayout(self)
-        self.b1 = QPushButton("Home")
-        self.b1.clicked.connect(lambda: self.navbar(self.b1))
-        self.b1.resize(int(self.width / 5), int(self.height / 20))
-        self.b2 = QPushButton("Visualizer")
-        self.b2.clicked.connect(lambda: self.navbar(self.b2))
-        self.b2.resize(int(self.width / 5), int(self.height / 20))
-        self.b3 = QPushButton("Battery")
-        self.b3.clicked.connect(lambda: self.navbar(self.b3))
-        self.b3.resize(int(self.width / 5), int(self.height / 20))
-        self.b4 = QPushButton("Temperature")
-        self.b4.clicked.connect(lambda: self.navbar(self.b4))
-        self.b4.resize(int(self.width / 5), int(self.height / 20))
-        self.b5 = QPushButton("FSM")
-        self.b5.clicked.connect(lambda: self.navbar(self.b5))
-        self.b5.resize(int(self.width / 5), int(self.height / 20))
-        grid2.addWidget(self.b1, 0, 0)
-        grid2.addWidget(self.b2, 0, 1)
-        grid2.addWidget(self.b3, 0, 2)
-        grid2.addWidget(self.b4, 0, 3)
-        grid2.addWidget(self.b5, 0, 4)
+        self.addNavButtons(grid2)
 
+        # Set up the vertical layout combining both grids
         vbox = QVBoxLayout(self)
-
         vbox.addLayout(grid1)
         vbox.addLayout(grid2)
-
         hbox.addLayout(vbox)
-        self.setStyleSheet(qstr)
 
-        splitter4 = QSplitter(Qt.Horizontal)
-        self.pBarContainer = progressBar.ProgressBar()
-        splitter4.addWidget(self.pBarContainer.label)
+        # Set up the progress bar and logo display in the header
+        self.setupProgressBarAndLogo(hbox)
 
-        # PROGRESS BAR
-        splitter4.addWidget(self.pBarContainer.pBar)
-        splitter4.setSizes([int(self.height / 30), int(self.height / 30)])
-
-
-
-
-
-        hyperloop = QPixmap('state_icons/logo.png')
-        hyperloop = hyperloop.scaled(200, 100)
-        label = QLabel()
-        label.setStyleSheet("border: 1px grey")
-        label.setFixedWidth(200)
-        label.setFixedHeight(100)
-        label.setPixmap(hyperloop)
-
-        splitter4.addWidget(label)           
-
-        hbox.addWidget(splitter4)
-
-
-
-
-
-
+        # Timer to trigger the progress bar updates
         self.timer = QTimer(self, timeout=self.update)
         self.timer.start(1000)
 
         self.show()
 
-    def update(self):  # PROGRESS BAR
-        self.pBarContainer.pBar.setValue(self.pBarContainer.pBar.value()+5)
+    def addHeaderButtons(self, grid):
+        """
+        Add header buttons for quit, timer, help, emergency, and FSM.
+        """
+        quit = Quit(self.width, self.height)
+        grid.addWidget(quit, 0, 0, alignment=Qt.AlignCenter)
 
-        if int(self.pBarContainer.pBar.value()) < 50:
+        timer = Timer(self.width, self.height)
+        grid.addWidget(timer, 0, 2, alignment=Qt.AlignCenter)
+
+        help_popup = HelpPopup(self.width, self.height)
+        grid.addWidget(help_popup, 0, 3, alignment=Qt.AlignCenter)
+
+        fsm = FSM()
+        emergency_button = EmergencyButton(fsm, self.width, self.height)
+        grid.addWidget(emergency_button, 0, 4, alignment=Qt.AlignCenter)
+
+    def addNavButtons(self, grid):
+        """
+        Add navigation buttons (Home, Visualizer, Battery, Temperature, FSM).
+        """
+        self.b1 = self.createNavButton("Home", grid, 0, 0)
+        self.b2 = self.createNavButton("Visualizer", grid, 0, 1)
+        self.b3 = self.createNavButton("Battery", grid, 0, 2)
+        self.b4 = self.createNavButton("Temperature", grid, 0, 3)
+        self.b5 = self.createNavButton("FSM", grid, 0, 4)
+
+    def createNavButton(self, name, layout, row, col):
+        """
+        Helper to create a QPushButton and add it to the layout.
+        """
+        btn = QPushButton(name)
+        btn.clicked.connect(lambda: self.navbar(btn))
+        btn.resize(self.width // 5, self.height // 20)
+        layout.addWidget(btn, row, col)
+        return btn
+
+    def setupProgressBarAndLogo(self, hbox):
+        """
+        Set up the progress bar and logo in a horizontal splitter.
+        """
+        splitter = QSplitter(Qt.Horizontal)
+
+        # Progress bar setup
+        self.pBarContainer = progressBar.ProgressBar()
+        splitter.addWidget(self.pBarContainer.label)
+        splitter.addWidget(self.pBarContainer.pBar)
+        splitter.setSizes([self.height // 30, self.height // 30])
+
+        # Logo setup
+        hyperloop_logo = QPixmap('state_icons/logo.png').scaled(200, 100)
+        logo_label = QLabel()
+        logo_label.setPixmap(hyperloop_logo)
+        logo_label.setFixedSize(200, 100)
+        logo_label.setStyleSheet("border: 1px grey;")
+        splitter.addWidget(logo_label)
+
+        # Add the splitter to the main layout
+        hbox.addWidget(splitter)
+
+    def update(self):
+        """
+        Update the progress bar and set styles according to progress levels.
+        """
+        self.pBarContainer.pBar.setValue(self.pBarContainer.pBar.value() + 5)
+        progress = self.pBarContainer.pBar.value()
+
+        if progress < 50:
             self.pBarContainer.pBar.setStyleSheet(cons.PBAR_LOW_PROGRESS)
-        elif int(self.pBarContainer.pBar.value()) > 50:
+        elif progress < 100:
             self.pBarContainer.pBar.setStyleSheet(cons.PBAR_MED_PROGRESS)
-        elif int(self.pBarContainer.pBar.value()) == 100:
+        else:
             self.pBarContainer.pBar.setStyleSheet(cons.PBAR_HIGH_PROGRESS)
 
-    def navbar(self, b):
+    def navbar(self, button):
+        """
+        Handle navigation button clicks and return the index.
+        Only the temperature page is not implemented (index 3).
+        """
         buttons = [self.b1, self.b2, self.b3, self.b4, self.b5]
-        # only temperature page is not implemented
-        if buttons.index(b) == 3:
+        index = buttons.index(button)
+
+        if index == 3:  # Temperature page is not implemented
             return 0
         else:
-            return buttons.index(b)
+            return index
+
