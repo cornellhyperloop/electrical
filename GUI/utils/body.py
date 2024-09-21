@@ -12,9 +12,11 @@ but is meant to plot the thermistor data
 
 Other features in UI are a widgets for velocity and acceleration
 
-Relevant objects in utils folder for now are:
-Body (body.py)
-
+Relevant Widgets:
+-Proximity Sensor
+-Speed
+-Accelerometer
+-Speedometer
 """
 
 # Body class inherits from QWidget, which will represent the main interface

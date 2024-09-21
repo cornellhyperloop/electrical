@@ -6,10 +6,23 @@ import constants
 
 class ProximitySensor(QWidget):
     def __init__(self, parent=None):
+        """
+        Initializes the ProximitySensor widget.
+
+        Parameters:
+            parent (QWidget): The parent widget for this sensor.
+        """
         super(ProximitySensor, self).__init__(parent)
-        self.initUI()
+        self.initUI()  # Call the method to set up the UI
 
     def initUI(self):
+        """
+        Sets up the user interface for the Proximity Sensor widget.
+
+        This method creates four QLabel widgets, each representing a proximity sensor's state. 
+        Each label is styled with a specific font and background color, and they are added 
+        to a vertical layout.
+        """
         sensor1 = QLabel(self)
         sensor2 = QLabel(self)
         sensor3 = QLabel(self)
@@ -39,11 +52,12 @@ class ProximitySensor(QWidget):
         sensor4.setStyleSheet(
             "font-family: Helvetica; font-size: 14px; background-color : #2B26c1")
 
-        vbox = QVBoxLayout()
+        vbox = QVBoxLayout()  # Create a vertical box layout
 
+        # Add sensor labels to the vertical layout
         vbox.addWidget(sensor1)
         vbox.addWidget(sensor2)
         vbox.addWidget(sensor3)
         vbox.addWidget(sensor4)
 
-        self.setLayout(vbox)
+        self.setLayout(vbox)  # Set the layout for this widget
