@@ -22,8 +22,8 @@ server = app.server
 def get_serial_communication():
     try:
         return PySerialCommunication(
-            port='loop://',  # Replace with your serial port, e.g., 'COM3'
-            baudrate=115200,
+            port='http://127.0.0.1:8050/',  # Replace with your serial port, e.g., 'COM3'
+            baudrate=9600,
             timeout=100
         )
     except Exception as e:
