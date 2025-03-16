@@ -17,6 +17,7 @@ The Electrical team's repo.
     * Zarif Karim
     * Neera Kapoor
     * Rares-Stefan Busca
+    * Tanvi Mavani
 
 
 * Power Systems
