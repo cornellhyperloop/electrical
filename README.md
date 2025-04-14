@@ -36,4 +36,4 @@ The Electrical team's repo.
     * Devan Flores
     * Aislinn Ennis
     * Stephen Chien
-    
+    * Max Farma  
